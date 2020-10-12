@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Order</title>
+    <title>{{ config('app.name', 'JustOrder') }}</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
@@ -169,7 +169,38 @@
         $('#sidebarCollapse').on('click', function () {
             $('#sidebar').toggleClass('active');
         });
+
+
+        $('.btn-danger').on('click',function (){
+
+            var r = confirm("هل تريد الحذف؟");
+            if (r == true) {
+                return true;
+            } else {
+                return false;
+            }
+            return false;
+
+        });
+
+
+        $('#recive').on('click',function (){
+
+            var r = confirm("هل تريد استلام هذا الطلب؟");
+            if (r == true) {
+                return true;
+            } else {
+                return false;
+            }
+            return false;
+
+        });
+
+
     });
+
+
+
 
 
 </script>

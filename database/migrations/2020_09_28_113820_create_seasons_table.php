@@ -16,13 +16,13 @@ class CreateSeasonsTable extends Migration
         Schema::create('seasons', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->date('start')->nullable();
-            $table->date('end')->nullable();
+            //$table->date('start')->nullable();
+           // $table->date('end')->nullable();
 
-            $table->foreignId('year_id');
+            /*$table->foreignId('year_id');
             $table->foreign('year_id')
                 ->on('years')
-                ->references('id');
+                ->references('id');*/
 
         });
     }

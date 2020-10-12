@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -32,6 +33,15 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        //
+        $this->reportable(function (QueryException $e) {
+            if ($e->getCode() == 2002){
+                $error = 'DataBase Is Down';
+                return response()->json([
+                    'message' => $error,
+                    'code' => 2002,
+                ]);
+            }
+
+        });
     }
 }

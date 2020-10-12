@@ -23,6 +23,7 @@ class StoreOrderRequest extends FormRequest
      */
     public function rules()
     {
+      //  dd($this);
         return [
             'brand_id' => 'required|exists:brands,id',
             'year_id' => 'required|exists:years,id',
@@ -39,17 +40,19 @@ class StoreOrderRequest extends FormRequest
             'siresSizeQty' => 'required|min:1',
             //'quantity' => '',
             'reservedQuantity' => 'required|min:1',
-            'receivedQty' => 'required|min:1',
+            //'receivedQty' => 'required|min:1',
             'modelName' => 'required|string',
             'modelDesc' => 'string',
+            'notes' => 'nullable|string',
+
 //            'siresNumber' => '',
 //            'itemsNumber' => '',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
 
-            'reservedDate' => 'required|date',
+            //'reservedDate' => 'required|date',
 
             'colors' =>  'required',
-            'colors.*' => 'exists:colors,id',
+            'colors.*' => 'required|exists:colors,id',
 
             'sizes' =>  'required',
             'sizes.*' => 'exists:sizes,id'

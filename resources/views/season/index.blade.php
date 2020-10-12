@@ -20,9 +20,9 @@
         <tr>
             <th>No</th>
             <th>الفصل</th>
-            <th>البداية</th>
-            <th>النهاية</th>
-            <th>السنة</th>
+{{--            <th>البداية</th>--}}
+{{--            <th>النهاية</th>--}}
+{{--            <th>السنة</th>--}}
             <th width="280px">خيارات</th>
         </tr>
         <?php $i = 0?>
@@ -30,14 +30,14 @@
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $season->name }}</td>
-                <td>{{ $season->start->format('Y-m-d') }}</td>
-                <td>{{ $season->end->format('Y-m-d') }}</td>
+{{--                <td>{{ $season->start->format('Y-m-d') }}</td>--}}
+{{--                <td>{{ $season->end->format('Y-m-d') }}</td>--}}
 
-                @if($season->year )
-                    <td>{{ $season->year->name }}</td>
-                @else
-                    <td>-</td>
-                @endif
+{{--                @if($season->year )--}}
+{{--                    <td>{{ $season->year->name }}</td>--}}
+{{--                @else--}}
+{{--                    <td>-</td>--}}
+{{--                @endif--}}
 
 
 

@@ -25,7 +25,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('siresQty');
             $table->unsignedInteger('quantity');
             $table->unsignedInteger('reservedQuantity');
-            $table->unsignedInteger('receivedQty');
+            $table->unsignedInteger('receivedQty')->default(0);
 
            // $table->text('fabricType');
             $table->text('fabricFormula');
@@ -35,7 +35,7 @@ class CreateOrdersTable extends Migration
 //            $table->unsignedInteger('itemsNumber');
 
             $table->dateTime('orderDate');
-            $table->dateTime('reservedDate');
+            $table->dateTime('reservedDate')->nullable();
 
 
 
@@ -43,7 +43,7 @@ class CreateOrdersTable extends Migration
 
             $table->text('notes');
 
-            $table->string('image');
+            $table->string('image')->nullable();
 
 
 

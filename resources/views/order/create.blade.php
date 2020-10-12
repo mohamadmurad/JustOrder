@@ -1,22 +1,17 @@
 @extends('layout.layout')
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
 
-                <div class="float-right">
-                    <h2>إضافة طلب جديد :</h2>
-                </div>
-                <div class="float-left">
-                    <a class="btn btn-primary" href="http://localhost:8000/order"> رجوع</a>
-                </div>
 
-        </div>
-    </div>
+    @include('layout.title',[
+   'url' => 'order.index',
+   'urlTitle' => 'رجوع',
+   'title'=>'إضافة طلب جديد'
+   ])
 
     @if ($errors->any())
         <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            هناك مشكلة في الحقول
 
         </div>
     @endif
@@ -31,7 +26,7 @@
                     <strong>ماركة :</strong>
                     <select  class="form-control"  name="brand_id">
                         @foreach($brands as $brand)
-                            <option value="{{ $brand->id }}">{{$brand->name . " | " . $brand->code}}</option>
+                            <option value="{{ $brand->id }}" {{ (old("brand_id") == $brand->id ? "selected":"") }}>{{$brand->name . " | " . $brand->code}}</option>
                         @endforeach
                     </select>
                     <ul class="errors">
@@ -48,7 +43,7 @@
                     <strong>السنة:</strong>
                     <select  class="form-control"  name="year_id">
                         @foreach($years as $year)
-                            <option value="{{ $year->id }}">{{$year->name}}</option>
+                            <option value="{{ $year->id }}" {{ (old("year_id") == $year->id ? "selected":"") }}>{{$year->name}}</option>
                         @endforeach
                     </select>
                     <ul class="errors">
@@ -65,7 +60,7 @@
                     <strong>النوع:</strong>
                     <select  class="form-control"  name="type_id">
                         @foreach($types as $type)
-                            <option value="{{ $type->id }}">{{$type->name}}</option>
+                            <option value="{{ $type->id }}" {{ (old("type_id") == $type->id ? "selected":"") }}>{{$type->name}}</option>
                         @endforeach
                     </select>
                     <ul class="errors">
@@ -82,7 +77,7 @@
                     <strong>المجموعة:</strong>
                     <select  class="form-control"  name="group_id">
                         @foreach($groups as $group)
-                            <option value="{{ $group->id }}">{{$group->name}}</option>
+                            <option value="{{ $group->id }}" {{ (old("group_id") == $group->id ? "selected":"") }}>{{$group->name}}</option>
                         @endforeach
                     </select>
                     <ul class="errors">
@@ -100,7 +95,7 @@
                     <strong>المجموعة الفرعية:</strong>
                     <select  class="form-control"  name="subgroup_id">
                         @foreach($subgroups as $subgroup)
-                            <option value="{{ $subgroup->id }}">{{$subgroup->name}}</option>
+                            <option value="{{ $subgroup->id }}" {{ (old("subgroup_id") == $subgroup->id ? "selected":"") }}>{{$subgroup->name}}</option>
                         @endforeach
                     </select>
                     <ul class="errors">
@@ -117,7 +112,7 @@
                     <strong>الفصل:</strong>
                     <select  class="form-control"  name="season_id">
                         @foreach($seasons as $season)
-                            <option value="{{ $season->id }}">{{$season->name}}</option>
+                            <option value="{{ $season->id }}" {{ (old("season_id") == $season->id ? "selected":"") }}>{{$season->name}}</option>
                         @endforeach
                     </select>
                     <ul class="errors">
@@ -134,7 +129,7 @@
                     <strong>المورد :</strong>
                     <select  class="form-control"  name="supplier_id">
                         @foreach($suppliers as $supplier)
-                            <option value="{{ $supplier->id }}">{{$supplier->name . ' | ' . $supplier->code}}</option>
+                            <option value="{{ $supplier->id }}" {{ (old("supplier_id") == $supplier->id ? "selected":"") }}>{{$supplier->name . ' | ' . $supplier->code}}</option>
                         @endforeach
                     </select>
                     <ul class="errors">
@@ -152,7 +147,7 @@
                     <strong style="color:red">مصدر القماش :</strong>
                     <select  class="form-control"  name="fabricSource_id">
                         @foreach($fabricSources as $fabricSource)
-                            <option value="{{ $fabricSource->id }}">{{$fabricSource->name}}</option>
+                            <option value="{{ $fabricSource->id }}" {{ (old("fabricSource_id") == $fabricSource->id ? "selected":"") }}>{{$fabricSource->name}}</option>
                         @endforeach
                     </select>
                     <ul class="errors">
@@ -170,7 +165,7 @@
                     <strong >نوع القماش :</strong>
                     <select  class="form-control"  name="fabric_id">
                         @foreach($fabrics as $fabric)
-                            <option value="{{ $fabric->id }}">{{$fabric->name . " | " . $fabric->code }}</option>
+                            <option value="{{ $fabric->id }}" {{ (old("fabric_id") == $fabric->id ? "selected":"") }}>{{$fabric->name . " | " . $fabric->code }}</option>
                         @endforeach
                     </select>
                     <ul class="errors">
@@ -186,7 +181,7 @@
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <div class="form-group">
                     <strong>تركيبة القماش :</strong>
-                    <input type="text" name="fabricFormula" class="form-control" placeholder="تركيبة القماش">
+                    <input type="text" name="fabricFormula" class="form-control" placeholder="تركيبة القماش" value="{{old('fabricFormula')}}">
                     <ul class="errors">
                         @foreach ($errors->get('fabricFormula') as $message)
                             <i>{{ $message }}</i>
@@ -213,7 +208,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>عدد الالوان في السيري :</strong>
-                    <input type="number" min="1" name="siresColorQty" class="form-control" placeholder="عدد الالوان في السيري">
+                    <input type="number" min="1" name="siresColorQty" class="form-control" placeholder="عدد الالوان في السيري"  value="{{old('siresColorQty')}}">
                     <ul class="errors">
                         @foreach ($errors->get('siresColorQty') as $message)
                             <i>{{ $message }}</i>
@@ -225,7 +220,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>عدد القياسات في السيري :</strong>
-                    <input type="number" min="1" name="siresSizeQty" class="form-control" placeholder="عدد القياسات في السيري">
+                    <input type="number" min="1" name="siresSizeQty" class="form-control" placeholder="عدد القياسات في السيري" value="{{old('siresSizeQty')}}">
                     <ul class="errors">
                         @foreach ($errors->get('siresSizeQty') as $message)
                             <i>{{ $message }}</i>
@@ -251,7 +246,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>الكمية المطلوبة :</strong>
-                    <input type="number" min="1" name="reservedQuantity" class="form-control" placeholder="الكمية المطلوبة ">
+                    <input type="number" min="1" name="reservedQuantity" class="form-control" placeholder="الكمية المطلوبة " value="{{old('reservedQuantity')}}">
                     <ul class="errors">
                         @foreach ($errors->get('reservedQuantity') as $message)
                             <i>{{ $message }}</i>
@@ -260,23 +255,23 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-4">
-                <div class="form-group">
-                    <strong>الكمية المستلمة :</strong>
-                    <input type="number" min="1" name="receivedQty" class="form-control" placeholder="الكمية المستلمة ">
-                    <ul class="errors">
-                        @foreach ($errors->get('receivedQty') as $message)
-                            <i>{{ $message }}</i>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
+{{--            <div class="col-xs-12 col-sm-12 col-md-4">--}}
+{{--                <div class="form-group">--}}
+{{--                    <strong>الكمية المستلمة :</strong>--}}
+{{--                    <input type="number" min="1" name="receivedQty" class="form-control" placeholder="الكمية المستلمة ">--}}
+{{--                    <ul class="errors">--}}
+{{--                        @foreach ($errors->get('receivedQty') as $message)--}}
+{{--                            <i>{{ $message }}</i>--}}
+{{--                        @endforeach--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
 
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>اسم الموديل :</strong>
-                    <input type="text" name="modelName" class="form-control" placeholder="اسم الموديل">
+                    <input type="text" name="modelName" class="form-control" placeholder="اسم الموديل" value="{{old('modelName')}}">
                     <ul class="errors">
                         @foreach ($errors->get('modelName') as $message)
                             <i>{{ $message }}</i>
@@ -289,7 +284,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>مواصفات الموديل :</strong>
-                    <input type="text" name="modelDesc" class="form-control" placeholder="مواصفات الموديل">
+                    <input type="text" name="modelDesc" class="form-control" placeholder="مواصفات الموديل" value="{{old('modelDesc')}}">
                     <ul class="errors">
                         @foreach ($errors->get('modelDesc') as $message)
                             <i>{{ $message }}</i>
@@ -349,22 +344,22 @@
 {{--            </div>--}}
 
 
-            <div class="col-xs-12 col-sm-12 col-md-4">
-                <div class="form-group">
-                    <strong>تاريخ الاستلام :</strong>
-                    <input type="date" name="reservedDate" class="form-control" placeholder="تاريخ الاستلام">
-                    <ul class="errors">
-                        @foreach ($errors->get('reservedDate') as $message)
-                            <i>{{ $message }}</i>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
+{{--            <div class="col-xs-12 col-sm-12 col-md-4">--}}
+{{--                <div class="form-group">--}}
+{{--                    <strong>تاريخ الاستلام :</strong>--}}
+{{--                    <input type="date" name="reservedDate" class="form-control" placeholder="تاريخ الاستلام">--}}
+{{--                    <ul class="errors">--}}
+{{--                        @foreach ($errors->get('reservedDate') as $message)--}}
+{{--                            <i>{{ $message }}</i>--}}
+{{--                        @endforeach--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>صورة :</strong>
-                    <input type="file" name="image" class="form-control" placeholder="صورة">
+                    <input type="file" name="image" class="form-control" placeholder="صورة" >
                     <ul class="errors">
                         @foreach ($errors->get('image') as $message)
                             <i>{{ $message }}</i>
@@ -375,7 +370,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>ملاحظات :</strong>
-                    <textarea form="orderForm" type="text" name="notes" class="form-control" rows="3" placeholder="ملاحظات"></textarea>
+                    <textarea form="orderForm" type="text" name="notes" class="form-control" rows="3" placeholder="ملاحظات">{{old('notes')}}</textarea>
                     <ul class="errors">
                         @foreach ($errors->get('notes') as $message)
                             <i>{{ $message }}</i>
@@ -385,38 +380,39 @@
             </div>
 
 
-            <div class="col-xs-12 col-sm-12 col-md-4">
-                <div class="form-check">
+{{--            <div class="col-xs-12 col-sm-12 col-md-4">--}}
+{{--                <div class="form-check">--}}
 {{--                    <strong>تم :</strong>--}}
-                    <label class="form-check-label" for="defaultCheck1">
-                       تم :
-                    </label>
-                    <input type="checkbox" name="done" class="form-check-input" placeholder="تم">
-                    <ul class="errors">
-                        @foreach ($errors->get('done') as $message)
-                            <i>{{ $message }}</i>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
+{{--                    <label class="form-check-label" for="defaultCheck1">--}}
+{{--                       تم الاستلام :--}}
+{{--                    </label>--}}
+{{--                    <input type="checkbox" name="done" class="form-check-input" placeholder="تم">--}}
+{{--                    <ul class="errors">--}}
+{{--                        @foreach ($errors->get('done') as $message)--}}
+{{--                            <i>{{ $message }}</i>--}}
+{{--                        @endforeach--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <strong>القياسات :</strong><br>
+                <ul class="errors">
+                    @foreach ($errors->get('sizes') as $message)
+                        <i>{{ $message }}</i>
+                    @endforeach
+                </ul>
                 @foreach($sizes as $size)
                 <div class="form-check form-check-inline col-xs-2 col-sm-2 col-md-2">
 
-                    <input class="form-check-input" type="checkbox" name="sizes[]" value="{{$size->id}}" id="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" name="sizes[]" value="{{$size->id}}" id="defaultCheck1" {{ (is_array(old('sizes')) and in_array($size->id, old('sizes'))) ? ' checked' : '' }}>
                     <label class="form-check-label" for="defaultCheck1">
                         {{$size->name}}
                     </label>
                 </div>
                 @endforeach
-                <ul class="errors">
-                    @foreach ($errors->get('done') as $message)
-                        <i>{{ $message }}</i>
-                    @endforeach
-                </ul>
+
             </div>
 
 {{--            <div class="col-xs-12 col-sm-12 col-md-12">--}}
@@ -439,19 +435,20 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <strong>الالوان :</strong><br>
+                <ul class="errors">
+                    @foreach ($errors->get('colors') as $message)
+                        <i>{{ $message }}</i>
+                    @endforeach
+                </ul>
                 @foreach($colors as $color)
                     <div class="form-check form-check-inline col-xs-2 col-sm-2 col-md-2">
-                        <input class="form-check-input" type="checkbox" name="colors[]" value="{{$color->id}}" id="defaultCheck1">
+                        <input class="form-check-input" type="checkbox" name="colors[]" value="{{$color->id}}" id="defaultCheck1" {{ (is_array(old('colors')) and in_array($color->id, old('colors'))) ? ' checked' : '' }}>
                         <label class="form-check-label" for="defaultCheck1">
                             {{$color->name}}
                         </label>
                     </div>
                 @endforeach
-                <ul class="errors">
-                    @foreach ($errors->get('done') as $message)
-                        <i>{{ $message }}</i>
-                    @endforeach
-                </ul>
+
             </div>
 
 

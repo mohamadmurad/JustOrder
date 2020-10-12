@@ -12,30 +12,41 @@
                 <a class="btn btn-success" href="{{ route('order.index') }}"> رجوع</a>
             </div>
         </div>
-
+        @if($order->image)
         <div class="col-lg-12 margin-tb">
             <div class="text-center">
                 <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $order->image}}" class="rounded orderImage" alt="{{$order->barcode}}">
             </div>
         </div>
-
+        @endif
         <div class="col-lg-12 margin-tb">
             <div class="float-right">
                 <h2>العدد الكلي : {{ $order->siresQty }}</h2>
             </div>
-{{--            <div class="float-right">--}}
-{{--                <h2> الكمية الكلية : {{  $order->quantity }}</h2>--}}
-{{--            </div>--}}
+            <div class="float-left">
+                <h2> حالة الاستلام : {{  $order->done ===1 ? 'تم الاستلام' : 'لم يتم الاستلام' }}</h2>
+            </div>
         </div>
 
 
         <div class="col-lg-12 margin-tb">
+            @if($order->done === 0)
+            <div class="float-left">
+                @if($order->done === 0)
+                    <form action="{{ route('orderDone') }}" method="POST" id="receivedForm" >
 
-
+                        @csrf
+                        <input type="hidden" value="{{$order->id}}" name="order">
+                        <input type="number" class="form-control col-md-6" name="receivedQty" style="min-width: auto;" min="1" max="{{$order->reservedQuantity}}" placeholder="الكمية المستلمة">
+                        <button type="submit" class="btn btn-primary" id="recive">استلام</button>
+                    </form>
+                @endif
+            </div>
+            @endif
 
             <div class="float-right">
                 <h2>تاريخ الطلب : {{ $order->orderDate->format('Y-m-d') }}</h2>
-                <h2>تاريخ الاستلام : {{  $order->reservedDate->format('Y-m-d') }}</h2>
+                <h2 style="float: right;">تاريخ الاستلام : {{  $order->reservedDate != null ? $order->reservedDate->format('Y-m-d') : 'ليس بعد' }}</h2>
             </div>
         </div>
 

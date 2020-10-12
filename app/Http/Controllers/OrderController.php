@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DoneRequest;
 use App\Http\Requests\StoreOrderRequest;
 use App\Models\brand;
 use App\Models\color;
@@ -18,9 +19,13 @@ use App\Models\Years;
 use App\Traits\UploadAble;
 use Carbon\Carbon;
 use http\Exception;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\View\View;
 
 class OrderController extends Controller
 {
@@ -29,7 +34,7 @@ class OrderController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -40,18 +45,18 @@ class OrderController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|Response|View
      */
     public function create()
     {
         $years = Years::all();
-        $brands = brand::all()->sortBy('name');;
-        $types = type::all()->sortBy('name');;
-        $groups = group::all()->sortBy('name');;
-        $subgroups = subgroup::all()->sortBy('name');;
+        $brands = brand::all()->sortBy('name');
+        $types = type::all()->sortBy('name');
+        $groups = group::all()->sortBy('name');
+        $subgroups = subgroup::all()->sortBy('name');
         $seasons = season::all();
-        $suppliers = supplier::all()->sortBy('name');;
-        $colors = color::all()->sortBy('name');;
+        $suppliers = supplier::all()->sortBy('name');
+        $colors = color::all()->sortBy('name');
         $sizes = size::all()->sortBy('name');
         $fabricSources = FabricSource::all();
         $fabrics = fabric::all()->sortBy('name');
@@ -63,8 +68,8 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(StoreOrderRequest $request)
     {
@@ -87,7 +92,7 @@ class OrderController extends Controller
         $exitsNumberOfSubGroup == 0 ? $sequenceNumber = 1 : $sequenceNumber = $sequenceNumber+$exitsNumberOfSubGroup;
 
         $sequenceNumber = sprintf('%03u', $sequenceNumber);
-        $barCode = $yearCode . $season->id . $typeCode . $brandCode . $group->id . $subGroup->id . $sequenceNumber . $supplier->code;
+        $barCode = $yearCode . $season->id . $typeCode . $brandCode . $subGroup->id . $sequenceNumber . $supplier->code;
 
 
         $siresQty = $request->get('siresColorQty') *  $request->get('siresSizeQty');
@@ -95,11 +100,14 @@ class OrderController extends Controller
         DB::beginTransaction();
         try {
 
-            $image = $request->file('image');
 
-            $saved_file = $this->upload($image, $barCode, public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
+            if ( $request->hasFile('image')){
+                $image = $request->file('image');
+                $saved_file = $this->upload($image, $barCode, public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
+                $saved_files_for_roleBack = $saved_file->getFilename();
+            }
 
-            $saved_files_for_roleBack = $saved_file->getFilename();
+
             $newOrder = order::create([
 
                 'barcode' => $barCode,
@@ -110,15 +118,15 @@ class OrderController extends Controller
                 'siresQty' => $siresQty,
                 'quantity' => 0,
                 'reservedQuantity' => $request->get('reservedQuantity'),
-                'receivedQty' => $request->get('receivedQty'),
+                'receivedQty' =>0,
                 'fabricFormula' => $request->get('fabricFormula'),
                 //'siresNumber'  => $request->get('siresNumber'),
                 //'itemsNumber'  => $request->get('itemsNumber'),
                 'orderDate'  => Carbon::now()->format('Y-m-d'),
-                'reservedDate'  => Carbon::create($request->get('reservedDate'))->format('Y-m-d'),
-                'done'  => $request->get('done') != null ? 1 : 0,
+                //'reservedDate'  => Carbon::create($request->get('reservedDate'))->format('Y-m-d'),
+                'done'  => 0,
                 'notes'  => $request->get('notes'),
-                'image'  => $saved_file->getFilename(),
+                'image'  =>  $request->hasFile('image') ? $saved_file->getFilename() : null,
 
 
                 'brand_id' => $request->get('brand_id'),
@@ -149,14 +157,14 @@ class OrderController extends Controller
             DB::commit();
 
             return redirect()->route('order.show',$newOrder->id)
-                ->with('success','order created successfully.');
+                ->with('success','تم حفظ الطلب الجديد بنجاح');
 
         }catch (Exception $e){
             File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $saved_files_for_roleBack);
             DB::rollBack();
 
             return redirect()->route('order.index')
-                ->with('error','order not store.');
+                ->with('error','لم يتم حفظ الطلب');
         }
 
 
@@ -167,8 +175,8 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\order  $order
-     * @return \Illuminate\Http\Response
+     * @param order $order
+     * @return Response
      */
     public function show(order $order)
     {
@@ -190,8 +198,8 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\order  $order
-     * @return \Illuminate\Http\Response
+     * @param order $order
+     * @return Response
      */
     public function edit(order $order)
     {
@@ -201,9 +209,9 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\order  $order
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param order $order
+     * @return Response
      */
     public function update(Request $request, order $order)
     {
@@ -213,15 +221,15 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\order  $order
-     * @return \Illuminate\Http\Response
+     * @param order $order
+     * @return Response
      */
     public function destroy(order $order)
     {
         $order->delete();
 
         return redirect()->route('order.index')
-            ->with('success','order deleted successfully');
+            ->with('success','تم حذف الطلب بنجاح');
     }
 
     public function searchOrder(Request $request){
@@ -264,13 +272,13 @@ class OrderController extends Controller
             $orders = order::FilterData($request)->paginate();
             $report = true;
         $years = Years::all();
-        $brands = brand::all()->sortBy('name');;
-        $types = type::all()->sortBy('name');;
-        $groups = group::all()->sortBy('name');;
-        $subgroups = subgroup::all()->sortBy('name');;
+        $brands = brand::all()->sortBy('name');
+        $types = type::all()->sortBy('name');
+        $groups = group::all()->sortBy('name');
+        $subgroups = subgroup::all()->sortBy('name');
         $seasons = season::all();
-        $suppliers = supplier::all()->sortBy('name');;
-        $colors = color::all()->sortBy('name');;
+        $suppliers = supplier::all()->sortBy('name');
+        $colors = color::all()->sortBy('name');
         $sizes = size::all()->sortBy('name');
         $fabricSources = FabricSource::all();
         $fabrics = fabric::all()->sortBy('name');
@@ -280,4 +288,27 @@ class OrderController extends Controller
 
 
     }
+
+    public function done(DoneRequest $request){
+
+
+
+        $order = order::where('id','=',$request->get('order'))
+        ->where('done','=',0)->first();
+
+
+
+        $order->done = 1;
+        $order->fill([
+            'done' => 1,
+            'receivedQty' => $request->get('receivedQty'),
+            'reservedDate' => Carbon::now()->format('Y-m-d'),
+        ]);
+
+        $order->update();
+
+        return redirect()->route('order.index')
+            ->with('success','تم استلام الطلب :  ' );
+    }
+
 }

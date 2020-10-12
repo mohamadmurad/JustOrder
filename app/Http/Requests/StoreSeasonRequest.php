@@ -27,26 +27,25 @@ class StoreSeasonRequest extends FormRequest
         return [
             'name' => [
                 'required',
-                Rule::unique('seasons')
-                    ->where('year_id', $this->year_id),
+                Rule::unique('seasons'),
             ],
-            'year_id' =>  [
-                'required',
-                'exists:years,id',
-                Rule::unique('seasons')
-                    ->where('name', $this->name),
-
-            ],
-            'start' => [
-                'date',
-                'required',
-                'before:end',
-            ],
-            'end' => [
-                'date',
-                'required',
-                'after:start',
-            ],
+//            'year_id' =>  [
+//                'required',
+//                'exists:years,id',
+//                Rule::unique('seasons')
+//                    ->where('name', $this->name),
+//
+//            ],
+//            'start' => [
+//                'date',
+//                'required',
+//                'before:end',
+//            ],
+//            'end' => [
+//                'date',
+//                'required',
+//                'after:start',
+//            ],
         ];
     }
 }

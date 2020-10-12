@@ -52,67 +52,67 @@
 
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+{{--            <div class="col-xs-12 col-sm-12 col-md-12">--}}
 
-                <div class="form-group">
+{{--                <div class="form-group">--}}
 
-                    <strong>البداية:</strong>
+{{--                    <strong>البداية:</strong>--}}
 
-                    <input type="date" name="start" value="{{ $season->start }}" class="form-control" placeholder="البداية">
-                    <ul class="errors">
-                        @foreach ($errors->get('start') as $message)
-                            <i>{{ $message }}</i>
-                        @endforeach
-                    </ul>
-                </div>
+{{--                    <input type="date" name="start" value="{{ $season->start }}" class="form-control" placeholder="البداية">--}}
+{{--                    <ul class="errors">--}}
+{{--                        @foreach ($errors->get('start') as $message)--}}
+{{--                            <i>{{ $message }}</i>--}}
+{{--                        @endforeach--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
 
-            </div>
+{{--            </div>--}}
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+{{--            <div class="col-xs-12 col-sm-12 col-md-12">--}}
 
-                <div class="form-group">
+{{--                <div class="form-group">--}}
 
-                    <strong>النهاية:</strong>
+{{--                    <strong>النهاية:</strong>--}}
 
-                    <input type="date" name="end" value="{{ $season->end }}" class="form-control" placeholder="النهاية">
-                    <ul class="errors">
-                        @foreach ($errors->get('end') as $message)
-                            <i>{{ $message }}</i>
-                        @endforeach
-                    </ul>
-                </div>
+{{--                    <input type="date" name="end" value="{{ $season->end }}" class="form-control" placeholder="النهاية">--}}
+{{--                    <ul class="errors">--}}
+{{--                        @foreach ($errors->get('end') as $message)--}}
+{{--                            <i>{{ $message }}</i>--}}
+{{--                        @endforeach--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
 
-            </div>
+{{--            </div>--}}
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+{{--            <div class="col-xs-12 col-sm-12 col-md-12">--}}
 
-                <div class="form-group">
+{{--                <div class="form-group">--}}
 
-                    <strong>السنة:</strong>
-                    <select  class="form-control"  name="year_id">
-                        <option selected value="{{ null }}">non</option>
-                        @foreach($years as $year)
-                            @if($season->year)
-                                @if($season->year->id == $year->id)
-                                    <option selected value="{{ $year->id }}">{{$year->name}}</option>
-                                @else
-                                    <option value="{{ $year->id }}">{{$year->name}}</option>
-                                @endif
-                            @else
-                                <option value="{{ $year->id }}">{{$year->name}}</option>
-                            @endif
+{{--                    <strong>السنة:</strong>--}}
+{{--                    <select  class="form-control"  name="year_id">--}}
+{{--                        <option selected value="{{ null }}">non</option>--}}
+{{--                        @foreach($years as $year)--}}
+{{--                            @if($season->year)--}}
+{{--                                @if($season->year->id == $year->id)--}}
+{{--                                    <option selected value="{{ $year->id }}">{{$year->name}}</option>--}}
+{{--                                @else--}}
+{{--                                    <option value="{{ $year->id }}">{{$year->name}}</option>--}}
+{{--                                @endif--}}
+{{--                            @else--}}
+{{--                                <option value="{{ $year->id }}">{{$year->name}}</option>--}}
+{{--                            @endif--}}
 
-                        @endforeach
-                    </select>
+{{--                        @endforeach--}}
+{{--                    </select>--}}
 
-                    <ul class="errors">
-                        @foreach ($errors->get('year_id') as $message)
-                            <i>{{ $message }}</i>
-                        @endforeach
-                    </ul>
+{{--                    <ul class="errors">--}}
+{{--                        @foreach ($errors->get('year_id') as $message)--}}
+{{--                            <i>{{ $message }}</i>--}}
+{{--                        @endforeach--}}
+{{--                    </ul>--}}
 
 
-                </div>
+{{--                </div>--}}
 
             </div>
 

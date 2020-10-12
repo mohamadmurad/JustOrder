@@ -129,7 +129,7 @@
 
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" id="exampleRadios1" name="done" value="الكل" checked>
+                    <input class="form-check-input" type="radio" id="exampleRadios1" name="done" value="all" checked>
                     <label class="form-check-label" for="exampleRadios1">
                         الكل
                     </label>
@@ -176,13 +176,22 @@
 
                             <a class="btn btn-info" href="{{ route('order.show',$order->id) }}">عرض</a>
 
-                            <a class="btn btn-primary" href="{{ route('order.edit',$order->id) }}">تعديل</a>
+{{--                            <a class="btn btn-primary" href="{{ route('order.edit',$order->id) }}">تعديل</a>--}}
 
                             @csrf
                             @method('DELETE')
 
                             <button type="submit" class="btn btn-danger">حذف</button>
                         </form>
+                        @if($order->done === 0)
+                            <form action="{{ route('orderDone') }}" method="POST" id="receivedForm" >
+
+                                @csrf
+                                <input type="hidden" value="{{$order->id}}" name="order">
+                                <input type="number" class="form-control col-md-6" name="receivedQty"  style="min-width: auto;" min="1" max="{{$order->reservedQuantity}}" placeholder="الكمية المستلمة">
+                                <button type="submit" class="btn btn-primary" id="recive">استلام</button>
+                            </form>
+                        @endif
                     </td>
                 </tr>
             @endforeach

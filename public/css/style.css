@@ -293,3 +293,12 @@ ul.errors {
 .orderImage{
     width: 150px;
 }
+
+form#receivedForm{
+    margin-top: 12px;
+}
+
+form#receivedForm input{
+    display: inline;
+}
+

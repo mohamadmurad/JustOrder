@@ -42,6 +42,12 @@
                 <x-jet-button class="ml-4">
                     {{ __('تسجيل الدخول') }}
                 </x-jet-button>
+                    <div class="float-right">
+
+                        <a class="btn btn-primary" href="{{ route('home') }}"> رجوع</a>
+
+                    </div>
+
             </div>
         </form>
     </x-jet-authentication-card>

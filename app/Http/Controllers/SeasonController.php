@@ -47,9 +47,9 @@ class SeasonController extends Controller
 
         season::create([
                 'name' => $request->get('name'),
-                'start' => $start,
-                'end' => $end,
-                'year_id' => $request->get('year_id'),
+               // 'start' => $start,
+               // 'end' => $end,
+               // 'year_id' => $request->get('year_id'),
             ]);
 
         return redirect()->route('season.index')
