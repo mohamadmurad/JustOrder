@@ -19,26 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="12-10-2020">
+    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="13-10-2020">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SubgroupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubgroupController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/subgroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/subgroup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_28_101651_create_subgroups_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_28_101651_create_subgroups_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_29_072515_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_29_072515_create_orders_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_30_073824_create_fabrics_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_28_073824_create_fabrics_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/group/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/group/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/order/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/subgroup/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/subgroup/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/subgroup/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/subgroup/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/subgroup/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/subgroup/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,7 +231,7 @@
       <workItem from="1602063749946" duration="309000" />
       <workItem from="1602491906916" duration="12405000" />
       <workItem from="1602572604502" duration="1047000" />
-      <workItem from="1602574332255" duration="13295000" />
+      <workItem from="1602574332255" duration="15178000" />
     </task>
     <task id="LOCAL-00001" summary="12-10-2020">
       <created>1602499089562</created>
@@ -257,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602499089562</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="13-10-2020">
+      <created>1602595856030</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602595856031</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,7 +267,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="12-10-2020" />
-    <option name="LAST_COMMIT_MESSAGE" value="12-10-2020" />
+    <MESSAGE value="13-10-2020" />
+    <option name="LAST_COMMIT_MESSAGE" value="13-10-2020" />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="37" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601542337194">
@@ -309,10 +300,10 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="141" y="137" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1601208976453" />
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1602499101078">
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1602595858363">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1602499101078" />
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1602595858363" />
     <state x="323" y="212" key="run.anything.popup" timestamp="1601721853969">
       <screen x="0" y="0" width="1440" height="860" />
     </state>

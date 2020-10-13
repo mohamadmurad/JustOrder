@@ -30,15 +30,16 @@
         <?php $i = 0?>
         @foreach ($users as $user)
             <tr>
+
                 <td>{{ ++$i }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->username }}</td>
                 <td>{{ $user->isAdmin == 0 ? 'مستخدم' : 'مدير' }}</td>
-                    {{ $is = false }}
-                    @foreach($sessions as $session)
+                {{ $is = false }}
+                @foreach($sessions as $session)
 
-                        @if($session->user_id === $user->id)
-                            {{$is = true}}
+                    @if($session->user_id === $user->id)
+                        {{$is = true}}
                         <td>
                             {{$session->ip_address}}
                         </td>
@@ -47,9 +48,9 @@
                             {{\Carbon\Carbon::createFromTimestamp($session->last_activity)}}
                         </td>
 
-                        @endif
+                    @endif
 
-                    @endforeach
+                @endforeach
 
                 @if(!$is)
 
@@ -63,10 +64,10 @@
                 @endif
 
 
-                    <td>
+                <td>
                     <form action="{{ route('users.destroy',$user->id) }}" method="POST">
 
-{{--                        <a class="btn btn-info" href="{{ route('color.show',$color->id) }}">Show</a>--}}
+                        {{--                        <a class="btn btn-info" href="{{ route('color.show',$color->id) }}">Show</a>--}}
 
                         <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">تعديل</a>
 
@@ -80,7 +81,7 @@
         @endforeach
     </table>
     <div class="d-flex justify-content-center">
-    {!! $users->links() !!}
+        {!! $users->links() !!}
     </div>
 
 @endsection
