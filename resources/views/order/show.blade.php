@@ -24,25 +24,44 @@
                 <h2>العدد الكلي : {{ $order->siresQty }}</h2>
             </div>
             <div class="float-left">
-                <h2> حالة الاستلام : {{  $order->done ===1 ? 'تم الاستلام' : 'لم يتم الاستلام' }}</h2>
+                <h2> حالة الاستلام :
+                    @if($order->done ===1)
+                        تم الاستلام
+                    @elseif($order->receivedQty ==0)
+                        لم يتم الاستلام
+
+                    @else
+                        {{'تم استلام'. $order->receivedQty .' من اصل ' . $order->reservedQuantity}}
+
+                    @endif
+
             </div>
         </div>
 
 
         <div class="col-lg-12 margin-tb">
-            @if($order->done === 0)
+
+
             <div class="float-left">
+                <button class="btn btn-info mt-2 mb-2" id="print" onclick="window.print();"><i class="fa fa-print"></i> طباعة </button>
                 @if($order->done === 0)
                     <form action="{{ route('orderDone') }}" method="POST" id="receivedForm" >
 
                         @csrf
                         <input type="hidden" value="{{$order->id}}" name="order">
-                        <input type="number" class="form-control col-md-6" name="receivedQty" style="min-width: auto;" min="1" max="{{$order->reservedQuantity}}" placeholder="الكمية المستلمة">
+                        <input type="number" class="form-control col-md-6" name="receivedQty" style="min-width: auto;" min="1" max="{{($order->reservedQuantity - $order->receivedQty)}}"  placeholder="الكمية المستلمة">
                         <button type="submit" class="btn btn-primary" id="recive">استلام</button>
+                        @foreach ($errors->get('receivedQty') as $message)
+                            <i>{{ $message }}</i>
+                        @endforeach
                     </form>
+
                 @endif
+
+
+
             </div>
-            @endif
+
 
             <div class="float-right">
                 <h2>تاريخ الطلب : {{ $order->orderDate->format('Y-m-d') }}</h2>
@@ -54,7 +73,7 @@
 
 
 
-    <table class="table table-bordered" style="text-align: right;">
+    <table class="table table-bordered mt-2" style="text-align: right;">
         <tr>
             <td>باركود</td>
             <td>{{ $order->barcode }}</td>

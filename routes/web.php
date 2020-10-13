@@ -59,12 +59,14 @@ Route::group(['middleware' => ['auth:sanctum']],function (){
     Route::post('/orderReport',[\App\Http\Controllers\OrderController::class,'report'])->name('orderReport');
     Route::post('/orderDone',[\App\Http\Controllers\OrderController::class,'done'])->name('orderDone');
 
+
+    Route::resource('fabric',\App\Http\Controllers\FabricController::class);
 });
 
 Route::group(['middleware' => ['auth:sanctum','isAdminMiddleware']],function (){
     Route::resource('color',ColorController::class);
     Route::resource('FabricSource',FabricSourceController::class);
-    Route::resource('fabric',\App\Http\Controllers\FabricController::class);
+    //Route::resource('fabric',\App\Http\Controllers\FabricController::class);
     Route::resource('years',YearsController::class);
     Route::resource('supplier',\App\Http\Controllers\SupplierController::class);
     Route::resource('brand',\App\Http\Controllers\BrandController::class);

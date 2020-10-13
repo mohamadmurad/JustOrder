@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/printStyle.css') }}" media="print">
-
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
@@ -42,6 +42,11 @@
                             <li>
                                 <a href="{{ route('order.index') }}">الطلبات</a>
                             </li>
+
+                            <li>
+                                <a href="{{ route('fabric.index') }}">الأقمشة</a>
+                            </li>
+
                         @else
                             <li>
                                 <a href="{{ route('order.index') }}">الطلبات</a>

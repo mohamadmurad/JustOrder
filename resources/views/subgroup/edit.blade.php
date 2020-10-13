@@ -40,6 +40,22 @@
 
                 <div class="form-group">
 
+                    <strong>رقم المجموعة الفرعية:</strong>
+
+                    <input type="text" name="idNum" value="{{ $subgroup->idNum }}" class="form-control" placeholder="رقم المجموعة الفرعية">
+                    <ul class="errors">
+                        @foreach ($errors->get('idNum') as $message)
+                            <i>{{ $message }}</i>
+                        @endforeach
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+
+                <div class="form-group">
+
                     <strong>المجموعة الفرعية:</strong>
 
                     <input type="text" name="name" value="{{ $subgroup->name }}" class="form-control" placeholder="المجموعة الفرعية">

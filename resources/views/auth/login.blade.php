@@ -1,7 +1,8 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <h1>أهلا بك في تطبيق الإنتاج قم بتسجيل الدخول للتمكن من استخدامه</h1>
+
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />

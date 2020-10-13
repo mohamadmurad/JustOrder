@@ -17,6 +17,7 @@
     <table class="table table-bordered">
         <tr>
             <th>No</th>
+
             <th>المجموعة</th>
             <th>الصنف</th>
             <th width="280px">خيارات</th>
@@ -25,6 +26,7 @@
         @foreach ($groups as $group)
             <tr>
                 <td>{{ ++$i }}</td>
+
                 <td>{{ $group->name }}</td>
 
                 @if($group->type )

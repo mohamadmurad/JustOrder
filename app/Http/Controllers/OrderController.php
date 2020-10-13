@@ -86,13 +86,21 @@ class OrderController extends Controller
         $typeCode = substr($type->name, 0, 1); //////////
 
         $sequenceNumber = 1;
-        $exitsNumberOfSubGroup = order::where('subgroup_id','=',$subGroup->id)
-            ->where('brand_id','=',$brand->id)->count();
+        $exitsNumberOfSubGroup = order::where('subgroup_id','=',$subGroup->idNum)
+            ->where('brand_id','=',$brand->id)->orderBy('id','desc')->get();
 
-        $exitsNumberOfSubGroup == 0 ? $sequenceNumber = 1 : $sequenceNumber = $sequenceNumber+$exitsNumberOfSubGroup;
+
+        if ( count($exitsNumberOfSubGroup) == 0){
+            $sequenceNumber = 1 ;
+        }else{
+            $oldBarcode = $exitsNumberOfSubGroup->first()->barcode;
+            $lastNumber = intval(substr($oldBarcode, 7,3));
+            $sequenceNumber = $lastNumber+1;
+        }
 
         $sequenceNumber = sprintf('%03u', $sequenceNumber);
-        $barCode = $yearCode . $season->id . $typeCode . $brandCode . $subGroup->id . $sequenceNumber . $supplier->code;
+
+        $barCode = $yearCode . $season->id . $typeCode . $brandCode . $group->id .$subGroup->idNum . $sequenceNumber . $supplier->code;
 
 
         $siresQty = $request->get('siresColorQty') *  $request->get('siresSizeQty');
@@ -296,14 +304,24 @@ class OrderController extends Controller
         $order = order::where('id','=',$request->get('order'))
         ->where('done','=',0)->first();
 
+        $receivedQty = $request->get('receivedQty');
+        if ($receivedQty < $order->reservedQuantity){
+            $order->fill([
+                'done' => 0,
+                'receivedQty' => $receivedQty,
+                'reservedDate' => Carbon::now()->format('Y-m-d'),
+            ]);
+        }elseif($receivedQty == $order->reservedQuantity){
+            $order->fill([
+                'done' => 1,
+                'receivedQty' => $receivedQty,
+                'reservedDate' => Carbon::now()->format('Y-m-d'),
+            ]);
+        }else{
+            return redirect()->route('order.index');
+        }
+        //$order->done = 1;
 
-
-        $order->done = 1;
-        $order->fill([
-            'done' => 1,
-            'receivedQty' => $request->get('receivedQty'),
-            'reservedDate' => Carbon::now()->format('Y-m-d'),
-        ]);
 
         $order->update();
 

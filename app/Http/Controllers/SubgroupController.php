@@ -41,7 +41,7 @@ class SubgroupController extends Controller
      */
     public function store(StoreSubGroupRequest $request)
     {
-        subgroup::create($request->only(['name','group_id']));
+        subgroup::create($request->only(['idNum','name','group_id']));
 
         return redirect()->route('subgroup.index')
             ->with('success','Sub Group created successfully.');
@@ -80,25 +80,42 @@ class SubgroupController extends Controller
      */
     public function update(Request $request, subgroup $subgroup)
     {
+
         $request->validate([
+            'idNum'=>[
+                'required',
+//                Rule::unique('subgroups')->where(function ($query) use ($request) {
+//
+//                    return $query
+//                        ->where('id',$request->get('id'))
+//                        ->where('group_id','=',$request->get('group_id'));
+//                })->ignore($subgroup->id),
+//                Rule::unique('subgroups')
+//                    ->ignore($subgroup->id)
+//                    ->where('group_id', $subgroup->group_id),
+            ],
             'name' => [
                 'required',
-                Rule::unique('subgroups')
-                    ->ignore($subgroup->id)
-                    ->where('group_id', $subgroup->group_id),
             ],
             'group_id' =>  [
                 'required',
                 'exists:groups,id',
-                Rule::unique('subgroups')
-                    ->ignore($subgroup->id)
-                    ->where('name', $subgroup->name),
+//                Rule::unique('subgroups')->where(function ($query) use ($request) {
+//
+//                    return $query
+//                        ->where('id',$request->get('id'))
+//                        ->where('group_id','=',$request->get('group_id'));
+//                })->ignore($subgroup->id),
+//                Rule::unique('subgroups')
+//                    ->ignore($subgroup->id)
+//                    ->where('name', $subgroup->id),
 
             ],
 
         ]);
 
         $subgroup->fill([
+            'idNum' => $request->get('id'),
             'name' => $request->get('name'),
             'group_id' => $request->get('group_id'),
         ]);
@@ -119,7 +136,6 @@ class SubgroupController extends Controller
     public function destroy(subgroup $subgroup)
     {
         $subgroup->delete();
-
         return redirect()->route('subgroup.index')
             ->with('success','Group deleted successfully');
     }

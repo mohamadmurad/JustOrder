@@ -11,6 +11,7 @@ class subgroup extends Model
     public $timestamps = false;
 
     protected $fillable = [
+        'id',
         'name',
         'group_id',
     ];

@@ -18,21 +18,27 @@
     <table class="table table-bordered">
         <tr>
             <th>No</th>
+            <th>رقم المجموعة الفرعية</th>
             <th>المجموعة الفرعية</th>
             <th>المجموعة</th>
+            <th>الرقم في الباركود</th>
             <th width="280px">خيارات</th>
         </tr>
         <?php $i = 0?>
         @foreach ($subgroups as $subgroup)
             <tr>
                 <td>{{ ++$i }}</td>
+                <td>{{ $subgroup->idNum }}</td>
                 <td>{{ $subgroup->name }}</td>
+
 
                 @if($subgroup->group )
                     <td>{{ $subgroup->group->name }}</td>
                 @else
                     <td>-</td>
                 @endif
+
+                <td>{{$subgroup->group->id . $subgroup->idNum}}</td>
 
 
 
