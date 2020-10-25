@@ -12,13 +12,34 @@
                 <a class="btn btn-success" href="{{ route('order.index') }}"> رجوع</a>
             </div>
         </div>
-        @if($order->image)
-        <div class="col-lg-12 margin-tb">
-            <div class="text-center">
-                <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $order->image}}" class="rounded orderImage" alt="{{$order->barcode}}">
-            </div>
+
+        <div class="row col-lg-12">
+            @if($order->image)
+                <div class="col-lg-4 margin-tb">
+                    <div class="text-center">
+                        <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $order->image}}"
+                             class="rounded orderImage" alt="{{$order->barcode}}">
+                    </div>
+                </div>
+            @endif
+            @if($order->image2)
+                <div class="col-lg-4 margin-tb-3">
+                    <div class="text-center">
+                        <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $order->image2}}"
+                             class="rounded orderImage" alt="{{$order->barcode}}">
+                    </div>
+                </div>
+                @if($order->image3)
+                @endif
+                <div class="col-lg-4 margin-tb">
+                    <div class="text-center">
+                        <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $order->image3}}"
+                             class="rounded orderImage" alt="{{$order->barcode}}">
+                    </div>
+                </div>
+            @endif
         </div>
-        @endif
+
         <div class="col-lg-12 margin-tb">
             <div class="float-right">
                 <h2>العدد الكلي : {{ $order->siresQty }}</h2>
@@ -30,10 +51,10 @@
                     @elseif($order->receivedQty ==0)
                         لم يتم الاستلام
 
-                    @else
-                        {{'تم استلام'. $order->receivedQty .' من اصل ' . $order->reservedQuantity}}
+                @else
+                    {{'تم استلام'. $order->receivedQty .' من اصل ' . $order->reservedQuantity}}
 
-                    @endif
+                @endif
 
             </div>
         </div>
@@ -43,13 +64,17 @@
 
 
             <div class="float-left">
-                <button class="btn btn-info mt-2 mb-2" id="print" onclick="window.print();"><i class="fa fa-print"></i> طباعة </button>
+                <button class="btn btn-info mt-2 mb-2" id="print" onclick="window.print();"><i class="fa fa-print"></i>
+                    طباعة
+                </button>
                 @if($order->done === 0)
-                    <form action="{{ route('orderDone') }}" method="POST" id="receivedForm" >
+                    <form action="{{ route('orderDone') }}" method="POST" id="receivedForm">
 
                         @csrf
                         <input type="hidden" value="{{$order->id}}" name="order">
-                        <input type="number" class="form-control col-md-6" name="receivedQty" style="min-width: auto;" min="1" max="{{($order->reservedQuantity - $order->receivedQty)}}"  placeholder="الكمية المستلمة">
+                        <input type="number" class="form-control col-md-6" name="receivedQty" style="min-width: auto;"
+                               min="1" max="{{($order->reservedQuantity - $order->receivedQty)}}"
+                               placeholder="الكمية المستلمة">
                         <button type="submit" class="btn btn-primary" id="recive">استلام</button>
                         @foreach ($errors->get('receivedQty') as $message)
                             <i>{{ $message }}</i>
@@ -59,13 +84,13 @@
                 @endif
 
 
-
             </div>
 
 
             <div class="float-right">
                 <h2>تاريخ الطلب : {{ $order->orderDate->format('Y-m-d') }}</h2>
-                <h2 style="float: right;">تاريخ الاستلام : {{  $order->reservedDate != null ? $order->reservedDate->format('Y-m-d') : 'ليس بعد' }}</h2>
+                <h2 style="float: right;">تاريخ الاستلام
+                    : {{  $order->reservedDate != null ? $order->reservedDate->format('Y-m-d') : 'ليس بعد' }}</h2>
             </div>
         </div>
 
@@ -80,7 +105,7 @@
         </tr>
 
         <tr>
-            <td>ماركة </td>
+            <td>ماركة</td>
             <td>{{ $order->brand->name }}</td>
         </tr>
 
@@ -111,9 +136,8 @@
         </tr>
 
 
-
         <tr>
-            <td>المورد </td>
+            <td>المورد</td>
             <td>{{ $order->supplier->name }}</td>
         </tr>
 
@@ -150,43 +174,48 @@
 
 
         <tr>
-            <td>الكمية المستلمة </td>
+            <td>الكمية المستلمة</td>
             <td>{{ $order->receivedQty }}</td>
         </tr>
 
 
         <tr>
-            <td>اسم الموديل  </td>
+            <td>اسم الموديل</td>
             <td>{{ $order->modelName }}</td>
         </tr>
 
 
         <tr>
-            <td>مواصفات الموديل </td>
+            <td>مواصفات الموديل</td>
             <td>{{ $order->modelDesc }}</td>
         </tr>
 
 
-{{--        <tr>--}}
-{{--            <td>رقم السيري </td>--}}
-{{--            <td>{{ $order->siresNumber }}</td>--}}
-{{--        </tr>--}}
+        {{--        <tr>--}}
+        {{--            <td>رقم السيري </td>--}}
+        {{--            <td>{{ $order->siresNumber }}</td>--}}
+        {{--        </tr>--}}
 
 
-{{--        <tr>--}}
-{{--            <td>رقم العنصر </td>--}}
-{{--            <td>{{ $order->itemsNumber }}</td>--}}
-{{--        </tr>--}}
+        {{--        <tr>--}}
+        {{--            <td>رقم العنصر </td>--}}
+        {{--            <td>{{ $order->itemsNumber }}</td>--}}
+        {{--        </tr>--}}
 
 
         <tr>
-            <td>ملاحظات  </td>
+            <td>تاريخ تسليم القماش</td>
+            <td>{{ $order->fabricDate }}</td>
+        </tr>
+
+        <tr>
+            <td>ملاحظات</td>
             <td>{{ $order->notes }}</td>
         </tr>
 
 
         <tr>
-            <td>القياسات   </td>
+            <td>القياسات</td>
             <td>
                 @foreach($order->sizes as $size)
                     {{ $size->name . ' | ' }}
@@ -196,16 +225,14 @@
 
 
         <tr>
-            <td>الالوان </td>
+            <td>الالوان</td>
             <td>
                 @foreach($order->colors as $color)
-                     {{ $color->name . ' | ' }}
+                    {{ $color->name . ' | ' }}
                 @endforeach
 
             </td>
         </tr>
-
-
 
 
     </table>

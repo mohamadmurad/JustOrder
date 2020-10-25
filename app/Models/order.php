@@ -26,9 +26,12 @@ class order extends Model
         'itemsNumber',
         'orderDate',
         'reservedDate',
+        'fabricDate',
         'done',
         'notes',
         'image',
+        'image2',
+        'image3',
 
 
         'brand_id',

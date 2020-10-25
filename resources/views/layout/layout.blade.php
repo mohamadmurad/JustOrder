@@ -11,8 +11,13 @@
     <link rel="stylesheet" href="{{ URL::asset('css/printStyle.css') }}" media="print">
     <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
     <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+            integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+            crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+            integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+            crossorigin="anonymous"></script>
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 
 </head>
 <body dir="rtl">
@@ -120,11 +125,13 @@
                     <i class="fas fa-align-left"></i>
                     <span>القائمة</span>
                 </button>
-                <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
+                <div
+                    class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
                     @if (Route::has('login'))
                         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                             @auth
-                                <p href="" style="display: inline;" class="text-sm text-gray-700 underline">{{ \Illuminate\Support\Facades\Auth::user()->username }} </p>
+                                <p href="" style="display: inline;"
+                                   class="text-sm text-gray-700 underline">{{ \Illuminate\Support\Facades\Auth::user()->username }} </p>
 
                                 <form method="POST" action="{{ route('logout') }}" style="display: inline;">
                                     @csrf
@@ -148,6 +155,62 @@
 
                 </div>
             </div>
+            <ul class="nav nav-pills mr-auto justify-content-end">
+                <li class="nav-item dropdown">
+                    <a class="nav-link " style="{{isset($notification)? 'color: #fd0017;' : ''}}" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-bell"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        @if(isset($notification))
+                            <li class="head text-light bg-dark">
+                                <div class="row">
+                                    <div class="col-lg-12 col-sm-12 col-12">
+                                        <span>Notifications {{count($notification)}}</span>
+
+                                    </div>
+                            </li>
+                            @foreach($notification as $n)
+                                <li class="notification-box">
+                                    <a href="{{ route('order.show',$n->id) }}">
+                                        <div class="row">
+                                            <div class="col-lg-3 col-sm-3 col-3 text-center">
+                                                <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $n->image}}" class="w-50 rounded-circle">
+                                            </div>
+                                            <div class="col-lg-8 col-sm-8 col-8">
+                                                <strong class="text-info">{{$n->barcode}}</strong>
+
+                                                <small class="text-warning">{{$n->orderDate}}</small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            @endforeach
+                        @else
+                            <li class="head text-light bg-dark">
+                                <div class="row">
+                                    <div class="col-lg-12 col-sm-12 col-12">
+                                        <span>Notifications 0</span>
+
+                                    </div>
+                            </li>
+
+                                <li class="notification-box">
+
+                                        <div class="row">
+
+                                            <div class="col-lg-8 col-sm-8 col-8">
+                                                <strong class="text-info">ليس هناك اشعارات</strong>
+
+
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                        @endif
+
+                    </ul>
+                </li>
+            </ul>
         </nav>
 
         <div class="container">
@@ -160,23 +223,30 @@
 </div>
 
 
-
 <!-- jQuery CDN - Slim version (=without AJAX) -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
 <!-- Popper.JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
 <!-- Bootstrap JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
 <script>
 
     $(document).ready(function () {
 
-        $('#sidebarCollapse').on('click', function () {
-            $('#sidebar').toggleClass('active');
-        });
 
 
-        $('.btn-danger').on('click',function (){
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+    });
+
+
+        $('.btn-danger').on('click', function () {
 
             var r = confirm("هل تريد الحذف؟");
             if (r == true) {
@@ -189,7 +259,7 @@
         });
 
 
-        $('#recive').on('click',function (){
+        $('#recive').on('click', function () {
 
             var r = confirm("هل تريد استلام هذا الطلب؟");
             if (r == true) {

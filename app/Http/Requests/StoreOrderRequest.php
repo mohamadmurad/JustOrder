@@ -44,6 +44,7 @@ class StoreOrderRequest extends FormRequest
             'modelName' => 'required|string',
             'modelDesc' => 'string',
             'notes' => 'nullable|string',
+            'fabricDate' => 'nullable|date',
 
 //            'siresNumber' => '',
 //            'itemsNumber' => '',

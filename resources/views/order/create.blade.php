@@ -344,24 +344,49 @@
 {{--            </div>--}}
 
 
-{{--            <div class="col-xs-12 col-sm-12 col-md-4">--}}
-{{--                <div class="form-group">--}}
-{{--                    <strong>تاريخ الاستلام :</strong>--}}
-{{--                    <input type="date" name="reservedDate" class="form-control" placeholder="تاريخ الاستلام">--}}
-{{--                    <ul class="errors">--}}
-{{--                        @foreach ($errors->get('reservedDate') as $message)--}}
-{{--                            <i>{{ $message }}</i>--}}
-{{--                        @endforeach--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+            <div class="col-xs-12 col-sm-12 col-md-4">
+                <div class="form-group">
+                    <strong>تاريخ تسليم القماش :</strong>
+                    <input type="date" name="fabricDate" class="form-control" placeholder="تاريخ تسليم القماش">
+                    <ul class="errors">
+                        @foreach ($errors->get('fabricDate') as $message)
+                            <i>{{ $message }}</i>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
 
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
-                    <strong>صورة :</strong>
-                    <input type="file" name="image" class="form-control" placeholder="صورة" >
+                    <strong>صورة1 :</strong>
+                    <input type="file" name="image" class="form-control" placeholder="صورة"   accept="image/*">
                     <ul class="errors">
                         @foreach ($errors->get('image') as $message)
+                            <i>{{ $message }}</i>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4">
+                <div class="form-group">
+                    <strong>صورة2 :</strong>
+                    <input type="file" name="image2" class="form-control" placeholder="صورة"   accept="image/*">
+                    <ul class="errors">
+                        @foreach ($errors->get('image2') as $message)
+                            <i>{{ $message }}</i>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="col-xs-12 col-sm-12 col-md-4">
+                <div class="form-group">
+                    <strong>صورة3 :</strong>
+                    <input type="file" name="image3" class="form-control" placeholder="صورة"   accept="image/*">
+                    <ul class="errors">
+                        @foreach ($errors->get('image3') as $message)
                             <i>{{ $message }}</i>
                         @endforeach
                     </ul>

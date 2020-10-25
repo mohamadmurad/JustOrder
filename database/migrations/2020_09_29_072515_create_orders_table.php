@@ -36,6 +36,7 @@ class CreateOrdersTable extends Migration
 
             $table->dateTime('orderDate');
             $table->dateTime('reservedDate')->nullable();
+            $table->dateTime('fabricDate')->nullable();
 
 
 
@@ -44,6 +45,8 @@ class CreateOrdersTable extends Migration
             $table->text('notes')->nullable();
 
             $table->string('image')->nullable();
+            $table->string('image2')->nullable();
+            $table->string('image3')->nullable();
 
 
 

@@ -39,7 +39,11 @@ class OrderController extends Controller
     public function index()
     {
         $orders = order::paginate();
-        return view('order.index',compact('orders'));
+
+
+      //  dd($today10);
+       // dd($notification);
+        return view('order.index',compact(['orders']));
     }
 
     /**
@@ -109,10 +113,24 @@ class OrderController extends Controller
         try {
 
 
+
             if ( $request->hasFile('image')){
                 $image = $request->file('image');
-                $saved_file = $this->upload($image, $barCode, public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
-                $saved_files_for_roleBack = $saved_file->getFilename();
+                    $saved_file = $this->upload($image, $barCode.'_1', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
+                    $saved_files_for_roleBack += [$saved_file->getFilename()];
+
+            }
+
+            if ( $request->hasFile('image2')){
+                $image = $request->file('image2');
+                $saved_file2 = $this->upload($image, $barCode.'_2', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
+                $saved_files_for_roleBack += [$saved_file2->getFilename()];
+            }
+
+            if ( $request->hasFile('image3')){
+                $image = $request->file('image3');
+                $saved_file3 = $this->upload($image, $barCode.'_3', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
+                $saved_files_for_roleBack += [$saved_file3->getFilename()];
             }
 
 
@@ -132,9 +150,12 @@ class OrderController extends Controller
                 //'itemsNumber'  => $request->get('itemsNumber'),
                 'orderDate'  => Carbon::now()->format('Y-m-d'),
                 //'reservedDate'  => Carbon::create($request->get('reservedDate'))->format('Y-m-d'),
+                'fabricDate' => Carbon::create($request->get('fabricDate'))->format('Y-m-d'),
                 'done'  => 0,
                 'notes'  => $request->get('notes'),
                 'image'  =>  $request->hasFile('image') ? $saved_file->getFilename() : null,
+                'image2'  =>  $request->hasFile('image2') ? $saved_file2->getFilename() : null,
+                'image3'  =>  $request->hasFile('image3') ? $saved_file3->getFilename() : null,
 
 
                 'brand_id' => $request->get('brand_id'),

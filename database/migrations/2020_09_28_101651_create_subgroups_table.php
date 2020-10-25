@@ -15,10 +15,12 @@ class CreateSubgroupsTable extends Migration
     {
         Schema::create('subgroups', function (Blueprint $table) {
             $table->id('id');
-            $table->unsignedBigInteger('idNum');
+
             $table->string('name');
 
             $table->foreignId('group_id');
+
+            $table->unsignedBigInteger('idNum');
             $table->foreign('group_id')
                 ->on('groups')
                 ->references('id');
