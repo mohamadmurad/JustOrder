@@ -29,8 +29,9 @@
                              class="rounded orderImage" alt="{{$order->barcode}}">
                     </div>
                 </div>
-                @if($order->image3)
+
                 @endif
+                @if($order->image3)
                 <div class="col-lg-4 margin-tb">
                     <div class="text-center">
                         <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $order->image3}}"

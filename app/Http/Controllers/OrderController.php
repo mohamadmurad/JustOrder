@@ -91,8 +91,13 @@ class OrderController extends Controller
 
         $sequenceNumber = 1;
         $exitsNumberOfSubGroup = order::where('subgroup_id','=',$subGroup->idNum)
-            ->where('brand_id','=',$brand->id)->orderBy('id','desc')->get();
-
+            ->where('brand_id','=',$brand->id)
+            ->where('year_id','=',$year->id)
+            ->where('season_id','=',$season->id)
+            ->where('type_id','=',$type->id)
+            ->where('group_id','=',$group->id)
+            ->orderBy('id','desc')->get();
+            //dd($exitsNumberOfSubGroup);
 
         if ( count($exitsNumberOfSubGroup) == 0){
             $sequenceNumber = 1 ;
@@ -162,7 +167,7 @@ class OrderController extends Controller
                 'fabric_id'=> $request->get('fabric_id'),
                 'type_id' => $request->get('type_id'),
                 'group_id' => $request->get('group_id'),
-                'subgroup_id' => $request->get('subgroup_id'),
+                'subgroup_id' => $subGroup->idNum,
                 'season_id' => $request->get('season_id'),
                 'year_id' => $request->get('year_id'),
                 'supplier_id' => $request->get('supplier_id'),

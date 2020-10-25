@@ -157,7 +157,7 @@
             </div>
             <ul class="nav nav-pills mr-auto justify-content-end">
                 <li class="nav-item dropdown">
-                    <a class="nav-link " style="{{isset($notification)? 'color: #fd0017;' : ''}}" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link " style="{{count($notification) >0? 'color: #fd0017;' : ''}}" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-bell"></i>
                     </a>
                     <ul class="dropdown-menu">

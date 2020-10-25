@@ -19,22 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="13-10-2020">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/untitled.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/untitled.iml" afterDir="false" />
+    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="25-10-2020">
+      <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-25-190bb15001opa-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-25-190bb15002opa-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-25-200bb15001opa-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-25-200bb15001opa-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-25-200bb15001opa-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-25-201bf17001opa-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-25-201bf17001opa-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-25-201bf17001opa-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-25-201bh11001opa.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreOrderRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreOrderRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_28_101651_create_subgroups_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_28_101651_create_subgroups_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_29_072515_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_29_072515_create_orders_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/order/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/order/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,12 +180,15 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1i32ni8MKcqITPplau9oQjyZLIE" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -254,7 +254,7 @@
       <workItem from="1602917191782" duration="1394000" />
       <workItem from="1602920307313" duration="4109000" />
       <workItem from="1602933116939" duration="10000" />
-      <workItem from="1603622065839" duration="7801000" />
+      <workItem from="1603622065839" duration="11240000" />
     </task>
     <task id="LOCAL-00001" summary="12-10-2020">
       <created>1602499089562</created>
@@ -277,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602599107607</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="25-10-2020">
+      <created>1603631652459</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1603631652459</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,20 +303,22 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="12-10-2020" />
     <MESSAGE value="13-10-2020" />
-    <option name="LAST_COMMIT_MESSAGE" value="13-10-2020" />
+    <MESSAGE value="25-10-2020" />
+    <option name="LAST_COMMIT_MESSAGE" value="25-10-2020" />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="37" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601542337194">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="445" y="37" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.860@0.0.1440.860" timestamp="1601542337194" />
-    <state x="470" y="303" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603631373805">
+    <state x="470" y="303" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603631409063">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="418" y="347" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.984@0.0.1280.984" timestamp="1601296310392" />
-    <state x="470" y="303" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.860@0.0.1440.860" timestamp="1603631373805" />
+    <state x="470" y="303" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.860@0.0.1440.860" timestamp="1603631409063" />
     <state x="412" y="417" key="ComposerInitDialogKey" timestamp="1601122584222">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
