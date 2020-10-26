@@ -20,9 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="26-10-2020 with edit order without image">
+      <change afterPath="$PROJECT_DIR$/app/Console/Commands/DatabaseBackUp.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-26-190bb15001opa-1.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-26-190bb15011opa-1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +247,7 @@
       <workItem from="1602920307313" duration="4109000" />
       <workItem from="1602933116939" duration="10000" />
       <workItem from="1603622065839" duration="12346000" />
-      <workItem from="1603694792865" duration="6708000" />
+      <workItem from="1603694792865" duration="8670000" />
     </task>
     <task id="LOCAL-00001" summary="12-10-2020">
       <created>1602499089562</created>
@@ -324,7 +326,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603702121497</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="26-10-2020 with edit order without image">
+      <created>1603702275133</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1603702275133</updated>
+    </task>
+    <task id="LOCAL-00013" summary="26-10-2020 with edit order without image">
+      <created>1603702306345</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1603702306345</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,10 +397,10 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="141" y="137" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1601208976453" />
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1603702131095">
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1603702318600">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1603702131095" />
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1603702318600" />
     <state x="323" y="212" key="run.anything.popup" timestamp="1601721853969">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
