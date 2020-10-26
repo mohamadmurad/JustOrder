@@ -34,28 +34,30 @@ class StoreOrderRequest extends FormRequest
             'supplier_id' => 'required|exists:suppliers,id',
             'fabricSource_id' => 'required|exists:fabric_sources,id',
             'fabric_id' => 'required|exists:fabrics,id',
-            'fabricFormula' => 'string',
+            'fabricFormula' => 'nullable|string',
             //'siresQty' => '',
-            'siresColorQty' => 'required|min:1',
-            'siresSizeQty' => 'required|min:1',
+            'siresColorQty' => 'nullable|min:1',
+            'siresSizeQty' => 'nullable|min:1',
             //'quantity' => '',
-            'reservedQuantity' => 'required|min:1',
+            'reservedQuantity' => 'nullable|min:1',
             //'receivedQty' => 'required|min:1',
-            'modelName' => 'required|string',
-            'modelDesc' => 'string',
+            'modelName' => 'nullable|string',
+            'modelDesc' => 'nullable|string',
             'notes' => 'nullable|string',
             'fabricDate' => 'nullable|date',
 
 //            'siresNumber' => '',
 //            'itemsNumber' => '',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'image2' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'image3' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
 
             //'reservedDate' => 'required|date',
 
-            'colors' =>  'required',
-            'colors.*' => 'required|exists:colors,id',
+            'colors' =>  'nullable',
+            'colors.*' => 'exists:colors,id',
 
-            'sizes' =>  'required',
+            'sizes' =>  'nullable',
             'sizes.*' => 'exists:sizes,id'
 
         ];

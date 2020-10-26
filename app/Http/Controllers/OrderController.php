@@ -175,15 +175,20 @@ class OrderController extends Controller
 
             ]);
 
+            if ($request->has('colors')){
+                $colors = $request->get('colors');
 
-            $colors = $request->get('colors');
-            foreach ($colors as $color){
-                $newOrder->colors()->attach($color);
+                foreach ($colors as $color){
+                    $newOrder->colors()->attach($color);
+                }
             }
 
-            $sizes = $request->get('sizes');
-            foreach ($sizes as $size){
-                $newOrder->sizes()->attach($size);
+            if ($request->has('sizes')){
+                $sizes = $request->get('sizes');
+                foreach ($sizes as $size){
+                    $newOrder->sizes()->attach($size);
+                }
+
             }
 
 

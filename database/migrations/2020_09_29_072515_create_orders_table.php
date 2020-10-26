@@ -17,18 +17,18 @@ class CreateOrdersTable extends Migration
 
             $table->id();
             $table->string('barcode',50);
-            $table->string('modelName');
-            $table->text('modelDesc');
+            $table->string('modelName')->nullable();
+            $table->text('modelDesc')->nullable();
 
-            $table->unsignedInteger('siresSizeQty');
-            $table->unsignedInteger('siresColorQty');
-            $table->unsignedInteger('siresQty');
-            $table->unsignedInteger('quantity');
-            $table->unsignedInteger('reservedQuantity');
+            $table->unsignedInteger('siresSizeQty')->nullable();
+            $table->unsignedInteger('siresColorQty')->nullable();
+            $table->unsignedInteger('siresQty')->nullable();
+            $table->unsignedInteger('quantity')->nullable();
+            $table->unsignedInteger('reservedQuantity')->nullable();
             $table->unsignedInteger('receivedQty')->default(0);
 
            // $table->text('fabricType');
-            $table->text('fabricFormula');
+            $table->text('fabricFormula')->nullable();
            // $table->text('fabricCode');
 
 //            $table->unsignedInteger('siresNumber');
