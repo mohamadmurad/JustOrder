@@ -324,3 +324,14 @@ form#receivedForm input{
     border:10px solid #343A40;
     border-color: transparent transparent #343A40 transparent;
 }
+
+
+#printTable{
+
+    display: none;
+    width: 50%;
+}
+#printTable2{
+    display: none;
+    width: 50%;
+}

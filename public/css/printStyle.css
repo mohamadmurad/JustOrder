@@ -1,7 +1,16 @@
 header, footer, aside, nav, form, iframe, .menu, .hero, .adslot {
     display: none;
 }
+#webTable{
+    display: none;
+}
 
+#printTable{
+    display: block;
+}
+#printTable2{
+    display: inline;
+}
 .btn {
     display: none;
 }

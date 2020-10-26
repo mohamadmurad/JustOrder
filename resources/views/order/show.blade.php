@@ -100,7 +100,7 @@
 
 
 
-    <table class="table table-bordered mt-2" style="text-align: right;">
+    <table id="webTable" class="table table-bordered mt-2" style="text-align: right;">
         <tr>
             <td>باركود</td>
             <td>{{ $order->barcode }}</td>
@@ -193,6 +193,153 @@
         </tr>
 
 
+                <tr>
+                    <td>رقم السيري </td>
+                    <td>{{ $order->siresNumber }}</td>
+                </tr>
+
+
+                <tr>
+                    <td>رقم العنصر </td>
+                    <td>{{ $order->itemsNumber }}</td>
+                </tr>
+
+
+        <tr>
+            <td>تاريخ تسليم القماش</td>
+            <td>{{ $order->fabricDate }}</td>
+        </tr>
+
+        <tr>
+            <td>ملاحظات</td>
+            <td>{{ $order->notes }}</td>
+        </tr>
+
+
+        <tr>
+            <td>القياسات</td>
+            <td>
+                @foreach($order->sizes as $size)
+                    {{ $size->name . ' | ' }}
+                @endforeach
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>الالوان</td>
+            <td>
+                @foreach($order->colors as $color)
+                    {{ $color->name . ' | ' }}
+                @endforeach
+
+            </td>
+        </tr>
+
+
+    </table>
+
+    <div class="col-lg-6 float-right" id="printTable">
+        <table  class="table table-bordered mt-2 col-lg-6" style="text-align: right;">
+            <tr>
+                <td>باركود</td>
+                <td>{{ $order->barcode }}</td>
+            </tr>
+
+            <tr>
+                <td>ماركة</td>
+                <td>{{ $order->brand->name }}</td>
+            </tr>
+
+
+            <tr>
+                <td>السنة</td>
+                <td>{{ $order->year->name }}</td>
+            </tr>
+
+            <tr>
+                <td>الفصل</td>
+                <td>{{ $order->season->name }}</td>
+            </tr>
+
+            <tr>
+                <td>النوع</td>
+                <td>{{ $order->type->name }}</td>
+            </tr>
+
+            <tr>
+                <td>المجموعة</td>
+                <td>{{ $order->group->name }}</td>
+            </tr>
+
+            <tr>
+                <td>المجموعة الفرعية</td>
+                <td>{{ $order->subgroup->name }}</td>
+            </tr>
+
+
+            <tr>
+                <td>المورد</td>
+                <td>{{ $order->supplier->name }}</td>
+            </tr>
+
+            <tr>
+                <td>مصدر القماش</td>
+                <td>{{ $order->fabricSource->name }}</td>
+            </tr>
+
+            <tr>
+                <td>نوع القماش</td>
+                <td>{{ $order->fabric->name }}</td>
+            </tr>
+
+            <tr>
+                <td>تركيبة القماش</td>
+                <td>{{ $order->fabricFormula }}</td>
+            </tr>
+
+
+        </table>
+
+    </div>
+    <div class="col-lg-6 float-left" id="printTable2">
+    <table  class="table table-bordered mt-2 col-lg-6" style="text-align: right;">
+
+        <tr>
+            <td>عدد الالوان في السيري</td>
+            <td>{{ $order->siresColorQty }}</td>
+        </tr>
+
+        <tr>
+            <td>عدد القياسات في السيري</td>
+            <td>{{ $order->siresSizeQty }}</td>
+        </tr>
+
+
+        <tr>
+            <td>الكمية المطلوبة</td>
+            <td>{{ $order->reservedQuantity }}</td>
+        </tr>
+
+
+        <tr>
+            <td>الكمية المستلمة</td>
+            <td>{{ $order->receivedQty }}</td>
+        </tr>
+
+
+        <tr>
+            <td>اسم الموديل</td>
+            <td>{{ $order->modelName }}</td>
+        </tr>
+
+
+        <tr>
+            <td>مواصفات الموديل</td>
+            <td>{{ $order->modelDesc }}</td>
+        </tr>
+
+
         {{--        <tr>--}}
         {{--            <td>رقم السيري </td>--}}
         {{--            <td>{{ $order->siresNumber }}</td>--}}
@@ -238,6 +385,6 @@
 
 
     </table>
-
+    </div>
 
 @endsection

@@ -277,6 +277,21 @@
     });
 
 
+    function previewFile(input){
+        if (input.files && input.files[0]) {
+            var file = input.files[0];
+            var reader = new FileReader();
+            reader.onload = function(){
+                $("#pp").attr("src", reader.result);
+            }
+
+            reader.readAsDataURL(file);
+        }
+
+
+
+    }
+
 
 
 

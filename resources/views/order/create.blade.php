@@ -359,13 +359,15 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>صورة1 :</strong>
-                    <input type="file" name="image" class="form-control" placeholder="صورة"   accept="image/*">
+
+                    <input type="file" name="image" id="image1" class="form-control" placeholder="صورة"   accept="image/*" >
                     <ul class="errors">
                         @foreach ($errors->get('image') as $message)
                             <i>{{ $message }}</i>
                         @endforeach
                     </ul>
                 </div>
+
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-4">
