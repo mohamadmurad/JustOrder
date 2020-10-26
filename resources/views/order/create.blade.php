@@ -356,43 +356,45 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-4">
+            <div class="col-xs-12 col-sm-12 col-md-4 text-center">
                 <div class="form-group">
                     <strong>صورة1 :</strong>
 
-                    <input type="file" name="image" id="image1" class="form-control" placeholder="صورة"   accept="image/*" >
+                    <input type="file" name="image" id="image1" class="form-control" placeholder="صورة"   accept="image/*" onchange="previewFile(this,'img1');">
                     <ul class="errors">
                         @foreach ($errors->get('image') as $message)
                             <i>{{ $message }}</i>
                         @endforeach
                     </ul>
                 </div>
-
+                <img id="img1" class="imgPreview">
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-4">
+            <div class="col-xs-12 col-sm-12 col-md-4 text-center">
                 <div class="form-group">
                     <strong>صورة2 :</strong>
-                    <input type="file" name="image2" class="form-control" placeholder="صورة"   accept="image/*">
+                    <input type="file" name="image2" class="form-control" placeholder="صورة"   accept="image/*" onchange="previewFile(this,'img2');">
                     <ul class="errors">
                         @foreach ($errors->get('image2') as $message)
                             <i>{{ $message }}</i>
                         @endforeach
                     </ul>
                 </div>
+                <img id="img2" class="imgPreview">
             </div>
 
 
-            <div class="col-xs-12 col-sm-12 col-md-4">
+            <div class="col-xs-12 col-sm-12 col-md-4 text-center">
                 <div class="form-group">
                     <strong>صورة3 :</strong>
-                    <input type="file" name="image3" class="form-control" placeholder="صورة"   accept="image/*">
+                    <input type="file" name="image3" class="form-control" placeholder="صورة"   accept="image/*" onchange="previewFile(this,'img3');">
                     <ul class="errors">
                         @foreach ($errors->get('image3') as $message)
                             <i>{{ $message }}</i>
                         @endforeach
                     </ul>
                 </div>
+                <img id="img3" class="imgPreview">
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">

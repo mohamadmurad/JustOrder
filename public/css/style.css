@@ -335,3 +335,7 @@ form#receivedForm input{
     display: none;
     width: 50%;
 }
+
+.imgPreview{
+    width: 150px;
+}
