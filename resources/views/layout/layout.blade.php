@@ -155,6 +155,7 @@
 
                 </div>
             </div>
+            @if(isset($notification))
             <ul class="nav nav-pills mr-auto justify-content-end">
                 <li class="nav-item dropdown">
                     <a class="nav-link " style="{{count($notification) >0? 'color: #fd0017;' : ''}}" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -211,6 +212,7 @@
                     </ul>
                 </li>
             </ul>
+            @endif
         </nav>
 
         <div class="container">
