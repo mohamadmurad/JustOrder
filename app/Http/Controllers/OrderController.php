@@ -242,7 +242,22 @@ class OrderController extends Controller
      */
     public function edit(order $order)
     {
-        //
+        $order->load(['colors','sizes']);
+
+        $years = Years::all();
+        $brands = brand::all()->sortBy('name');
+        $types = type::all()->sortBy('name');
+        $groups = group::all()->sortBy('name');
+        $subgroups = subgroup::all()->sortBy('name');
+        $seasons = season::all();
+        $suppliers = supplier::all()->sortBy('name');
+        $colors = color::all()->sortBy('name');
+        $sizes = size::all()->sortBy('name');
+        $fabricSources = FabricSource::all();
+        $fabrics = fabric::all()->sortBy('name');
+        return view('order.edit',compact([
+            'years','brands','types','groups','subgroups',
+            'seasons','suppliers','colors','sizes','fabricSources','fabrics','order']));
     }
 
     /**
@@ -254,7 +269,139 @@ class OrderController extends Controller
      */
     public function update(Request $request, order $order)
     {
-        //
+        $year = Years::findOrFail($request->get('year_id'));
+        $yearCode = Carbon::create($year->name)->format('y');
+
+        $season = season::findOrFail($request->get('season_id'));
+        $supplier = supplier::findOrFail($request->get('supplier_id'));
+        $subGroup = subgroup::findOrFail($request->get('subgroup_id'));
+        $group = group::findOrFail($request->get('group_id'));
+        $brand = brand::findOrFail($request->get('brand_id'));
+        $brandCode = substr($brand->name, 0, 1);
+        $type = type::findOrFail($request->get('type_id'));
+        $typeCode = substr($type->name, 0, 1); //////////
+
+        $sequenceNumber = 1;
+        $exitsNumberOfSubGroup = order::where('id','!=',$order->id)
+            ->where('subgroup_id','=',$subGroup->idNum)
+            ->where('brand_id','=',$brand->id)
+            ->where('year_id','=',$year->id)
+            ->where('season_id','=',$season->id)
+            ->where('type_id','=',$type->id)
+            ->where('group_id','=',$group->id)
+            ->orderBy('id','desc')->get();
+        //dd($exitsNumberOfSubGroup);
+
+        if ( count($exitsNumberOfSubGroup) == 0){
+            $sequenceNumber = 1 ;
+        }else{
+            $oldBarcode = $exitsNumberOfSubGroup->first()->barcode;
+            $lastNumber = intval(substr($oldBarcode, 7,3));
+            $sequenceNumber = $lastNumber+1;
+        }
+
+        $sequenceNumber = sprintf('%03u', $sequenceNumber);
+
+        $barCode = $yearCode . $season->id . $typeCode . $brandCode . $group->id .$subGroup->idNum . $sequenceNumber . $supplier->code;
+
+
+        $siresQty = $request->get('siresColorQty') *  $request->get('siresSizeQty');
+        $saved_files_for_roleBack = [];
+        DB::beginTransaction();
+        try {
+
+
+
+//            if ( $request->hasFile('image')){
+//                $image = $request->file('image');
+//                $saved_file = $this->upload($image, $barCode.'_1', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
+//                $saved_files_for_roleBack += [$saved_file->getFilename()];
+//
+//            }
+//
+//            if ( $request->hasFile('image2')){
+//                $image = $request->file('image2');
+//                $saved_file2 = $this->upload($image, $barCode.'_2', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
+//                $saved_files_for_roleBack += [$saved_file2->getFilename()];
+//            }
+//
+//            if ( $request->hasFile('image3')){
+//                $image = $request->file('image3');
+//                $saved_file3 = $this->upload($image, $barCode.'_3', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
+//                $saved_files_for_roleBack += [$saved_file3->getFilename()];
+//            }
+
+
+            $order->fill([
+
+                'barcode' => $barCode,
+                'modelName' => $request->get('modelName'),
+                'modelDesc'  => $request->get('modelDesc'),
+                'siresSizeQty' => $request->get('siresSizeQty'),
+                'siresColorQty' =>  $request->get('siresColorQty'),
+                'siresQty' => $siresQty,
+                'quantity' => 0,
+                'reservedQuantity' => $request->get('reservedQuantity'),
+                'receivedQty' =>0,
+                'fabricFormula' => $request->get('fabricFormula'),
+                //'siresNumber'  => $request->get('siresNumber'),
+                //'itemsNumber'  => $request->get('itemsNumber'),
+                'orderDate'  => Carbon::now()->format('Y-m-d'),
+                //'reservedDate'  => Carbon::create($request->get('reservedDate'))->format('Y-m-d'),
+                'fabricDate' => Carbon::create($request->get('fabricDate'))->format('Y-m-d'),
+                'done'  => 0,
+                'notes'  => $request->get('notes'),
+                //'image'  =>  $request->hasFile('image') ? $saved_file->getFilename() : null,
+                //'image2'  =>  $request->hasFile('image2') ? $saved_file2->getFilename() : null,
+                //'image3'  =>  $request->hasFile('image3') ? $saved_file3->getFilename() : null,
+
+
+                'brand_id' => $request->get('brand_id'),
+                'fabric_id'=> $request->get('fabric_id'),
+                'type_id' => $request->get('type_id'),
+                'group_id' => $request->get('group_id'),
+                'subgroup_id' => $subGroup->idNum,
+                'season_id' => $request->get('season_id'),
+                'year_id' => $request->get('year_id'),
+                'supplier_id' => $request->get('supplier_id'),
+                'fabric_source_id' => $request->get('fabricSource_id'),
+
+            ]);
+
+            $order->save();
+
+            if ($request->has('colors')){
+                $colors = $request->get('colors');
+                $order->colors()->sync($colors);
+                foreach ($colors as $color){
+                    //$newOrder->colors()->attach($color);
+                }
+            }
+
+            if ($request->has('sizes')){
+                $sizes = $request->get('sizes');
+                $order->sizes()->sync($sizes);
+                foreach ($sizes as $size){
+                  //  $newOrder->sizes()->attach($size);
+                }
+
+            }
+
+
+
+            DB::commit();
+
+            return redirect()->route('order.show',$order->id)
+                ->with('success','تم حفظ الطلب الجديد بنجاح');
+
+        }catch (Exception $e){
+            File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $saved_files_for_roleBack);
+            DB::rollBack();
+
+            return redirect()->route('order.index')
+                ->with('error','لم يتم حفظ الطلب');
+        }
+
     }
 
     /**

@@ -10,6 +10,7 @@
             </div>
             <div class="float-right">
                 <a class="btn btn-success" href="{{ route('order.index') }}"> رجوع</a>
+                <a class="btn btn-primary" href="{{ route('order.edit',$order->id) }}">تعديل</a>
             </div>
         </div>
 

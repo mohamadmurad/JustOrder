@@ -57,7 +57,7 @@
 
                         <a class="btn btn-info" href="{{ route('order.show',$order->id) }}">عرض</a>
 
-{{--                        <a class="btn btn-primary" href="{{ route('order.edit',$order->id) }}">تعديل</a>--}}
+                        <a class="btn btn-primary" href="{{ route('order.edit',$order->id) }}">تعديل</a>
 
                         @csrf
                         @method('DELETE')
