@@ -20,19 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="25-10-2020">
-      <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-25-190bb15001opa-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-25-190bb15002opa-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-25-200bb15001opa-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-25-200bb15001opa-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-25-200bb15001opa-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-25-201bf17001opa-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-25-201bf17001opa-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-25-201bf17001opa-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-25-201bh11001opa.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/order/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +242,8 @@
       <workItem from="1602917191782" duration="1394000" />
       <workItem from="1602920307313" duration="4109000" />
       <workItem from="1602933116939" duration="10000" />
-      <workItem from="1603622065839" duration="11240000" />
+      <workItem from="1603622065839" duration="12346000" />
+      <workItem from="1603694792865" duration="323000" />
     </task>
     <task id="LOCAL-00001" summary="12-10-2020">
       <created>1602499089562</created>
@@ -284,7 +273,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603631652459</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="25-10-2020">
+      <created>1603634921483</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1603634921483</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,10 +335,10 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="141" y="137" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1601208976453" />
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1602599112435">
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1603634926135">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1602599112435" />
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1603634926135" />
     <state x="323" y="212" key="run.anything.popup" timestamp="1601721853969">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
