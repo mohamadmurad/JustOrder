@@ -19,15 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="26-10-2020 with backup">
+    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="26-10-2020 fix print style">
       <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-26-190bb15001opa-1.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-26-190bb15011opa-1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/printStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/printStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/order/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/order/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,7 +245,7 @@
       <workItem from="1602920307313" duration="4109000" />
       <workItem from="1602933116939" duration="10000" />
       <workItem from="1603622065839" duration="12346000" />
-      <workItem from="1603694792865" duration="11582000" />
+      <workItem from="1603694792865" duration="11703000" />
     </task>
     <task id="LOCAL-00001" summary="12-10-2020">
       <created>1602499089562</created>
@@ -378,7 +373,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603705100776</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="26-10-2020 fix print style">
+      <created>1603711147812</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1603711147812</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,7 +406,8 @@
     <MESSAGE value="26-10-2020" />
     <MESSAGE value="26-10-2020 with edit order without image" />
     <MESSAGE value="26-10-2020 with backup" />
-    <option name="LAST_COMMIT_MESSAGE" value="26-10-2020 with backup" />
+    <MESSAGE value="26-10-2020 fix print style" />
+    <option name="LAST_COMMIT_MESSAGE" value="26-10-2020 fix print style" />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="37" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601542337194">
@@ -436,10 +439,10 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="141" y="137" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1601208976453" />
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1603705103057">
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1603711150034">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1603705103057" />
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1603711150034" />
     <state x="323" y="212" key="run.anything.popup" timestamp="1601721853969">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
