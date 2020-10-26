@@ -283,7 +283,7 @@ class OrderController extends Controller
 
         $sequenceNumber = 1;
         $exitsNumberOfSubGroup = order::where('id','!=',$order->id)
-            ->where('subgroup_id','=',$subGroup->idNum)
+            ->where('subgroup_id','=',$subGroup->id)
             ->where('brand_id','=',$brand->id)
             ->where('year_id','=',$year->id)
             ->where('season_id','=',$season->id)
@@ -360,7 +360,7 @@ class OrderController extends Controller
                 'fabric_id'=> $request->get('fabric_id'),
                 'type_id' => $request->get('type_id'),
                 'group_id' => $request->get('group_id'),
-                'subgroup_id' => $subGroup->idNum,
+                'subgroup_id' => $subGroup->id,
                 'season_id' => $request->get('season_id'),
                 'year_id' => $request->get('year_id'),
                 'supplier_id' => $request->get('supplier_id'),
