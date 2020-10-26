@@ -90,7 +90,7 @@ class OrderController extends Controller
         $typeCode = substr($type->name, 0, 1); //////////
 
         $sequenceNumber = 1;
-        $exitsNumberOfSubGroup = order::where('subgroup_id','=',$subGroup->idNum)
+        $exitsNumberOfSubGroup = order::where('subgroup_id','=',$subGroup->id)
             ->where('brand_id','=',$brand->id)
             ->where('year_id','=',$year->id)
             ->where('season_id','=',$season->id)
