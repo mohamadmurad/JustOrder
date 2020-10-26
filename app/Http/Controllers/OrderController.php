@@ -167,7 +167,7 @@ class OrderController extends Controller
                 'fabric_id'=> $request->get('fabric_id'),
                 'type_id' => $request->get('type_id'),
                 'group_id' => $request->get('group_id'),
-                'subgroup_id' => $subGroup->idNum,
+                'subgroup_id' => $subGroup->id,
                 'season_id' => $request->get('season_id'),
                 'year_id' => $request->get('year_id'),
                 'supplier_id' => $request->get('supplier_id'),

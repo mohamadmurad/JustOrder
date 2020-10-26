@@ -43,9 +43,9 @@
         </div>
 
         <div class="col-lg-12 margin-tb">
-            <div class="float-right">
-                <h2>العدد الكلي : {{ $order->siresQty }}</h2>
-            </div>
+{{--            <div class="float-right">--}}
+{{--                <h2>العدد الكلي : {{ $order->siresQty }}</h2>--}}
+{{--            </div>--}}
             <div class="float-left">
                 <h2> حالة الاستلام :
                     @if($order->done ===1)
@@ -166,6 +166,11 @@
         <tr>
             <td>عدد القياسات في السيري</td>
             <td>{{ $order->siresSizeQty }}</td>
+        </tr>
+
+        <tr>
+            <td>عدد السيريات</td>
+            <td>{{ $order->siresQty }}</td>
         </tr>
 
 
@@ -315,6 +320,10 @@
             <td>{{ $order->siresSizeQty }}</td>
         </tr>
 
+        <tr>
+            <td>عدد السيريات</td>
+            <td>{{ $order->siresQty }}</td>
+        </tr>
 
         <tr>
             <td>الكمية المطلوبة</td>
