@@ -159,7 +159,7 @@
 
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <div class="form-group">
-                    <strong style="color:red">مصدر القماش :</strong>
+                    <strong >مصدر القماش :</strong>
                     <select  class="form-control"  name="fabricSource_id">
                         @foreach($fabricSources as $fabricSource)
                             <option value="{{ $fabricSource->id }}" {{ ($order->fabricSource_id == $fabricSource->id ? "selected":"") }}>{{$fabricSource->name}}</option>
@@ -348,7 +348,7 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-4">
                             <div class="form-group">
-                                <strong>تاريخ الطلب :</strong>
+                                <strong style="color:red">تاريخ الطلب :</strong>
                                 <input type="date" name="orderDate" class="form-control" placeholder="تاريخ الطلب">
                                 <ul class="errors">
                                     @foreach ($errors->get('orderDate') as $message)
