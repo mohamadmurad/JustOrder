@@ -19,13 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="26-10-2020 add image preview on insert">
+    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="27-10-2020 add order date to input">
       <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-26-190bb15001opa-1.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-26-190bb15011opa-1.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/order/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/order/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/edit.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,7 +249,7 @@
       <workItem from="1603622065839" duration="12346000" />
       <workItem from="1603694792865" duration="12105000" />
       <workItem from="1603714347583" duration="793000" />
-      <workItem from="1603781126713" duration="588000" />
+      <workItem from="1603781126713" duration="1069000" />
     </task>
     <task id="LOCAL-00001" summary="12-10-2020">
       <created>1602499089562</created>
@@ -413,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603715066729</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="27-10-2020 add order date to input">
+      <created>1603781785090</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1603781785090</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -441,7 +447,8 @@
     <MESSAGE value="26-10-2020 with backup" />
     <MESSAGE value="26-10-2020 fix print style" />
     <MESSAGE value="26-10-2020 add image preview on insert" />
-    <option name="LAST_COMMIT_MESSAGE" value="26-10-2020 add image preview on insert" />
+    <MESSAGE value="27-10-2020 add order date to input" />
+    <option name="LAST_COMMIT_MESSAGE" value="27-10-2020 add order date to input" />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="37" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601542337194">
@@ -473,10 +480,10 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="141" y="137" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1601208976453" />
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1603715069965">
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1603781793241">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1603715069965" />
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1603781793241" />
     <state x="323" y="212" key="run.anything.popup" timestamp="1601721853969">
       <screen x="0" y="0" width="1440" height="860" />
     </state>

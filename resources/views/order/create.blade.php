@@ -360,7 +360,7 @@
                 <div class="form-group">
                     <strong>صورة1 :</strong>
 
-                    <input type="file" name="image" id="image1" class="form-control" placeholder="صورة"   accept="image/*" onchange="previewFile(this,'img1');">
+                    <input type="file" name="image" id="image1" class="form-control" placeholder="صورة"   accept="image/*" >
                     <ul class="errors">
                         @foreach ($errors->get('image') as $message)
                             <i>{{ $message }}</i>
@@ -373,7 +373,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4 text-center">
                 <div class="form-group">
                     <strong>صورة2 :</strong>
-                    <input type="file" name="image2" class="form-control" placeholder="صورة"   accept="image/*" onchange="previewFile(this,'img2');">
+                    <input type="file" name="image2" id="image2" class="form-control" placeholder="صورة"   accept="image/*" >
                     <ul class="errors">
                         @foreach ($errors->get('image2') as $message)
                             <i>{{ $message }}</i>
@@ -387,7 +387,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4 text-center">
                 <div class="form-group">
                     <strong>صورة3 :</strong>
-                    <input type="file" name="image3" class="form-control" placeholder="صورة"   accept="image/*" onchange="previewFile(this,'img3');">
+                    <input type="file" name="image3"  id="image3" class="form-control" placeholder="صورة"   accept="image/*" >
                     <ul class="errors">
                         @foreach ($errors->get('image3') as $message)
                             <i>{{ $message }}</i>

@@ -274,6 +274,35 @@
         });
 
 
+        $('#image1').on('change',function (){
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function(){
+                $("#img1").attr("src", reader.result);
+            }
+
+            reader.readAsDataURL(file);
+        });
+        $('#image2').on('change',function (){
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function(){
+                $("#img2").attr("src", reader.result);
+            }
+
+            reader.readAsDataURL(file);
+        });
+        $('#image3').on('change',function (){
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function(){
+                $("#img3").attr("src", reader.result);
+            }
+
+            reader.readAsDataURL(file);
+        });
+
+
     });
 
 
