@@ -54,7 +54,7 @@
                         لم يتم الاستلام
 
                 @else
-                    {{'تم استلام'. $order->receivedQty .' من اصل ' . $order->reservedQuantity}}
+                    {{'تم استلام'. $order->receivedQty .' من اصل ' . $order->quantity}}
 
                 @endif
 
@@ -75,7 +75,7 @@
                         @csrf
                         <input type="hidden" value="{{$order->id}}" name="order">
                         <input type="number" class="form-control col-md-6" name="receivedQty" style="min-width: auto;"
-                               min="1" max="{{($order->reservedQuantity - $order->receivedQty)}}"
+                               min="1" max="{{($order->quantity - $order->receivedQty)}}"
                                placeholder="الكمية المستلمة">
                         <button type="submit" class="btn btn-primary" id="recive">استلام</button>
                         @foreach ($errors->get('receivedQty') as $message)
@@ -170,12 +170,17 @@
 
         <tr>
             <td>عدد القطع في السيري </td>
-            <td>{{ $order->quantity }}</td>
+            <td>{{ $order->siresItemNumber }}</td>
         </tr>
 
         <tr>
             <td>عدد السيريات</td>
             <td>{{ $order->siresQty }}</td>
+        </tr>
+
+        <tr>
+            <td>الكمية</td>
+            <td>{{ $order->quantity }}</td>
         </tr>
 
 
@@ -308,6 +313,17 @@
             </tr>
 
 
+            <tr>
+                <td>الالوان</td>
+                <td>
+                    @foreach($order->colors as $color)
+                        {{ $color->name . ' | ' }}
+                    @endforeach
+
+                </td>
+            </tr>
+
+
         </table>
 
     </div>
@@ -326,12 +342,17 @@
 
         <tr>
             <td>عدد القطع في السيري </td>
-            <td>{{ $order->quantity }}</td>
+            <td>{{ $order->siresItemNumber }}</td>
         </tr>
 
         <tr>
             <td>عدد السيريات</td>
             <td>{{ $order->siresQty }}</td>
+        </tr>
+
+        <tr>
+            <td>الكمية</td>
+            <td>{{ $order->quantity }}</td>
         </tr>
 
         <tr>
@@ -391,15 +412,6 @@
         </tr>
 
 
-        <tr>
-            <td>الالوان</td>
-            <td>
-                @foreach($order->colors as $color)
-                    {{ $color->name . ' | ' }}
-                @endforeach
-
-            </td>
-        </tr>
 
 
     </table>

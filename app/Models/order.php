@@ -18,6 +18,7 @@ class order extends Model
         'siresSizeQty',
         'siresColorQty',
         'siresQty',///
+        'siresItemNumber',///
         'quantity',///
         'reservedQuantity',
         'receivedQty',
@@ -32,6 +33,7 @@ class order extends Model
         'image',
         'image2',
         'image3',
+        'user_id',
 
 
         'brand_id',
@@ -58,6 +60,10 @@ class order extends Model
         static::deleting(function ($order){
            File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/'). $order->image));
         });
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
     public function brand(){

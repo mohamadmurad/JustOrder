@@ -62,6 +62,10 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    public function orders(){
+        return $this->hasMany(order::class);
+    }
+
 
 
 }

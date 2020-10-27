@@ -244,12 +244,25 @@
                 </div>
             </div>
 
+{{--            <div class="col-xs-12 col-sm-12 col-md-4">--}}
+{{--                <div class="form-group">--}}
+{{--                    <strong>عدد القطع في السيري :</strong>--}}
+{{--                    <input type="number" name="quantity" min="1" class="form-control" placeholder="عدد القطع في السري" value="{{$order->quantity}}">--}}
+{{--                    <ul class="errors">--}}
+{{--                        @foreach ($errors->get('quantity') as $message)--}}
+{{--                            <i>{{ $message }}</i>--}}
+{{--                        @endforeach--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+
+
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
-                    <strong>عدد القطع في السيري :</strong>
-                    <input type="number" name="quantity" min="1" class="form-control" placeholder="عدد القطع في السري" value="{{$order->quantity}}">
+                    <strong>عدد السيريات :</strong>
+                    <input type="number" name="siresQty" class="form-control" placeholder="عدد السيريات" value="{{$order->siresQty}}">
                     <ul class="errors">
-                        @foreach ($errors->get('quantity') as $message)
+                        @foreach ($errors->get('siresQty') as $message)
                             <i>{{ $message }}</i>
                         @endforeach
                     </ul>

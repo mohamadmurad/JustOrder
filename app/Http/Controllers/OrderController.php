@@ -23,6 +23,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\View\View;
@@ -38,7 +39,14 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = order::paginate();
+
+        if(Auth::user()->isAdmin){
+            $orders = order::paginate();
+        }else{
+            $orders = Auth::user()->orders()->paginate();
+        }
+
+      //
 
 
       //  dd($today10);
@@ -112,8 +120,9 @@ class OrderController extends Controller
         $barCode = $yearCode . $season->id . $typeCode . $brandCode . $group->id .$subGroup->idNum . $sequenceNumber . $supplier->code;
 
 
-        $siresQty = $request->get('siresColorQty') *  $request->get('siresSizeQty') * $request->get('quantity');
-        $saved_files_for_roleBack = [];
+        $siresQty = $request->get('siresQty');
+        $siresItemNumber = $request->get('siresSizeQty') * $request->get('siresColorQty');
+        $quantity = $siresQty *  $siresItemNumber;$saved_files_for_roleBack = [];
         DB::beginTransaction();
         try {
 
@@ -147,7 +156,8 @@ class OrderController extends Controller
                 'siresSizeQty' => $request->get('siresSizeQty'),
                 'siresColorQty' =>  $request->get('siresColorQty'),
                 'siresQty' => $siresQty,
-                'quantity' => $request->get('quantity'),
+                'siresItemNumber' => $siresItemNumber,
+                'quantity' =>  $quantity,
                 'reservedQuantity' => $request->get('reservedQuantity'),
                 'receivedQty' =>0,
                 'fabricFormula' => $request->get('fabricFormula'),
@@ -173,6 +183,7 @@ class OrderController extends Controller
                 'year_id' => $request->get('year_id'),
                 'supplier_id' => $request->get('supplier_id'),
                 'fabric_source_id' => $request->get('fabricSource_id'),
+                'user_id' => Auth::id(),
 
             ]);
 
@@ -306,7 +317,9 @@ class OrderController extends Controller
         $barCode = $yearCode . $season->id . $typeCode . $brandCode . $group->id .$subGroup->idNum . $sequenceNumber . $supplier->code;
 
 
-        $siresQty = $request->get('siresColorQty') *  $request->get('siresSizeQty') * $request->get('quantity');
+        $siresQty = $request->get('siresQty');
+        $siresItemNumber = $request->get('siresSizeQty') * $request->get('siresColorQty');
+        $quantity = $siresQty *  $siresItemNumber;
         $saved_files_for_roleBack = [];
         DB::beginTransaction();
         try {
@@ -341,7 +354,8 @@ class OrderController extends Controller
                 'siresSizeQty' => $request->get('siresSizeQty'),
                 'siresColorQty' =>  $request->get('siresColorQty'),
                 'siresQty' => $siresQty,
-                'quantity' =>  $request->get('quantity'),
+                'siresItemNumber' => $siresItemNumber,
+                'quantity' =>  $quantity,
                 'reservedQuantity' => $request->get('reservedQuantity'),
                 'receivedQty' =>0,
                 'fabricFormula' => $request->get('fabricFormula'),
@@ -428,7 +442,7 @@ class OrderController extends Controller
         }
         $barcode = $request->get('barcode');
 
-        $order = order::where('barcode','=',$barcode)->with([
+        $order = Auth::user()->orders()->where('barcode','=',$barcode)->with([
             'brand',
             'fabric',
             'type',
@@ -439,6 +453,8 @@ class OrderController extends Controller
             'supplier',
             'fabricSource',
         ])->first();
+
+
 
         if (!$order){
             return redirect()->route('order.index')
@@ -457,7 +473,7 @@ class OrderController extends Controller
 
     public function report(Request $request){
 
-            $orders = order::FilterData($request)->paginate();
+            $orders = Auth::user()->orders()->FilterData($request)->paginate();
             $report = true;
         $years = Years::all();
         $brands = brand::all()->sortBy('name');
@@ -485,13 +501,13 @@ class OrderController extends Controller
         ->where('done','=',0)->first();
 
         $receivedQty = $request->get('receivedQty');
-        if ($receivedQty < $order->reservedQuantity){
+        if ($receivedQty < $order->quantity){
             $order->fill([
                 'done' => 0,
                 'receivedQty' => $receivedQty,
                 'reservedDate' => Carbon::now()->format('Y-m-d'),
             ]);
-        }elseif($receivedQty == $order->reservedQuantity){
+        }elseif($receivedQty == $order->quantity){
             $order->fill([
                 'done' => 1,
                 'receivedQty' => $receivedQty,
