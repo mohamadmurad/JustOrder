@@ -346,17 +346,17 @@
             {{--            </div>--}}
 
 
-            {{--            <div class="col-xs-12 col-sm-12 col-md-4">--}}
-            {{--                <div class="form-group">--}}
-            {{--                    <strong>تاريخ الطلب :</strong>--}}
-            {{--                    <input type="date" name="orderDate" class="form-control" placeholder="تاريخ الطلب">--}}
-            {{--                    <ul class="errors">--}}
-            {{--                        @foreach ($errors->get('orderDate') as $message)--}}
-            {{--                            <i>{{ $message }}</i>--}}
-            {{--                        @endforeach--}}
-            {{--                    </ul>--}}
-            {{--                </div>--}}
-            {{--            </div>--}}
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <div class="form-group">
+                                <strong>تاريخ الطلب :</strong>
+                                <input type="date" name="orderDate" class="form-control" placeholder="تاريخ الطلب">
+                                <ul class="errors">
+                                    @foreach ($errors->get('orderDate') as $message)
+                                        <i>{{ $message }}</i>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
 
 
             <div class="col-xs-12 col-sm-12 col-md-4">
@@ -461,23 +461,6 @@
 
             </div>
 
-            {{--            <div class="col-xs-12 col-sm-12 col-md-12">--}}
-            {{--                <div class="inline field">--}}
-            {{--                    <strong>القياسات :</strong>--}}
-            {{--                    <select name="sizes[]" multiple="" class="form-control">--}}
-            {{--                        @foreach($sizes as $size)--}}
-            {{--                            <option value="{{ $size->id }}">{{$size->name}}</option>--}}
-
-            {{--                        @endforeach--}}
-            {{--                    </select>--}}
-
-            {{--                    <ul class="errors">--}}
-            {{--                        @foreach ($errors->get('sizes') as $message)--}}
-            {{--                            <i>{{ $message }}</i>--}}
-            {{--                        @endforeach--}}
-            {{--                    </ul>--}}
-            {{--                </div>--}}
-            {{--            </div>--}}
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <strong>الالوان :</strong><br>
@@ -502,27 +485,6 @@
                 @endforeach
 
             </div>
-
-
-            {{--            <div class="col-xs-12 col-sm-12 col-md-12">--}}
-            {{--                <div class="inline field">--}}
-            {{--                    <strong>الالوان :</strong>--}}
-            {{--                    <select name="colors[]" multiple="" class="form-control">--}}
-            {{--                        @foreach($colors as $color)--}}
-            {{--                            <option value="{{ $color->id }}">{{$color->name}}</option>--}}
-
-            {{--                        @endforeach--}}
-
-
-            {{--                    </select>--}}
-
-            {{--                    <ul class="errors">--}}
-            {{--                        @foreach ($errors->get('colors') as $message)--}}
-            {{--                            <i>{{ $message }}</i>--}}
-            {{--                        @endforeach--}}
-            {{--                    </ul>--}}
-            {{--                </div>--}}
-            {{--            </div>--}}
 
 
 

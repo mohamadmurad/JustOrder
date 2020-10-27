@@ -331,17 +331,17 @@
 {{--            </div>--}}
 
 
-{{--            <div class="col-xs-12 col-sm-12 col-md-4">--}}
-{{--                <div class="form-group">--}}
-{{--                    <strong>تاريخ الطلب :</strong>--}}
-{{--                    <input type="date" name="orderDate" class="form-control" placeholder="تاريخ الطلب">--}}
-{{--                    <ul class="errors">--}}
-{{--                        @foreach ($errors->get('orderDate') as $message)--}}
-{{--                            <i>{{ $message }}</i>--}}
-{{--                        @endforeach--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+            <div class="col-xs-12 col-sm-12 col-md-4">
+                <div class="form-group">
+                    <strong>تاريخ الطلب :</strong>
+                    <input type="date" name="orderDate" class="form-control" placeholder="تاريخ الطلب">
+                    <ul class="errors">
+                        @foreach ($errors->get('orderDate') as $message)
+                            <i>{{ $message }}</i>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
 
 
             <div class="col-xs-12 col-sm-12 col-md-4">

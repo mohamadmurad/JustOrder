@@ -79,7 +79,7 @@ class OrderController extends Controller
     {
         $year = Years::findOrFail($request->get('year_id'));
         $yearCode = Carbon::create($year->name)->format('y');
-
+        $orderDate = $request->get('orderDate');
         $season = season::findOrFail($request->get('season_id'));
         $supplier = supplier::findOrFail($request->get('supplier_id'));
         $subGroup = subgroup::findOrFail($request->get('subgroup_id'));
@@ -88,7 +88,7 @@ class OrderController extends Controller
         $brandCode = substr($brand->name, 0, 1);
         $type = type::findOrFail($request->get('type_id'));
         $typeCode = substr($type->name, 0, 1); //////////
-
+        $fabricDate = $request->get('fabricDate');
         $sequenceNumber = 1;
         $exitsNumberOfSubGroup = order::where('subgroup_id','=',$subGroup->id)
             ->where('brand_id','=',$brand->id)
@@ -153,9 +153,10 @@ class OrderController extends Controller
                 'fabricFormula' => $request->get('fabricFormula'),
                 //'siresNumber'  => $request->get('siresNumber'),
                 //'itemsNumber'  => $request->get('itemsNumber'),
-                'orderDate'  => Carbon::now()->format('Y-m-d'),
+                //'orderDate'  => Carbon::now()->format('Y-m-d'),//////
+                'orderDate'  => $orderDate != null ? Carbon::create($orderDate)->format('Y-m-d') : Carbon::now()->format('Y-m-d'),
                 //'reservedDate'  => Carbon::create($request->get('reservedDate'))->format('Y-m-d'),
-                'fabricDate' => Carbon::create($request->get('fabricDate'))->format('Y-m-d'),
+                'fabricDate' => $fabricDate != null ? Carbon::create($request->get('fabricDate'))->format('Y-m-d') : Carbon::now()->format('Y-m-d'),
                 'done'  => 0,
                 'notes'  => $request->get('notes'),
                 'image'  =>  $request->hasFile('image') ? $saved_file->getFilename() : null,
@@ -271,7 +272,7 @@ class OrderController extends Controller
     {
         $year = Years::findOrFail($request->get('year_id'));
         $yearCode = Carbon::create($year->name)->format('y');
-
+        $orderDate = $request->get('orderDate');
         $season = season::findOrFail($request->get('season_id'));
         $supplier = supplier::findOrFail($request->get('supplier_id'));
         $subGroup = subgroup::findOrFail($request->get('subgroup_id'));
@@ -280,7 +281,7 @@ class OrderController extends Controller
         $brandCode = substr($brand->name, 0, 1);
         $type = type::findOrFail($request->get('type_id'));
         $typeCode = substr($type->name, 0, 1); //////////
-
+        $fabricDate = $request->get('fabricDate');
         $sequenceNumber = 1;
         $exitsNumberOfSubGroup = order::where('id','!=',$order->id)
             ->where('subgroup_id','=',$subGroup->id)
@@ -346,9 +347,10 @@ class OrderController extends Controller
                 'fabricFormula' => $request->get('fabricFormula'),
                 //'siresNumber'  => $request->get('siresNumber'),
                 //'itemsNumber'  => $request->get('itemsNumber'),
-                'orderDate'  => Carbon::now()->format('Y-m-d'),
+                //'orderDate'  => Carbon::now()->format('Y-m-d'),
+                'orderDate'  => $orderDate != null ? Carbon::create($orderDate)->format('Y-m-d') : $order->orderDate,
                 //'reservedDate'  => Carbon::create($request->get('reservedDate'))->format('Y-m-d'),
-                'fabricDate' => Carbon::create($request->get('fabricDate'))->format('Y-m-d'),
+                'fabricDate' => $fabricDate != null ? Carbon::create($request->get('fabricDate'))->format('Y-m-d') : $order->fabricDate,
                 'done'  => 0,
                 'notes'  => $request->get('notes'),
                 //'image'  =>  $request->hasFile('image') ? $saved_file->getFilename() : null,
