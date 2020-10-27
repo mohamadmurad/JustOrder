@@ -44,6 +44,10 @@
         <tr>
             <th>No</th>
             <th>Barcode</th>
+            @if(\Illuminate\Support\Facades\Auth::user()->isAdmin)
+                <th>user</th>
+            @endif
+
             <th width="280px">خيارات</th>
         </tr>
         <?php $i = 0?>
@@ -51,6 +55,10 @@
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $order->barcode }}</td>
+                @if(\Illuminate\Support\Facades\Auth::user()->isAdmin)
+                    <td>{{ $order->user->name }}</td>
+                @endif
+
 
                 <td>
                     <form action="{{ route('order.destroy',$order->id) }}" method="POST" style="display: inline;">

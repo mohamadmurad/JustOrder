@@ -41,9 +41,12 @@ class OrderController extends Controller
     {
 
         if(Auth::user()->isAdmin){
-            $orders = order::paginate();
+
+            $orders = order::with('user')->paginate();
+
         }else{
             $orders = Auth::user()->orders()->paginate();
+
         }
 
       //
