@@ -112,7 +112,7 @@ class OrderController extends Controller
         $barCode = $yearCode . $season->id . $typeCode . $brandCode . $group->id .$subGroup->idNum . $sequenceNumber . $supplier->code;
 
 
-        $siresQty = $request->get('siresColorQty') *  $request->get('siresSizeQty');
+        $siresQty = $request->get('siresColorQty') *  $request->get('siresSizeQty') * $request->get('quantity');
         $saved_files_for_roleBack = [];
         DB::beginTransaction();
         try {
@@ -147,7 +147,7 @@ class OrderController extends Controller
                 'siresSizeQty' => $request->get('siresSizeQty'),
                 'siresColorQty' =>  $request->get('siresColorQty'),
                 'siresQty' => $siresQty,
-                'quantity' => 0,
+                'quantity' => $request->get('quantity'),
                 'reservedQuantity' => $request->get('reservedQuantity'),
                 'receivedQty' =>0,
                 'fabricFormula' => $request->get('fabricFormula'),
@@ -306,7 +306,7 @@ class OrderController extends Controller
         $barCode = $yearCode . $season->id . $typeCode . $brandCode . $group->id .$subGroup->idNum . $sequenceNumber . $supplier->code;
 
 
-        $siresQty = $request->get('siresColorQty') *  $request->get('siresSizeQty');
+        $siresQty = $request->get('siresColorQty') *  $request->get('siresSizeQty') * $request->get('quantity');
         $saved_files_for_roleBack = [];
         DB::beginTransaction();
         try {
@@ -341,7 +341,7 @@ class OrderController extends Controller
                 'siresSizeQty' => $request->get('siresSizeQty'),
                 'siresColorQty' =>  $request->get('siresColorQty'),
                 'siresQty' => $siresQty,
-                'quantity' => 0,
+                'quantity' =>  $request->get('quantity'),
                 'reservedQuantity' => $request->get('reservedQuantity'),
                 'receivedQty' =>0,
                 'fabricFormula' => $request->get('fabricFormula'),

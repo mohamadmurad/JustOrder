@@ -169,9 +169,16 @@
         </tr>
 
         <tr>
+            <td>عدد القطع في السيري </td>
+            <td>{{ $order->quantity }}</td>
+        </tr>
+
+        <tr>
             <td>عدد السيريات</td>
             <td>{{ $order->siresQty }}</td>
         </tr>
+
+
 
 
         <tr>
@@ -198,16 +205,13 @@
         </tr>
 
 
-                <tr>
-                    <td>رقم السيري </td>
-                    <td>{{ $order->siresNumber }}</td>
-                </tr>
 
 
-                <tr>
-                    <td>رقم العنصر </td>
-                    <td>{{ $order->itemsNumber }}</td>
-                </tr>
+
+{{--                <tr>--}}
+{{--                    <td>رقم العنصر </td>--}}
+{{--                    <td>{{ $order->itemsNumber }}</td>--}}
+{{--                </tr>--}}
 
 
         <tr>
@@ -318,6 +322,11 @@
         <tr>
             <td>عدد القياسات في السيري</td>
             <td>{{ $order->siresSizeQty }}</td>
+        </tr>
+
+        <tr>
+            <td>عدد القطع في السيري </td>
+            <td>{{ $order->quantity }}</td>
         </tr>
 
         <tr>
