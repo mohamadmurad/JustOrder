@@ -19,14 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="27-10-2020 add user to show in table">
-      <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-26-190bb15001opa-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/files/Orders/2020-10-26-190bb15011opa-1.jpg" afterDir="false" />
+    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="28-10-2020 fix edit note">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/order/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/order/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/order/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +248,7 @@
       <workItem from="1603694792865" duration="12105000" />
       <workItem from="1603714347583" duration="793000" />
       <workItem from="1603781126713" duration="10587000" />
-      <workItem from="1603887538368" duration="1064000" />
+      <workItem from="1603887538368" duration="2768000" />
     </task>
     <task id="LOCAL-00001" summary="12-10-2020">
       <created>1602499089562</created>
@@ -464,7 +460,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603805498072</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="28-10-2020 fix edit note">
+      <created>1603889225468</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1603889225468</updated>
+    </task>
+    <task id="LOCAL-00032" summary="28-10-2020 fix edit note">
+      <created>1603889410651</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1603889410651</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -497,7 +507,8 @@
     <MESSAGE value="27-10-2020 fix seri number" />
     <MESSAGE value="27-10-2020 add user seg and fix qty" />
     <MESSAGE value="27-10-2020 add user to show in table" />
-    <option name="LAST_COMMIT_MESSAGE" value="27-10-2020 add user to show in table" />
+    <MESSAGE value="28-10-2020 fix edit note" />
+    <option name="LAST_COMMIT_MESSAGE" value="28-10-2020 fix edit note" />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="37" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601542337194">
@@ -529,10 +540,10 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="141" y="137" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1601208976453" />
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1603805501228">
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1603889413235">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1603805501228" />
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1603889413235" />
     <state x="323" y="212" key="run.anything.popup" timestamp="1601721853969">
       <screen x="0" y="0" width="1440" height="860" />
     </state>

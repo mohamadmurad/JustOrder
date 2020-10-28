@@ -297,27 +297,38 @@ class OrderController extends Controller
         $typeCode = substr($type->name, 0, 1); //////////
         $fabricDate = $request->get('fabricDate');
         $sequenceNumber = 1;
-        $exitsNumberOfSubGroup = order::where('id','!=',$order->id)
-            ->where('subgroup_id','=',$subGroup->id)
-            ->where('brand_id','=',$brand->id)
-            ->where('year_id','=',$year->id)
-            ->where('season_id','=',$season->id)
-            ->where('type_id','=',$type->id)
-            ->where('group_id','=',$group->id)
-            ->orderBy('id','desc')->get();
-        //dd($exitsNumberOfSubGroup);
+        $order->fill([
+            'brand_id' => $request->get('brand_id'),
+            'type_id' => $request->get('type_id'),
+            'group_id' => $request->get('group_id'),
+            'subgroup_id' => $subGroup->id,
+            'season_id' => $request->get('season_id'),
+            'year_id' => $request->get('year_id'),
+        ]);
+        $barCode = null;
 
-        if ( count($exitsNumberOfSubGroup) == 0){
-            $sequenceNumber = 1 ;
-        }else{
-            $oldBarcode = $exitsNumberOfSubGroup->first()->barcode;
-            $lastNumber = intval(substr($oldBarcode, 7,3));
-            $sequenceNumber = $lastNumber+1;
+        if (!$order->isClean()){
+            $exitsNumberOfSubGroup = order::where('id','!=',$order->id)
+                ->where('subgroup_id','=',$subGroup->id)
+                ->where('brand_id','=',$brand->id)
+                ->where('year_id','=',$year->id)
+                ->where('season_id','=',$season->id)
+                ->where('type_id','=',$type->id)
+                ->where('group_id','=',$group->id)
+                ->orderBy('id','desc')->get();
+          // dd($exitsNumberOfSubGroup);
+            if ( count($exitsNumberOfSubGroup) == 0){
+                $sequenceNumber = 1 ;
+            }else{
+                $oldBarcode = $exitsNumberOfSubGroup->first()->barcode;
+                $lastNumber = intval(substr($oldBarcode, 7,3));
+                $sequenceNumber = $lastNumber+1;
+            }
+            $sequenceNumber = sprintf('%03u', $sequenceNumber);
+
+            $barCode = $yearCode . $season->id . $typeCode . $brandCode . $group->id .$subGroup->idNum . $sequenceNumber . $supplier->code;
+
         }
-
-        $sequenceNumber = sprintf('%03u', $sequenceNumber);
-
-        $barCode = $yearCode . $season->id . $typeCode . $brandCode . $group->id .$subGroup->idNum . $sequenceNumber . $supplier->code;
 
 
         $siresQty = $request->get('siresQty');
@@ -351,7 +362,7 @@ class OrderController extends Controller
 
             $order->fill([
 
-                'barcode' => $barCode,
+                'barcode' => $barCode ? $barCode : $order->barcode,
                 'modelName' => $request->get('modelName'),
                 'modelDesc'  => $request->get('modelDesc'),
                 'siresSizeQty' => $request->get('siresSizeQty'),
@@ -375,13 +386,8 @@ class OrderController extends Controller
                 //'image3'  =>  $request->hasFile('image3') ? $saved_file3->getFilename() : null,
 
 
-                'brand_id' => $request->get('brand_id'),
+
                 'fabric_id'=> $request->get('fabric_id'),
-                'type_id' => $request->get('type_id'),
-                'group_id' => $request->get('group_id'),
-                'subgroup_id' => $subGroup->id,
-                'season_id' => $request->get('season_id'),
-                'year_id' => $request->get('year_id'),
                 'supplier_id' => $request->get('supplier_id'),
                 'fabric_source_id' => $request->get('fabricSource_id'),
 

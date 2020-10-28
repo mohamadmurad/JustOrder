@@ -362,7 +362,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-4">
                             <div class="form-group">
                                 <strong style="color:red">تاريخ الطلب :</strong>
-                                <input type="date" name="orderDate" class="form-control" placeholder="تاريخ الطلب">
+                                <input type="date" name="orderDate" class="form-control" placeholder="تاريخ الطلب" value="{{\Carbon\Carbon::create($order->orderDate)->format('Y-m-d')}}">
                                 <ul class="errors">
                                     @foreach ($errors->get('orderDate') as $message)
                                         <i>{{ $message }}</i>
@@ -375,7 +375,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>تاريخ تسليم القماش :</strong>
-                    <input type="date" name="fabricDate" class="form-control" placeholder="تاريخ تسليم القماش">
+                    <input type="date" name="fabricDate" class="form-control" placeholder="تاريخ تسليم القماش" value="{{\Carbon\Carbon::create($order->fabricDate)->format('Y-m-d')}}">
                     <ul class="errors">
                         @foreach ($errors->get('fabricDate') as $message)
                             <i>{{ $message }}</i>
