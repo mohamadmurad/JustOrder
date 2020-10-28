@@ -26,7 +26,7 @@
 
 
 
-    <form action="{{ route('order.update',$order->id) }}" method="POST">
+    <form action="{{ route('order.update',$order->id) }}" id="orderForm" method="POST">
 
         @csrf
 
@@ -271,17 +271,17 @@
 
 
 
-            <div class="col-xs-12 col-sm-12 col-md-4">
-                <div class="form-group">
-                    <strong>الكمية المطلوبة :</strong>
-                    <input type="number" min="1" name="reservedQuantity" class="form-control" placeholder="الكمية المطلوبة " value="{{$order->reservedQuantity}}">
-                    <ul class="errors">
-                        @foreach ($errors->get('reservedQuantity') as $message)
-                            <i>{{ $message }}</i>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
+{{--            <div class="col-xs-12 col-sm-12 col-md-4">--}}
+{{--                <div class="form-group">--}}
+{{--                    <strong>الكمية المطلوبة :</strong>--}}
+{{--                    <input type="number" min="1" name="reservedQuantity" class="form-control" placeholder="الكمية المطلوبة " value="{{$order->reservedQuantity}}">--}}
+{{--                    <ul class="errors">--}}
+{{--                        @foreach ($errors->get('reservedQuantity') as $message)--}}
+{{--                            <i>{{ $message }}</i>--}}
+{{--                        @endforeach--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
             {{--            <div class="col-xs-12 col-sm-12 col-md-4">--}}
             {{--                <div class="form-group">--}}

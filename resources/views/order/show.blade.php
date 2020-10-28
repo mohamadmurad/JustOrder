@@ -186,10 +186,10 @@
 
 
 
-        <tr>
-            <td>الكمية المطلوبة</td>
-            <td>{{ $order->reservedQuantity }}</td>
-        </tr>
+{{--        <tr>--}}
+{{--            <td>الكمية المطلوبة</td>--}}
+{{--            <td>{{ $order->reservedQuantity }}</td>--}}
+{{--        </tr>--}}
 
 
         <tr>
@@ -355,10 +355,10 @@
             <td>{{ $order->quantity }}</td>
         </tr>
 
-        <tr>
-            <td>الكمية المطلوبة</td>
-            <td>{{ $order->reservedQuantity }}</td>
-        </tr>
+{{--        <tr>--}}
+{{--            <td>الكمية المطلوبة</td>--}}
+{{--            <td>{{ $order->reservedQuantity }}</td>--}}
+{{--        </tr>--}}
 
 
         <tr>
