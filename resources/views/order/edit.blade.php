@@ -362,7 +362,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-4">
                             <div class="form-group">
                                 <strong style="color:red">تاريخ الطلب :</strong>
-                                <input type="date" name="orderDate" class="form-control" placeholder="تاريخ الطلب" value="{{\Carbon\Carbon::create($order->orderDate)->format('Y-m-d')}}">
+                                <input type="date" name="orderDate" class="form-control" placeholder="تاريخ الطلب" value="{{$order->orderDate->format('Y-m-d')}}">
                                 <ul class="errors">
                                     @foreach ($errors->get('orderDate') as $message)
                                         <i>{{ $message }}</i>
