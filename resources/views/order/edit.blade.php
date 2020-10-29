@@ -90,7 +90,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>المجموعة:</strong>
-                    <select  class="form-control"  name="group_id">
+                    <select  class="form-control"  name="group_id" id="group">
                         @foreach($groups as $group)
                             <option value="{{ $group->id }}" {{ ($order->group_id == $group->id ? "selected":"") }}>{{$group->name}}</option>
                         @endforeach
@@ -108,7 +108,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>المجموعة الفرعية:</strong>
-                    <select  class="form-control"  name="subgroup_id">
+                    <select  class="form-control"  name="subgroup_id" id="subgroup">
                         @foreach($subgroups as $subgroup)
                             <option value="{{ $subgroup->id }}" {{ ($order->subgroup_id == $subgroup->id ? "selected":"") }}>{{$subgroup->name}}</option>
                         @endforeach

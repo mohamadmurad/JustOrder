@@ -7,8 +7,8 @@
     <title>{{ config('app.name', 'JustOrder') }}</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ URL::asset('css/style.css?v=0.0000002') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/printStyle.css?v=0.0000002') }}" media="print">
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css?v=0.0000003') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/printStyle.css?v=0.0000003') }}" media="print">
     <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
@@ -20,7 +20,7 @@
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 
 </head>
-<body dir="rtl">
+<body dir="rtl" >
 <div class="wrapper">
     <!-- Sidebar  -->
     <nav id="sidebar" class="active">
@@ -225,10 +225,14 @@
 </div>
 
 
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
+
+
 <!-- jQuery CDN - Slim version (=without AJAX) -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+       ></script>
 <!-- Popper.JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
         integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
@@ -240,7 +244,9 @@
 <script>
 
     $(document).ready(function () {
-
+        jQuery("#status").fadeOut();
+        jQuery("#preloader").delay(350).fadeOut("slow");
+        jQuery("body").delay(350).css({ overflow: "visible" });
 
 
     $('#sidebarCollapse').on('click', function () {
@@ -303,6 +309,41 @@
         });
 
 
+        $('#group').on('change',function(){
+            var selectedCountry = $(this).children("option:selected").val();
+
+            jQuery("#status").fadeIn();
+            jQuery("#preloader").delay(350).fadeIn("slow");
+            jQuery("body").delay(350).css({ overflow: "visible" });
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:8000/api/getSubGroup/" + selectedCountry,
+                success: function (data) {
+
+                    console.log(data.data);
+                    var data = data.data;
+                    $('#subgroup').html('');
+                    if (selectedCountry == 0){
+                        $('#subgroup').append(new Option('الكل', 0))
+                    }
+                    for(var i =0 ; i< data.length; i++){
+                        console.log(data[i].name);
+
+                        $('#subgroup').append(new Option(data[i].name, data[i].id))
+                    }
+                    jQuery("#status").fadeOut();
+                    jQuery("#preloader").fadeOut("slow");
+
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+
+
+        });
+
+
     });
 
 
@@ -320,6 +361,9 @@
 
 
     }
+
+
+
 
 
 

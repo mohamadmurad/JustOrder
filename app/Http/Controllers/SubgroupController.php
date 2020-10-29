@@ -139,4 +139,16 @@ class SubgroupController extends Controller
         return redirect()->route('subgroup.index')
             ->with('success','Group deleted successfully');
     }
+
+
+    public function getByGroup($groupID){
+        if($groupID == 0 ){
+            $subGroups = subgroup::all()->sortBy('name');
+        }else{
+            $subGroups = subgroup::where('group_id','=',$groupID)->get()->sortBy('name');
+        }
+
+        return \App\Http\Resources\subgroup::collection($subGroups);
+
+    }
 }

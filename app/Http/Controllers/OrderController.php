@@ -68,7 +68,8 @@ class OrderController extends Controller
         $brands = brand::all()->sortBy('name');
         $types = type::all()->sortBy('name');
         $groups = group::all()->sortBy('name');
-        $subgroups = subgroup::all()->sortBy('name');
+
+        $subgroups = subgroup::where('group_id','=',$groups->first()->id)->get()->sortBy('name');
         $seasons = season::all();
         $suppliers = supplier::all()->sortBy('name');
         $colors = color::all()->sortBy('name');
@@ -263,7 +264,7 @@ class OrderController extends Controller
         $brands = brand::all()->sortBy('name');
         $types = type::all()->sortBy('name');
         $groups = group::all()->sortBy('name');
-        $subgroups = subgroup::all()->sortBy('name');
+        $subgroups = subgroup::where('group_id','=',$order->group_id)->get()->sortBy('name');
         $seasons = season::all();
         $suppliers = supplier::all()->sortBy('name');
         $colors = color::all()->sortBy('name');

@@ -226,7 +226,7 @@
 
         <tr>
             <td>ملاحظات</td>
-            <td>{{ $order->notes }}</td>
+            <td>{!! nl2br(e($order->notes)) !!}</td>
         </tr>
 
 
@@ -398,7 +398,7 @@
 
         <tr>
             <td>ملاحظات</td>
-            <td>{{ $order->notes }}</td>
+            <td>{!! nl2br(e($order->notes)) !!}</td>
         </tr>
 
 
