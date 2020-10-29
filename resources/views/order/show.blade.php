@@ -221,13 +221,13 @@
 
         <tr>
             <td>تاريخ تسليم القماش</td>
-            <td>{{ $order->fabricDate }}</td>
+            <td>{{  \Carbon\Carbon::create($order->fabricDate)->format('Y-m-d') }}</td>
         </tr>
 
-        <tr>
-            <td>ملاحظات</td>
-            <td>{!! nl2br(e($order->notes)) !!}</td>
-        </tr>
+{{--        <tr>--}}
+{{--            <td>ملاحظات</td>--}}
+{{--            <td>{!! nl2br(str_replace(" ", " &nbsp;",$order->notes)) !!}</td>--}}
+{{--        </tr>--}}
 
 
         <tr>
@@ -393,12 +393,7 @@
 
         <tr>
             <td>تاريخ تسليم القماش</td>
-            <td>{{ $order->fabricDate }}</td>
-        </tr>
-
-        <tr>
-            <td>ملاحظات</td>
-            <td>{!! nl2br(e($order->notes)) !!}</td>
+            <td>{{ \Carbon\Carbon::create($order->fabricDate)->format('Y-m-d') }}</td>
         </tr>
 
 
@@ -415,6 +410,12 @@
 
 
     </table>
+
+    </div>
+
+    <div class="col-lg-12 float-right text-right border-t note_div" >
+        <h4>ملاحظات</h4>
+        <p>{!! nl2br(str_replace(" ", " &nbsp;",$order->notes)) !!}</p>
     </div>
 
 @endsection

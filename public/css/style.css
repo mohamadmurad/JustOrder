@@ -380,3 +380,15 @@ form#receivedForm input{
     -o-animation: spin 0.9s linear infinite;
     animation: spin 0.9s linear infinite;
 }
+
+
+.note_div{
+    border: 1px solid #dee2e6;
+    padding: 10px;
+
+}
+.note_div h4{
+
+    border-bottom: 1px solid #dee2e6;
+
+}
