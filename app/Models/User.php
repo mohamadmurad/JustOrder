@@ -30,6 +30,7 @@ class User extends Authenticatable
         'username',
         'password',
         'isAdmin',
+        'departments_id',
     ];
 
     /**
@@ -66,6 +67,8 @@ class User extends Authenticatable
         return $this->hasMany(order::class);
     }
 
-
+    public function department(){
+        return $this->belongsTo(departments::class,'departments_id','id');
+    }
 
 }

@@ -103,6 +103,10 @@
                             </li>
 
                             <li>
+                                <a href="{{ route('departments.index') }}">الاقسام</a>
+                            </li>
+
+                            <li>
                                 <a href="{{ route('users.index') }}">المستخدمين</a>
                             </li>
 

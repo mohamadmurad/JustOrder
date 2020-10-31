@@ -86,6 +86,25 @@
             </div>
 
 
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>القسم:</strong>
+                    <select  class="form-control"  name="departments_id">
+
+                        @foreach($departments as $department)
+                            <option value="{{ $department->id }}">{{$department->name}}</option>
+                        @endforeach
+                    </select>
+                    <ul class="errors">
+                        @foreach ($errors->get('departments_id') as $message)
+                            <i>{{ $message }}</i>
+                        @endforeach
+                    </ul>
+
+                </div>
+            </div>
+
+
 
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

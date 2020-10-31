@@ -76,4 +76,6 @@ Route::group(['middleware' => ['auth:sanctum','isAdminMiddleware']],function (){
     Route::resource('subgroup',\App\Http\Controllers\SubgroupController::class);
     Route::resource('season',\App\Http\Controllers\SeasonController::class);
     Route::resource('users',\App\Http\Controllers\UsersController::class);
+
+    Route::resource('departments',\App\Http\Controllers\DepartmentsController::class);
 });

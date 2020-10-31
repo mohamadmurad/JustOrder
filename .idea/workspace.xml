@@ -19,9 +19,26 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="29-10-2020 fix cors">
+    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="29-10-2020 fix image size">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/DepartmentsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/departments.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_10_31_135431_create_depatrments_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_10_31_135639_alter_table_user.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/departments/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/departments/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/departments/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreOrderRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreOrderRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/DatabaseBackUp.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/DatabaseBackUp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreUserRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,22 +197,23 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\mohamad\PhpstormProjects\untitled\resources\views" />
+      <recent name="D:\mohamad\PhpstormProjects\untitled\app\Http\Controllers" />
+      <recent name="C:\Users\Mohamad.mu\PhpstormProjects\untitled\resources\views" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Mohamad.mu\PhpstormProjects\untitled\resources\views\includes" />
       <recent name="C:\Users\Mohamad.mu\PhpstormProjects\untitled\resources\views\supplier" />
       <recent name="C:\Users\Mohamad.mu\PhpstormProjects\untitled\resources\views\years" />
       <recent name="C:\Users\Mohamad.mu\PhpstormProjects\untitled\public\css" />
       <recent name="C:\Users\Mohamad.mu\PhpstormProjects\untitled" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\mohamad\PhpstormProjects\untitled\resources\views" />
-      <recent name="C:\Users\Mohamad.mu\PhpstormProjects\untitled\resources\views" />
     </key>
   </component>
   <component name="RunManager">
@@ -249,7 +267,8 @@
       <workItem from="1603781126713" duration="10587000" />
       <workItem from="1603887538368" duration="4353000" />
       <workItem from="1603953099083" duration="5433000" />
-      <workItem from="1604133983612" duration="5972000" />
+      <workItem from="1604133983612" duration="8343000" />
+      <workItem from="1604153716253" duration="1640000" />
     </task>
     <task id="LOCAL-00001" summary="12-10-2020">
       <created>1602499089562</created>
@@ -524,7 +543,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604145893841</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="29-10-2020 fix image size">
+      <created>1604146851439</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1604146851439</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -560,7 +586,8 @@
     <MESSAGE value="28-10-2020 fix edit note" />
     <MESSAGE value="29-10-2020 fix subgroup tree and nl2br" />
     <MESSAGE value="29-10-2020 fix cors" />
-    <option name="LAST_COMMIT_MESSAGE" value="29-10-2020 fix cors" />
+    <MESSAGE value="29-10-2020 fix image size" />
+    <option name="LAST_COMMIT_MESSAGE" value="29-10-2020 fix image size" />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="37" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601542337194">
@@ -592,10 +619,10 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="141" y="137" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1601208976453" />
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1604146038072">
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1604146868860">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1604146038072" />
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1604146868860" />
     <state x="323" y="212" key="run.anything.popup" timestamp="1601721853969">
       <screen x="0" y="0" width="1440" height="860" />
     </state>

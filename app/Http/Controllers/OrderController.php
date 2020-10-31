@@ -15,6 +15,7 @@ use App\Models\size;
 use App\Models\subgroup;
 use App\Models\supplier;
 use App\Models\type;
+use App\Models\User;
 use App\Models\Years;
 use App\Traits\UploadAble;
 use Carbon\Carbon;
@@ -41,11 +42,15 @@ class OrderController extends Controller
     {
 
         if(Auth::user()->isAdmin){
+            dd(Auth::user()->department()->first()->users()->get()->pluck('id'));
+
 
             $orders = order::with('user')->paginate();
 
         }else{
-            $orders = Auth::user()->orders()->paginate();
+
+            $users_in_dep = Auth::user()->department()->first()->users()->get()->pluck('id');
+            $orders = order::whereIn('user_id',$users_in_dep)->paginate();
 
         }
 

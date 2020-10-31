@@ -54,6 +54,8 @@ class DatabaseBackUp extends Command
         $returnVar = NULL;
         $output  = NULL;
 
+
+
         exec($command, $output, $returnVar);
 
     }

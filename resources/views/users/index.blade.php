@@ -23,6 +23,7 @@
             <th>الاسم</th>
             <th>اسم المستخدم</th>
             <th>الصلاحيات</th>
+            <th>القسم</th>
             <th>ip</th>
             <th>اخر ظهور</th>
             <th width="280px">خيارات</th>
@@ -35,6 +36,7 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->username }}</td>
                 <td>{{ $user->isAdmin == 0 ? 'مستخدم' : 'مدير' }}</td>
+                <td>{{ $user->department !== null ? $user->department->name: 'non' }}</td>
                 {{ $is = false }}
                 @foreach($sessions as $session)
 

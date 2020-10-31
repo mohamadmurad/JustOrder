@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
+use App\Models\departments;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -31,7 +32,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $departments = departments::all();
+        return view('users.create',compact('departments'));
     }
 
     /**
@@ -48,6 +50,7 @@ class UsersController extends Controller
             'username' => $request->get('username'),
             'password' => Hash::make(($request->get('password'))),
             'isAdmin' => $request->get('isAdmin'),
+            'departments_id' => $request->get('departments_id'),
             ]);
 
         return redirect()->route('users.index')
@@ -73,7 +76,8 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.edit',compact(['user']));
+        $departments = departments::all();
+        return view('users.edit',compact(['user','departments']));
     }
 
     /**
@@ -101,14 +105,15 @@ class UsersController extends Controller
             'name' => $request->get('name'),
             'username' => $request->get('username'),
             'isAdmin' =>$request->get('isAdmin'),
+            'departments_id' =>$request->get('departments_id'),
 
         ]);
 
-        if ($request->has('password')){
+       /* if ($request->has('password')){
             $user->fill([
                 'password' => Hash::make(($request->get('password'))),
             ]);
-        }
+        }*/
 
 
         $user->update();
