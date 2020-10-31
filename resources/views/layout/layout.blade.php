@@ -317,7 +317,8 @@
             jQuery("body").delay(350).css({ overflow: "visible" });
             $.ajax({
                 type: "GET",
-                url: "http://localhost:8000/api/getSubGroup/" + selectedCountry,
+
+                url: "http://{{request()->getHttpHost()}}"+"/api/getSubGroup/" + selectedCountry,
                 success: function (data) {
 
                     console.log(data.data);
