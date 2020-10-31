@@ -42,7 +42,7 @@ class OrderController extends Controller
     {
 
         if(Auth::user()->isAdmin){
-            dd(Auth::user()->department()->first()->users()->get()->pluck('id'));
+            //dd(Auth::user()->department()->first()->users()->get()->pluck('id'));
 
 
             $orders = order::with('user')->paginate();
