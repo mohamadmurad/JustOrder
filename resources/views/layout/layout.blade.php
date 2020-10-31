@@ -266,7 +266,6 @@
 
         });
 
-
         $('#recive').on('click', function () {
 
             var r = confirm("هل تريد استلام هذا الطلب؟");
@@ -342,6 +341,30 @@
             });
 
 
+        });
+
+
+        $('#siresColorQty').on('change',function (){
+            var siresColorQty =  $("#siresColorQty").val();
+            var siresSizeQty = $("#siresSizeQty").val();
+
+            $("#siresItemNumber").html(siresColorQty * siresSizeQty);
+        });
+
+
+        $('#siresSizeQty').on('change',function (){
+            var siresColorQty =  $("#siresColorQty").val();
+            var siresSizeQty = $("#siresSizeQty").val();
+
+            $("#siresItemNumber").html(siresColorQty * siresSizeQty);
+        });
+
+        $('#siresQty').on('change',function (){
+            var siresColorQty =  $("#siresColorQty").val();
+            var siresSizeQty = $("#siresSizeQty").val();
+            var siresQty = $("#siresQty").val();
+
+            $("#quantity").html(siresColorQty * siresSizeQty * siresQty);
         });
 
 

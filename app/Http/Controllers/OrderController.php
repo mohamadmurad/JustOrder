@@ -297,6 +297,9 @@ class OrderController extends Controller
         $type = type::findOrFail($request->get('type_id'));
         $typeCode = substr($type->name, 0, 1); //////////
         $fabricDate = $request->get('fabricDate');
+
+
+
         $sequenceNumber = 1;
         $order->fill([
             'brand_id' => $request->get('brand_id'),
@@ -305,6 +308,7 @@ class OrderController extends Controller
             'subgroup_id' => $subGroup->id,
             'season_id' => $request->get('season_id'),
             'year_id' => $request->get('year_id'),
+
         ]);
         $barCode = null;
 
@@ -327,7 +331,19 @@ class OrderController extends Controller
             }
             $sequenceNumber = sprintf('%03u', $sequenceNumber);
 
-            $barCode = $yearCode . $season->id . $typeCode . $brandCode . $group->id .$subGroup->idNum . $sequenceNumber . $supplier->code;
+            $barCode = $yearCode . $season->id . $typeCode . $brandCode . $group->id .$subGroup->idNum . $sequenceNumber;
+
+                $barCode .= $supplier->code;
+
+
+
+        }
+
+        if ($order->isClean() && $order->supplier_id != $supplier->id){
+
+            $barCode = substr($order->barcode,0,-3);
+
+            $barCode .= $supplier->code;
 
         }
 
@@ -341,24 +357,32 @@ class OrderController extends Controller
 
 
 
-//            if ( $request->hasFile('image')){
-//                $image = $request->file('image');
-//                $saved_file = $this->upload($image, $barCode.'_1', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
-//                $saved_files_for_roleBack += [$saved_file->getFilename()];
-//
-//            }
-//
-//            if ( $request->hasFile('image2')){
-//                $image = $request->file('image2');
-//                $saved_file2 = $this->upload($image, $barCode.'_2', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
-//                $saved_files_for_roleBack += [$saved_file2->getFilename()];
-//            }
-//
-//            if ( $request->hasFile('image3')){
-//                $image = $request->file('image3');
-//                $saved_file3 = $this->upload($image, $barCode.'_3', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
-//                $saved_files_for_roleBack += [$saved_file3->getFilename()];
-//            }
+            if ( $request->hasFile('image')){
+
+                $image = $request->file('image');
+                File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/'). $order->image));
+                $saved_file = $this->upload($image, $barCode.'_1', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
+                $saved_files_for_roleBack += [$saved_file->getFilename()];
+
+            }
+
+            if ( $request->hasFile('image2')){
+                $image = $request->file('image2');
+
+                File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/'). $order->image2));
+
+                $saved_file2 = $this->upload($image, $barCode.'_2', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
+                $saved_files_for_roleBack += [$saved_file2->getFilename()];
+            }
+
+            if ( $request->hasFile('image3')){
+                $image = $request->file('image3');
+
+                File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/'). $order->image3));
+                $saved_file3 = $this->upload($image, $barCode.'_3', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
+                $saved_files_for_roleBack += [$saved_file3->getFilename()];
+            }
+
 
 
             $order->fill([
@@ -382,14 +406,14 @@ class OrderController extends Controller
                 'fabricDate' => $fabricDate != null ? Carbon::create($request->get('fabricDate'))->format('Y-m-d') : $order->fabricDate,
                 'done'  => 0,
                 'notes'  => $request->get('notes'),
-                //'image'  =>  $request->hasFile('image') ? $saved_file->getFilename() : null,
-                //'image2'  =>  $request->hasFile('image2') ? $saved_file2->getFilename() : null,
-                //'image3'  =>  $request->hasFile('image3') ? $saved_file3->getFilename() : null,
+                'image'  =>  $request->hasFile('image') ? $saved_file->getFilename() : $order->image,
+                'image2'  =>  $request->hasFile('image2') ? $saved_file2->getFilename() : $order->image2,
+                'image3'  =>  $request->hasFile('image3') ? $saved_file3->getFilename() : $order->image3,
 
 
-
-                'fabric_id'=> $request->get('fabric_id'),
                 'supplier_id' => $request->get('supplier_id'),
+                'fabric_id'=> $request->get('fabric_id'),
+
                 'fabric_source_id' => $request->get('fabricSource_id'),
 
             ]);

@@ -26,7 +26,7 @@
 
 
 
-    <form action="{{ route('order.update',$order->id) }}" id="orderForm" method="POST">
+    <form action="{{ route('order.update',$order->id) }}" id="orderForm" method="POST" enctype="multipart/form-data">
 
         @csrf
 
@@ -223,7 +223,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>عدد الالوان في السيري :</strong>
-                    <input type="number" min="1" name="siresColorQty" class="form-control" placeholder="عدد الالوان في السيري"  value="{{$order->siresColorQty}}">
+                    <input type="number" id="siresColorQty" min="1" name="siresColorQty" class="form-control" placeholder="عدد الالوان في السيري"  value="{{$order->siresColorQty}}">
                     <ul class="errors">
                         @foreach ($errors->get('siresColorQty') as $message)
                             <i>{{ $message }}</i>
@@ -235,7 +235,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>عدد القياسات في السيري :</strong>
-                    <input type="number" min="1" name="siresSizeQty" class="form-control" placeholder="عدد القياسات في السيري" value="{{$order->siresSizeQty}}">
+                    <input type="number" id="siresSizeQty"  min="1" name="siresSizeQty" class="form-control" placeholder="عدد القياسات في السيري" value="{{$order->siresSizeQty}}">
                     <ul class="errors">
                         @foreach ($errors->get('siresSizeQty') as $message)
                             <i>{{ $message }}</i>
@@ -260,13 +260,21 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>عدد السيريات :</strong>
-                    <input type="number" name="siresQty" class="form-control" placeholder="عدد السيريات" value="{{$order->siresQty}}">
+                    <input type="number" id="siresQty" name="siresQty" class="form-control" placeholder="عدد السيريات" value="{{$order->siresQty}}">
                     <ul class="errors">
                         @foreach ($errors->get('siresQty') as $message)
                             <i>{{ $message }}</i>
                         @endforeach
                     </ul>
                 </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 text-right">
+                <p id="">عدد القطع في السيري : <span id="siresItemNumber">{{$order->siresItemNumber}}</span></p>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 text-right">
+                <p id="">الكمية : <span id="quantity">{{$order->quantity}}</span></p>
             </div>
 
 
