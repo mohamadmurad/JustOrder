@@ -482,29 +482,38 @@ class OrderController extends Controller
         }
         $barcode = $request->get('barcode');
 
-        $users_in_dep = Auth::user()->department()->first()->users()->get()->pluck('id');
-        $order = order::whereIn('user_id',$users_in_dep)->where('barcode','=',$barcode)->with([
-            'brand',
-            'fabric',
-            'type',
-            'group',
-            'subgroup',
-            'season',
-            'year',
-            'supplier',
-            'fabricSource',
-        ])->first();
-        /*$order = Auth::user()->orders()->where('barcode','=',$barcode)->with([
-            'brand',
-            'fabric',
-            'type',
-            'group',
-            'subgroup',
-            'season',
-            'year',
-            'supplier',
-            'fabricSource',
-        ])->first();*/
+        if(Auth::user()->isAdmin){
+            //dd(Auth::user()->department()->first()->users()->get()->pluck('id'));
+
+            $order = order::where('barcode','=',$barcode)->with([
+                        'brand',
+                        'fabric',
+                        'type',
+                        'group',
+                        'subgroup',
+                        'season',
+                        'year',
+                        'supplier',
+                        'fabricSource',
+                    ])->first();
+
+
+        }else{
+            $users_in_dep = Auth::user()->department()->first()->users()->get()->pluck('id');
+            $order = order::whereIn('user_id',$users_in_dep)->where('barcode','=',$barcode)->with([
+                'brand',
+                'fabric',
+                'type',
+                'group',
+                'subgroup',
+                'season',
+                'year',
+                'supplier',
+                'fabricSource',
+            ])->first();
+        }
+
+
 
 
 
