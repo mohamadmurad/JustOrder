@@ -476,12 +476,14 @@ class OrderController extends Controller
     public function searchOrder(Request $request){
 
 
+
         if (!$request->has('barcode')){
             return redirect()->route('order.index');
         }
         $barcode = $request->get('barcode');
 
-        $order = Auth::user()->orders()->where('barcode','=',$barcode)->with([
+        $users_in_dep = Auth::user()->department()->first()->users()->get()->pluck('id');
+        $order = order::whereIn('user_id',$users_in_dep)->where('barcode','=',$barcode)->with([
             'brand',
             'fabric',
             'type',
@@ -492,6 +494,17 @@ class OrderController extends Controller
             'supplier',
             'fabricSource',
         ])->first();
+        /*$order = Auth::user()->orders()->where('barcode','=',$barcode)->with([
+            'brand',
+            'fabric',
+            'type',
+            'group',
+            'subgroup',
+            'season',
+            'year',
+            'supplier',
+            'fabricSource',
+        ])->first();*/
 
 
 
