@@ -393,7 +393,7 @@
             };
             console.log('dsds');
             $.ajax({
-                type: "POST",
+                type: "get",
                 data: formData,
                 dataType: 'json',
                 url: "http://{{request()->getHttpHost()}}"+"/api/AddFabric/",
