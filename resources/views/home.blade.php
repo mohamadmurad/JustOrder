@@ -200,7 +200,7 @@
             @endforeach
         </table>
         <div class="d-flex justify-content-center">
-        {!! $orders->links() !!}
+{{--        {!! $orders->links() !!}--}}
         </div>
     @endif
     @else
