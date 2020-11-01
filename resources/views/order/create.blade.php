@@ -247,11 +247,11 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-4 text-right">
+            <div class="col-xs-12 col-sm-12 col-md-6 text-right">
                 <p id="">عدد القطع في السيري : <span id="siresItemNumber"></span></p>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-4 text-right">
+            <div class="col-xs-12 col-sm-12 col-md-6 text-right">
                 <p id="">الكمية : <span id="quantity"></span></p>
             </div>
 
