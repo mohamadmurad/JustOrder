@@ -534,7 +534,13 @@ class OrderController extends Controller
 
     public function report(Request $request){
 
-            $orders = Auth::user()->orders()->FilterData($request)->paginate();
+        if(Auth::user()->isAdmin){
+            $orders =order::FilterData($request)->paginate();
+        }else{
+            $users_in_dep = Auth::user()->department()->first()->users()->get()->pluck('id');
+            $orders = order::whereIn('user_id',$users_in_dep)->FilterData($request)->paginate();
+        }
+
             $report = true;
         $years = Years::all();
         $brands = brand::all()->sortBy('name');
