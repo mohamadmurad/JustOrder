@@ -65,7 +65,12 @@ class order extends Model
         });
 
         static::addGlobalScope('order', function (Builder $builder) {
-            $builder->orderBy('group_id', 'ASC')->orderBy('subgroup_id', 'ASC');
+            $builder->orderBy('group_id', 'ASC')
+                ->orderBy('subgroup_id', 'ASC')
+                ->orderBy('brand_id', 'ASC')
+                ->orderBy('type_id', 'ASC')
+                ->orderBy('season_id', 'ASC')
+                ->orderBy('year_id', 'ASC');
 
         });
     }
