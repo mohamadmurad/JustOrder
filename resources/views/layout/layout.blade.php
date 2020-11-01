@@ -391,6 +391,7 @@
             var formData = {
                 name: $('#fabricName').val(),
             };
+            console.log('dsds');
             $.ajax({
                 type: "POST",
                 data: formData,
