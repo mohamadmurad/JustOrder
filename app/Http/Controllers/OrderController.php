@@ -535,10 +535,10 @@ class OrderController extends Controller
     public function report(Request $request){
 
         if(Auth::user()->isAdmin){
-            $orders =order::FilterData($request)->paginate();
+            $orders =order::FilterData($request);
         }else{
             $users_in_dep = Auth::user()->department()->first()->users()->get()->pluck('id');
-            $orders = order::whereIn('user_id',$users_in_dep)->FilterData($request)->paginate();
+            $orders = order::whereIn('user_id',$users_in_dep)->FilterData($request);
         }
 
             $report = true;
