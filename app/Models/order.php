@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\File;
@@ -61,6 +62,11 @@ class order extends Model
            File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/'). $order->image));
            File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/'). $order->image2));
            File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/'). $order->image3));
+        });
+
+        static::addGlobalScope('order', function (Builder $builder) {
+            $builder->orderBy('group_id', 'ASC')->orderBy('subgroup_id', 'ASC');
+
         });
     }
 
