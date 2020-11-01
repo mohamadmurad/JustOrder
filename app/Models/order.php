@@ -70,6 +70,7 @@ class order extends Model
                 ->orderBy('brand_id', 'ASC')
                 ->orderBy('type_id', 'ASC')
                 ->orderBy('season_id', 'ASC')
+                ->orderBy('id', 'ASC')
                 ->orderBy('year_id', 'ASC');
 
         });
