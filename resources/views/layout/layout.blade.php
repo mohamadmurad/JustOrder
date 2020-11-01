@@ -372,6 +372,46 @@
         });
 
 
+        $('#addFabric').on('submit',function (e) {
+
+            jQuery("#status").fadeIn();
+            jQuery("#preloader").delay(350).fadeIn("slow");
+            jQuery("body").delay(350).css({ overflow: "visible" });
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            e.preventDefault();
+            var formData = {
+                name: $('#fabricName').val(),
+            };
+            $.ajax({
+                type: "POST",
+                data: formData,
+                dataType: 'json',
+                url: "http://{{request()->getHttpHost()}}"+"/api/AddFabric/",
+                success: function (data) {
+                    var data = data.data;
+                    $('#fabricSelect').html('');
+
+                    for(var i =0 ; i< data.length; i++){
+                        console.log(data[i].name);
+
+                        $('#fabricSelect').append(new Option(data[i].name, data[i].id))
+                    }
+                    $('#fabricModal').modal('toggle');
+                    jQuery("#status").fadeOut();
+                    jQuery("#preloader").fadeOut("slow");
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+
+
+            return false;
+        });
     });
 
 

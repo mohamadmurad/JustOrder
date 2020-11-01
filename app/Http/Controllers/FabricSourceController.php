@@ -44,8 +44,10 @@ class FabricSourceController extends Controller
         FabricSource::create($request->only(['name']));
 
         return redirect()->route('FabricSource.index')
-            ->with('success','Color created successfully.');
+            ->with('success','Fabric source created successfully.');
     }
+
+
 
     /**
      * Display the specified resource.

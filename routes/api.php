@@ -20,3 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('/getSubGroup/{groupID}',[\App\Http\Controllers\SubgroupController::class,'getByGroup']);
+
+Route::post('/AddFabric',[\App\Http\Controllers\FabricController::class,'addFromOrder']);

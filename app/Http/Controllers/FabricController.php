@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreFabricRequest;
+use App\Http\Resources\FabricResource;
 use App\Models\fabric;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -43,6 +44,16 @@ class FabricController extends Controller
 
         return redirect()->route('fabric.index')
             ->with('success','fabric created successfully.');
+    }
+
+    public function addFromOrder(StoreFabricRequest $request)
+    {
+
+
+        fabric::create($request->only(['name','code']));
+        $fabric = fabric::all()->sortBy('name');
+
+        return FabricResource::collection($fabric);
     }
 
     /**

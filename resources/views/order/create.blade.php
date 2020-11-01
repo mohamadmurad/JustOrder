@@ -9,6 +9,10 @@
    'title'=>'إضافة طلب جديد'
    ])
 
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fabricModal">
+        إضافة مصدر قماش
+    </button>
+
     @if ($errors->any())
         <div class="alert alert-danger">
             هناك مشكلة في الحقول
@@ -163,7 +167,9 @@
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <div class="form-group">
                     <strong >نوع القماش :</strong>
-                    <select  class="form-control"  name="fabric_id">
+                    <select  class="form-control"  name="fabric_id" id="fabricSelect">
+
+
                         @foreach($fabrics as $fabric)
                             <option value="{{ $fabric->id }}" {{ (old("fabric_id") == $fabric->id ? "selected":"") }}>{{$fabric->name . " | " . $fabric->code }}</option>
                         @endforeach
@@ -518,4 +524,48 @@
         </div>
 
     </form>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="fabricModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">إضافة نوع قماش</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form  id="addFabric">
+                        @csrf
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>نوع القماش:</strong>
+                                    <input type="text" name="name" id="fabricName" class="form-control" placeholder="نوع القماش">
+                                    <ul class="errors">
+                                        @foreach ($errors->get('name') as $message)
+                                            <i>{{ $message }}</i>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary">حفظ</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
