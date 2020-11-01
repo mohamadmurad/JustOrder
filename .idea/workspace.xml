@@ -19,14 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="29-10-2020 add depatment">
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/FabricResource.php" afterDir="false" />
+    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="29-10-2020 add fabric from order directly">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FabricController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FabricController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FabricSourceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FabricSourceController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/order/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,7 +254,7 @@
       <workItem from="1603953099083" duration="5433000" />
       <workItem from="1604133983612" duration="8343000" />
       <workItem from="1604153716253" duration="2361000" />
-      <workItem from="1604214660457" duration="2206000" />
+      <workItem from="1604214660457" duration="3538000" />
     </task>
     <task id="LOCAL-00001" summary="12-10-2020">
       <created>1602499089562</created>
@@ -553,7 +550,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604155731408</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="29-10-2020 add fabric from order directly">
+      <created>1604217016893</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1604217016893</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,7 +595,8 @@
     <MESSAGE value="29-10-2020 fix cors" />
     <MESSAGE value="29-10-2020 fix image size" />
     <MESSAGE value="29-10-2020 add depatment" />
-    <option name="LAST_COMMIT_MESSAGE" value="29-10-2020 add depatment" />
+    <MESSAGE value="29-10-2020 add fabric from order directly" />
+    <option name="LAST_COMMIT_MESSAGE" value="29-10-2020 add fabric from order directly" />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="37" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601542337194">

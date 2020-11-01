@@ -46,10 +46,12 @@ class FabricController extends Controller
             ->with('success','fabric created successfully.');
     }
 
-    public function addFromOrder(StoreFabricRequest $request)
+    public function addFromOrder(Request $request)
     {
 
-
+        $this->validate($request,[
+            'name' => 'required|unique:fabrics,name'
+        ]);
         fabric::create($request->only(['name','code']));
         $fabric = fabric::all()->sortBy('name');
 

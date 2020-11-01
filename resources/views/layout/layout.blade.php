@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ config('app.name', 'JustOrder') }}</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.0/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ URL::asset('css/style.css?v=0.0000004') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/printStyle.css?v=0.0000004') }}" media="print">
@@ -242,16 +242,14 @@
         integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
         crossorigin="anonymous"></script>
 <!-- Bootstrap JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
-        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.0/js/bootstrap.min.js"></script>
 <script>
 
     $(document).ready(function () {
         jQuery("#status").fadeOut();
         jQuery("#preloader").delay(350).fadeOut("slow");
         jQuery("body").delay(350).css({ overflow: "visible" });
-
+        $('#toast').toast('show')
 
     $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');
@@ -340,9 +338,15 @@
 
                 },
                 error: function (data) {
-                    console.log(data);
+
+                    console.log(data.responseText);
+                    jQuery("#status").fadeOut();
+                    jQuery("#preloader").fadeOut("slow");
+                    alert('حدث خطأ');
                 }
             });
+            jQuery("#status").fadeOut();
+            jQuery("#preloader").fadeOut("slow");
 
 
         });
@@ -405,7 +409,10 @@
                     jQuery("#preloader").fadeOut("slow");
                 },
                 error: function (data) {
-                    console.log(data);
+                    console.log(data.responseText);
+                    jQuery("#status").fadeOut();
+                    jQuery("#preloader").fadeOut("slow");
+                    alert('حدث خطأ');
                 }
             });
 
