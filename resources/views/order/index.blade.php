@@ -91,6 +91,7 @@
     </table>
     <div class="d-flex justify-content-center">
     {!! $orders->links() !!}
+       العدد الكلي {!! $orders->total() !!}
     </div>
 
 @endsection

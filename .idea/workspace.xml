@@ -19,8 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="29-10-2020 order by group subgroup">
+    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="2-11-2020">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,14 +257,7 @@
       <workItem from="1604223013463" duration="4517000" />
       <workItem from="1604237094077" duration="510000" />
       <workItem from="1604237664472" duration="5140000" />
-      <workItem from="1604316036990" duration="1137000" />
-    </task>
-    <task id="LOCAL-00017" summary="26-10-2020 with backup">
-      <created>1603704880316</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1603704880316</updated>
+      <workItem from="1604316036990" duration="2537000" />
     </task>
     <task id="LOCAL-00018" summary="26-10-2020 with backup">
       <created>1603705100776</created>
@@ -601,7 +595,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604241496463</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="2-11-2020">
+      <created>1604320872102</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1604320872103</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -643,7 +644,8 @@
     <MESSAGE value="29-10-2020 fix search order" />
     <MESSAGE value="29-10-2020 fix backup" />
     <MESSAGE value="29-10-2020 order by group subgroup" />
-    <option name="LAST_COMMIT_MESSAGE" value="29-10-2020 order by group subgroup" />
+    <MESSAGE value="2-11-2020" />
+    <option name="LAST_COMMIT_MESSAGE" value="2-11-2020" />
   </component>
   <component name="WindowStateProjectService">
     <state x="465" y="253" key="#Notifications" timestamp="1604218667974">
@@ -683,10 +685,10 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="141" y="137" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1601208976453" />
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1604241498664">
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1604320874918">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1604241498664" />
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1604320874918" />
     <state x="323" y="212" key="run.anything.popup" timestamp="1601721853969">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
