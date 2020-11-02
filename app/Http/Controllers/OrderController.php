@@ -574,17 +574,13 @@ class OrderController extends Controller
                 'receivedQty' => $receivedQty,
                 'reservedDate' => Carbon::now()->format('Y-m-d'),
             ]);
-        }elseif($receivedQty == $order->quantity){
+        }else{
             $order->fill([
                 'done' => 1,
                 'receivedQty' => $receivedQty,
                 'reservedDate' => Carbon::now()->format('Y-m-d'),
             ]);
-        }else{
-            return redirect()->route('order.index');
         }
-        //$order->done = 1;
-
 
         $order->update();
 
