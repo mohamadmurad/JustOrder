@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreFabricRequest;
 use App\Http\Resources\FabricResource;
 use App\Models\fabric;
+use http\Client\Response;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -52,6 +53,8 @@ class FabricController extends Controller
        /* $this->validate($request,[
             'name' => 'required|unique:fabrics,name'
         ]);*/
+
+
         fabric::create($request->only(['name','code']));
         $fabric = fabric::all()->sortBy('name');
 

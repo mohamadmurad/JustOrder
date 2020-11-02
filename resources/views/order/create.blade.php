@@ -564,6 +564,18 @@
                                 </div>
                             </div>
 
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>كود القماش:</strong>
+                                    <input type="text" name="code" id="fabricCode" class="form-control" placeholder="كود القماش">
+                                    <ul class="errors">
+                                        @foreach ($errors->get('code') as $message)
+                                            <i>{{ $message }}</i>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                 <button type="submit" class="btn btn-primary">حفظ</button>
                             </div>

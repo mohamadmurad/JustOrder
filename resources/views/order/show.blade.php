@@ -74,8 +74,8 @@
 
                         @csrf
                         <input type="hidden" value="{{$order->id}}" name="order">
-                        <input type="number" class="form-control col-md-6" name="receivedQty" style="min-width: auto;"
-                               min="1" max="{{($order->quantity - $order->receivedQty)}}"
+                        <input type="number" class="form-control col-md-6" name="receivedQty" style="min-width: auto;"  min="1"
+{{--                               max="{{($order->quantity - $order->receivedQty)}}"--}}
                                placeholder="الكمية المستلمة">
                         <button type="submit" class="btn btn-primary" id="recive">استلام</button>
                         @foreach ($errors->get('receivedQty') as $message)
@@ -150,7 +150,11 @@
 
         <tr>
             <td>نوع القماش</td>
-            <td>{{ $order->fabric->name }}</td>
+            <td>{{ $order->fabric->name }} </td>
+        </tr>
+        <tr>
+            <td>رمز القماش</td>
+            <td>{{$order->fabric->code }}</td>
         </tr>
 
         <tr>
@@ -304,7 +308,11 @@
 
             <tr>
                 <td>نوع القماش</td>
-                <td>{{ $order->fabric->name }}</td>
+                <td>{{ $order->fabric->name }} </td>
+            </tr>
+            <tr>
+                <td>رمز القماش</td>
+                <td>{{$order->fabric->code }}</td>
             </tr>
 
             <tr>
@@ -313,20 +321,13 @@
             </tr>
 
 
-            <tr>
-                <td>الالوان</td>
-                <td>
-                    @foreach($order->colors as $color)
-                        {{ $color->name . ' | ' }}
-                    @endforeach
 
-                </td>
-            </tr>
 
 
         </table>
 
     </div>
+
     <div class="col-lg-6 float-left" id="printTable2">
     <table  class="table table-bordered mt-2 col-lg-6" style="text-align: right;">
 
@@ -403,6 +404,16 @@
                 @foreach($order->sizes as $size)
                     {{ $size->name . ' | ' }}
                 @endforeach
+            </td>
+        </tr>
+
+        <tr>
+            <td>الالوان</td>
+            <td>
+                @foreach($order->colors as $color)
+                    {{ $color->name . ' | ' }}
+                @endforeach
+
             </td>
         </tr>
 

@@ -183,18 +183,18 @@
 
                             <button type="submit" class="btn btn-danger">حذف</button>
                         </form>
-                        @if($order->done === 0)
-                            <form action="{{ route('orderDone') }}" method="POST" id="receivedForm" >
+{{--                        @if($order->done === 0)--}}
+{{--                            <form action="{{ route('orderDone') }}" method="POST" id="receivedForm" >--}}
 
-                                @csrf
-                                <input type="hidden" value="{{$order->id}}" name="order">
-                                <input type="number" class="form-control col-md-6" name="receivedQty"  style="min-width: auto;" min="1" max="{{$order->reservedQuantity}}" placeholder="الكمية المستلمة">
-                                <button type="submit" class="btn btn-primary" id="recive">استلام</button>
-                                @foreach ($errors->get('receivedQty') as $message)
-                                    <i>{{ $message }}</i>
-                                @endforeach
-                            </form>
-                        @endif
+{{--                                @csrf--}}
+{{--                                <input type="hidden" value="{{$order->id}}" name="order">--}}
+{{--                                <input type="number" class="form-control col-md-6" name="receivedQty"  style="min-width: auto;" min="1" max="{{$order->reservedQuantity}}" placeholder="الكمية المستلمة">--}}
+{{--                                <button type="submit" class="btn btn-primary" id="recive">استلام</button>--}}
+{{--                                @foreach ($errors->get('receivedQty') as $message)--}}
+{{--                                    <i>{{ $message }}</i>--}}
+{{--                                @endforeach--}}
+{{--                            </form>--}}
+{{--                        @endif--}}
                     </td>
                 </tr>
             @endforeach

@@ -390,6 +390,7 @@
             e.preventDefault();
             var formData = {
                 name: $('#fabricName').val(),
+                code: $('#fabricCode').val(),
             };
             console.log('dsds');
             $.ajax({
@@ -398,6 +399,7 @@
                 dataType: 'json',
                 url: "http://{{request()->getHttpHost()}}"+"/api/AddFabric/",
                 success: function (data) {
+                    console.log(data);
                     var data = data.data;
                     $('#fabricSelect').html('');
 
