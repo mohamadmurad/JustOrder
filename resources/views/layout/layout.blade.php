@@ -7,7 +7,7 @@
     <title>{{ config('app.name', 'JustOrder') }}</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.0/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ URL::asset('css/style.css?v=0.0000005') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css?v=0.0000006') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-notifications.css?v=0.0000005') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/printStyle.css?v=0.0000004') }}" media="print">
     <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">

@@ -398,7 +398,7 @@ form#receivedForm input{
 .counter {
     position: relative;
     bottom: 25px;
-    right: auto;
+    right: -20px;
     z-index: 2;
     padding: 1px 5px;
     margin-left: -23px;
