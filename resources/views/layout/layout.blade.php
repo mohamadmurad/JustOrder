@@ -7,7 +7,7 @@
     <title>{{ config('app.name', 'JustOrder') }}</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.0/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ URL::asset('css/style.css?v=0.0000004') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css?v=0.0000005') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/printStyle.css?v=0.0000004') }}" media="print">
     <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
     <!-- Font Awesome JS -->
@@ -162,8 +162,11 @@
             @if(isset($notification))
             <ul class="nav nav-pills mr-auto justify-content-end">
                 <li class="nav-item dropdown">
-                    <a class="nav-link " style="{{count($notification) >0? 'color: #fd0017;' : ''}}" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-bell"></i>
+                    <a class="nav-link "  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-envelope fa-2x"></i>
+                       @if(count($notification) >0)
+                            <span class="counter ">{{count($notification)}}</span>
+                        @endif
                     </a>
                     <ul class="dropdown-menu">
                         @if(isset($notification))

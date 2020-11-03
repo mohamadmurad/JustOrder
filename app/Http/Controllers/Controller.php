@@ -20,8 +20,8 @@ class Controller extends BaseController
         $today10 = Carbon::now()->subDays(10)->format('Y-m-d');
         $today20 = Carbon::now()->subDays(20)->format('Y-m-d');
         $notification = order::where('done','=',0)->where(function ($query) use ($today10,$today20){
-            $query->whereDate('orderDate', '=', $today10)
-                ->orWhereDate('orderDate', '=', $today20);
+            $query->whereDate('orderDate', '>', $today10);
+                //->orWhereDate('orderDate', '=', $today20);
         })->get(['barcode','image','orderDate','id']);
         View::share('notification',$notification);
 
