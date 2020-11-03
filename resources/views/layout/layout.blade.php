@@ -162,7 +162,7 @@
             </div>
             @if(isset($notification))
             <ul class="nav nav-pills mr-auto justify-content-end">
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown" style="width: max-content">
                     <a class="nav-link "  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-envelope fa-2x"></i>
                        @if(count($notification) >0)
