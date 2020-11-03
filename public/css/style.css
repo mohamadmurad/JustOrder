@@ -413,3 +413,25 @@ form#receivedForm input{
 .counter.counter-lg {
     top: -24px !important;
 }
+
+
+.dropdown-position-bottomright {
+    left: 0 !important;
+    right: auto !important;
+}
+
+
+.img-circle{
+    border-radius: 50%;
+}
+
+
+.vertical-scrollable {
+    /*position: absolute;*/
+    /*top: 120px;*/
+    /*bottom: 100px;*/
+    /*left: 180px;*/
+    /*width: 50%;*/
+    max-height: 200px;
+    overflow-y: scroll;
+}

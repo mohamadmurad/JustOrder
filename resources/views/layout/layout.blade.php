@@ -8,6 +8,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.0/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ URL::asset('css/style.css?v=0.0000005') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-notifications.css?v=0.0000005') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/printStyle.css?v=0.0000004') }}" media="print">
     <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
     <!-- Font Awesome JS -->
@@ -168,6 +169,49 @@
                             <span class="counter ">{{count($notification)}}</span>
                         @endif
                     </a>
+                    <div class="dropdown-menu dropdown-container dropdown-position-bottomright">
+
+                        <div class="dropdown-toolbar">
+
+                            <h3 class="dropdown-toolbar-title text-right">لديك  ({{count($notification)}}) طلبات لم يتم استلامها </h3>
+                        </div><!-- /dropdown-toolbar -->
+
+                        <ul class="vertical-scrollable" style="padding: 0;">
+
+                                @foreach($notification as $n)
+                                    <li class="notification ">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <div class="media-object">
+                                                    <img  class="img-circle" alt="50x50" src="
+                                            @if($n->image !== null)
+                                                    {{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $n->image}}
+                                                    @else
+                                                        data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2250%22%20height%3D%2250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2050%2050%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1758d492281%20text%20%7B%20fill%3A%23919191%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1758d492281%22%3E%3Crect%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23cccccc%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%226.4609375%22%20y%3D%2229.5%22%3E50x50%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E
+@endif
+                                                        " data-holder-rendered="true" style="width: 50px; height: 50px;">
+                                                </div>
+                                            </div>
+                                            <div class="media-body">
+                                                <strong class="notification-title"><a style="background: none !important;" href="{{ route('order.show',$n->id) }}">{{$n->barcode}}</a> </strong>
+                                                {{--                                        <p class="notification-desc">I totally don't wanna do it. Rimmer can do it.</p>--}}
+
+                                                <div class="notification-meta">
+                                                    <small class="timestamp">{{$n->orderDate}}</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                @endforeach
+
+
+
+
+                        </ul>
+
+
+
+                    </div>
                     <ul class="dropdown-menu">
                         @if(isset($notification))
                             <li class="head text-light bg-dark">
