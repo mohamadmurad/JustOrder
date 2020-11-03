@@ -47,7 +47,7 @@ class FabricController extends Controller
             ->with('success','fabric created successfully.');
     }
 
-    public function addFromOrder(Request $request)
+    public function addFromOrder(StoreFabricRequest $request)
     {
 
        /* $this->validate($request,[
