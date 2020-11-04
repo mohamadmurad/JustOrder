@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="4-11-2020 make notification">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/printStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/printStyle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -266,14 +265,7 @@
       <workItem from="1604391078252" duration="5796000" />
       <workItem from="1604404245748" duration="90000" />
       <workItem from="1604408705964" duration="994000" />
-      <workItem from="1604483044472" duration="3314000" />
-    </task>
-    <task id="LOCAL-00029" summary="27-10-2020 add user seg and fix qty">
-      <created>1603798493963</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1603798493963</updated>
+      <workItem from="1604483044472" duration="3421000" />
     </task>
     <task id="LOCAL-00030" summary="27-10-2020 add user to show in table">
       <created>1603805498072</created>
@@ -611,7 +603,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604485920021</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="4-11-2020 make notification">
+      <created>1604486395784</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1604486395784</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -696,10 +695,10 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="141" y="137" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1601208976453" />
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1604485922053">
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1604486399134">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1604485922053" />
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1604486399134" />
     <state x="323" y="212" key="run.anything.popup" timestamp="1604417924600">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
