@@ -556,7 +556,7 @@
 
     window.setInterval(function(){ // Set interval for checking
         var date = new Date(); // Create a Date object to find out what time it is
-        if((date.getHours() === 10 || date.getHours() === 1 || date.getHours() === 16)  && date.getMinutes() === 0){ // Check the time
+        if((date.getHours() === 10 || date.getHours() === 13 || date.getHours() === 16)  && date.getMinutes() === 0){ // Check the time
            notifyMe();
         }
     }, 60000/2);
