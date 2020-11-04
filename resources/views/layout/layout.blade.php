@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="{{ URL::asset('css/style.css?v=0.0000006') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-notifications.css?v=0.0000005') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/printStyle.css?v=0.0000004') }}" media="print">
+    <link rel="stylesheet" href="{{ URL::asset('css/printStyle.css?v=0.0000005') }}" media="print">
     <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
@@ -220,13 +220,14 @@
                                         <span>Notifications {{count($notification)}}</span>
 
                                     </div>
+                                </div>
                             </li>
                             @foreach($notification as $n)
                                 <li class="notification-box">
                                     <a href="{{ route('order.show',$n->id) }}">
                                         <div class="row">
                                             <div class="col-lg-3 col-sm-3 col-3 text-center">
-                                                <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $n->image}}" class="w-50 rounded-circle">
+                                                <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $n->image}}" class="w-50 rounded-circle" alt="{{$n->barcode}}">
                                             </div>
                                             <div class="col-lg-8 col-sm-8 col-8">
                                                 <strong class="text-info">{{$n->barcode}}</strong>
@@ -244,6 +245,7 @@
                                         <span>Notifications 0</span>
 
                                     </div>
+                                </div>
                             </li>
 
                                 <li class="notification-box">
@@ -256,7 +258,8 @@
 
                                             </div>
                                         </div>
-                                    </a>
+
+                            </a>
                                 </li>
                         @endif
 
