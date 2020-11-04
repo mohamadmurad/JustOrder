@@ -19,9 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="2-11-2020 fix notification">
+    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="2-11-2020 fix fabric unique">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FabricController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FabricController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +43,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -262,14 +265,8 @@
       <workItem from="1604327764842" duration="1775000" />
       <workItem from="1604391078252" duration="5796000" />
       <workItem from="1604404245748" duration="90000" />
-      <workItem from="1604408705964" duration="37000" />
-    </task>
-    <task id="LOCAL-00026" summary="27-10-2020 fix preview image">
-      <created>1603782838394</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1603782838394</updated>
+      <workItem from="1604408705964" duration="994000" />
+      <workItem from="1604483044472" duration="2525000" />
     </task>
     <task id="LOCAL-00027" summary="27-10-2020 fix seri number">
       <created>1603794757953</created>
@@ -607,7 +604,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604395714652</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="2-11-2020 fix fabric unique">
+      <created>1604408779783</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1604408779784</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,7 +631,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="12-10-2020" />
     <MESSAGE value="13-10-2020" />
     <MESSAGE value="25-10-2020" />
     <MESSAGE value="26-10-2020" />
@@ -652,7 +655,8 @@
     <MESSAGE value="2-11-2020" />
     <MESSAGE value="2-11-2020 fix done" />
     <MESSAGE value="2-11-2020 fix notification" />
-    <option name="LAST_COMMIT_MESSAGE" value="2-11-2020 fix notification" />
+    <MESSAGE value="2-11-2020 fix fabric unique" />
+    <option name="LAST_COMMIT_MESSAGE" value="2-11-2020 fix fabric unique" />
   </component>
   <component name="WindowStateProjectService">
     <state x="465" y="253" key="#Notifications" timestamp="1604218667974">
@@ -692,15 +696,15 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="141" y="137" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1601208976453" />
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1604395718526">
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1604408783706">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1604395718526" />
-    <state x="323" y="212" key="run.anything.popup" timestamp="1601721853969">
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1604408783706" />
+    <state x="323" y="212" key="run.anything.popup" timestamp="1604417924600">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="287" y="242" key="run.anything.popup/0.0.1280.984@0.0.1280.984" timestamp="1601293397869" />
-    <state x="323" y="212" key="run.anything.popup/0.0.1440.860@0.0.1440.860" timestamp="1601721853969" />
+    <state x="323" y="212" key="run.anything.popup/0.0.1440.860@0.0.1440.860" timestamp="1604417924600" />
     <state x="383" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1603953573787">
       <screen x="0" y="0" width="1440" height="860" />
     </state>

@@ -176,7 +176,7 @@
                             <h3 class="dropdown-toolbar-title text-right">لديك  ({{count($notification)}}) طلبات لم يتم استلامها </h3>
                         </div><!-- /dropdown-toolbar -->
 
-                        <ul class="vertical-scrollable" style="padding: 0;">
+                        <ul class="vertical-scrollable" id="notificationList" style="padding: 0;">
 
                                 @foreach($notification as $n)
                                     <li class="notification ">
@@ -494,6 +494,72 @@
 
 
 
+</script>
+
+<script>
+    function notifyMe() {
+        if (!window.Notification) {
+            console.log('Browser does not support notifications.');
+        } else {
+            // check if permission is already granted
+            if (Notification.permission === 'granted') {
+                // show notification here
+
+                showNotification();
+
+
+            } else {
+                // request permission from user
+                Notification.requestPermission().then(function (p) {
+                    if (p === 'granted') {
+                        // show notification here
+                        showNotification();
+
+                    } else {
+                        console.log('User blocked notifications.');
+                    }
+                }).catch(function (err) {
+                    console.error(err);
+                });
+            }
+        }
+    }
+
+
+    function showNotification() {
+
+        $("#notificationList li").each(function() {
+            var url = $('a',this).attr('href');
+            var icon = $('img',this).attr('src');
+            var head = $('a',this).text();
+            var body =  ' هذا الطلب لم يتم استلامه  \n وتم طلبه من من تاريخ : ' + $('small',this).text();
+            const notification = new Notification(head, {
+                body: body,
+                dir: 'rtl',
+                icon: icon,
+            })
+            notification.onclick = (e) => {
+                window.location.href = url;
+            };
+         //  console.log(body);
+           //var barcode
+        });
+        // const notification = new Notification(head, {
+        //     body: body,
+        //     icon: icon,
+        // })
+        // notification.onclick = (e) => {
+        //     window.location.href = url;
+        // };
+    }
+
+
+    window.setInterval(function(){ // Set interval for checking
+        var date = new Date(); // Create a Date object to find out what time it is
+        if((date.getHours() === 10 || date.getHours() === 1 || date.getHours() === 16)  && date.getMinutes() === 0){ // Check the time
+           notifyMe();
+        }
+    }, 60000/2);
 </script>
 </body>
 </html>
