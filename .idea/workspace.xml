@@ -19,9 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="2-11-2020 fix fabric unique">
+    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="4-11-2020 make notification">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/printStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/printStyle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,21 +266,7 @@
       <workItem from="1604391078252" duration="5796000" />
       <workItem from="1604404245748" duration="90000" />
       <workItem from="1604408705964" duration="994000" />
-      <workItem from="1604483044472" duration="2525000" />
-    </task>
-    <task id="LOCAL-00027" summary="27-10-2020 fix seri number">
-      <created>1603794757953</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1603794757953</updated>
-    </task>
-    <task id="LOCAL-00028" summary="27-10-2020 fix seri number">
-      <created>1603794897571</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1603794897571</updated>
+      <workItem from="1604483044472" duration="3314000" />
     </task>
     <task id="LOCAL-00029" summary="27-10-2020 add user seg and fix qty">
       <created>1603798493963</created>
@@ -611,7 +597,21 @@
       <option name="project" value="LOCAL" />
       <updated>1604408779784</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="4-11-2020 make notification">
+      <created>1604485801965</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1604485801965</updated>
+    </task>
+    <task id="LOCAL-00077" summary="4-11-2020 make notification">
+      <created>1604485920021</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1604485920021</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -631,7 +631,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="13-10-2020" />
     <MESSAGE value="25-10-2020" />
     <MESSAGE value="26-10-2020" />
     <MESSAGE value="26-10-2020 with edit order without image" />
@@ -656,7 +655,8 @@
     <MESSAGE value="2-11-2020 fix done" />
     <MESSAGE value="2-11-2020 fix notification" />
     <MESSAGE value="2-11-2020 fix fabric unique" />
-    <option name="LAST_COMMIT_MESSAGE" value="2-11-2020 fix fabric unique" />
+    <MESSAGE value="4-11-2020 make notification" />
+    <option name="LAST_COMMIT_MESSAGE" value="4-11-2020 make notification" />
   </component>
   <component name="WindowStateProjectService">
     <state x="465" y="253" key="#Notifications" timestamp="1604218667974">
@@ -696,10 +696,10 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="141" y="137" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1601208976453" />
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1604408783706">
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1604485922053">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1604408783706" />
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1604485922053" />
     <state x="323" y="212" key="run.anything.popup" timestamp="1604417924600">
       <screen x="0" y="0" width="1440" height="860" />
     </state>

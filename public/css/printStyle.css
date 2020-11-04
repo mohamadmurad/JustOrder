@@ -14,3 +14,7 @@ header, footer, aside, nav, form, iframe, .menu, .hero, .adslot {
 .btn {
     display: none;
 }
+
+img {
+    height: 70%;
+}
