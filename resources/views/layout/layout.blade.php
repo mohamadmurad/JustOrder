@@ -21,7 +21,7 @@
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 
 </head>
-<body dir="rtl" >
+<body dir="rtl" onload="getperomission()">
 <div class="wrapper">
     <!-- Sidebar  -->
     <nav id="sidebar" class="active">
@@ -500,6 +500,27 @@
 </script>
 
 <script>
+    function getperomission() {
+        if (!window.Notification) {
+            console.log('Browser does not support notifications.');
+        } else {
+            if (Notification.permission === 'granted') {}else {
+                // request permission from user
+                Notification.requestPermission().then(function (p) {
+                    if (p === 'granted') {
+                        // show notification here
+                       // showNotification();
+
+                    } else {
+                        console.log('User blocked notifications.');
+                    }
+                }).catch(function (err) {
+                    console.error(err);
+                });
+            }
+
+        }
+    }
     function notifyMe() {
         if (!window.Notification) {
             console.log('Browser does not support notifications.');
@@ -563,6 +584,9 @@
            notifyMe();
         }
     }, 60000/2);
+
+
+
 </script>
 </body>
 </html>
