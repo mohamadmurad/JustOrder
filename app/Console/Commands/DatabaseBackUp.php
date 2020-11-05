@@ -63,6 +63,7 @@ class DatabaseBackUp extends Command
         dd($OldFilename);
         if(File::exists($dirPath . '/' . $OldFilename)){
 
+            dd('s');
             File::delete($dirPath . '/' . $OldFilename);
 
         }else{
