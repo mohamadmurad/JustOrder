@@ -7,9 +7,9 @@
     <title>{{ config('app.name', 'JustOrder') }}</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.0/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ URL::asset('css/style.css?v=0.0000006') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css?v=0.0000007') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-notifications.css?v=0.0000005') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/printStyle.css?v=0.0000005') }}" media="print">
+    <link rel="stylesheet" href="{{ URL::asset('css/printStyle.css?v=0.0000006') }}" media="print">
     <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
@@ -585,7 +585,29 @@
         }
     }, 60000/2);
 
+    var beforePrint = function() {
+       // $('#imageContainer').toggleClass('row');
+        //console.log('Functionality to run before printing.');
+    };
 
+    var afterPrint = function() {
+       $('#imageContainer').addClass('row');
+     //   console.log('Functionality to run after printing');
+    };
+
+    if (window.matchMedia) {
+        var mediaQueryList = window.matchMedia('print');
+        mediaQueryList.addListener(function(mql) {
+            if (mql.matches) {
+                beforePrint();
+            } else {
+                afterPrint();
+            }
+        });
+    }
+
+    window.onbeforeprint = beforePrint;
+    window.onafterprint = afterPrint;
 
 </script>
 </body>

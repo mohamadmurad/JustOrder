@@ -435,3 +435,10 @@ form#receivedForm input{
     max-height: 200px;
     overflow-y: scroll;
 }
+
+
+.orderImg{
+    display: inline;
+    float: right;
+    margin-bottom: 5px;
+}

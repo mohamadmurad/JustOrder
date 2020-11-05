@@ -14,18 +14,18 @@
             </div>
         </div>
 
-        <div class="row col-lg-12">
+        <div class="row col-lg-12" id="imageContainer">
             @if($order->image)
-                <div class="col-lg-4 margin-tb">
-                    <div class="text-center">
+                <div class="col-lg-4 " >
+                    <div class="text-center orderImg">
                         <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $order->image}}"
                              class="rounded orderImage" alt="{{$order->barcode}}">
                     </div>
                 </div>
             @endif
             @if($order->image2)
-                <div class="col-lg-4 margin-tb-3">
-                    <div class="text-center">
+                <div class="col-lg-4 " >
+                    <div class="text-center orderImg">
                         <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $order->image2}}"
                              class="rounded orderImage" alt="{{$order->barcode}}">
                     </div>
@@ -33,8 +33,8 @@
 
                 @endif
                 @if($order->image3)
-                <div class="col-lg-4 margin-tb">
-                    <div class="text-center">
+                <div class="col-lg-4">
+                    <div class="text-center orderImg" >
                         <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $order->image3}}"
                              class="rounded orderImage" alt="{{$order->barcode}}">
                     </div>
@@ -66,7 +66,7 @@
 
 
             <div class="float-left">
-                <button class="btn btn-info mt-2 mb-2" id="print" onclick="window.print();"><i class="fa fa-print"></i>
+                <button class="btn btn-info mt-2 mb-2" id="print" onclick="$('#imageContainer').toggleClass('row'); window.print(); "><i class="fa fa-print"></i>
                     طباعة
                 </button>
                 @if($order->done === 0)

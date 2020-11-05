@@ -16,5 +16,12 @@ header, footer, aside, nav, form, iframe, .menu, .hero, .adslot {
 }
 
 img {
+    float: left;
     height: 150px;
+
+}
+
+
+.orderImg{
+  margin: 12px;
 }
