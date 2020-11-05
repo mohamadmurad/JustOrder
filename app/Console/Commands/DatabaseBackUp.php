@@ -68,7 +68,7 @@ class DatabaseBackUp extends Command
 
         }else{
 
-          //  dd('File does not exists.');
+            dd('File does not exists.');
 
         }
 
