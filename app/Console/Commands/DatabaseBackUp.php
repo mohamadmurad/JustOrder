@@ -60,7 +60,7 @@ class DatabaseBackUp extends Command
 
 
         $OldFilename = "backup-" . Carbon::now()->subDays(2)->format('Y-m-d') . ".sql";
-
+        dd($OldFilename);
         if(File::exists($dirPath . '/' . $OldFilename)){
 
             File::delete(public_path($dirPath . '/' . $OldFilename));

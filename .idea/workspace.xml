@@ -19,8 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="4-11-2020 make notification">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="4-11-2020 fix delete older backup">
       <change beforePath="$PROJECT_DIR$/app/Console/Commands/DatabaseBackUp.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/DatabaseBackUp.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -268,14 +267,7 @@
       <workItem from="1604408705964" duration="994000" />
       <workItem from="1604483044472" duration="5847000" />
       <workItem from="1604562445927" duration="951000" />
-      <workItem from="1604570672194" duration="292000" />
-    </task>
-    <task id="LOCAL-00037" summary="29-10-2020 fix subgroup tree and nl2br">
-      <created>1603959088200</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1603959088200</updated>
+      <workItem from="1604570672194" duration="497000" />
     </task>
     <task id="LOCAL-00038" summary="29-10-2020 fix cors">
       <created>1604134959642</created>
@@ -613,7 +605,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604489928987</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="4-11-2020 fix delete older backup">
+      <created>1604571021806</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1604571021807</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -633,7 +632,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="25-10-2020" />
     <MESSAGE value="26-10-2020" />
     <MESSAGE value="26-10-2020 with edit order without image" />
     <MESSAGE value="26-10-2020 with backup" />
@@ -658,7 +656,8 @@
     <MESSAGE value="2-11-2020 fix notification" />
     <MESSAGE value="2-11-2020 fix fabric unique" />
     <MESSAGE value="4-11-2020 make notification" />
-    <option name="LAST_COMMIT_MESSAGE" value="4-11-2020 make notification" />
+    <MESSAGE value="4-11-2020 fix delete older backup" />
+    <option name="LAST_COMMIT_MESSAGE" value="4-11-2020 fix delete older backup" />
   </component>
   <component name="WindowStateProjectService">
     <state x="465" y="253" key="#Notifications" timestamp="1604218667974">
@@ -702,10 +701,10 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="141" y="137" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1601208976453" />
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1604489932313">
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1604571025793">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1604489932313" />
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1604571025793" />
     <state x="323" y="212" key="run.anything.popup" timestamp="1604417924600">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
