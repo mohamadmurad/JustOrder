@@ -42,7 +42,7 @@ class DatabaseBackUp extends Command
 
         $dirPath = 'D:\JustOrder_new_backup';
         if(!File::isDirectory($dirPath)){
-            dump('sdsd');
+           // dump('sdsd');
             File::makeDirectory($dirPath, 0777, true, true);
 
         }
@@ -57,6 +57,19 @@ class DatabaseBackUp extends Command
 
 
         exec($command, $output, $returnVar);
+
+
+        $OldFilename = "backup-" . Carbon::now()->subDays(2)->format('Y-m-d') . ".sql";
+
+        if(File::exists($dirPath . '/' . $OldFilename)){
+
+            File::delete(public_path($dirPath . '/' . $OldFilename));
+
+        }else{
+
+          //  dd('File does not exists.');
+
+        }
 
     }
 }

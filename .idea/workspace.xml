@@ -21,7 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="4-11-2020 make notification">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/DatabaseBackUp.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/DatabaseBackUp.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,14 +266,9 @@
       <workItem from="1604391078252" duration="5796000" />
       <workItem from="1604404245748" duration="90000" />
       <workItem from="1604408705964" duration="994000" />
-      <workItem from="1604483044472" duration="5071000" />
-    </task>
-    <task id="LOCAL-00036" summary="29-10-2020 fix subgroup tree and nl2br">
-      <created>1603958957945</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1603958957945</updated>
+      <workItem from="1604483044472" duration="5847000" />
+      <workItem from="1604562445927" duration="951000" />
+      <workItem from="1604570672194" duration="292000" />
     </task>
     <task id="LOCAL-00037" summary="29-10-2020 fix subgroup tree and nl2br">
       <created>1603959088200</created>
@@ -611,7 +606,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604486872400</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="4-11-2020 make notification">
+      <created>1604489928987</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1604489928987</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -692,14 +694,18 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="463" y="134" key="Github.UntrackedFilesDialog/0.0.1440.860@0.0.1440.860" timestamp="1601707089814" />
+    <state x="460" y="152" key="NewPhpClassDialog" timestamp="1604562791429">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="460" y="152" key="NewPhpClassDialog/0.0.1440.860@0.0.1440.860" timestamp="1604562791429" />
     <state x="141" y="137" key="SettingsEditor" timestamp="1601208976453">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="141" y="137" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1601208976453" />
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1604486873802">
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1604489932313">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1604486873802" />
+    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1604489932313" />
     <state x="323" y="212" key="run.anything.popup" timestamp="1604417924600">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
