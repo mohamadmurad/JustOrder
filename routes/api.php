@@ -23,3 +23,5 @@ Route::get('/getSubGroup/{groupID}',[\App\Http\Controllers\SubgroupController::c
 
 Route::post('/AddFabric',[\App\Http\Controllers\FabricController::class,'addFromOrder']);
 Route::get('/AddFabric',[\App\Http\Controllers\FabricController::class,'addFromOrder']);
+
+Route::get('/getFabrics',[\App\Http\Controllers\FabricController::class,'getFabrics']);

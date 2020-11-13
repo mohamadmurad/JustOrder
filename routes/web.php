@@ -58,9 +58,16 @@ Route::group(['middleware' => ['auth:sanctum']],function (){
     Route::get('/searchOrder',[\App\Http\Controllers\OrderController::class,'searchOrder'])->name('searchOrder');
     Route::post('/',[\App\Http\Controllers\OrderController::class,'report'])->name('orderReport');
     Route::post('/orderDone',[\App\Http\Controllers\OrderController::class,'done'])->name('orderDone');
-
-
+    Route::post('/reOrderDone',[\App\Http\Controllers\ReOrderController::class,'done'])->name('reOrderDone');
     Route::resource('fabric',\App\Http\Controllers\FabricController::class);
+
+    Route::resource('reOrder',\App\Http\Controllers\ReOrderController::class);
+   // Route::post('/reOrder',[\App\Http\Controllers\OrderController::class,'reOrder'])->name('reorder');
+  //  Route::get('/reOrder/{order}',[\App\Http\Controllers\OrderController::class,'createReOrder'])->name('createReOrder');
+ //   Route::get('/reOrderShow/{order}',[\App\Http\Controllers\OrderController::class,'reOrderShow'])->name('reOrderShow');
+
+
+
 });
 
 Route::group(['middleware' => ['auth:sanctum','isAdminMiddleware']],function (){

@@ -33,7 +33,7 @@ class StoreOrderRequest extends FormRequest
             'season_id' => 'required|exists:seasons,id',
             'supplier_id' => 'required|exists:suppliers,id',
             'fabricSource_id' => 'required|exists:fabric_sources,id',
-            'fabric_id' => 'required|exists:fabrics,id',
+            'fabric_id.*' => 'required|exists:fabrics,id',
             'fabricFormula' => 'nullable|string',
             //'siresQty' => '',
             'siresColorQty' => 'nullable|min:1',

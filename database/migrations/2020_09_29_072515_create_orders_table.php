@@ -22,10 +22,11 @@ class CreateOrdersTable extends Migration
 
             $table->unsignedInteger('siresSizeQty')->nullable();
             $table->unsignedInteger('siresColorQty')->nullable();
-            $table->unsignedInteger('siresQty')->nullable();
-            $table->unsignedInteger('quantity')->nullable();
-            $table->unsignedInteger('reservedQuantity')->nullable();
-            $table->unsignedInteger('receivedQty')->default(0);
+            $table->unsignedInteger('siresQty')->nullable(); // عدد السيريات
+            $table->unsignedInteger('quantity')->nullable(); // الكمية الكلية
+            $table->unsignedInteger('reservedQuantity')->nullable(); // for delete
+            $table->unsignedInteger('receivedQty')->default(0); // المستلمة
+            $table->unsignedInteger('siresItemNumber')->default(0); // عدد القطع في السيري
 
            // $table->text('fabricType');
             $table->text('fabricFormula')->nullable();
@@ -40,7 +41,7 @@ class CreateOrdersTable extends Migration
 
 
 
-            $table->boolean('done');
+            $table->boolean('done')->default(0);
 
             $table->text('notes')->nullable();
 
@@ -88,6 +89,10 @@ class CreateOrdersTable extends Migration
             $table->foreignId('fabric_source_id');
             $table->foreign('fabric_source_id')
                 ->on('fabric_sources')->references('id');
+
+
+            $table->foreignId('user_id')->nullable();
+            $table->foreign('user_id')->on('users')->references('id');
 
 
         });

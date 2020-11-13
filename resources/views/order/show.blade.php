@@ -18,16 +18,27 @@
             @if($order->image)
                 <div class="col-lg-4 " >
                     <div class="text-center orderImg">
-                        <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $order->image}}"
-                             class="rounded orderImage" alt="{{$order->barcode}}">
+                        @if(Storage::disk('img')->exists($order->image))
+                            <img src="data:image/jpeg;base64,{{ base64_encode(Storage::disk('img')->get($order->image)) }}"
+                                 class="rounded orderImage" alt="{{$order->barcode}}">
+                        @endif
+
+
+{{--                        <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $order->image}}"--}}
+{{--                             class="rounded orderImage" alt="{{$order->barcode}}">--}}
                     </div>
                 </div>
             @endif
             @if($order->image2)
                 <div class="col-lg-4 " >
                     <div class="text-center orderImg">
-                        <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $order->image2}}"
-                             class="rounded orderImage" alt="{{$order->barcode}}">
+                        @if(Storage::disk('img')->exists($order->image2))
+                            <img src="data:image/jpeg;base64,{{ base64_encode(Storage::disk('img')->get($order->image2)) }}"
+                                 class="rounded orderImage" alt="{{$order->barcode}}">
+                        @endif
+
+{{--                        <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $order->image2}}"--}}
+{{--                             class="rounded orderImage" alt="{{$order->barcode}}">--}}
                     </div>
                 </div>
 
@@ -35,8 +46,13 @@
                 @if($order->image3)
                 <div class="col-lg-4">
                     <div class="text-center orderImg" >
-                        <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $order->image3}}"
-                             class="rounded orderImage" alt="{{$order->barcode}}">
+                        @if(Storage::disk('img')->exists($order->image3))
+                            <img src="data:image/jpeg;base64,{{ base64_encode(Storage::disk('img')->get($order->image3)) }}"
+                                 class="rounded orderImage" alt="{{$order->barcode}}">
+                        @endif
+
+{{--                        <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $order->image3}}"--}}
+{{--                             class="rounded orderImage" alt="{{$order->barcode}}">--}}
                     </div>
                 </div>
             @endif
@@ -92,7 +108,7 @@
             <div class="float-right">
                 <h2>تاريخ الطلب : {{ $order->orderDate->format('Y-m-d') }}</h2>
                 <h2 style="float: right;">تاريخ الاستلام
-                    : {{  $order->reservedDate != null ? $order->reservedDate->format('Y-m-d') : 'ليس بعد' }}</h2>
+                    : {{  $order->receivedDate != null ? \Carbon\Carbon::create($order->receivedDate)->format('Y-m-d') : 'ليس بعد' }}</h2>
             </div>
         </div>
 
@@ -103,88 +119,99 @@
     <table id="webTable" class="table table-bordered mt-2" style="text-align: right;">
         <tr>
             <td>باركود</td>
-            <td>{{ $order->barcode }}</td>
+            <td colspan="{{count($order->fabrics)}}">{{ $order->barcode }}</td>
         </tr>
 
         <tr>
             <td>ماركة</td>
-            <td>{{ $order->brand->name }}</td>
+            <td colspan="{{count($order->fabrics)}}">{{ $order->brand->name }}</td>
         </tr>
 
 
         <tr>
             <td>السنة</td>
-            <td>{{ $order->year->name }}</td>
+            <td colspan="{{count($order->fabrics)}}">{{ $order->year->name }}</td>
         </tr>
 
         <tr>
             <td>الفصل</td>
-            <td>{{ $order->season->name }}</td>
+            <td colspan="{{count($order->fabrics)}}">{{ $order->season->name }}</td>
         </tr>
 
         <tr>
             <td>النوع</td>
-            <td>{{ $order->type->name }}</td>
+            <td colspan="{{count($order->fabrics)}}">{{ $order->type->name }}</td>
         </tr>
 
         <tr>
             <td>المجموعة</td>
-            <td>{{ $order->group->name }}</td>
+            <td colspan="{{count($order->fabrics)}}">{{ $order->group->name }}</td>
         </tr>
 
         <tr>
             <td>المجموعة الفرعية</td>
-            <td>{{ $order->subgroup->name }}</td>
+            <td colspan="{{count($order->fabrics)}}">{{ $order->subgroup->name }}</td>
         </tr>
 
 
         <tr>
             <td>المورد</td>
-            <td>{{ $order->supplier->name }}</td>
+            <td colspan="{{count($order->fabrics)}}">{{ $order->supplier->name }}</td>
         </tr>
 
         <tr>
             <td>مصدر القماش</td>
-            <td>{{ $order->fabricSource->name }}</td>
+            <td colspan="{{count($order->fabrics)}}">{{ $order->fabricSource->name }}</td>
+        </tr>
+
+
+
+
+        <tr>
+            <td >نوع القماش</td>
+            @foreach($order->fabrics as $fab)
+                <td>
+                    {{ $fab->name }}
+                </td>
+            @endforeach
         </tr>
 
         <tr>
-            <td>نوع القماش</td>
-            <td>{{ $order->fabric->name }} </td>
-        </tr>
-        <tr>
             <td>رمز القماش</td>
-            <td>{{$order->fabric->code }}</td>
+            @foreach($order->fabrics as $fab)
+                <td>
+                    {{ $fab->code }}
+                </td>
+            @endforeach
         </tr>
 
         <tr>
             <td>تركيبة القماش</td>
-            <td>{{ $order->fabricFormula }}</td>
+            <td colspan="{{count($order->fabrics)}}">{{ $order->fabricFormula }}</td>
         </tr>
-
         <tr>
             <td>عدد الالوان في السيري</td>
-            <td>{{ $order->siresColorQty }}</td>
+            <td colspan="{{count($order->fabrics)}}">{{ $order->siresColorQty }}</td>
         </tr>
 
         <tr>
             <td>عدد القياسات في السيري</td>
-            <td>{{ $order->siresSizeQty }}</td>
+            <td colspan="{{count($order->fabrics)}}">{{ $order->siresSizeQty }}</td>
         </tr>
 
         <tr>
             <td>عدد القطع في السيري </td>
-            <td>{{ $order->siresItemNumber }}</td>
+            <td colspan="{{count($order->fabrics)}}">{{ $order->siresItemNumber }}</td>
         </tr>
 
         <tr>
             <td>عدد السيريات</td>
-            <td>{{ $order->siresQty }}</td>
+            <td colspan="{{count($order->fabrics)}}">{{ $order->siresQty }}</td>
         </tr>
 
         <tr>
             <td>الكمية</td>
-            <td>{{ $order->quantity }}</td>
+            <td colspan="{{count($order->fabrics)}}">{{ $order->quantity }}</td>
         </tr>
 
 
@@ -198,19 +225,19 @@
 
         <tr>
             <td>الكمية المستلمة</td>
-            <td>{{ $order->receivedQty }}</td>
+            <td colspan="{{count($order->fabrics)}}">{{ $order->receivedQty }}</td>
         </tr>
 
 
         <tr>
             <td>اسم الموديل</td>
-            <td>{{ $order->modelName }}</td>
+            <td colspan="{{count($order->fabrics)}}"> {{ $order->modelName }}</td>
         </tr>
 
 
         <tr>
             <td>مواصفات الموديل</td>
-            <td>{{ $order->modelDesc }}</td>
+            <td colspan="{{count($order->fabrics)}}">{{ $order->modelDesc }}</td>
         </tr>
 
 
@@ -225,7 +252,7 @@
 
         <tr>
             <td>تاريخ تسليم القماش</td>
-            <td>{{  \Carbon\Carbon::create($order->fabricDate)->format('Y-m-d') }}</td>
+            <td colspan="{{count($order->fabrics)}}">{{  \Carbon\Carbon::create($order->fabricDate)->format('Y-m-d') }}</td>
         </tr>
 
 {{--        <tr>--}}
@@ -236,7 +263,7 @@
 
         <tr>
             <td>القياسات</td>
-            <td>
+            <td colspan="{{count($order->fabrics)}}">
                 @foreach($order->sizes as $size)
                     {{ $size->name . ' | ' }}
                 @endforeach
@@ -246,7 +273,7 @@
 
         <tr>
             <td>الالوان</td>
-            <td>
+            <td colspan="{{count($order->fabrics)}}">
                 @foreach($order->colors as $color)
                     {{ $color->name . ' | ' }}
                 @endforeach
@@ -261,68 +288,76 @@
         <table  class="table table-bordered mt-2 col-lg-6" style="text-align: right;">
             <tr>
                 <td>باركود</td>
-                <td>{{ $order->barcode }}</td>
+                <td colspan="{{count($order->fabrics)}}">{{ $order->barcode }}</td>
             </tr>
 
             <tr>
                 <td>ماركة</td>
-                <td>{{ $order->brand->name }}</td>
+                <td colspan="{{count($order->fabrics)}}">{{ $order->brand->name }}</td>
             </tr>
 
 
             <tr>
                 <td>السنة</td>
-                <td>{{ $order->year->name }}</td>
+                <td colspan="{{count($order->fabrics)}}">{{ $order->year->name }}</td>
             </tr>
 
             <tr>
                 <td>الفصل</td>
-                <td>{{ $order->season->name }}</td>
+                <td colspan="{{count($order->fabrics)}}">{{ $order->season->name }}</td>
             </tr>
 
             <tr>
                 <td>النوع</td>
-                <td>{{ $order->type->name }}</td>
+                <td colspan="{{count($order->fabrics)}}">{{ $order->type->name }}</td>
             </tr>
 
             <tr>
                 <td>المجموعة</td>
-                <td>{{ $order->group->name }}</td>
+                <td colspan="{{count($order->fabrics)}}">{{ $order->group->name }}</td>
             </tr>
 
             <tr>
                 <td>المجموعة الفرعية</td>
-                <td>{{ $order->subgroup->name }}</td>
+                <td colspan="{{count($order->fabrics)}}">{{ $order->subgroup->name }}</td>
             </tr>
 
 
             <tr>
                 <td>المورد</td>
-                <td>{{ $order->supplier->name }}</td>
+                <td colspan="{{count($order->fabrics)}}">{{ $order->supplier->name }}</td>
             </tr>
 
             <tr>
                 <td>مصدر القماش</td>
-                <td>{{ $order->fabricSource->name }}</td>
+                <td colspan="{{count($order->fabrics)}}">{{ $order->fabricSource->name }}</td>
+            </tr>
+
+
+
+
+            <tr>
+                <td >نوع القماش</td>
+                @foreach($order->fabrics as $fab)
+                <td>
+                    {{ $fab->name }}
+                </td>
+                @endforeach
             </tr>
 
             <tr>
-                <td>نوع القماش</td>
-                <td>{{ $order->fabric->name }} </td>
-            </tr>
-            <tr>
                 <td>رمز القماش</td>
-                <td>{{$order->fabric->code }}</td>
+                @foreach($order->fabrics as $fab)
+                <td>
+                        {{ $fab->code }}
+                </td>
+                @endforeach
             </tr>
 
             <tr>
                 <td>تركيبة القماش</td>
-                <td>{{ $order->fabricFormula }}</td>
+                <td colspan="{{count($order->fabrics)}}">{{ $order->fabricFormula }}</td>
             </tr>
-
-
-
-
 
         </table>
 

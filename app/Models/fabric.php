@@ -14,4 +14,9 @@ class fabric extends Model
     ];
 
     public $timestamps = false;
+
+
+    public function orders(){
+        return $this->belongsToMany(order::class,'orders_fabrics');
+    }
 }

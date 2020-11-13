@@ -19,163 +19,64 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="5-11-2020 fix delete older backup">
+    <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/justorder22.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ReOrderController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/ReDoneRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/reOrderrequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/FabricJS.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/reOrder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_09_123135_order_fabrcis_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_09_124728_alter_table_orders.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_11_072400_re_order_sizes.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_11_072445_re_order_colors.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/errors/503.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/reOrder/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/reOrder/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/reOrder/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/reOrder/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/untitled.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/printStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/printStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FabricController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FabricController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreOrderRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreOrderRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/fabric.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/fabric.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_29_072515_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_29_072515_create_orders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_27_105045_alter_table_order.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_31_135431_create_depatrments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2013_10_31_135431_create_depatrments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_31_135639_alter_table_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_10_143114_re_order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/order/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/order/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/order/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
-    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable path="composer" />
-    </execution>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="composer.json" />
-      </list>
-    </option>
+  <component name="ComposerSettings" doNotAsk="true">
+    <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PackageJsonUpdateNotifier">
-    <dismissed value="$PROJECT_DIR$/package.json" />
-  </component>
-  <component name="PhpWorkspaceProjectConfiguration">
-    <include_path>
-      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
-      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
-      <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
-      <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
-      <path value="$PROJECT_DIR$/vendor/league/commonmark" />
-      <path value="$PROJECT_DIR$/vendor/league/flysystem" />
-      <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
-      <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
-      <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
-      <path value="$PROJECT_DIR$/vendor/voku/portable-ascii" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
-      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
-      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
-      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
-      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
-      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
-      <path value="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
-      <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
-      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
-      <path value="$PROJECT_DIR$/vendor/asm89/stack-cors" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
-      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
-      <path value="$PROJECT_DIR$/vendor/psr/container" />
-      <path value="$PROJECT_DIR$/vendor/facade/flare-client-php" />
-      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
-      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
-      <path value="$PROJECT_DIR$/vendor/facade/ignition" />
-      <path value="$PROJECT_DIR$/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/vendor/facade/ignition-contracts" />
-      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
-      <path value="$PROJECT_DIR$/vendor/opis/closure" />
-      <path value="$PROJECT_DIR$/vendor/filp/whoops" />
-      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
-      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
-      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
-      <path value="$PROJECT_DIR$/vendor/brick/math" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
-      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
-      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
-      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
-      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
-      <path value="$PROJECT_DIR$/vendor/symfony/string" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
-      <path value="$PROJECT_DIR$/vendor/symfony/process" />
-      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
-      <path value="$PROJECT_DIR$/vendor/symfony/console" />
-      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-iconv" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
-      <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
-      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
-      <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
-      <path value="$PROJECT_DIR$/vendor/psy/psysh" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
-      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
-      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
-      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
-      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
-      <path value="$PROJECT_DIR$/vendor/fruitcake/laravel-cors" />
-      <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
-      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
-      <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
-      <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
-      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
-      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
-      <path value="$PROJECT_DIR$/vendor/laravel/framework" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
-      <path value="$PROJECT_DIR$/vendor/scrivo/highlight.php" />
-      <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
-      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
-      <path value="$PROJECT_DIR$/vendor/laravel/fortify" />
-      <path value="$PROJECT_DIR$/vendor/bacon/bacon-qr-code" />
-      <path value="$PROJECT_DIR$/vendor/dasprid/enum" />
-      <path value="$PROJECT_DIR$/vendor/pragmarx/google2fa" />
-      <path value="$PROJECT_DIR$/vendor/paragonie/constant_time_encoding" />
-      <path value="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib" />
-      <path value="$PROJECT_DIR$/vendor/jaybizzle/crawler-detect" />
-      <path value="$PROJECT_DIR$/vendor/jenssegers/agent" />
-      <path value="$PROJECT_DIR$/vendor/laravel/jetstream" />
-      <path value="$PROJECT_DIR$/vendor/laravel/sanctum" />
-      <path value="$PROJECT_DIR$/vendor/livewire/livewire" />
-      <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
-      <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
-    </include_path>
-  </component>
-  <component name="ProjectId" id="1i32ni8MKcqITPplau9oQjyZLIE" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectId" id="1k3735QprO25LQnxyZBMkJUgEqW" />
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -184,27 +85,25 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public/css" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\mohamad\PhpstormProjects\untitled\public\css" />
-      <recent name="D:\mohamad\PhpstormProjects\untitled" />
-      <recent name="D:\mohamad\PhpstormProjects\untitled\resources\views" />
-      <recent name="D:\mohamad\PhpstormProjects\untitled\app\Http\Controllers" />
-      <recent name="C:\Users\Mohamad.mu\PhpstormProjects\untitled\resources\views" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Mohamad.mu\PhpstormProjects\untitled\resources\views\includes" />
-      <recent name="C:\Users\Mohamad.mu\PhpstormProjects\untitled\resources\views\supplier" />
-      <recent name="C:\Users\Mohamad.mu\PhpstormProjects\untitled\resources\views\years" />
-      <recent name="C:\Users\Mohamad.mu\PhpstormProjects\untitled\public\css" />
-      <recent name="C:\Users\Mohamad.mu\PhpstormProjects\untitled" />
+      <recent name="C:\Users\mohamad.mu\PhpstormProjects\justorder22\resources\views\errors" />
+      <recent name="C:\Users\mohamad.mu\PhpstormProjects\justorder22\app\Http\Requests" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mohamad.mu\PhpstormProjects\justorder22\public\css" />
+      <recent name="C:\Users\mohamad.mu\PhpstormProjects\justorder22\public" />
+      <recent name="C:\Users\mohamad.mu\PhpstormProjects\justorder22\resources\views" />
+      <recent name="C:\Users\mohamad.mu\PhpstormProjects\justorder22\app\Http\Requests" />
+      <recent name="C:\Users\mohamad.mu\PhpstormProjects\justorder22\app\Http\Controllers" />
     </key>
   </component>
   <component name="RunManager">
@@ -216,408 +115,21 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5da49462-e536-4bed-b942-4df765591d21" name="Default Changelist" comment="" />
-      <created>1601122133593</created>
+      <changelist id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="" />
+      <created>1604917219254</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1601122133593</updated>
-      <workItem from="1601122135483" duration="2777000" />
-      <workItem from="1601188767259" duration="21119000" />
-      <workItem from="1601279130992" duration="21950000" />
-      <workItem from="1601364203501" duration="1596000" />
-      <workItem from="1601387784946" duration="3202000" />
-      <workItem from="1601447860235" duration="26366000" />
-      <workItem from="1601534024916" duration="10956000" />
-      <workItem from="1601550880044" duration="8696000" />
-      <workItem from="1601706958822" duration="541000" />
-      <workItem from="1601708475093" duration="8960000" />
-      <workItem from="1601731931580" duration="1450000" />
-      <workItem from="1601802262879" duration="603000" />
-      <workItem from="1601819859514" duration="12000" />
-      <workItem from="1601898315286" duration="20000" />
-      <workItem from="1601899849645" duration="1331000" />
-      <workItem from="1601907696117" duration="29000" />
-      <workItem from="1601973944274" duration="1640000" />
-      <workItem from="1601982043643" duration="9000" />
-      <workItem from="1601982487947" duration="596000" />
-      <workItem from="1601983772688" duration="639000" />
-      <workItem from="1601994273820" duration="1359000" />
-      <workItem from="1602063749946" duration="309000" />
-      <workItem from="1602491906916" duration="12405000" />
-      <workItem from="1602572604502" duration="1047000" />
-      <workItem from="1602574332255" duration="15217000" />
-      <workItem from="1602767794328" duration="36000" />
-      <workItem from="1602771217320" duration="1217000" />
-      <workItem from="1602917059983" duration="98000" />
-      <workItem from="1602917191782" duration="1394000" />
-      <workItem from="1602920307313" duration="4109000" />
-      <workItem from="1602933116939" duration="10000" />
-      <workItem from="1603622065839" duration="12346000" />
-      <workItem from="1603694792865" duration="12105000" />
-      <workItem from="1603714347583" duration="793000" />
-      <workItem from="1603781126713" duration="10587000" />
-      <workItem from="1603887538368" duration="4353000" />
-      <workItem from="1603953099083" duration="5433000" />
-      <workItem from="1604133983612" duration="8343000" />
-      <workItem from="1604153716253" duration="2361000" />
-      <workItem from="1604214660457" duration="4518000" />
-      <workItem from="1604223013463" duration="4517000" />
-      <workItem from="1604237094077" duration="510000" />
-      <workItem from="1604237664472" duration="5140000" />
-      <workItem from="1604316036990" duration="3223000" />
-      <workItem from="1604327764842" duration="1775000" />
-      <workItem from="1604391078252" duration="5796000" />
-      <workItem from="1604404245748" duration="90000" />
-      <workItem from="1604408705964" duration="994000" />
-      <workItem from="1604483044472" duration="5847000" />
-      <workItem from="1604562445927" duration="951000" />
-      <workItem from="1604570672194" duration="1571000" />
-      <workItem from="1604587889707" duration="2592000" />
+      <updated>1604917219254</updated>
+      <workItem from="1604917220368" duration="15546000" />
+      <workItem from="1604936251158" duration="385000" />
+      <workItem from="1604998499256" duration="2139000" />
+      <workItem from="1605011822003" duration="994000" />
+      <workItem from="1605018471028" duration="4146000" />
+      <workItem from="1605078465783" duration="14425000" />
+      <workItem from="1605101870325" duration="3377000" />
+      <workItem from="1605105682251" duration="101000" />
+      <workItem from="1605184821649" duration="4183000" />
     </task>
-    <task id="LOCAL-00043" summary="29-10-2020 add fabric from order directly">
-      <created>1604217016893</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1604217016893</updated>
-    </task>
-    <task id="LOCAL-00044" summary="29-10-2020 add fabric from order directly">
-      <created>1604218259306</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1604218259306</updated>
-    </task>
-    <task id="LOCAL-00045" summary="29-10-2020 add fabric from order directly">
-      <created>1604218624574</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1604218624574</updated>
-    </task>
-    <task id="LOCAL-00046" summary="29-10-2020 add fabric from order directly">
-      <created>1604218996124</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1604218996124</updated>
-    </task>
-    <task id="LOCAL-00047" summary="29-10-2020 add fabric from order directly">
-      <created>1604223069496</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1604223069496</updated>
-    </task>
-    <task id="LOCAL-00048" summary="29-10-2020 add fabric from order directly">
-      <created>1604223475405</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1604223475405</updated>
-    </task>
-    <task id="LOCAL-00049" summary="29-10-2020 fix search order">
-      <created>1604226495497</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1604226495498</updated>
-    </task>
-    <task id="LOCAL-00050" summary="29-10-2020 fix search order">
-      <created>1604226606199</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1604226606200</updated>
-    </task>
-    <task id="LOCAL-00051" summary="29-10-2020 fix search order">
-      <created>1604226755924</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1604226755924</updated>
-    </task>
-    <task id="LOCAL-00052" summary="29-10-2020 fix search order">
-      <created>1604226833516</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1604226833516</updated>
-    </task>
-    <task id="LOCAL-00053" summary="29-10-2020 fix search order">
-      <created>1604226899618</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1604226899618</updated>
-    </task>
-    <task id="LOCAL-00054" summary="29-10-2020 fix search order">
-      <created>1604226936859</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1604226936859</updated>
-    </task>
-    <task id="LOCAL-00055" summary="29-10-2020 fix search order">
-      <created>1604226969541</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1604226969541</updated>
-    </task>
-    <task id="LOCAL-00056" summary="29-10-2020 fix backup">
-      <created>1604238033754</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1604238033755</updated>
-    </task>
-    <task id="LOCAL-00057" summary="29-10-2020 fix backup">
-      <created>1604238621575</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1604238621575</updated>
-    </task>
-    <task id="LOCAL-00058" summary="29-10-2020 fix backup">
-      <created>1604238648058</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1604238648058</updated>
-    </task>
-    <task id="LOCAL-00059" summary="29-10-2020 fix backup">
-      <created>1604238866159</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1604238866159</updated>
-    </task>
-    <task id="LOCAL-00060" summary="29-10-2020 fix backup">
-      <created>1604239102727</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1604239102727</updated>
-    </task>
-    <task id="LOCAL-00061" summary="29-10-2020 fix backup">
-      <created>1604239109764</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1604239109764</updated>
-    </task>
-    <task id="LOCAL-00062" summary="29-10-2020 fix backup">
-      <created>1604239442709</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1604239442709</updated>
-    </task>
-    <task id="LOCAL-00063" summary="29-10-2020 order by group subgroup">
-      <created>1604241280342</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1604241280342</updated>
-    </task>
-    <task id="LOCAL-00064" summary="29-10-2020 order by group subgroup">
-      <created>1604241446200</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1604241446200</updated>
-    </task>
-    <task id="LOCAL-00065" summary="29-10-2020 order by group subgroup">
-      <created>1604241496463</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1604241496463</updated>
-    </task>
-    <task id="LOCAL-00066" summary="2-11-2020">
-      <created>1604320872102</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1604320872103</updated>
-    </task>
-    <task id="LOCAL-00067" summary="2-11-2020">
-      <created>1604323190020</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1604323190020</updated>
-    </task>
-    <task id="LOCAL-00068" summary="2-11-2020">
-      <created>1604323259385</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1604323259385</updated>
-    </task>
-    <task id="LOCAL-00069" summary="2-11-2020 fix done">
-      <created>1604328857745</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1604328857745</updated>
-    </task>
-    <task id="LOCAL-00070" summary="2-11-2020 fix done">
-      <created>1604328936845</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1604328936845</updated>
-    </task>
-    <task id="LOCAL-00071" summary="2-11-2020 fix done">
-      <created>1604393026309</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1604393026311</updated>
-    </task>
-    <task id="LOCAL-00072" summary="2-11-2020 fix notification">
-      <created>1604395463226</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1604395463226</updated>
-    </task>
-    <task id="LOCAL-00073" summary="2-11-2020 fix notification">
-      <created>1604395631640</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1604395631640</updated>
-    </task>
-    <task id="LOCAL-00074" summary="2-11-2020 fix notification">
-      <created>1604395714652</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1604395714652</updated>
-    </task>
-    <task id="LOCAL-00075" summary="2-11-2020 fix fabric unique">
-      <created>1604408779783</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1604408779784</updated>
-    </task>
-    <task id="LOCAL-00076" summary="4-11-2020 make notification">
-      <created>1604485801965</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1604485801965</updated>
-    </task>
-    <task id="LOCAL-00077" summary="4-11-2020 make notification">
-      <created>1604485920021</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1604485920021</updated>
-    </task>
-    <task id="LOCAL-00078" summary="4-11-2020 make notification">
-      <created>1604486395784</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1604486395784</updated>
-    </task>
-    <task id="LOCAL-00079" summary="4-11-2020 make notification">
-      <created>1604486501577</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1604486501577</updated>
-    </task>
-    <task id="LOCAL-00080" summary="4-11-2020 make notification">
-      <created>1604486541036</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1604486541036</updated>
-    </task>
-    <task id="LOCAL-00081" summary="4-11-2020 make notification">
-      <created>1604486573854</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1604486573854</updated>
-    </task>
-    <task id="LOCAL-00082" summary="4-11-2020 make notification">
-      <created>1604486614405</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1604486614405</updated>
-    </task>
-    <task id="LOCAL-00083" summary="4-11-2020 make notification">
-      <created>1604486651069</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1604486651069</updated>
-    </task>
-    <task id="LOCAL-00084" summary="4-11-2020 make notification">
-      <created>1604486872400</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1604486872400</updated>
-    </task>
-    <task id="LOCAL-00085" summary="4-11-2020 make notification">
-      <created>1604489928987</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1604489928987</updated>
-    </task>
-    <task id="LOCAL-00086" summary="4-11-2020 fix delete older backup">
-      <created>1604571021806</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1604571021807</updated>
-    </task>
-    <task id="LOCAL-00087" summary="5-11-2020 fix delete older backup">
-      <created>1604571187359</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1604571187359</updated>
-    </task>
-    <task id="LOCAL-00088" summary="5-11-2020 fix delete older backup">
-      <created>1604572160777</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1604572160777</updated>
-    </task>
-    <task id="LOCAL-00089" summary="5-11-2020 fix delete older backup">
-      <created>1604572229202</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1604572229202</updated>
-    </task>
-    <task id="LOCAL-00090" summary="5-11-2020 fix delete older backup">
-      <created>1604572289491</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1604572289491</updated>
-    </task>
-    <task id="LOCAL-00091" summary="5-11-2020 fix delete older backup">
-      <created>1604572328101</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1604572328101</updated>
-    </task>
-    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -637,87 +149,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="26-10-2020 with edit order without image" />
-    <MESSAGE value="26-10-2020 with backup" />
-    <MESSAGE value="26-10-2020 fix print style" />
-    <MESSAGE value="26-10-2020 add image preview on insert" />
-    <MESSAGE value="27-10-2020 add order date to input" />
-    <MESSAGE value="27-10-2020 fix preview image" />
-    <MESSAGE value="27-10-2020 fix seri number" />
-    <MESSAGE value="27-10-2020 add user seg and fix qty" />
-    <MESSAGE value="27-10-2020 add user to show in table" />
-    <MESSAGE value="28-10-2020 fix edit note" />
-    <MESSAGE value="29-10-2020 fix subgroup tree and nl2br" />
-    <MESSAGE value="29-10-2020 fix cors" />
-    <MESSAGE value="29-10-2020 fix image size" />
-    <MESSAGE value="29-10-2020 add depatment" />
-    <MESSAGE value="29-10-2020 add fabric from order directly" />
-    <MESSAGE value="29-10-2020 fix search order" />
-    <MESSAGE value="29-10-2020 fix backup" />
-    <MESSAGE value="29-10-2020 order by group subgroup" />
-    <MESSAGE value="2-11-2020" />
-    <MESSAGE value="2-11-2020 fix done" />
-    <MESSAGE value="2-11-2020 fix notification" />
-    <MESSAGE value="2-11-2020 fix fabric unique" />
-    <MESSAGE value="4-11-2020 make notification" />
-    <MESSAGE value="4-11-2020 fix delete older backup" />
-    <MESSAGE value="5-11-2020 fix delete older backup" />
-    <option name="LAST_COMMIT_MESSAGE" value="5-11-2020 fix delete older backup" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="465" y="253" key="#Notifications" timestamp="1604218667974">
+    <state x="450" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605102234218">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="465" y="253" key="#Notifications/0.0.1440.860@0.0.1440.860" timestamp="1604218667974" />
-    <state x="478" y="231" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604237752209">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="478" y="231" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.860@0.0.1440.860" timestamp="1604237752209" />
-    <state x="445" y="37" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601542337194">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="445" y="37" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.860@0.0.1440.860" timestamp="1601542337194" />
-    <state x="470" y="303" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604216048879">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="418" y="347" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.984@0.0.1280.984" timestamp="1601296310392" />
-    <state x="470" y="303" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.860@0.0.1440.860" timestamp="1604216048879" />
-    <state x="412" y="417" key="ComposerInitDialogKey" timestamp="1601122584222">
-      <screen x="0" y="0" width="1280" height="984" />
-    </state>
-    <state x="412" y="417" key="ComposerInitDialogKey/0.0.1280.984@0.0.1280.984" timestamp="1601122584222" />
-    <state x="420" y="247" key="FileChooserDialogImpl" timestamp="1601200431369">
-      <screen x="0" y="0" width="1280" height="984" />
-    </state>
-    <state x="420" y="247" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1601200431369" />
-    <state x="598" y="327" key="Github.ShareDialog" timestamp="1601707070287">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="598" y="327" key="Github.ShareDialog/0.0.1440.860@0.0.1440.860" timestamp="1601707070287" />
-    <state x="463" y="134" key="Github.UntrackedFilesDialog" timestamp="1601707089814">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="463" y="134" key="Github.UntrackedFilesDialog/0.0.1440.860@0.0.1440.860" timestamp="1601707089814" />
-    <state x="460" y="152" key="NewPhpClassDialog" timestamp="1604562791429">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="460" y="152" key="NewPhpClassDialog/0.0.1440.860@0.0.1440.860" timestamp="1604562791429" />
-    <state x="141" y="137" key="SettingsEditor" timestamp="1601208976453">
-      <screen x="0" y="0" width="1280" height="984" />
-    </state>
-    <state x="141" y="137" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1601208976453" />
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2" timestamp="1604572329278">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="312" y="162" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1604572329278" />
-    <state x="323" y="212" key="run.anything.popup" timestamp="1604417924600">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="287" y="242" key="run.anything.popup/0.0.1280.984@0.0.1280.984" timestamp="1601293397869" />
-    <state x="323" y="212" key="run.anything.popup/0.0.1440.860@0.0.1440.860" timestamp="1604417924600" />
-    <state x="383" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1603953573787">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="383" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1440.860@0.0.1440.860" timestamp="1603953573787" />
+    <state x="450" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.860@0.0.1440.860" timestamp="1605102234218" />
   </component>
 </project>

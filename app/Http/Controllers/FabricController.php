@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreFabricRequest;
+use App\Http\Resources\FabricJS;
 use App\Http\Resources\FabricResource;
 use App\Models\fabric;
+use App\Models\order;
 use http\Client\Response;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -59,6 +61,21 @@ class FabricController extends Controller
         $fabric = fabric::all()->sortBy('name');
 
         return FabricResource::collection($fabric);
+    }
+
+    public function getFabrics(Request  $request)
+    {
+        $fabric = fabric::all()->sortBy('name');
+      //  return ($request->get('order'));
+        if($request->has('order')){
+            $order = order::where('id',$request->get('order'))->with('fabrics')->first()->fabrics->pluck('id');
+            return \response()->json([
+                'data' => FabricJS::collection($fabric),
+                'value' =>$order
+            ]);
+        }
+
+        return FabricJS::collection($fabric);
     }
 
     /**

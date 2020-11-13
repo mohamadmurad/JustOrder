@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterTableUser extends Migration
+class AlterTableOrders extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class AlterTableUser extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-                $table->foreignId('departments_id')->nullable();
-                $table->foreign('departments_id')->on('departments')->references('id');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropForeign('orders_fabric_id_foreign');
+            $table->dropColumn('fabric_id');
+            $table->renameColumn('reservedDate', 'receivedDate');
+            $table->dropColumn('reservedQuantity');
         });
     }
 
@@ -26,8 +28,6 @@ class AlterTableUser extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }

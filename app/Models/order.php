@@ -88,6 +88,10 @@ class order extends Model
         return $this->belongsTo(fabric::class);
     }
 
+    public function fabrics(){
+        return $this->belongsToMany(fabric::class,'orders_fabrics');
+    }
+
     public function type(){
         return $this->belongsTo(type::class);
     }

@@ -11,17 +11,27 @@
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-notifications.css?v=0.0000005') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/printStyle.css?v=0.0000006') }}" media="print">
     <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    ></script>
+    <script src="{{ URL::asset('js/bundle.min.js') }}"></script>
+    <script>
+        var autocomplete = null;
+    </script>
     <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
-            integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
-            crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
-            integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
-            crossorigin="anonymous"></script>
+{{--    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"--}}
+{{--            integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"--}}
+{{--            crossorigin="anonymous"></script>--}}
+{{--    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"--}}
+{{--            integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"--}}
+{{--            crossorigin="anonymous"></script>--}}
+
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 
 </head>
-<body dir="rtl" onload="getperomission()">
+<body dir="rtl">
 <div class="wrapper">
     <!-- Sidebar  -->
     <nav id="sidebar" class="active">
@@ -34,11 +44,11 @@
 
             <li>
                 <a href="{{ route('home') }}">
-                    <i class="fas fa-home"></i>
+                    <i class="fa fa-home"></i>
                     الرئيسة
                 </a>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-copy"></i>
+                    <i class="fa fa-copy"></i>
                     ادارة
                 </a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
@@ -50,6 +60,10 @@
                             </li>
 
                             <li>
+                                <a href="{{ route('reOrder.index') }}">الطلبات المعادة</a>
+                            </li>
+
+                            <li>
                                 <a href="{{ route('fabric.index') }}">الأقمشة</a>
                             </li>
 
@@ -57,6 +71,11 @@
                             <li>
                                 <a href="{{ route('order.index') }}">الطلبات</a>
                             </li>
+
+                            <li>
+                                <a href="{{ route('reOrder.index') }}">الطلبات المعادة</a>
+                            </li>
+
                             <li>
                                 <a href="{{ route('years.index') }}">السنوات</a>
                             </li>
@@ -127,7 +146,7 @@
             <div class="container-fluid">
 
                 <button type="button" id="sidebarCollapse" class="btn btn-info">
-                    <i class="fas fa-align-left"></i>
+                    <i class="fa fa-align-left"></i>
                     <span>القائمة</span>
                 </button>
                 <div
@@ -164,7 +183,7 @@
             <ul class="nav nav-pills mr-auto justify-content-end">
                 <li class="nav-item dropdown" style="width: max-content">
                     <a class="nav-link "  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-envelope fa-2x"></i>
+                        <i class="fa fa-envelope fa-2x"></i>
                        @if(count($notification) >0)
                             <span class="counter ">{{count($notification)}}</span>
                         @endif
@@ -185,7 +204,11 @@
                                                 <div class="media-object">
                                                     <img  class="img-circle" alt="50x50" src="
                                             @if($n->image !== null)
-                                                    {{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $n->image}}
+                                                        @if(Storage::disk('img')->exists($n->image))
+                                                        data:image/jpeg;base64,{{ base64_encode(Storage::disk('img')->get($n->image)) }}
+                                                    @endif
+
+{{--                                                    {{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $n->image}}--}}
                                                     @else
                                                         data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2250%22%20height%3D%2250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2050%2050%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1758d492281%20text%20%7B%20fill%3A%23919191%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1758d492281%22%3E%3Crect%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23cccccc%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%226.4609375%22%20y%3D%2229.5%22%3E50x50%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E
 @endif
@@ -212,58 +235,9 @@
 
 
                     </div>
-                    <ul class="dropdown-menu">
-                        @if(isset($notification))
-                            <li class="head text-light bg-dark">
-                                <div class="row">
-                                    <div class="col-lg-12 col-sm-12 col-12">
-                                        <span>Notifications {{count($notification)}}</span>
-
-                                    </div>
-                                </div>
-                            </li>
-                            @foreach($notification as $n)
-                                <li class="notification-box">
-                                    <a href="{{ route('order.show',$n->id) }}">
-                                        <div class="row">
-                                            <div class="col-lg-3 col-sm-3 col-3 text-center">
-                                                <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $n->image}}" class="w-50 rounded-circle" alt="{{$n->barcode}}">
-                                            </div>
-                                            <div class="col-lg-8 col-sm-8 col-8">
-                                                <strong class="text-info">{{$n->barcode}}</strong>
-
-                                                <small class="text-warning">{{$n->orderDate}}</small>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                            @endforeach
-                        @else
-                            <li class="head text-light bg-dark">
-                                <div class="row">
-                                    <div class="col-lg-12 col-sm-12 col-12">
-                                        <span>Notifications 0</span>
-
-                                    </div>
-                                </div>
-                            </li>
-
-                                <li class="notification-box">
-
-                                        <div class="row">
-
-                                            <div class="col-lg-8 col-sm-8 col-8">
-                                                <strong class="text-info">ليس هناك اشعارات</strong>
 
 
-                                            </div>
-                                        </div>
 
-                            </a>
-                                </li>
-                        @endif
-
-                    </ul>
                 </li>
             </ul>
             @endif
@@ -284,18 +258,21 @@
 </div>
 
 
-<!-- jQuery CDN - Slim version (=without AJAX) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-       ></script>
+
 <!-- Popper.JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
         integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
         crossorigin="anonymous"></script>
 <!-- Bootstrap JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.0/js/bootstrap.min.js"></script>
+
+
+
+
 <script>
 
     $(document).ready(function () {
+
         jQuery("#status").fadeOut();
         jQuery("#preloader").delay(350).fadeOut("slow");
         jQuery("body").delay(350).css({ overflow: "visible" });
@@ -473,7 +450,30 @@
 
             return false;
         });
+
+
+
+
+
+
+
+
+
+        $('#orderForm').on('submit',function (e){
+           // e.preventDefault();
+            $values = autocomplete.value();
+            $("#ff").html('');
+            for (var i = 0 ;i< $values.length ; i++){
+                //$values[i];
+
+                $('#ff').append('<input type="text" name="fabric_id[]" value='+  $values[i] + '>');
+            }
+            console.log(autocomplete.value());
+            return true;
+        });
     });
+
+
 
 
     function previewFile(input,img){
@@ -492,107 +492,14 @@
     }
 
 
-
-
-
-
-
-</script>
-
-<script>
-    function getperomission() {
-        if (!window.Notification) {
-            console.log('Browser does not support notifications.');
-        } else {
-            if (Notification.permission === 'granted') {}else {
-                // request permission from user
-                Notification.requestPermission().then(function (p) {
-                    if (p === 'granted') {
-                        // show notification here
-                       // showNotification();
-
-                    } else {
-                        console.log('User blocked notifications.');
-                    }
-                }).catch(function (err) {
-                    console.error(err);
-                });
-            }
-
-        }
-    }
-    function notifyMe() {
-        if (!window.Notification) {
-            console.log('Browser does not support notifications.');
-        } else {
-            // check if permission is already granted
-            if (Notification.permission === 'granted') {
-                // show notification here
-
-                showNotification();
-
-
-            } else {
-                // request permission from user
-                Notification.requestPermission().then(function (p) {
-                    if (p === 'granted') {
-                        // show notification here
-                        showNotification();
-
-                    } else {
-                        console.log('User blocked notifications.');
-                    }
-                }).catch(function (err) {
-                    console.error(err);
-                });
-            }
-        }
-    }
-
-
-    function showNotification() {
-
-        $("#notificationList li").each(function() {
-            var url = $('a',this).attr('href');
-            var icon = $('img',this).attr('src');
-            var head = $('a',this).text();
-            var body =  ' هذا الطلب لم يتم استلامه  \n وتم طلبه من من تاريخ : ' + $('small',this).text();
-            const notification = new Notification(head, {
-                body: body,
-                dir: 'rtl',
-                icon: icon,
-            })
-            notification.onclick = (e) => {
-                window.location.href = url;
-            };
-         //  console.log(body);
-           //var barcode
-        });
-        // const notification = new Notification(head, {
-        //     body: body,
-        //     icon: icon,
-        // })
-        // notification.onclick = (e) => {
-        //     window.location.href = url;
-        // };
-    }
-
-
-    window.setInterval(function(){ // Set interval for checking
-        var date = new Date(); // Create a Date object to find out what time it is
-        if((date.getHours() === 10 || date.getHours() === 13 || date.getHours() === 16)  && date.getMinutes() === 0){ // Check the time
-           notifyMe();
-        }
-    }, 60000/2);
-
     var beforePrint = function() {
-       // $('#imageContainer').toggleClass('row');
+        // $('#imageContainer').toggleClass('row');
         //console.log('Functionality to run before printing.');
     };
 
     var afterPrint = function() {
-       $('#imageContainer').addClass('row');
-     //   console.log('Functionality to run after printing');
+        $('#imageContainer').addClass('row');
+        //   console.log('Functionality to run after printing');
     };
 
     if (window.matchMedia) {
@@ -609,6 +516,166 @@
     window.onbeforeprint = beforePrint;
     window.onafterprint = afterPrint;
 
+
+
+
 </script>
+
+<script>
+    // function getperomission() {
+    //     if (!window.Notification) {
+    //         console.log('Browser does not support notifications.');
+    //     } else {
+    //         if (Notification.permission === 'granted') {}else {
+    //             // request permission from user
+    //             Notification.requestPermission().then(function (p) {
+    //                 if (p === 'granted') {
+    //                     // show notification here
+    //                    // showNotification();
+    //
+    //                 } else {
+    //                     console.log('User blocked notifications.');
+    //                 }
+    //             }).catch(function (err) {
+    //                 console.error(err);
+    //             });
+    //         }
+    //
+    //     }
+    // }
+    // function notifyMe() {
+    //     if (!window.Notification) {
+    //         console.log('Browser does not support notifications.');
+    //     } else {
+    //         // check if permission is already granted
+    //         if (Notification.permission === 'granted') {
+    //             // show notification here
+    //
+    //             showNotification();
+    //
+    //
+    //         } else {
+    //             // request permission from user
+    //             Notification.requestPermission().then(function (p) {
+    //                 if (p === 'granted') {
+    //                     // show notification here
+    //                     showNotification();
+    //
+    //                 } else {
+    //                     console.log('User blocked notifications.');
+    //                 }
+    //             }).catch(function (err) {
+    //                 console.error(err);
+    //             });
+    //         }
+    //     }
+    // }
+    //
+    //
+    // function showNotification() {
+    //
+    //     $("#notificationList li").each(function() {
+    //         var url = $('a',this).attr('href');
+    //         var icon = $('img',this).attr('src');
+    //         var head = $('a',this).text();
+    //         var body =  ' هذا الطلب لم يتم استلامه  \n وتم طلبه من من تاريخ : ' + $('small',this).text();
+    //         const notification = new Notification(head, {
+    //             body: body,
+    //             dir: 'rtl',
+    //             icon: icon,
+    //         })
+    //         notification.onclick = (e) => {
+    //             window.location.href = url;
+    //         };
+    //      //  console.log(body);
+    //        //var barcode
+    //     });
+    //     // const notification = new Notification(head, {
+    //     //     body: body,
+    //     //     icon: icon,
+    //     // })
+    //     // notification.onclick = (e) => {
+    //     //     window.location.href = url;
+    //     // };
+    // }
+    //
+    //
+    // window.setInterval(function(){ // Set interval for checking
+    //     var date = new Date(); // Create a Date object to find out what time it is
+    //     if((date.getHours() === 10 || date.getHours() === 13 || date.getHours() === 16)  && date.getMinutes() === 0){ // Check the time
+    //        notifyMe();
+    //     }
+    // }, 60000/2);
+
+
+
+</script>
+
+
+<script>
+
+
+    // var autocomplete = new SelectPure(".autocomplete-select", {
+    //     options: [
+    //         {
+    //             label: "Barbina",
+    //             value: "ba",
+    //         },
+    //         {
+    //             label: "Bigoli",
+    //             value: "bg",
+    //         },
+    //         {
+    //             label: "Bucatini",
+    //             value: "bu",
+    //         },
+    //         {
+    //             label: "Busiate",
+    //             value: "bus",
+    //         },
+    //         {
+    //             label: "Capellini",
+    //             value: "cp",
+    //         },
+    //         {
+    //             label: "Fedelini",
+    //             value: "fe",
+    //         },
+    //         {
+    //             label: "Maccheroni",
+    //             value: "ma",
+    //         },
+    //         {
+    //             label: "Spaghetti",
+    //             value: "sp",
+    //         },
+    //     ],
+    //     value: ["sp"],
+    //     multiple: true,
+    //     autocomplete: true,
+    //     icon: "fa fa-times",
+    //     onChange: value => { console.log(value); },
+    //     classNames: {
+    //         select: "select-pure__select",
+    //         dropdownShown: "select-pure__select--opened",
+    //         multiselect: "select-pure__select--multiple",
+    //         label: "select-pure__label",
+    //         placeholder: "select-pure__placeholder",
+    //         dropdown: "select-pure__options",
+    //         option: "select-pure__option",
+    //         autocompleteInput: "select-pure__autocomplete",
+    //         selectedLabel: "select-pure__selected-label",
+    //         selectedOption: "select-pure__option--selected",
+    //         placeholderHidden: "select-pure__placeholder--hidden",
+    //         optionHidden: "select-pure__option--hidden",
+    //     }
+    // });
+    var resetAutocomplete = function() {
+        autocomplete.reset();
+    };
+
+
+</script>
+
 </body>
 </html>
