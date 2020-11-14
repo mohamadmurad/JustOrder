@@ -161,7 +161,7 @@ class OrderController extends Controller
                 $image = $request->file('image2');
                 $extension = $image->getClientOriginalExtension();
                 $fileName1 = Str::slug(now()->format('Y-m-d') . "_" . $barCode . '_2') . '.' .$extension;
-                $dd= Storage::disk('img')->put($fileName,  File::get($image));
+                $dd= Storage::disk('img')->put($fileName1,  File::get($image));
 
                 //$saved_file2 = $this->upload($image, $barCode . '_2', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
                // $saved_files_for_roleBack += [$saved_file2->getFilename()];
@@ -171,8 +171,8 @@ class OrderController extends Controller
             if ($request->hasFile('image3')) {
                 $image = $request->file('image3');
                 $extension = $image->getClientOriginalExtension();
-                $fileName2 = Str::slug(now()->format('Y-m-d') . "_" . $barCode . '_2') . '.' .$extension;
-                $dd= Storage::disk('img')->put($fileName,  File::get($image));
+                $fileName2 = Str::slug(now()->format('Y-m-d') . "_" . $barCode . '_3') . '.' .$extension;
+                $dd= Storage::disk('img')->put($fileName2,  File::get($image));
 
                // $saved_file3 = $this->upload($image, $barCode . '_3', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
                 //$saved_files_for_roleBack += [$saved_file3->getFilename()];
