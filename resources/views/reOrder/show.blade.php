@@ -18,7 +18,11 @@
             @if($reOrder->order->image)
                 <div class="col-lg-4 " >
                     <div class="text-center orderImg">
-                        @if(Storage::disk('img')->exists($reOrder->order->image))
+
+                        @if(Storage::disk('img')->exists($reOrder->image))
+                            <img src="data:image/jpeg;base64,{{ base64_encode(Storage::disk('img')->get($reOrder->image)) }}"
+                                 class="rounded orderImage" alt="{{$reOrder->barcode}}">
+                        @elseif(Storage::disk('img')->exists($reOrder->order->image))
                             <img src="data:image/jpeg;base64,{{ base64_encode(Storage::disk('img')->get($reOrder->order->image)) }}"
                                  class="rounded orderImage" alt="{{$reOrder->order->barcode}}">
                         @endif
@@ -28,23 +32,21 @@
                     </div>
                 </div>
             @endif
-            @if($reOrder->order->image2)
-                <div class="col-lg-4 " >
-                    <div class="text-center orderImg">
-                        <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $reOrder->order->image2}}"
-                             class="rounded orderImage" alt="{{$reOrder->order->barcode}}">
-                    </div>
-                </div>
-
+                @if(Storage::disk('img')->exists($reOrder->image2))
+                    <img src="data:image/jpeg;base64,{{ base64_encode(Storage::disk('img')->get($reOrder->image2)) }}"
+                         class="rounded orderImage" alt="{{$reOrder->barcode}}">
+                @elseif(Storage::disk('img')->exists($reOrder->order->image))
+                    <img src="data:image/jpeg;base64,{{ base64_encode(Storage::disk('img')->get($reOrder->order->image2)) }}"
+                         class="rounded orderImage" alt="{{$reOrder->order->barcode}}">
                 @endif
-                @if($reOrder->order->image3)
-                <div class="col-lg-4">
-                    <div class="text-center orderImg" >
-                        <img src="{{asset(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $reOrder->order->image3}}"
-                             class="rounded orderImage" alt="{{$reOrder->order->barcode}}">
-                    </div>
-                </div>
-            @endif
+
+                @if(Storage::disk('img')->exists($reOrder->image3))
+                    <img src="data:image/jpeg;base64,{{ base64_encode(Storage::disk('img')->get($reOrder->image3)) }}"
+                         class="rounded orderImage" alt="{{$reOrder->barcode}}">
+                @elseif(Storage::disk('img')->exists($reOrder->order->image3))
+                    <img src="data:image/jpeg;base64,{{ base64_encode(Storage::disk('img')->get($reOrder->order->image3)) }}"
+                         class="rounded orderImage" alt="{{$reOrder->order->barcode}}">
+                @endif
         </div>
 
         <div class="col-lg-12 margin-tb">

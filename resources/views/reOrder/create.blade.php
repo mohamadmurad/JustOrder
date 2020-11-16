@@ -23,6 +23,9 @@
         <input type="hidden" name="order_id" value="{{$order->id}}">
         <div class="row">
 
+
+
+
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>عدد الالوان في السيري :</strong>
@@ -95,6 +98,18 @@
                 </div>
             </div>
 
+            <div class="col-xs-12 col-sm-12 col-md-4">
+                <div class="form-group">
+                    <strong>كود القماش الجديد :</strong>
+                    <input type="text" id="fabricCode" name="fabricCode" class="form-control" placeholder="كود القماش الجديد"  value="{{old('fabricCode')}}">
+                    <ul class="errors">
+                        @foreach ($errors->get('fabricCode') as $message)
+                            <i>{{ $message }}</i>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
@@ -108,7 +123,19 @@
                 </div>
             </div>
 
+            <div class="col-xs-12 col-sm-12 col-md-4 text-center">
+                <div class="form-group">
+                    <strong>صورة1 :</strong>
 
+                    <input type="file" name="image" id="image1" class="form-control" placeholder="صورة"   accept="image/*" >
+                    <ul class="errors">
+                        @foreach ($errors->get('image') as $message)
+                            <i>{{ $message }}</i>
+                        @endforeach
+                    </ul>
+                </div>
+                <img id="img1" class="imgPreview">
+            </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <strong>القياسات :</strong><br>

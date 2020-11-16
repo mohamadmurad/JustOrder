@@ -42,6 +42,9 @@ class ReOrder extends Migration
             $table->text('notes')->nullable();
 
 
+
+
+
         });
     }
 

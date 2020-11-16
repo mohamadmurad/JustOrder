@@ -5,8 +5,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="just order v 2 12-11-2020">
+    <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="just order v 2 14-11-2020 fix">
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_16_131544_alter_table_re_order.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReOrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/reOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/reOrder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_10_143114_re_order.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_10_143114_re_order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/reOrder/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reOrder/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/reOrder/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reOrder/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +81,8 @@
       <workItem from="1605105682251" duration="101000" />
       <workItem from="1605184821649" duration="4183000" />
       <workItem from="1605292571696" duration="1977000" />
-      <workItem from="1605364335850" duration="103000" />
+      <workItem from="1605364335850" duration="1085000" />
+      <workItem from="1605526535337" duration="5748000" />
     </task>
     <task id="LOCAL-00001" summary="just order v 2 12-11-2020">
       <created>1605292864684</created>
@@ -83,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605292864684</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="just order v 2 14-11-2020 fix">
+      <created>1605364641083</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1605364641083</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,16 +149,17 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="just order v 2 12-11-2020" />
-    <option name="LAST_COMMIT_MESSAGE" value="just order v 2 12-11-2020" />
+    <MESSAGE value="just order v 2 14-11-2020 fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="just order v 2 14-11-2020 fix" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="450" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605102234218">
+    <state x="450" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605531512241">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="450" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.860@0.0.1440.860" timestamp="1605102234218" />
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2" timestamp="1605292874767">
+    <state x="450" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.860@0.0.1440.860" timestamp="1605531512241" />
+    <state x="312" y="163" key="Vcs.Push.Dialog.v2" timestamp="1605364643694">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1605292874767" />
+    <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1605364643694" />
   </component>
 </project>

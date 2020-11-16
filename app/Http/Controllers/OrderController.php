@@ -255,7 +255,16 @@ class OrderController extends Controller
                 ->with('success', 'تم حفظ الطلب الجديد بنجاح');
 
         } catch (Exception $e) {
-            File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $saved_files_for_roleBack);
+            foreach ($saved_files_for_roleBack as $file) {
+                if ( Storage::disk('img')->exists($file)){
+
+                    Storage::disk('img')->delete($file);
+
+                }
+
+                // File::delete(public_path(config('app.PRODUCTS_FILES_PATH', 'files/products/') . str_replace(' ', '', $branch->name)) . '/' . $file);
+            }
+           // File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $saved_files_for_roleBack);
             DB::rollBack();
 
             return redirect()->route('order.index')

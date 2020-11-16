@@ -26,6 +26,7 @@ class reOrder extends Model
         'fabricDate',
         'done',
         'notes',
+        'image',
 
 
 

@@ -30,6 +30,8 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class ReOrderController extends Controller
@@ -102,20 +104,31 @@ class ReOrderController extends Controller
         $orderDate = $request->get('orderDate');
         $order_id = $request->get('order_id');
 
+
+        $order = order::findOrFail($order_id);
+
+
         $siresQty = $request->get('siresQty');
         $siresItemNumber = $request->get('siresSizeQty') * $request->get('siresColorQty');
         $quantity = $siresQty * $siresItemNumber;
-        // $saved_files_for_roleBack = [];
+        $saved_files_for_roleBack = [];
         DB::beginTransaction();
         try {
 
 //
-//            if ($request->hasFile('image')) {
-//                $image = $request->file('image');
-//                $saved_file = $this->upload($image, $barCode . '_1', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
-//                $saved_files_for_roleBack += [$saved_file->getFilename()];
-//
-//            }
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $extension = $image->getClientOriginalExtension();
+
+                $fileName = Str::slug(now()->format('Y-m-d') . "_reOrder_" . $order->barCode . '_1') . '.' .$extension;
+                $dd= Storage::disk('img')->put($fileName,  File::get($image));
+
+                //$saved_file = $this->upload($image, $barCode . '_1', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
+                $saved_files_for_roleBack += [$fileName];
+
+               // $saved_files_for_roleBack += [$saved_file->getFilename()];
+
+            }
 //
 //            if ($request->hasFile('image2')) {
 //                $image = $request->file('image2');
@@ -150,6 +163,8 @@ class ReOrderController extends Controller
                 'notes' => $request->get('notes'),
 
 
+                'image' => $fileName,
+
             ]);
 
 
@@ -179,7 +194,13 @@ class ReOrderController extends Controller
 
         } catch (Exception $e) {
             DB::rollBack();
+            foreach ($saved_files_for_roleBack as $file) {
+                if ( Storage::disk('img')->exists($file)){
+                    Storage::disk('img')->delete($file);
+                }
 
+               // File::delete(public_path(config('app.PRODUCTS_FILES_PATH', 'files/products/') . str_replace(' ', '', $branch->name)) . '/' . $file);
+            }
             return redirect()->route('order.index')
                 ->with('error', 'لم يتم حفظ الطلب');
         }
