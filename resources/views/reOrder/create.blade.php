@@ -98,17 +98,17 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-4">
-                <div class="form-group">
-                    <strong>كود القماش الجديد :</strong>
-                    <input type="text" id="fabricCode" name="fabricCode" class="form-control" placeholder="كود القماش الجديد"  value="{{old('fabricCode')}}">
-                    <ul class="errors">
-                        @foreach ($errors->get('fabricCode') as $message)
-                            <i>{{ $message }}</i>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
+{{--            <div class="col-xs-12 col-sm-12 col-md-4">--}}
+{{--                <div class="form-group">--}}
+{{--                    <strong>كود القماش الجديد :</strong>--}}
+{{--                    <input type="text" id="fabricCode" name="fabricCode" class="form-control" placeholder="كود القماش الجديد"  value="{{old('fabricCode')}}">--}}
+{{--                    <ul class="errors">--}}
+{{--                        @foreach ($errors->get('fabricCode') as $message)--}}
+{{--                            <i>{{ $message }}</i>--}}
+{{--                        @endforeach--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
 
             <div class="col-xs-12 col-sm-12 col-md-12">
