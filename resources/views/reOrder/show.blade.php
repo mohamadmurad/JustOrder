@@ -35,7 +35,7 @@
                 @if(Storage::disk('img')->exists($reOrder->image2))
                     <img src="data:image/jpeg;base64,{{ base64_encode(Storage::disk('img')->get($reOrder->image2)) }}"
                          class="rounded orderImage" alt="{{$reOrder->barcode}}">
-                @elseif(Storage::disk('img')->exists($reOrder->order->image))
+                @elseif(Storage::disk('img')->exists($reOrder->order->image2))
                     <img src="data:image/jpeg;base64,{{ base64_encode(Storage::disk('img')->get($reOrder->order->image2)) }}"
                          class="rounded orderImage" alt="{{$reOrder->order->barcode}}">
                 @endif
