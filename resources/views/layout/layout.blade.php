@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ config('app.name', 'JustOrder') }}</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ URL::asset('css/style.css?v=0.0000007') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-notifications.css?v=0.0000005') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/printStyle.css?v=0.0000006') }}" media="print">
+
     <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
     <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-    ></script>
+
+    <script src="{{ URL::asset('js/jquery.min.js') }}"></script>
+
     <script src="{{ URL::asset('js/bundle.min.js') }}"></script>
     <script>
         var autocomplete = null;
@@ -260,12 +262,13 @@
 </div>
 
 
+
 <!-- Popper.JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
-        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-        crossorigin="anonymous"></script>
+<script src="{{ URL::asset('js/popper.min.js') }}"></script>
+
 <!-- Bootstrap JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.0/js/bootstrap.min.js"></script>
+<script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+
 
 
 
