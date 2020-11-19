@@ -30,6 +30,8 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 
+    <script src="{{ URL::asset('js/table2excel.js') }}"></script>
+
 </head>
 <body dir="rtl">
 <div class="wrapper">
@@ -258,7 +260,6 @@
 </div>
 
 
-
 <!-- Popper.JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
         integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
@@ -268,10 +269,19 @@
 
 
 
+<script>
+    var table2excel = new Table2Excel();
+
+    document.getElementById('export').addEventListener('click', function() {
+        table2excel.export(document.querySelectorAll('table'));
+    });
+</script>
+
 
 <script>
 
     $(document).ready(function () {
+
 
         jQuery("#status").fadeOut();
         jQuery("#preloader").delay(350).fadeOut("slow");

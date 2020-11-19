@@ -598,7 +598,10 @@ class OrderController extends Controller
     {
 
         if (Auth::user()->isAdmin) {
+
             $orders = order::FilterData($request)->get();
+          //  dd($orders);
+
         } else {
             $users_in_dep = Auth::user()->department()->first()->users()->get()->pluck('id');
             $orders = order::whereIn('user_id', $users_in_dep)->FilterData($request)->get();
@@ -626,7 +629,7 @@ class OrderController extends Controller
     public function done(DoneRequest $request)
     {
 
-dd('sds');
+
         $order = order::where('id', '=', $request->get('order'))
             ->where('done', '=', 0)->first();
 

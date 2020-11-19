@@ -50,7 +50,7 @@
                 <div class="form-group">
                     <strong>المجموعة:</strong>
                     <select  class="form-control"  name="group_id" id="group">
-                        <option value="0">الكل</option>
+
                         @foreach($groups as $group)
                             <option value="{{ $group->id }}">{{$group->name}}</option>
                         @endforeach
@@ -64,7 +64,7 @@
                 <div class="form-group">
                     <strong>المجموعة الفرعية:</strong>
                     <select  class="form-control"  name="subgroup_id" id="subgroup">
-                        <option value="0">الكل</option>
+
                         @foreach($subgroups as $subgroup)
                             <option value="{{ $subgroup->id }}">{{$subgroup->name}}</option>
                         @endforeach
@@ -159,30 +159,38 @@
 
     @if(isset($report))
         <br>
-        <table class="table table-bordered">
+        <button id="export">Export to excel</button>
+
+        <table class="table table-bordered" id="datatable" data-excel-name="A very important table">
             <tr>
                 <th>No</th>
                 <th>Barcode</th>
-                <th width="280px">خيارات</th>
+                <th>حالة الاستلام</th>
+{{--                <th width="280px" class="noExport">خيارات</th>--}}
             </tr>
             <?php $i = 0?>
             @foreach ($orders as $order)
                 <tr>
-                    <td>{{ ++$i }}</td>
+                    <td class="noExport">{{ ++$i }}</td>
                     <td>{{ $order->barcode }}</td>
+                    @if($order->done == 0)
+                        <td>لم يتم الاستلام</td>
+                        @else
+                        <td>تم الاستلام</td>
+                        @endif
 
-                    <td>
-                        <form action="{{ route('order.destroy',$order->id) }}" method="POST">
+{{--                    <td class="noExport">--}}
+{{--                        <form action="{{ route('order.destroy',$order->id) }}" method="POST">--}}
 
-                            <a class="btn btn-info" href="{{ route('order.show',$order->id) }}">عرض</a>
+{{--                            <a class="btn btn-info" href="{{ route('order.show',$order->id) }}">عرض</a>--}}
 
 {{--                            <a class="btn btn-primary" href="{{ route('order.edit',$order->id) }}">تعديل</a>--}}
 
-                            @csrf
-                            @method('DELETE')
+{{--                            @csrf--}}
+{{--                            @method('DELETE')--}}
 
-                            <button type="submit" class="btn btn-danger">حذف</button>
-                        </form>
+{{--                            <button type="submit" class="btn btn-danger">حذف</button>--}}
+{{--                        </form>--}}
 {{--                        @if($order->done === 0)--}}
 {{--                            <form action="{{ route('orderDone') }}" method="POST" id="receivedForm" >--}}
 
