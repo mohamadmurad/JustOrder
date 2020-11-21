@@ -14,6 +14,7 @@ class subgroup extends Model
         'id',
         'name',
         'group_id',
+        'idNum',
     ];
 
     public function group(){
