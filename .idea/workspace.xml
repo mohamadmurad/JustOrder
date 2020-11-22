@@ -7,7 +7,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="just order v2 19-11-2020 export excel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/subgroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/subgroup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReOrderController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +78,8 @@
       <workItem from="1605364335850" duration="1085000" />
       <workItem from="1605526535337" duration="7741000" />
       <workItem from="1605793812877" duration="3895000" />
-      <workItem from="1605957646256" duration="129000" />
+      <workItem from="1605957646256" duration="354000" />
+      <workItem from="1606037954731" duration="155000" />
     </task>
     <task id="LOCAL-00001" summary="just order v 2 12-11-2020">
       <created>1605292864684</created>
@@ -129,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605797026465</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="just order v2 19-11-2020 export excel">
+      <created>1605957790134</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1605957790134</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,9 +198,10 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="450" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.860@0.0.1440.860" timestamp="1605531512241" />
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2" timestamp="1605797035653">
+    <state x="312" y="163" key="Vcs.Push.Dialog.v2" timestamp="1605957839148">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
+    <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860/-1280.0.1280.984@0.0.1440.860" timestamp="1605957839148" />
     <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1605797035653" />
   </component>
 </project>

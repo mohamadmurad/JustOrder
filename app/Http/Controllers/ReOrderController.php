@@ -163,7 +163,7 @@ class ReOrderController extends Controller
                 'notes' => $request->get('notes'),
 
 
-                'image' => $fileName,
+                'image' => $request->hasFile('image') ? $fileName : null,
 
             ]);
 
