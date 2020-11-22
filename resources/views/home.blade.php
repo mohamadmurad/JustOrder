@@ -50,7 +50,7 @@
                 <div class="form-group">
                     <strong>المجموعة:</strong>
                     <select  class="form-control"  name="group_id" id="group">
-
+                        <option value="0">الكل</option>
                         @foreach($groups as $group)
                             <option value="{{ $group->id }}">{{$group->name}}</option>
                         @endforeach
@@ -64,6 +64,7 @@
                 <div class="form-group">
                     <strong>المجموعة الفرعية:</strong>
                     <select  class="form-control"  name="subgroup_id" id="subgroup">
+                        <option value="0">الكل</option>
 
                         @foreach($subgroups as $subgroup)
                             <option value="{{ $subgroup->id }}">{{$subgroup->name}}</option>

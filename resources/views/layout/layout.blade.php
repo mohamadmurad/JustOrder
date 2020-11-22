@@ -358,18 +358,19 @@
             jQuery("body").delay(350).css({ overflow: "visible" });
             $.ajax({
                 type: "GET",
-
                 url: "http://{{request()->getHttpHost()}}"+"/api/getSubGroup/" + selectedCountry,
                 success: function (data) {
 
-                    console.log(data.data);
+                  //  console.log(data.data);
                     var data = data.data;
                     $('#subgroup').html('');
                     if (selectedCountry == 0){
-                        $('#subgroup').append(new Option('الكل', 0))
+                 //       $('#subgroup').append(new Option('الكل', 0));
                     }
+
+                    $('#subgroup').append(new Option('الكل', 0));
                     for(var i =0 ; i< data.length; i++){
-                        console.log(data[i].name);
+                      //  console.log(data[i].name);
 
                         $('#subgroup').append(new Option(data[i].name, data[i].id))
                     }
@@ -380,7 +381,7 @@
                 },
                 error: function (data) {
 
-                    console.log(data.responseText);
+                   // console.log(data.responseText);
                     jQuery("#status").fadeOut();
                     jQuery("#preloader").fadeOut("slow");
                     alert('حدث خطأ');

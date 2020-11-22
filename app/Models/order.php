@@ -133,15 +133,15 @@ class order extends Model
 
     public function scopeFilterData($query,$request){
         $columns = [
-          //  'brand_id',
-            //'fabric_id',
-          //  'type_id',
-            'group_id',
-            'subgroup_id',
-           // 'season_id',
-           // 'year_id',
-           // 'supplier_id',
-          //  'fabric_source_id',
+            'brand_id',
+            'fabric_id',
+            'type_id',
+           // 'group_id',
+           // 'subgroup_id',
+            'season_id',
+            'year_id',
+            'supplier_id',
+            'fabric_source_id',
             ];
 
 
@@ -163,16 +163,28 @@ class order extends Model
         if ($request->has('subgroup_id')){
 
             $subgroup_id = $request->get('subgroup_id');
+            if($subgroup_id != 0 ){
+                $subGroup = subgroup::findOrFail($subgroup_id);
+                if ($subGroup !== null){
 
-            $subGroup = subgroup::findOrFail($subgroup_id);
+                    $query->where('subgroup_id','=', $subGroup->id);
 
-
-            if ($subGroup !== null){
-
-                $query->where('subgroup_id','=', $subGroup->id);
-
+                }
             }
         }
+
+        if ($request->has('group_id')){
+
+            $subgroup_id = $request->get('group_id');
+            if($subgroup_id != 0 ){
+                $subGroup = group::findOrFail($subgroup_id);
+                if ($subGroup !== null){
+                    $query->where('group_id','=', $subGroup->id);
+
+                }
+            }
+        }
+
 
         if ($request->has('done')){
 
