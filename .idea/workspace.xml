@@ -5,11 +5,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="just order v2 19-11-2020 export excel">
+    <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="just order v2 22-11-2020 fix report">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreUserRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +80,9 @@
       <workItem from="1605526535337" duration="7741000" />
       <workItem from="1605793812877" duration="3895000" />
       <workItem from="1605957646256" duration="354000" />
-      <workItem from="1606037954731" duration="1484000" />
+      <workItem from="1606037954731" duration="2417000" />
+      <workItem from="1606050620887" duration="124000" />
+      <workItem from="1606907255534" duration="182000" />
     </task>
     <task id="LOCAL-00001" summary="just order v 2 12-11-2020">
       <created>1605292864684</created>
@@ -146,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606038129387</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="just order v2 22-11-2020 fix report">
+      <created>1606041052133</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1606041052133</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,17 +208,18 @@
     <MESSAGE value="just order v 2 14-11-2020 fix" />
     <MESSAGE value="just order v 2 16-11-2020 add image to re orders" />
     <MESSAGE value="just order v2 19-11-2020 export excel" />
-    <option name="LAST_COMMIT_MESSAGE" value="just order v2 19-11-2020 export excel" />
+    <MESSAGE value="just order v2 22-11-2020 fix report" />
+    <option name="LAST_COMMIT_MESSAGE" value="just order v2 22-11-2020 fix report" />
   </component>
   <component name="WindowStateProjectService">
     <state x="450" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605531512241">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="450" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.860@0.0.1440.860" timestamp="1605531512241" />
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2" timestamp="1606038146093">
+    <state x="312" y="163" key="Vcs.Push.Dialog.v2" timestamp="1606041061672">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860/-1280.0.1280.984@0.0.1440.860" timestamp="1606038146093" />
+    <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860/-1280.0.1280.984@0.0.1440.860" timestamp="1606041061672" />
     <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1605797035653" />
   </component>
 </project>

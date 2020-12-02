@@ -28,6 +28,7 @@ class StoreUserRequest extends FormRequest
             'username' =>'required|unique:users,username',
             'password' => 'required|min:8|confirmed',
             'isAdmin' => 'required|in:1,0',
+            'isAdmin' => 'required|in:1,0',
             'departments_id' => 'required'
         ];
     }
