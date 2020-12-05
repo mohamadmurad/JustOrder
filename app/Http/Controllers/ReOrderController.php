@@ -529,10 +529,10 @@ class ReOrderController extends Controller
          //   dd('sds');
 
         $order = reOrder::where('id', '=', $request->get('order'))
-            ->where('done', '=', 0)->first();
+            /*->where('done', '=', 0)*/->first();
 
         $receivedQty = $request->get('receivedQty');
-        if ($receivedQty < $order->quantity) {
+        /*if ($receivedQty < $order->quantity) {
             $order->fill([
                 'done' => 0,
                 'receivedQty' => $receivedQty,
@@ -544,7 +544,13 @@ class ReOrderController extends Controller
                 'receivedQty' => $receivedQty,
                 'receivedDate' => Carbon::now()->format('Y-m-d'),
             ]);
-        }
+        }*/
+
+        $order->fill([
+            'done' => 1,
+            'receivedQty' => $receivedQty,
+            'receivedDate' => Carbon::now()->format('Y-m-d'),
+        ]);
 
         $order->update();
 
