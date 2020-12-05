@@ -77,7 +77,7 @@
 
                         <button type="submit" class="btn btn-danger">حذف</button>
                     </form>
-                    @if($order->done === 0)
+                    @if($order->receivedQty === 0)
                     <form action="{{ route('orderDone') }}" method="POST" id="receivedForm" >
 
                         @csrf
