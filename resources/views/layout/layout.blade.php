@@ -512,7 +512,7 @@
             };*/
             console.log('dsds');
             $.ajax({
-                type: "post",
+                type: "get",
                 data: $("#reportForm").serialize(),
                 dataType: 'json',
                 url: "http://{{request()->getHttpHost()}}"+"/api/reportApi/",
