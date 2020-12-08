@@ -146,4 +146,7 @@ class FabricController extends Controller
         return redirect()->route('fabric.index')
             ->with('success','Fabric deleted successfully');
     }
+
+
+
 }

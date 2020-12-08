@@ -485,6 +485,70 @@
             console.log(autocomplete.value());
             return true;
         });
+
+
+
+        $('#reportForm').on('submit',function (e){
+            jQuery("#status").fadeIn();
+            jQuery("#preloader").delay(350).fadeIn("slow");
+            jQuery("body").delay(350).css({ overflow: "visible" });
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            e.preventDefault();
+            /*var formData = {
+                name: $('#reportBrand').val(),
+                name: $('#reportYear').val(),
+                name: $('#reportType').val(),
+                name: $('#reportGroup').val(),
+                name: $('#reportSuGroup').val(),
+                name: $('#reportSeason').val(),
+                name: $('#reportSubblier').val(),
+                name: $('#reportFabricSource').val(),
+                name: $('#reportFabric').val(),
+                code: $('#fabricCode').val(),
+            };*/
+            console.log('dsds');
+            $.ajax({
+                type: "post",
+                data: $("#reportForm").serialize(),
+                dataType: 'json',
+                url: "http://{{request()->getHttpHost()}}"+"/api/reportApi/",
+                success: function (data) {
+                    console.log(data);
+                    var data = data.data;
+                    $('#reportBody').html('');
+                    for(var i =0 ; i< data.length; i++){
+                        done = "تم الاستلام";
+                        if(data[i].done == 0 ){
+                            done = "لم يتم الاستلام";
+                        }
+                        $('#reportBody').append(
+                            "<tr>" +
+                            "<td class=\"noExport\">"+(i+1)+"</td>" +
+                            "<td>"+data[i].barcode+"</td>" +
+                            "<td>"+
+                            done+
+                                "</td>" +
+                            "</tr>")
+                    }
+
+                    jQuery("#status").fadeOut();
+                    jQuery("#preloader").fadeOut("slow");
+                },
+                error: function (data) {
+                    console.log(data.responseText);
+                    jQuery("#status").fadeOut();
+                    jQuery("#preloader").fadeOut("slow");
+                    alert('حدث خطأ');
+                }
+            });
+
+
+            return false;
+        });
     });
 
 

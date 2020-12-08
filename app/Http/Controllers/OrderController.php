@@ -593,6 +593,29 @@ class OrderController extends Controller
 
     }
 
+    public function reportApi(Request  $request){
+
+        //dd($request->all());
+        $user = User::findOrFail($request->get('Auth_id'))->first();
+
+        if ($user->isAdmin) {
+
+            $orders = order::FilterData($request)->get();
+            //  dd($orders);
+
+        } else {
+            $users_in_dep = $user->department()->first()->users()->get()->pluck('id');
+            $orders = order::whereIn('user_id', $users_in_dep)->FilterData($request)->get();
+        }
+
+
+
+        return  \response()->json(
+            [
+                'data' => $orders,
+            ]
+        );
+    }
 
     public function report(Request $request)
     {

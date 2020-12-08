@@ -25,3 +25,4 @@ Route::post('/AddFabric',[\App\Http\Controllers\FabricController::class,'addFrom
 Route::get('/AddFabric',[\App\Http\Controllers\FabricController::class,'addFromOrder']);
 
 Route::get('/getFabrics',[\App\Http\Controllers\FabricController::class,'getFabrics']);
+Route::post('/reportApi',[\App\Http\Controllers\OrderController::class,'reportApi']);

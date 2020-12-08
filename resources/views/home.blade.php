@@ -3,13 +3,13 @@
 @section('content')
 
     @auth
-    <form action="{{ route('orderReport') }}" method="POST" >
+    <form action="{{ route('orderReport') }}" method="POST" id="reportForm">
         @csrf
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>ماركة :</strong>
-                    <select  class="form-control"  name="brand_id">
+                    <select  class="form-control"  name="brand_id" id="reportBrand">
                         <option value="0">الكل</option>
                         @foreach($brands as $brand)
                             <option value="{{ $brand->id }}">{{$brand->name . " | " . $brand->code}}</option>
@@ -22,7 +22,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>السنة:</strong>
-                    <select  class="form-control"  name="year_id">
+                    <select  class="form-control"  name="year_id" id="reportYear">
                         <option value="0">الكل</option>
                         @foreach($years as $year)
                             <option value="{{ $year->id }}">{{$year->name}}</option>
@@ -36,7 +36,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>النوع:</strong>
-                    <select  class="form-control"  name="type_id">
+                    <select  class="form-control"  name="type_id" id="reportType">
                         <option value="0">الكل</option>
                         @foreach($types as $type)
                             <option value="{{ $type->id }}">{{$type->name}}</option>
@@ -49,7 +49,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>المجموعة:</strong>
-                    <select  class="form-control"  name="group_id" id="group">
+                    <select  class="form-control"  name="group_id" id="group"  id="reportGroup">
                         <option value="0">الكل</option>
                         @foreach($groups as $group)
                             <option value="{{ $group->id }}">{{$group->name}}</option>
@@ -63,7 +63,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>المجموعة الفرعية:</strong>
-                    <select  class="form-control"  name="subgroup_id" id="subgroup">
+                    <select  class="form-control"  name="subgroup_id" id="subgroup" id="reportSuGroup">
                         <option value="0">الكل</option>
 
                         @foreach($subgroups as $subgroup)
@@ -77,7 +77,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>الفصل:</strong>
-                    <select  class="form-control"  name="season_id">
+                    <select  class="form-control"  name="season_id" id="reportSeason">
                         <option value="0">الكل</option>
                         @foreach($seasons as $season)
                             <option value="{{ $season->id }}">{{$season->name}}</option>
@@ -91,7 +91,7 @@
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <div class="form-group">
                     <strong>المورد :</strong>
-                    <select  class="form-control"  name="supplier_id">
+                    <select  class="form-control"  name="supplier_id" id="reportSubblier">
                         <option value="0">الكل</option>
                         @foreach($suppliers as $supplier)
                             <option value="{{ $supplier->id }}">{{$supplier->name . ' | ' . $supplier->code}}</option>
@@ -104,7 +104,7 @@
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <div class="form-group">
                     <strong style="color:red">مصدر القماش :</strong>
-                    <select  class="form-control"  name="fabricSource_id">
+                    <select  class="form-control"  name="fabricSource_id" id="reportFabricSource">
                         <option value="0">الكل</option>
                         @foreach($fabricSources as $fabricSource)
                             <option value="{{ $fabricSource->id }}">{{$fabricSource->name}}</option>
@@ -117,7 +117,7 @@
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <div class="form-group">
                     <strong >نوع القماش :</strong>
-                    <select  class="form-control"  name="fabric_id">
+                    <select  class="form-control"  name="fabric_id" id="reportFabric">
                         <option value="0">الكل</option>
                         @foreach($fabrics as $fabric)
                             <option value="{{ $fabric->id }}">{{$fabric->name . " | " . $fabric->code }}</option>
@@ -150,22 +150,38 @@
                 </div>
             </div>
 
+            <input type="hidden" value="{{Auth::id()}}" name="Auth_id">
+
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> بحث</button>
             </div>
         </div>
      </form>
+    <br>
+    <button id="export">Export to excel</button>
+<div id="reportResult">
+    <table class="table table-bordered" id="datatable" data-excel-name="A very important table">
+        <tr>
+            <th>#</th>
+            <th>باركود</th>
+            <th>حالة الاستلام</th>
+            {{--                <th width="280px" class="noExport">خيارات</th>--}}
+        </tr>
+        <tbody id="reportBody">
 
+        </tbody>
 
+    </table>
+</div>
     @if(isset($report))
         <br>
         <button id="export">Export to excel</button>
 
         <table class="table table-bordered" id="datatable" data-excel-name="A very important table">
             <tr>
-                <th>No</th>
-                <th>Barcode</th>
+                <th>#</th>
+                <th>باركود</th>
                 <th>حالة الاستلام</th>
 {{--                <th width="280px" class="noExport">خيارات</th>--}}
             </tr>
