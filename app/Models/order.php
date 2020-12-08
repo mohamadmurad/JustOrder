@@ -154,7 +154,7 @@ class order extends Model
     public function scopeFilterData($query,$request){
         $columns = [
             'brand_id',
-            'fabric_id',
+           // 'fabric_id',
             'type_id',
            // 'group_id',
            // 'subgroup_id',
