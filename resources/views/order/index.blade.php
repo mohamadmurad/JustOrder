@@ -40,6 +40,14 @@
         </div>
     @endif
 
+
+    <div class="d-flex justify-content-center">
+        عدد الكميات المطلوبة لكل الطلبات {!! $totalOrderQty !!}
+    </div>
+
+    <div class="d-flex justify-content-center">
+        عدد الكميات المستلمة لكل الطلبات {!! $totalOrderreceivedQty !!}
+    </div>
     <table class="table table-bordered">
         <tr>
             <th>No</th>
@@ -104,16 +112,6 @@
         العدد الكلي {!! $orders->total() !!}
     </div>
 
-    <div class="row">
-        <div class="col-xs-6">
-            عدد الكميات المطلوبة لكل الطلبات {!! $totalOrderQty !!}
-        </div>
-
-        <div class="col-xs-6">
-            عدد الكميات المستلمة لكل الطلبات {!! $totalOrderreceivedQty !!}
-        </div>
-
-    </div>
 
 
 
