@@ -51,11 +51,12 @@ class OrderController extends Controller
 
 
             $orders = order::with('user')->paginate();
-
+            $totalOrderQty = order::all()->sum('quantity');
         } else {
 
             $users_in_dep = Auth::user()->department()->first()->users()->get()->pluck('id');
             $orders = order::whereIn('user_id', $users_in_dep)->paginate();
+            $totalOrderQty = order::whereIn('user_id', $users_in_dep)->sum('quantity');
 
         }
 
@@ -64,7 +65,7 @@ class OrderController extends Controller
 
         //  dd($today10);
         // dd($notification);
-        return view('order.index', compact(['orders']));
+        return view('order.index', compact(['orders','totalOrderQty']));
     }
 
     /**

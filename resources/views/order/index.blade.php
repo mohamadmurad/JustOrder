@@ -99,10 +99,15 @@
     <div class="d-flex justify-content-center">
     {!! $orders->links() !!}
 
-
     </div>
     <div class="d-flex justify-content-center">
         العدد الكلي {!! $orders->total() !!}
     </div>
+
+    <div class="d-flex justify-content-center">
+        عدد الكميات المطلوبة لكل الطلبات {!! $totalOrderQty !!}
+    </div>
+
+
 
 @endsection
