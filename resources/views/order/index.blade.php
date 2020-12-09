@@ -104,11 +104,11 @@
         العدد الكلي {!! $orders->total() !!}
     </div>
 
-    <div class="d-flex justify-content-center">
+    <div class="col-xs-6">
         عدد الكميات المطلوبة لكل الطلبات {!! $totalOrderQty !!}
     </div>
 
-    <div class="d-flex justify-content-center">
+    <div class="col-xs-6">
         عدد الكميات المستلمة لكل الطلبات {!! $totalOrderreceivedQty !!}
     </div>
 
