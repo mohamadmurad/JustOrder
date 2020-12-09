@@ -52,11 +52,13 @@ class OrderController extends Controller
 
             $orders = order::with('user')->paginate();
             $totalOrderQty = order::all()->sum('quantity');
+            $totalOrderreceivedQty = order::all()->sum('receivedQty');
         } else {
 
             $users_in_dep = Auth::user()->department()->first()->users()->get()->pluck('id');
             $orders = order::whereIn('user_id', $users_in_dep)->paginate();
             $totalOrderQty = order::whereIn('user_id', $users_in_dep)->sum('quantity');
+            $totalOrderreceivedQty = order::whereIn('user_id', $users_in_dep)->sum('receivedQty');
 
         }
 
@@ -65,7 +67,7 @@ class OrderController extends Controller
 
         //  dd($today10);
         // dd($notification);
-        return view('order.index', compact(['orders','totalOrderQty']));
+        return view('order.index', compact(['orders','totalOrderQty','totalOrderreceivedQty']));
     }
 
     /**

@@ -108,6 +108,10 @@
         عدد الكميات المطلوبة لكل الطلبات {!! $totalOrderQty !!}
     </div>
 
+    <div class="d-flex justify-content-center">
+        عدد الكميات المستلمة لكل الطلبات {!! $totalOrderreceivedQty !!}
+    </div>
+
 
 
 @endsection
