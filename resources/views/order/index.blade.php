@@ -18,7 +18,10 @@
         </div>
     </div>
 
+    <div class="d-flex justify-content-center">
+        {!! $orders->links() !!}
 
+    </div>
     <form action="{{ route('searchOrder') }}" method="POST">
         @csrf
         <div class="form-row align-items-center">
@@ -104,10 +107,7 @@
             </tr>
         @endforeach
     </table>
-    <div class="d-flex justify-content-center">
-    {!! $orders->links() !!}
 
-    </div>
     <div class="d-flex justify-content-center">
         العدد الكلي {!! $orders->total() !!}
     </div>

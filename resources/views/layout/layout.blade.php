@@ -532,6 +532,13 @@
                             "<td>"+
                             done+
                                 "</td>" +
+                            "<td class=\"noExport\">"+
+                            "<form action=\" http://192.168.80.32:8083/order/ " +  data[i].id +" \" method=\"POST\">"+
+                            "<a class=\"btn btn-info\" href=\" http://192.168.80.32:8083/order/ " +  data[i].id +" \">عرض</a>"+
+                            "<a class=\"btn btn-primary\" href=\" http://192.168.80.32:8083/order/ " +  data[i].id +" /edit\">تعديل</a>"+
+                            "<input type=\"hidden\" name=\"_method\" value=\"DELETE\">"+
+                            "<button type=\"submit\" class=\"btn btn-danger\">حذف</button>"+
+                            "</td>"+
                             "</tr>")
                     }
 

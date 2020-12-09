@@ -166,7 +166,8 @@
             <th>#</th>
             <th>باركود</th>
             <th>حالة الاستلام</th>
-            {{--                <th width="280px" class="noExport">خيارات</th>--}}
+
+                            <th width="280px" class="noExport">خيارات</th>
         </tr>
         <tbody id="reportBody">
 
@@ -183,7 +184,7 @@
                 <th>#</th>
                 <th>باركود</th>
                 <th>حالة الاستلام</th>
-{{--                <th width="280px" class="noExport">خيارات</th>--}}
+                <th width="280px" class="noExport">خيارات</th>
             </tr>
             <?php $i = 0?>
             @foreach ($orders as $order)
@@ -196,30 +197,30 @@
                         <td>تم الاستلام</td>
                         @endif
 
-{{--                    <td class="noExport">--}}
-{{--                        <form action="{{ route('order.destroy',$order->id) }}" method="POST">--}}
+                    <td class="noExport">
+                        <form action="{{ route('order.destroy',$order->id) }}" method="POST">
 
-{{--                            <a class="btn btn-info" href="{{ route('order.show',$order->id) }}">عرض</a>--}}
+                            <a class="btn btn-info" href="{{ route('order.show',$order->id) }}">عرض</a>
 
-{{--                            <a class="btn btn-primary" href="{{ route('order.edit',$order->id) }}">تعديل</a>--}}
+                            <a class="btn btn-primary" href="{{ route('order.edit',$order->id) }}">تعديل</a>
 
-{{--                            @csrf--}}
-{{--                            @method('DELETE')--}}
+                            @csrf
+                            @method('DELETE')
 
-{{--                            <button type="submit" class="btn btn-danger">حذف</button>--}}
-{{--                        </form>--}}
-{{--                        @if($order->done === 0)--}}
-{{--                            <form action="{{ route('orderDone') }}" method="POST" id="receivedForm" >--}}
+                            <button type="submit" class="btn btn-danger">حذف</button>
+                        </form>
+                        @if($order->done === 0)
+                            <form action="{{ route('orderDone') }}" method="POST" id="receivedForm" >
 
-{{--                                @csrf--}}
-{{--                                <input type="hidden" value="{{$order->id}}" name="order">--}}
-{{--                                <input type="number" class="form-control col-md-6" name="receivedQty"  style="min-width: auto;" min="1" max="{{$order->reservedQuantity}}" placeholder="الكمية المستلمة">--}}
-{{--                                <button type="submit" class="btn btn-primary" id="recive">استلام</button>--}}
-{{--                                @foreach ($errors->get('receivedQty') as $message)--}}
-{{--                                    <i>{{ $message }}</i>--}}
-{{--                                @endforeach--}}
-{{--                            </form>--}}
-{{--                        @endif--}}
+                                @csrf
+                                <input type="hidden" value="{{$order->id}}" name="order">
+                                <input type="number" class="form-control col-md-6" name="receivedQty"  style="min-width: auto;" min="1" max="{{$order->reservedQuantity}}" placeholder="الكمية المستلمة">
+                                <button type="submit" class="btn btn-primary" id="recive">استلام</button>
+                                @foreach ($errors->get('receivedQty') as $message)
+                                    <i>{{ $message }}</i>
+                                @endforeach
+                            </form>
+                        @endif
                     </td>
                 </tr>
             @endforeach
