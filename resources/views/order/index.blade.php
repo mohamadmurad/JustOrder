@@ -104,12 +104,15 @@
         العدد الكلي {!! $orders->total() !!}
     </div>
 
-    <div class="col-xs-6">
-        عدد الكميات المطلوبة لكل الطلبات {!! $totalOrderQty !!}
-    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            عدد الكميات المطلوبة لكل الطلبات {!! $totalOrderQty !!}
+        </div>
 
-    <div class="col-xs-6">
-        عدد الكميات المستلمة لكل الطلبات {!! $totalOrderreceivedQty !!}
+        <div class="col-xs-6">
+            عدد الكميات المستلمة لكل الطلبات {!! $totalOrderreceivedQty !!}
+        </div>
+
     </div>
 
 
