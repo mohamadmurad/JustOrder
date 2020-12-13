@@ -6,7 +6,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="just order v2 2-12-2020 convert report to ajax">
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_13_072917_alter_table_order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/order/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/order/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +91,10 @@
       <workItem from="1607178055365" duration="2009000" />
       <workItem from="1607327276242" duration="69000" />
       <workItem from="1607439564039" duration="3098000" />
-      <workItem from="1607509524710" duration="2905000" />
+      <workItem from="1607509524710" duration="3187000" />
+      <workItem from="1607523726630" duration="42000" />
+      <workItem from="1607777408831" duration="1863000" />
+      <workItem from="1607844325577" duration="2133000" />
     </task>
     <task id="LOCAL-00001" summary="just order v 2 12-11-2020">
       <created>1605292864684</created>
@@ -240,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607522992371</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="just order v2 2-12-2020 convert report to ajax">
+      <created>1607523067005</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1607523067005</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,11 +321,11 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="450" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.860@0.0.1440.860" timestamp="1605531512241" />
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2" timestamp="1607522993084">
+    <state x="312" y="163" key="Vcs.Push.Dialog.v2" timestamp="1607523069482">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="312" y="163" key="Vcs.Push.Dialog.v2/-1280.-120.1280.984/0.0.1440.860@0.0.1440.860" timestamp="1607442646369" />
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2/-1280.-132.1280.984/0.0.1440.860@0.0.1440.860" timestamp="1607522993084" />
+    <state x="312" y="163" key="Vcs.Push.Dialog.v2/-1280.-132.1280.984/0.0.1440.860@0.0.1440.860" timestamp="1607523069482" />
     <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860/-1280.0.1280.984@0.0.1440.860" timestamp="1606041061672" />
     <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1605797035653" />
     <state x="376" y="197" key="run.anything.popup" timestamp="1607522965061">

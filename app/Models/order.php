@@ -31,6 +31,7 @@ class order extends Model
         'fabricDate',
         'done',
         'notes',
+        'PrintNotes',
         'image',
         'image2',
         'image3',

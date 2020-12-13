@@ -63,7 +63,7 @@
 {{--                <h2>العدد الكلي : {{ $order->siresQty }}</h2>--}}
 {{--            </div>--}}
             <div class="float-left">
-                <h2> حالة الاستلام :
+                <h4> حالة الاستلام :
                     @if($order->done ===1)
                         تم الاستلام
                     @elseif($order->receivedQty ==0)
@@ -71,7 +71,7 @@
 
                 @else
                     {{'تم استلام'. $order->receivedQty .' من اصل ' . $order->quantity}}
-
+                </h4>
                 @endif
 
             </div>
@@ -106,9 +106,9 @@
 
 
             <div class="float-right">
-                <h2>تاريخ الطلب : {{ $order->orderDate->format('Y-m-d') }}</h2>
-                <h2 style="float: right;">تاريخ الاستلام
-                    : {{  $order->receivedDate != null ? \Carbon\Carbon::create($order->receivedDate)->format('Y-m-d') : 'ليس بعد' }}</h2>
+                <h4>تاريخ الطلب : {{ $order->orderDate->format('Y-m-d') }}</h4>
+                <h4 style="float: right;">تاريخ الاستلام
+                    : {{  $order->receivedDate != null ? \Carbon\Carbon::create($order->receivedDate)->format('Y-m-d') : 'ليس بعد' }}</h4>
             </div>
         </div>
 
@@ -459,9 +459,15 @@
 
     </div>
 
-    <div class="col-lg-12 float-right text-right border-t note_div" >
-        <h4>ملاحظات</h4>
+    <div class="clearfix"></div>
+    <div class="col-lg-6 col-xs-6  col-sm-6 float-right text-right border-t note_div" >
+        <h5>ملاحظات</h5>
         <p>{!! nl2br(str_replace(" ", " &nbsp;",$order->notes)) !!}</p>
+    </div>
+
+    <div class="col-lg-6 col-xs-6 col-sm-6 float-right text-right border-t note_div" >
+        <h5>ملاحظات الطباعة</h5>
+        <p>{!! nl2br(str_replace(" ", " &nbsp;",$order->PrintNotes)) !!}</p>
     </div>
 
 @endsection
