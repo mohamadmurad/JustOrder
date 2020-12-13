@@ -460,12 +460,27 @@
             </div>
 
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+
+
+            <div class="col-xs-12 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>ملاحظات :</strong>
                     <textarea form="orderForm" type="text" name="notes" class="form-control" rows="3" placeholder="ملاحظات">{{$order->notes}}</textarea>
                     <ul class="errors">
                         @foreach ($errors->get('notes') as $message)
+                            <i>{{ $message }}</i>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group">
+                    <strong>ملاحظات الطباعة :</strong>
+                    <textarea form="orderForm" type="text" name="PrintNotes" class="form-control" rows="3" placeholder="ملاحظات">{{$order->PrintNotes}}</textarea>
+                    <ul class="errors">
+                        @foreach ($errors->get('PrintNotes') as $message)
                             <i>{{ $message }}</i>
                         @endforeach
                     </ul>

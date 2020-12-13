@@ -447,7 +447,7 @@
 
 
 
-            <div class="col-xs-12 col-sm-5 col-md-5">
+            <div class="col-xs-12 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>ملاحظات الطباعة :</strong>
                     <textarea form="orderForm" type="text" name="PrintNotes" class="form-control" rows="3" cols="5" placeholder="ملاحظات الطباعة">{{old('PrintNotes')}}</textarea>
