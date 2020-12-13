@@ -7,9 +7,9 @@
     <title>{{ config('app.name', 'JustOrder') }}</title>
     <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ URL::asset('css/style.css?v=0.0000007') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-notifications.css?v=0.0000005') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/printStyle.css?v=0.0000006') }}" media="print">
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css?v=0.0000008') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-notifications.css?v=0.0000006') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/printStyle.css?v=0.0000007') }}" media="print">
 
     <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
     <!-- jQuery CDN - Slim version (=without AJAX) -->
