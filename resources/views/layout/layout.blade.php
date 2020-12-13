@@ -249,9 +249,9 @@
 
         <div class="container">
 
-            <div class="alert alert-danger">
-                <b>هام :</b> تم إضافة حقل <b><i>ملاحظات الطباعة</i></b>
-            </div>
+{{--            <div class="alert alert-danger">--}}
+{{--                <b>هام :</b> تم إضافة حقل <b><i>ملاحظات الطباعة</i></b>--}}
+{{--            </div>--}}
 
             @yield('content')
 
