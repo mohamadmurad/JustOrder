@@ -478,7 +478,7 @@
             <div class="col-xs-12 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>ملاحظات الطباعة :</strong>
-                    <textarea form="orderForm" type="text" name="PrintNotes" class="form-control" rows="3" placeholder="ملاحظات">{{$order->PrintNotes}}</textarea>
+                    <textarea form="orderForm" type="text" name="PrintNotes" class="form-control" rows="3" placeholder="ملاحظات الطباعة">{{$order->PrintNotes}}</textarea>
                     <ul class="errors">
                         @foreach ($errors->get('PrintNotes') as $message)
                             <i>{{ $message }}</i>
