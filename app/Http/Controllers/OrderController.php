@@ -607,13 +607,33 @@ class OrderController extends Controller
 
             $orders = order::FilterData($request)->get();
 
-            $reOrders = reOrder::with('order')->whereIn('order_id',$orders->pluck('id'))->get();
+            $reOrders = reOrder::with('order')->whereIn('order_id',$orders->pluck('id'));
+
+            if ($request->has('done')){
+
+                $done = $request->get('done');
+
+                if ($done !== 'all'){
+                    $reOrders->where('done','=', intval($done));
+                }
+            }
+
+            $reOrders->get();
             //  dd($orders);
 
         } else {
             $users_in_dep = $user->department()->first()->users()->get()->pluck('id');
             $orders = order::whereIn('user_id', $users_in_dep)->FilterData($request)->get();
-            $reOrders = reOrder::with('order')->whereIn('order_id',$orders->pluck('id'))->get();
+            $reOrders = reOrder::with('order')->whereIn('order_id',$orders->pluck('id'));
+
+            if ($request->has('done')){
+                $done = $request->get('done');
+                if ($done !== 'all'){
+                    $reOrders->where('done','=', intval($done));
+                }
+            }
+
+            $reOrders->get();
         }
 
 
