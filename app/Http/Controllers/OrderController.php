@@ -614,11 +614,11 @@ class OrderController extends Controller
                 $done = $request->get('done');
 
                 if ($done !== 'all'){
-                    $reOrders->where('done','=', intval($done));
+                    $reOrders = $reOrders->where('done','=', intval($done));
                 }
             }
 
-            $reOrders->get();
+            $reOrders = $reOrders->get();
             //  dd($orders);
 
         } else {
@@ -629,11 +629,11 @@ class OrderController extends Controller
             if ($request->has('done')){
                 $done = $request->get('done');
                 if ($done !== 'all'){
-                    $reOrders->where('done','=', intval($done));
+                    $reOrders = $reOrders->where('done','=', intval($done));
                 }
             }
 
-            $reOrders->get();
+            $reOrders = $reOrders->get();
         }
 
 
