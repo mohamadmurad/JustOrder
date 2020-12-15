@@ -606,18 +606,24 @@ class OrderController extends Controller
         if ($user->isAdmin) {
 
             $orders = order::FilterData($request)->get();
+
+            $reOrders = reOrder::with('order')->whereIn('order_id',$orders->pluck('id'))->get();
             //  dd($orders);
 
         } else {
             $users_in_dep = $user->department()->first()->users()->get()->pluck('id');
             $orders = order::whereIn('user_id', $users_in_dep)->FilterData($request)->get();
+            $reOrders = reOrder::with('order')->whereIn('order_id',$orders->pluck('id'))->get();
         }
 
 
 
         return  \response()->json(
             [
-                'data' => $orders,
+                'data' => [
+                    'orders' => $orders,
+                    'reOrders' => $reOrders,
+                ],
             ]
         );
     }

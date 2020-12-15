@@ -249,9 +249,9 @@
 
         <div class="container">
 
-{{--            <div class="alert alert-danger">--}}
-{{--                <b>هام :</b> تم إضافة حقل <b><i>ملاحظات الطباعة</i></b>--}}
-{{--            </div>--}}
+            <div class="alert alert-danger">
+                <b>هام :</b> تم إضافة الطلبات المعادة في التقارير
+            </div>
 
             @yield('content')
 
@@ -522,24 +522,52 @@
                 url: "http://{{request()->getHttpHost()}}"+"/api/reportApi/",
                 success: function (data) {
                     console.log(data);
-                    var data = data.data;
+
+                    var orders = data.data.orders;
+                    var reOrders = data.data.reOrders;
+
                     $('#reportBody').html('');
-                    for(var i =0 ; i< data.length; i++){
+                    for(var i =0 ; i< orders.length; i++){
                         done = "تم الاستلام";
-                        if(data[i].done == 0 ){
+                        if(orders[i].done == 0 ){
                             done = "لم يتم الاستلام";
                         }
                         $('#reportBody').append(
                             "<tr>" +
                             "<td class=\"noExport\">"+(i+1)+"</td>" +
-                            "<td>"+data[i].barcode+"</td>" +
+                            "<td>"+orders[i].barcode+"</td>" +
+                            "<td>اساسي</td>" +
                             "<td>"+
                             done+
                                 "</td>" +
                             "<td class=\"noExport\">"+
-                            "<form action=\" http://192.168.80.32:8083/order/" +  data[i].id +" \" method=\"POST\">"+
-                            "<a class=\"btn btn-info\" href=\" http://192.168.80.32:8083/order/" +  data[i].id +" \">عرض</a>"+
-                            "<a class=\"btn btn-primary\" href=\" http://192.168.80.32:8083/order/" +  data[i].id +"/edit\">تعديل</a>"+
+                            "<form action=\" http://192.168.80.32:8083/order/" +  orders[i].id +" \" method=\"POST\">"+
+                            "<a class=\"btn btn-info\" href=\" http://192.168.80.32:8083/order/" +  orders[i].id +" \">عرض</a>"+
+                            "<a class=\"btn btn-primary\" href=\" http://192.168.80.32:8083/order/" +  orders[i].id +"/edit\">تعديل</a>"+
+                            "<input type=\"hidden\" name=\"_method\" value=\"DELETE\">"+
+                            "<button type=\"submit\" class=\"btn btn-danger\">حذف</button>"+
+                            "</td>"+
+                            "</tr>")
+                    }
+
+
+                    for(var i =0 ; i< reOrders.length; i++){
+                        done = "تم الاستلام";
+                        if(reOrders[i].done == 0 ){
+                            done = "لم يتم الاستلام";
+                        }
+                        $('#reportBody').append(
+                            "<tr>" +
+                            "<td class=\"noExport\">"+(i+1)+"</td>" +
+                            "<td>"+reOrders[i].order.barcode+"</td>" +
+                            "<td>إعادة رقم : "+reOrders[i].re_order_number+"</td>" +
+                            "<td>"+
+                            done+
+                            "</td>" +
+                            "<td class=\"noExport\">"+
+                            "<form action=\" http://192.168.80.32:8083/order/" +  reOrders[i].id +" \" method=\"POST\">"+
+                            "<a class=\"btn btn-info\" href=\" http://192.168.80.32:8083/order/" +  reOrders[i].id +" \">عرض</a>"+
+                            "<a class=\"btn btn-primary\" href=\" http://192.168.80.32:8083/order/" +  reOrders[i].id +"/edit\">تعديل</a>"+
                             "<input type=\"hidden\" name=\"_method\" value=\"DELETE\">"+
                             "<button type=\"submit\" class=\"btn btn-danger\">حذف</button>"+
                             "</td>"+

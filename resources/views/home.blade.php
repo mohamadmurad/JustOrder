@@ -165,6 +165,7 @@
         <tr>
             <th>#</th>
             <th>باركود</th>
+            <th>نوع الطلب</th>
             <th>حالة الاستلام</th>
 
                             <th width="280px" class="noExport">خيارات</th>
