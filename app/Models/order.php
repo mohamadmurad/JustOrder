@@ -207,14 +207,14 @@ class order extends Model
         }
 
 
-        if ($request->has('done')){
-
-            $done = $request->get('done');
-
-            if ($done !== 'all'){
-                $query->where('done','=', intval($done));
-            }
-        }
+//        if ($request->has('done')){
+//
+//            $done = $request->get('done');
+//
+//            if ($done !== 'all'){
+//                $query->where('done','=', intval($done));
+//            }
+//        }
 
 
         return $query;

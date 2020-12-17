@@ -67,7 +67,7 @@ class OrderController extends Controller
 
         //  dd($today10);
         // dd($notification);
-        return view('order.index', compact(['orders','totalOrderQty','totalOrderreceivedQty']));
+        return view('order.index', compact(['orders', 'totalOrderQty', 'totalOrderreceivedQty']));
     }
 
     /**
@@ -150,11 +150,11 @@ class OrderController extends Controller
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
                 $extension = $image->getClientOriginalExtension();
-                $fileName = Str::slug(now()->format('Y-m-d') . "_" . $barCode . '_1') . '.' .$extension;
-                $dd= Storage::disk('img')->put($fileName,  File::get($image));
+                $fileName = Str::slug(now()->format('Y-m-d') . "_" . $barCode . '_1') . '.' . $extension;
+                $dd = Storage::disk('img')->put($fileName, File::get($image));
 
                 //$saved_file = $this->upload($image, $barCode . '_1', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
-               // $saved_files_for_roleBack += [$saved_file->getFilename()];
+                // $saved_files_for_roleBack += [$saved_file->getFilename()];
 
                 $saved_files_for_roleBack += [$fileName];
 
@@ -163,21 +163,21 @@ class OrderController extends Controller
             if ($request->hasFile('image2')) {
                 $image = $request->file('image2');
                 $extension = $image->getClientOriginalExtension();
-                $fileName1 = Str::slug(now()->format('Y-m-d') . "_" . $barCode . '_2') . '.' .$extension;
-                $dd= Storage::disk('img')->put($fileName1,  File::get($image));
+                $fileName1 = Str::slug(now()->format('Y-m-d') . "_" . $barCode . '_2') . '.' . $extension;
+                $dd = Storage::disk('img')->put($fileName1, File::get($image));
 
                 //$saved_file2 = $this->upload($image, $barCode . '_2', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
-               // $saved_files_for_roleBack += [$saved_file2->getFilename()];
+                // $saved_files_for_roleBack += [$saved_file2->getFilename()];
                 $saved_files_for_roleBack += [$fileName1];
             }
 
             if ($request->hasFile('image3')) {
                 $image = $request->file('image3');
                 $extension = $image->getClientOriginalExtension();
-                $fileName2 = Str::slug(now()->format('Y-m-d') . "_" . $barCode . '_3') . '.' .$extension;
-                $dd= Storage::disk('img')->put($fileName2,  File::get($image));
+                $fileName2 = Str::slug(now()->format('Y-m-d') . "_" . $barCode . '_3') . '.' . $extension;
+                $dd = Storage::disk('img')->put($fileName2, File::get($image));
 
-               // $saved_file3 = $this->upload($image, $barCode . '_3', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
+                // $saved_file3 = $this->upload($image, $barCode . '_3', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
                 //$saved_files_for_roleBack += [$saved_file3->getFilename()];
                 $saved_files_for_roleBack += [$fileName2];
             }
@@ -209,7 +209,7 @@ class OrderController extends Controller
                 'image' => $request->hasFile('image') ? $fileName : null,
                 //'image2' => $request->hasFile('image2') ? $saved_file2->getFilename() : null,
                 'image2' => $request->hasFile('image2') ? $fileName1 : null,
-               // 'image3' => $request->hasFile('image3') ? $saved_file3->getFilename() : null,
+                // 'image3' => $request->hasFile('image3') ? $saved_file3->getFilename() : null,
                 'image3' => $request->hasFile('image3') ? $fileName2 : null,
 
 
@@ -260,7 +260,7 @@ class OrderController extends Controller
 
         } catch (Exception $e) {
             foreach ($saved_files_for_roleBack as $file) {
-                if ( Storage::disk('img')->exists($file)){
+                if (Storage::disk('img')->exists($file)) {
 
                     Storage::disk('img')->delete($file);
 
@@ -268,7 +268,7 @@ class OrderController extends Controller
 
                 // File::delete(public_path(config('app.PRODUCTS_FILES_PATH', 'files/products/') . str_replace(' ', '', $branch->name)) . '/' . $file);
             }
-           // File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $saved_files_for_roleBack);
+            // File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $saved_files_for_roleBack);
             DB::rollBack();
 
             return redirect()->route('order.index')
@@ -399,7 +399,7 @@ class OrderController extends Controller
 
         }
 
-        if ($barCode ===  null){
+        if ($barCode === null) {
             $barCode = $order->barcode;
         }
         $siresQty = $request->get('siresQty');
@@ -414,15 +414,15 @@ class OrderController extends Controller
 
                 $image = $request->file('image');
 
-                $dd= Storage::disk('img')->delete($order->image);
+                $dd = Storage::disk('img')->delete($order->image);
                 $extension = $image->getClientOriginalExtension();
-                $fileName = Str::slug(now()->format('Y-m-d') . "_" . $barCode . '_1') . '.' .$extension;
-                $dd= Storage::disk('img')->put($fileName,  File::get($image));
+                $fileName = Str::slug(now()->format('Y-m-d') . "_" . $barCode . '_1') . '.' . $extension;
+                $dd = Storage::disk('img')->put($fileName, File::get($image));
 
 
-               // File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/') . $order->image));
-               // $saved_file = $this->upload($image, $barCode . '_1', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
-               // $saved_files_for_roleBack += [$saved_file->getFilename()];
+                // File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/') . $order->image));
+                // $saved_file = $this->upload($image, $barCode . '_1', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
+                // $saved_files_for_roleBack += [$saved_file->getFilename()];
 
                 $saved_files_for_roleBack += [$fileName];
 
@@ -430,14 +430,14 @@ class OrderController extends Controller
 
             if ($request->hasFile('image2')) {
                 $image = $request->file('image2');
-                $dd= Storage::disk('img')->delete($order->image2);
+                $dd = Storage::disk('img')->delete($order->image2);
                 $extension = $image->getClientOriginalExtension();
-                $fileName1 = Str::slug(now()->format('Y-m-d') . "_" . $barCode . '_2') . '.' .$extension;
-                $dd= Storage::disk('img')->put($fileName1,  File::get($image));
-               // File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/') . $order->image2));
+                $fileName1 = Str::slug(now()->format('Y-m-d') . "_" . $barCode . '_2') . '.' . $extension;
+                $dd = Storage::disk('img')->put($fileName1, File::get($image));
+                // File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/') . $order->image2));
 
-               // $saved_file2 = $this->upload($image, $barCode . '_2', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
-               // $saved_files_for_roleBack += [$saved_file2->getFilename()];
+                // $saved_file2 = $this->upload($image, $barCode . '_2', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
+                // $saved_files_for_roleBack += [$saved_file2->getFilename()];
 
                 $saved_files_for_roleBack += [$fileName1];
             }
@@ -445,13 +445,13 @@ class OrderController extends Controller
             if ($request->hasFile('image3')) {
                 $image = $request->file('image3');
 
-                $dd= Storage::disk('img')->delete($order->image2);
+                $dd = Storage::disk('img')->delete($order->image2);
                 $extension = $image->getClientOriginalExtension();
-                $fileName2 = Str::slug(now()->format('Y-m-d') . "_" . $barCode . '_3') . '.' .$extension;
-                $dd= Storage::disk('img')->put($fileName2,  File::get($image));
+                $fileName2 = Str::slug(now()->format('Y-m-d') . "_" . $barCode . '_3') . '.' . $extension;
+                $dd = Storage::disk('img')->put($fileName2, File::get($image));
 
                 //File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/') . $order->image3));
-               // $saved_file3 = $this->upload($image, $barCode . '_3', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
+                // $saved_file3 = $this->upload($image, $barCode . '_3', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
                 //$saved_files_for_roleBack += [$saved_file3->getFilename()];
 
                 $saved_files_for_roleBack += [$fileName2];
@@ -598,47 +598,60 @@ class OrderController extends Controller
 
     }
 
-    public function reportApi(Request  $request){
+    public function reportApi(Request $request)
+    {
 
         //dd($request->all());
         $user = User::findOrFail($request->get('Auth_id'))->first();
 
         if ($user->isAdmin) {
 
-            $orders = order::FilterData($request)->get();
-
-            $reOrders = reOrder::with('order')->whereIn('order_id',$orders->pluck('id'));
-
-            if ($request->has('done')){
+            $orders = order::FilterData($request);
+            $reOrders = reOrder::with(['order' => function ($q) {
+                $q->FilterData();
+            }])->get();
+            if ($request->has('done')) {
 
                 $done = $request->get('done');
 
-                if ($done !== 'all'){
-                    $reOrders = $reOrders->where('done','=', intval($done));
+                if ($done !== 'all') {
+                    $orders = $orders->where('done', '=', intval($done));
+                    $reOrders = $reOrders->where('done', '=', intval($done));
                 }
             }
 
+            //  $reOrders = reOrder::with('order')->whereIn('order_id',$orders->pluck('id'));
+
+
+
             $reOrders = $reOrders->get();
+            $orders = $orders->get();
             //  dd($orders);
 
         } else {
             $users_in_dep = $user->department()->first()->users()->get()->pluck('id');
-            $orders = order::whereIn('user_id', $users_in_dep)->FilterData($request)->get();
-            $reOrders = reOrder::with('order')->whereIn('order_id',$orders->pluck('id'));
+            $orders = order::whereIn('user_id', $users_in_dep)->FilterData($request);
 
-            if ($request->has('done')){
+            $reOrders = reOrder::with(['order' => function ($q) {
+                $q->FilterData();
+            }])->get();
+
+
+            //$reOrders = reOrder::with('order')->whereIn('order_id', $orders->pluck('id'));
+
+            if ($request->has('done')) {
                 $done = $request->get('done');
-                if ($done !== 'all'){
-                    $reOrders = $reOrders->where('done','=', intval($done));
+                if ($done !== 'all') {
+                    $orders = $orders->where('done', '=', intval($done));
+                    $reOrders = $reOrders->where('done', '=', intval($done));
                 }
             }
-
+            $orders = $orders->get();
             $reOrders = $reOrders->get();
         }
 
 
-
-        return  \response()->json(
+        return \response()->json(
             [
                 'data' => [
                     'orders' => $orders,
@@ -654,7 +667,7 @@ class OrderController extends Controller
         if (Auth::user()->isAdmin) {
 
             $orders = order::FilterData($request)->get();
-          //  dd($orders);
+            //  dd($orders);
 
         } else {
             $users_in_dep = Auth::user()->department()->first()->users()->get()->pluck('id');
@@ -685,7 +698,7 @@ class OrderController extends Controller
 
 
         $order = order::where('id', '=', $request->get('order'))
-            /*->where('done', '=', 0)*/->first();
+            /*->where('done', '=', 0)*/ ->first();
 
         $receivedQty = $request->get('receivedQty');
         /*if ($receivedQty < $order->quantity) {
@@ -724,14 +737,15 @@ class OrderController extends Controller
 
         return view('order.reCreate', compact([
 
-            'colors', 'sizes', 'order' ]));
+            'colors', 'sizes', 'order']));
 
 
     }
 
-    public function reOrderShow(Request $request , reOrder $order){
+    public function reOrderShow(Request $request, reOrder $order)
+    {
         $order->load([
-           'order',
+            'order',
         ]);
 
 
@@ -752,7 +766,7 @@ class OrderController extends Controller
         $siresQty = $request->get('siresQty');
         $siresItemNumber = $request->get('siresSizeQty') * $request->get('siresColorQty');
         $quantity = $siresQty * $siresItemNumber;
-       // $saved_files_for_roleBack = [];
+        // $saved_files_for_roleBack = [];
         DB::beginTransaction();
         try {
 
@@ -813,8 +827,6 @@ class OrderController extends Controller
                 }
 
             }
-
-
 
 
             DB::commit();
