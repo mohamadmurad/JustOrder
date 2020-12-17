@@ -607,8 +607,8 @@ class OrderController extends Controller
         if ($user->isAdmin) {
 
             $orders = order::FilterData($request);
-            $reOrders = reOrder::with(['order' => function ($q) {
-                $q->FilterData();
+            $reOrders = reOrder::with(['order' => function ($q) use($request){
+                $q->FilterData($request);
             }])->get();
             if ($request->has('done')) {
 
@@ -632,8 +632,8 @@ class OrderController extends Controller
             $users_in_dep = $user->department()->first()->users()->get()->pluck('id');
             $orders = order::whereIn('user_id', $users_in_dep)->FilterData($request);
 
-            $reOrders = reOrder::with(['order' => function ($q) {
-                $q->FilterData();
+            $reOrders = reOrder::with(['order' => function ($q) use($request){
+                $q->FilterData($request);
             }])->get();
 
 
