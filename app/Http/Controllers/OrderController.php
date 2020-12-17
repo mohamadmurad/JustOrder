@@ -624,7 +624,7 @@ class OrderController extends Controller
 
 
 
-            $reOrders = $reOrders->get();
+            //$reOrders = $reOrders->get();
             $orders = $orders->get();
             //  dd($orders);
 
@@ -647,7 +647,7 @@ class OrderController extends Controller
                 }
             }
             $orders = $orders->get();
-            $reOrders = $reOrders->get();
+           // $reOrders = $reOrders->get();
         }
 
 
