@@ -609,7 +609,7 @@ class OrderController extends Controller
             $orders = order::FilterData($request);
             $reOrders = reOrder::with(['order' => function ($q) use($request){
                 $q->FilterData($request);
-            }])->where('order','!=',null)->get();
+            }])->get()->where('order','!=',null);
             if ($request->has('done')) {
 
                 $done = $request->get('done');
