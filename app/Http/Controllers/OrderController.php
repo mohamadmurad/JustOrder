@@ -634,7 +634,7 @@ class OrderController extends Controller
 
             $reOrders = reOrder::with(['order' => function ($q) use($request){
                 $q->FilterData($request);
-            }])->get();
+            }])->get()->where('order','!=',null)->values();;
 
 
             //$reOrders = reOrder::with('order')->whereIn('order_id', $orders->pluck('id'));
