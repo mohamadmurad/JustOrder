@@ -574,6 +574,15 @@
                             "<td>"+
                             done+
                             "</td>" +
+                            "<td>"+
+                            reOrders[i].quantity+
+                            "</td>" +
+
+                            "<td>"+
+                            reOrders[i].receivedQty +
+                            "</td>" +
+
+
                             "<td class=\"noExport\">"+
                             "<form action=\" http://192.168.80.32:8083/order/" +  reOrders[i].id +" \" method=\"POST\">"+
                             "<a class=\"btn btn-info\" href=\" http://192.168.80.32:8083/order/" +  reOrders[i].id +" \">عرض</a>"+
