@@ -540,6 +540,16 @@
                             "<td>"+
                             done+
                                 "</td>" +
+
+                            "<td>"+
+                            orders[i].quantity+
+                            "</td>" +
+
+                            "<td>"+
+                            orders[i].receivedQty +
+                            "</td>" +
+
+
                             "<td class=\"noExport\">"+
                             "<form action=\" http://192.168.80.32:8083/order/" +  orders[i].id +" \" method=\"POST\">"+
                             "<a class=\"btn btn-info\" href=\" http://192.168.80.32:8083/order/" +  orders[i].id +" \">عرض</a>"+
