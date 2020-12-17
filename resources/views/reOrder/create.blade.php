@@ -4,7 +4,7 @@
 
 
     @include('layout.title',[
-   'url' => 'reOrder.index',
+   'url' => URL::previous(),
    'urlTitle' => 'رجوع',
    'title'=>'  إعادة طلب ' . $order->barcode
    ])

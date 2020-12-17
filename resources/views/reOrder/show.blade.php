@@ -9,7 +9,7 @@
                 <h2> Re Order {{$reOrder->order->barcode}} Number {{ $reOrder->re_order_number }}</h2>
             </div>
             <div class="float-right">
-                <a class="btn btn-success" href="{{ route('reOrder.index') }}"> رجوع</a>
+                <a class="btn btn-success" href="{{ URL::previous() }}"> رجوع</a>
 {{--                <a class="btn btn-primary" href="{{ route('order.edit',$reOrder->id) }}">تعديل</a>--}}
             </div>
         </div>
