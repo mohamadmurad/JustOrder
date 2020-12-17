@@ -249,9 +249,9 @@
 
         <div class="container">
 
-            <div class="alert alert-danger">
-                <b>هام :</b> تم إضافة الطلبات المعادة في التقارير
-            </div>
+{{--            <div class="alert alert-danger">--}}
+{{--                <b>هام :</b> تم إضافة الطلبات المعادة في التقارير--}}
+{{--            </div>--}}
 
             @yield('content')
 
