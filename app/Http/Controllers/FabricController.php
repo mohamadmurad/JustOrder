@@ -60,7 +60,7 @@ class FabricController extends Controller
         fabric::create($request->only(['name','code']));
         $fabric = fabric::all()->sortBy('name');
 
-        return FabricResource::collection($fabric);
+        return  FabricJS::collection($fabric);
     }
 
     public function getFabrics(Request  $request)

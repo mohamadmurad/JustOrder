@@ -186,7 +186,7 @@
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <div class="form-group">
                     <strong >نوع القماش :</strong>
-                    <span class="autocomplete-select "></span>
+                    <span class="autocomplete-select " id="autocomplete-select"></span>
 {{--                    <button onclick="resetAutocomplete()">Reset</button>--}}
                     <ul class="errors">
                         @foreach ($errors->get('fabric_id') as $message)
@@ -632,62 +632,65 @@
 
     <script>
 
-        jQuery("#status").fadeIn();
-        jQuery("#preloader").delay(350).fadeIn("slow");
-        jQuery("body").delay(350).css({ overflow: "visible" });
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            type: "get",
-            url: "http://{{request()->getHttpHost()}}"+"/api/getFabrics/",
-            success: function (data) {
+        getFab();
+       function getFab(){
+           jQuery("#status").fadeIn();
+           jQuery("#preloader").delay(350).fadeIn("slow");
+           jQuery("body").delay(350).css({ overflow: "visible" });
+           $.ajaxSetup({
+               headers: {
+                   'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+               }
+           });
+           $.ajax({
+               type: "get",
+               url: "http://{{request()->getHttpHost()}}"+"/api/getFabrics/",
+               success: function (data) {
 
-                var data = data.data;
+                   var data = data.data;
 
-                $('#fabricSelect').html('');
-                autocomplete = new SelectPure(".autocomplete-select", {
-                    options:data,
-                    //value: ["15"],
-                    multiple: true,
-                    autocomplete: true,
-                    icon: "fa fa-times",
-                    onChange: value => {
-                        //var o = new Option("option text", value);
-                        //$("#ff").append(o);
-                        /*console.log(value);*/
+                   $('#fabricSelect').html('');
+                   autocomplete = new SelectPure(".autocomplete-select", {
+                       options:data,
+                       //value: ["15"],
+                       multiple: true,
+                       autocomplete: true,
+                       icon: "fa fa-times",
+                       onChange: value => {
+                           //var o = new Option("option text", value);
+                           //$("#ff").append(o);
+                           /*console.log(value);*/
 
-                    },
-                    classNames: {
-                        select: "select-pure__select",
-                        dropdownShown: "select-pure__select--opened",
-                        multiselect: "select-pure__select--multiple",
-                        label: "select-pure__label",
-                        placeholder: "select-pure__placeholder",
-                        dropdown: "select-pure__options",
-                        option: "select-pure__option",
-                        autocompleteInput: "select-pure__autocomplete",
-                        selectedLabel: "select-pure__selected-label",
-                        selectedOption: "select-pure__option--selected",
-                        placeholderHidden: "select-pure__placeholder--hidden",
-                        optionHidden: "select-pure__option--hidden",
-                    }
-                });
-                // options = data;
+                       },
+                       classNames: {
+                           select: "select-pure__select",
+                           dropdownShown: "select-pure__select--opened",
+                           multiselect: "select-pure__select--multiple",
+                           label: "select-pure__label",
+                           placeholder: "select-pure__placeholder",
+                           dropdown: "select-pure__options",
+                           option: "select-pure__option",
+                           autocompleteInput: "select-pure__autocomplete",
+                           selectedLabel: "select-pure__selected-label",
+                           selectedOption: "select-pure__option--selected",
+                           placeholderHidden: "select-pure__placeholder--hidden",
+                           optionHidden: "select-pure__option--hidden",
+                       }
+                   });
+                   // options = data;
 
-                // $('#fabricModal').modal('toggle');
-                jQuery("#status").fadeOut();
-                jQuery("#preloader").fadeOut("slow");
-            },
-            error: function (data) {
-                console.log(data.responseText);
-                jQuery("#status").fadeOut();
-                jQuery("#preloader").fadeOut("slow");
-                alert('حدث خطأ');
-            }
-        });
+                   // $('#fabricModal').modal('toggle');
+                   jQuery("#status").fadeOut();
+                   jQuery("#preloader").fadeOut("slow");
+               },
+               error: function (data) {
+                   console.log(data.responseText);
+                   jQuery("#status").fadeOut();
+                   jQuery("#preloader").fadeOut("slow");
+                   alert('حدث خطأ');
+               }
+           });
+       }
 
 
     </script>
