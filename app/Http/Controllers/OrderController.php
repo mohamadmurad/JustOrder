@@ -373,7 +373,7 @@ class OrderController extends Controller
                 ->where('season_id', '=', $season->id)
                 ->where('type_id', '=', $type->id)
                 ->where('group_id', '=', $group->id)
-                ->orderBy('id', 'desc')->get();
+                ->orderBy('barcode', 'desc')->get();
             // dd($exitsNumberOfSubGroup);
             if (count($exitsNumberOfSubGroup) == 0) {
                 $sequenceNumber = 1;
