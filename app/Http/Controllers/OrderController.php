@@ -141,9 +141,9 @@ class OrderController extends Controller
             foreach ($mm as $temp_order){
                 $oldBarcode = $temp_order->barcode;
                 $lastNumber = intval(substr($oldBarcode, 7, 3));
-                dump($lastNumber);
+              //  dump($lastNumber);
                 if($ss < $lastNumber){
-                    dump('break');
+                   // dump('break');
                     break;
 
                 }
@@ -158,7 +158,7 @@ class OrderController extends Controller
         $barCode = $yearCode . $season->id . $typeCode . $brandCode . $group->id . $subGroup->idNum . $sequenceNumber . $supplier->code;
 
 
-       // dd($exitsNumberOfSubGroup);
+
         $siresQty = $request->get('siresQty');
         $siresItemNumber = $request->get('siresSizeQty') * $request->get('siresColorQty');
         $quantity = $siresQty * $siresItemNumber;
@@ -402,6 +402,27 @@ class OrderController extends Controller
                 $lastNumber = intval(substr($oldBarcode, 7, 3));
                 $sequenceNumber = $lastNumber + 1;
             }
+
+            if($sequenceNumber > (count($exitsNumberOfSubGroup)+1)){
+                $ss = 1;
+                $mm = $exitsNumberOfSubGroup->sortBy('id');
+
+                foreach ($mm as $temp_order){
+                    $oldBarcode = $temp_order->barcode;
+                    $lastNumber = intval(substr($oldBarcode, 7, 3));
+                    //  dump($lastNumber);
+                    if($ss < $lastNumber){
+                        // dump('break');
+                        break;
+
+                    }
+                    $ss++;
+                }
+
+                $sequenceNumber = $ss;
+            }
+
+
             $sequenceNumber = sprintf('%03u', $sequenceNumber);
 
             $barCode = $yearCode . $season->id . $typeCode . $brandCode . $group->id . $subGroup->idNum . $sequenceNumber;

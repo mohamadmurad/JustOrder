@@ -92,6 +92,7 @@ class order extends Model
                 ->orderBy('type_id', 'ASC')
                 ->orderBy('season_id', 'ASC')
                 ->orderBy('id', 'ASC')
+                ->orderBy('barcode', 'ASC')
                 ->orderBy('year_id', 'ASC');
 
         });
