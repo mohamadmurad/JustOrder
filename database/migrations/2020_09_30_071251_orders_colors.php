@@ -22,7 +22,7 @@ class OrdersColors extends Migration
             $table->foreignId('color_id');
             $table->foreign('color_id')
                 ->on('colors')
-                ->references('id');
+                ->references('id')->onDelete('CASCADE');;
 
 
 

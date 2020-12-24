@@ -18,14 +18,14 @@ class OrderFabrcisTable extends Migration
 
             $table->foreign('order_id')
                 ->on('orders')
-                ->references('id');
+                ->references('id')->onDelete('CASCADE');;
 
 
             $table->foreignId('fabric_id');
 
             $table->foreign('fabric_id')
                 ->on('fabrics')
-                ->references('id');
+                ->references('id')->onDelete('CASCADE');;
 
         });
     }

@@ -41,7 +41,7 @@ class OrderController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return Application|Factory|\Illuminate\Contracts\View\View|Response
      */
     public function index()
     {
@@ -116,6 +116,7 @@ class OrderController extends Controller
         $type = type::findOrFail($request->get('type_id'));
         $typeCode = substr($type->name, 0, 1); //////////
         $fabricDate = $request->get('fabricDate');
+
         $sequenceNumber = 1;
         $exitsNumberOfSubGroup = order::where('subgroup_id', '=', $subGroup->id)
             ->where('brand_id', '=', $brand->id)
@@ -123,8 +124,7 @@ class OrderController extends Controller
             ->where('season_id', '=', $season->id)
             ->where('type_id', '=', $type->id)
             ->where('group_id', '=', $group->id)
-            ->orderBy('id', 'desc')->get();
-        //dd($exitsNumberOfSubGroup);
+            ->orderBy('barcode', 'desc')->get();
 
         if (count($exitsNumberOfSubGroup) == 0) {
             $sequenceNumber = 1;
@@ -134,11 +134,31 @@ class OrderController extends Controller
             $sequenceNumber = $lastNumber + 1;
         }
 
+        if($sequenceNumber > (count($exitsNumberOfSubGroup)+1)){
+            $ss = 1;
+            $mm = $exitsNumberOfSubGroup->sortBy('id');
+
+            foreach ($mm as $temp_order){
+                $oldBarcode = $temp_order->barcode;
+                $lastNumber = intval(substr($oldBarcode, 7, 3));
+                dump($lastNumber);
+                if($ss < $lastNumber){
+                    dump('break');
+                    break;
+
+                }
+                $ss++;
+            }
+
+            $sequenceNumber = $ss;
+        }
+
         $sequenceNumber = sprintf('%03u', $sequenceNumber);
 
         $barCode = $yearCode . $season->id . $typeCode . $brandCode . $group->id . $subGroup->idNum . $sequenceNumber . $supplier->code;
 
 
+       // dd($exitsNumberOfSubGroup);
         $siresQty = $request->get('siresQty');
         $siresItemNumber = $request->get('siresSizeQty') * $request->get('siresColorQty');
         $quantity = $siresQty * $siresItemNumber;

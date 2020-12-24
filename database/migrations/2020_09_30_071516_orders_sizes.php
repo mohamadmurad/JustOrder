@@ -22,7 +22,7 @@ class OrdersSizes extends Migration
             $table->foreignId('size_id');
             $table->foreign('size_id')
                 ->on('sizes')
-                ->references('id');
+                ->references('id')->onDelete('CASCADE');;
         });
     }
 

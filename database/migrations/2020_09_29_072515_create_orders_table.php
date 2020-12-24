@@ -55,40 +55,40 @@ class CreateOrdersTable extends Migration
 
             $table->foreignId('brand_id');
             $table->foreign('brand_id')
-                ->on('brands')->references('id');
+                ->on('brands')->references('id')->onDelete('CASCADE');;
 
             $table->foreignId('fabric_id');
             $table->foreign('fabric_id')
-                ->on('fabrics')->references('id');
+                ->on('fabrics')->references('id')->onDelete('CASCADE');;
 
             $table->foreignId('type_id');
             $table->foreign('type_id')
-                ->on('types')->references('id');
+                ->on('types')->references('id')->onDelete('CASCADE');;
 
             $table->foreignId('group_id');
             $table->foreign('group_id')
-                ->on('groups')->references('id');
+                ->on('groups')->references('id')->onDelete('CASCADE');;
 
             $table->foreignId('subgroup_id');
             $table->foreign('subgroup_id')
-                ->on('subgroups')->references('id');
+                ->on('subgroups')->references('id')->onDelete('CASCADE');;
 
             $table->foreignId('season_id');
             $table->foreign('season_id')
-                ->on('seasons')->references('id');
+                ->on('seasons')->references('id')->onDelete('CASCADE');;
 
             $table->foreignId('year_id');
             $table->foreign('year_id')
-                ->on('years')->references('id');
+                ->on('years')->references('id')->onDelete('CASCADE');;
 
             $table->foreignId('supplier_id');
             $table->foreign('supplier_id')
-                ->on('suppliers')->references('id');
+                ->on('suppliers')->references('id')->onDelete('CASCADE');;
 
 
             $table->foreignId('fabric_source_id');
             $table->foreign('fabric_source_id')
-                ->on('fabric_sources')->references('id');
+                ->on('fabric_sources')->references('id')->onDelete('CASCADE');;
 
 
             $table->foreignId('user_id')->nullable();
