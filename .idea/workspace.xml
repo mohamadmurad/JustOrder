@@ -7,7 +7,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="just order v2 2-12-2020 add Re order to report">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,7 +16,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings" doNotAsk="true">
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -103,6 +106,10 @@
       <workItem from="1608365155285" duration="373000" />
       <workItem from="1608381374093" duration="4029000" />
       <workItem from="1608720195160" duration="280000" />
+      <workItem from="1608808080346" duration="356000" />
+      <workItem from="1608809343665" duration="337000" />
+      <workItem from="1608809711066" duration="111000" />
+      <workItem from="1608811023438" duration="971000" />
     </task>
     <task id="LOCAL-00001" summary="just order v 2 12-11-2020">
       <created>1605292864684</created>
@@ -478,6 +485,10 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="450" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.860@0.0.1440.860" timestamp="1605531512241" />
+    <state x="496" y="342" key="ComposerInitDialogKey" timestamp="1608811253923">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="496" y="342" key="ComposerInitDialogKey/-1280.-124.1280.984/0.0.1440.860@0.0.1440.860" timestamp="1608811253923" />
     <state x="312" y="163" key="Vcs.Push.Dialog.v2" timestamp="1608385834813">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
