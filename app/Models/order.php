@@ -150,7 +150,7 @@ class order extends Model
     }
 
     public function sizes(){
-        return $this->belongsToMany(size::class,'orders_sizes');
+        return $this->belongsToMany(size::class,'orders_sizes')->orderBy('name');
     }
 
 
