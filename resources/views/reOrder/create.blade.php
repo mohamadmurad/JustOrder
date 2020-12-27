@@ -4,7 +4,7 @@
 
 
     @include('layout.title',[
-   'url' => URL::previous(),
+   'url' => '/',
    'urlTitle' => 'رجوع',
    'title'=>'  إعادة طلب ' . $order->barcode
    ])
