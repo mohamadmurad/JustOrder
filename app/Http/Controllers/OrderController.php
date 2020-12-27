@@ -134,24 +134,24 @@ class OrderController extends Controller
             $sequenceNumber = $lastNumber + 1;
         }
 
-        if($sequenceNumber > (count($exitsNumberOfSubGroup)+1)){
-            $ss = 1;
-            $mm = $exitsNumberOfSubGroup->sortBy('id');
-
-            foreach ($mm as $temp_order){
-                $oldBarcode = $temp_order->barcode;
-                $lastNumber = intval(substr($oldBarcode, 7, 3));
-              //  dump($lastNumber);
-                if($ss < $lastNumber){
-                   // dump('break');
-                    break;
-
-                }
-                $ss++;
-            }
-
-            $sequenceNumber = $ss;
-        }
+//        if($sequenceNumber > (count($exitsNumberOfSubGroup)+1)){
+//            $ss = 1;
+//            $mm = $exitsNumberOfSubGroup->sortBy('id');
+//
+//            foreach ($mm as $temp_order){
+//                $oldBarcode = $temp_order->barcode;
+//                $lastNumber = intval(substr($oldBarcode, 7, 3));
+//              //  dump($lastNumber);
+//                if($ss < $lastNumber){
+//                   // dump('break');
+//                    break;
+//
+//                }
+//                $ss++;
+//            }
+//
+//            $sequenceNumber = $ss;
+//        }
 
         $sequenceNumber = sprintf('%03u', $sequenceNumber);
 
@@ -403,24 +403,24 @@ class OrderController extends Controller
                 $sequenceNumber = $lastNumber + 1;
             }
 
-            if($sequenceNumber > (count($exitsNumberOfSubGroup)+1)){
-                $ss = 1;
-                $mm = $exitsNumberOfSubGroup->sortBy('id');
-
-                foreach ($mm as $temp_order){
-                    $oldBarcode = $temp_order->barcode;
-                    $lastNumber = intval(substr($oldBarcode, 7, 3));
-                    //  dump($lastNumber);
-                    if($ss < $lastNumber){
-                        // dump('break');
-                        break;
-
-                    }
-                    $ss++;
-                }
-
-                $sequenceNumber = $ss;
-            }
+//            if($sequenceNumber > (count($exitsNumberOfSubGroup)+1)){
+//                $ss = 1;
+//                $mm = $exitsNumberOfSubGroup->sortBy('id');
+//
+//                foreach ($mm as $temp_order){
+//                    $oldBarcode = $temp_order->barcode;
+//                    $lastNumber = intval(substr($oldBarcode, 7, 3));
+//                    //  dump($lastNumber);
+//                    if($ss < $lastNumber){
+//                        // dump('break');
+//                        break;
+//
+//                    }
+//                    $ss++;
+//                }
+//
+//                $sequenceNumber = $ss;
+//            }
 
 
             $sequenceNumber = sprintf('%03u', $sequenceNumber);

@@ -108,27 +108,8 @@
       <workItem from="1608809343665" duration="337000" />
       <workItem from="1608809711066" duration="111000" />
       <workItem from="1608811023438" duration="5697000" />
-    </task>
-    <task id="LOCAL-00003" summary="just order v 2 16-11-2020 add image to re orders">
-      <created>1605533257943</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1605533257943</updated>
-    </task>
-    <task id="LOCAL-00004" summary="just order v 2 16-11-2020 add image to re orders">
-      <created>1605533851875</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1605533851875</updated>
-    </task>
-    <task id="LOCAL-00005" summary="just order v 2 16-11-2020 add image to re orders">
-      <created>1605537201723</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1605537201723</updated>
+      <workItem from="1609076256106" duration="824000" />
+      <workItem from="1609077666418" duration="318000" />
     </task>
     <task id="LOCAL-00006" summary="just order v2 19-11-2020 export excel">
       <created>1605796593742</created>
@@ -452,7 +433,28 @@
       <option name="project" value="LOCAL" />
       <updated>1608818530613</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="just order v2 2-12-2020 add Re order to report">
+      <created>1609076335043</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1609076335043</updated>
+    </task>
+    <task id="LOCAL-00053" summary="just order v2 2-12-2020 add Re order to report">
+      <created>1609076397059</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1609076397059</updated>
+    </task>
+    <task id="LOCAL-00054" summary="just order v2 2-12-2020 add Re order to report">
+      <created>1609076473340</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1609076473340</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -526,12 +528,13 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="496" y="342" key="ComposerInitDialogKey/-1280.-124.1280.984/0.0.1440.860@0.0.1440.860" timestamp="1608811253923" />
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2" timestamp="1608818534115">
-      <screen x="0" y="0" width="1440" height="860" />
+    <state x="277" y="187" key="Vcs.Push.Dialog.v2" timestamp="1609076489778">
+      <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="312" y="163" key="Vcs.Push.Dialog.v2/-1280.-120.1280.984/0.0.1440.860@0.0.1440.860" timestamp="1607442646369" />
     <state x="312" y="163" key="Vcs.Push.Dialog.v2/-1280.-124.1280.984/0.0.1440.860@0.0.1440.860" timestamp="1608818534115" />
     <state x="312" y="163" key="Vcs.Push.Dialog.v2/-1280.-132.1280.984/0.0.1440.860@0.0.1440.860" timestamp="1608385834813" />
+    <state x="277" y="187" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1609076489778" />
     <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860/-1280.0.1280.984@0.0.1440.860" timestamp="1606041061672" />
     <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860/-1280.129.1280.984@0.0.1440.860" timestamp="1607875046641" />
     <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860/1440.0.1024.728@0.0.1440.860" timestamp="1607847243159" />
