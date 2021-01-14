@@ -759,7 +759,7 @@ class OrderController extends Controller
 
         $order->fill([
             'done' => 1,
-            'receivedQty' => $receivedQty,
+            'receivedQty' => $receivedQty + $order->receivedQty,
             'receivedDate' => Carbon::now()->format('Y-m-d'),
         ]);
 

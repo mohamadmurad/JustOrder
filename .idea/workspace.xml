@@ -5,7 +5,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="just order v2 2-12-2020 add Re order to report" />
+    <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="just order v2 2-12-2020 add Re order to report">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +35,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -107,14 +112,13 @@
       <workItem from="1608809711066" duration="111000" />
       <workItem from="1608811023438" duration="5697000" />
       <workItem from="1609076256106" duration="824000" />
-      <workItem from="1609077666418" duration="1106000" />
-    </task>
-    <task id="LOCAL-00007" summary="just order v2 19-11-2020 export excel">
-      <created>1605797026465</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1605797026465</updated>
+      <workItem from="1609077666418" duration="1340000" />
+      <workItem from="1609599630792" duration="17000" />
+      <workItem from="1609599799188" duration="1230000" />
+      <workItem from="1609861107401" duration="128000" />
+      <workItem from="1610267192219" duration="754000" />
+      <workItem from="1610289440585" duration="724000" />
+      <workItem from="1610622390552" duration="683000" />
     </task>
     <task id="LOCAL-00008" summary="just order v2 19-11-2020 export excel">
       <created>1605957790134</created>
@@ -452,7 +456,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609078135757</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="just order v2 2-12-2020 add Re order to report">
+      <created>1609078918585</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1609078918585</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,34 +523,5 @@
     <MESSAGE value="just order v2 2-12-2020 add print notes" />
     <MESSAGE value="just order v2 2-12-2020 add Re order to report" />
     <option name="LAST_COMMIT_MESSAGE" value="just order v2 2-12-2020 add Re order to report" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="494" y="232" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608814067716">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="494" y="232" key="#com.intellij.fileTypes.FileTypeChooser/-1280.-124.1280.984/0.0.1440.860@0.0.1440.860" timestamp="1608814067716" />
-    <state x="450" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605531512241">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="450" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.860@0.0.1440.860" timestamp="1605531512241" />
-    <state x="496" y="342" key="ComposerInitDialogKey" timestamp="1608811253923">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="496" y="342" key="ComposerInitDialogKey/-1280.-124.1280.984/0.0.1440.860@0.0.1440.860" timestamp="1608811253923" />
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2" timestamp="1609078139085">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2/-1280.-120.1280.984/0.0.1440.860@0.0.1440.860" timestamp="1607442646369" />
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2/-1280.-124.1280.984/0.0.1440.860@0.0.1440.860" timestamp="1609078139085" />
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2/-1280.-132.1280.984/0.0.1440.860@0.0.1440.860" timestamp="1608385834813" />
-    <state x="277" y="187" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1609076489778" />
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860/-1280.0.1280.984@0.0.1440.860" timestamp="1606041061672" />
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860/-1280.129.1280.984@0.0.1440.860" timestamp="1607875046641" />
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860/1440.0.1024.728@0.0.1440.860" timestamp="1607847243159" />
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1605797035653" />
-    <state x="376" y="197" key="run.anything.popup" timestamp="1607522965061">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="376" y="197" key="run.anything.popup/-1280.-132.1280.984/0.0.1440.860@0.0.1440.860" timestamp="1607522965061" />
   </component>
 </project>
