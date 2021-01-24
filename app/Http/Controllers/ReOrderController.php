@@ -554,7 +554,7 @@ class ReOrderController extends Controller
 
         $order->update();
 
-        return redirect()->route('reOrder.index')
+        return redirect()->route('reOrder.show',$order->id)
             ->with('success', 'تم استلام الطلب :  ');
     }
 

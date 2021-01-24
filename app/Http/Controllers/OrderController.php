@@ -103,6 +103,8 @@ class OrderController extends Controller
     public function store(StoreOrderRequest $request)
     {
 
+       // dd($request['fabric_id']);
+
         // dd($request);
         $year = Years::findOrFail($request->get('year_id'));
         $yearCode = Carbon::create($year->name)->format('y');
@@ -331,7 +333,7 @@ class OrderController extends Controller
      */
     public function edit(order $order)
     {
-        $order->load(['colors', 'sizes']);
+        $order->load(['colors', 'sizes','fabrics']);
 
         $years = Years::all();
         $brands = brand::all()->sortBy('name');
@@ -344,6 +346,8 @@ class OrderController extends Controller
         $sizes = size::all()->sortBy('name');
         $fabricSources = FabricSource::all();
         $fabrics = fabric::all()->sortBy('name');
+
+       // dd($order);
         return view('order.edit', compact([
             'years', 'brands', 'types', 'groups', 'subgroups',
             'seasons', 'suppliers', 'colors', 'sizes', 'fabricSources', 'fabrics', 'order']));
@@ -765,7 +769,7 @@ class OrderController extends Controller
 
         $order->update();
 
-        return redirect()->route('order.index')
+        return redirect()->route('order.show',$order->id)
             ->with('success', 'تم استلام الطلب :  ');
     }
 

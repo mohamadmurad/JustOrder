@@ -300,7 +300,7 @@
     });
 
 
-        $('.btn-danger').on('click', function () {
+        $('.delete_btn').on('click', function () {
 
             var r = confirm("هل تريد الحذف؟");
             if (r == true) {
@@ -500,19 +500,19 @@
 
 
 
-
-        $('#orderForm').on('submit',function (e){
-           // e.preventDefault();
-            $values = autocomplete.value();
-            $("#ff").html('');
-            for (var i = 0 ;i< $values.length ; i++){
-                //$values[i];
-
-                $('#ff').append('<input type="text" name="fabric_id[]" value='+  $values[i] + '>');
-            }
-            console.log(autocomplete.value());
-            return true;
-        });
+        //
+        // $('#orderForm').on('submit',function (e){
+        //    // e.preventDefault();
+        //     $values = autocomplete.value();
+        //     $("#ff").html('');
+        //     for (var i = 0 ;i< $values.length ; i++){
+        //         //$values[i];
+        //
+        //         $('#ff').append('<input type="text" name="fabric_id[]" value='+  $values[i] + '>');
+        //     }
+        //     console.log(autocomplete.value());
+        //     return true;
+        // });
 
 
 

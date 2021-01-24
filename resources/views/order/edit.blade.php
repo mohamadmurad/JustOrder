@@ -192,26 +192,65 @@
 {{--                </div>--}}
 {{--            </div>--}}
 
-            <div class="col-xs-12 col-sm-12 col-md-6">
-                <div class="form-group">
-                    <strong >نوع القماش :</strong>
-                    <span class="autocomplete-select "></span>
-                    {{--                    <button onclick="resetAutocomplete()">Reset</button>--}}
-                    <ul class="errors">
-                        @foreach ($errors->get('fabric_id') as $message)
-                            <i>{{ $message }}</i>
-                        @endforeach
-                    </ul>
+            <table id="fab_selects" class="col-xs-12 col-sm-12 col-md-12">
+                <?php $i=1 ?>
+                @foreach($order->fabrics as $OFabric)
+                <tr>
+                    <td>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong >نوع القماش :</strong>
+                                <select  class="form-control"  name="fabric_id[]" id="fabricSelect">
+                                    @foreach($fabrics as $fabric)
+                                        <option value="{{ $fabric->id }}" {{ (old("fabric_id") == $fabric->id ? "selected":"") }} {{ ($OFabric->id == $fabric->id ? "selected":"") }}>{{$fabric->name . " | " . $fabric->code }}</option>
+                                    @endforeach
+                                </select>
+                                <ul class="errors">
+                                    @foreach ($errors->get('fabric_id') as $message)
+                                        <i>{{ $message }}</i>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-flex  align-self-center">
+                            @if($i==1)
+                                <a class="btn btn-primary d-flex  align-self-center" id="add_fabric_select"><i class="fa fa-plus"></i></a>
+                            @else
+                                <a class="btn btn-danger d-flex  align-self-center remove_fabric_select" ><i class="fa fa-minus"></i></a>
+                            @endif
+                        </div>
 
-                </div>
-            </div>
+                    </td>
 
-            <div id="ff" style="display: none;">
+                </tr>
+                    <?php $i++ ?>
+                @endforeach
 
-            </div>
+            </table>
 
 
-            <div class="col-xs-12 col-sm-12 col-md-6">
+            {{--            <div class="col-xs-12 col-sm-12 col-md-6">--}}
+{{--                <div class="form-group">--}}
+{{--                    <strong >نوع القماش :</strong>--}}
+{{--                    <span class="autocomplete-select "></span>--}}
+{{--                    --}}{{--                    <button onclick="resetAutocomplete()">Reset</button>--}}
+{{--                    <ul class="errors">--}}
+{{--                        @foreach ($errors->get('fabric_id') as $message)--}}
+{{--                            <i>{{ $message }}</i>--}}
+{{--                        @endforeach--}}
+{{--                    </ul>--}}
+
+{{--                </div>--}}
+{{--            </div>--}}
+
+{{--            <div id="ff" style="display: none;">--}}
+
+{{--            </div>--}}
+
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>تركيبة القماش :</strong>
                     <input type="text" name="fabricFormula" class="form-control" placeholder="تركيبة القماش" value="{{$order->fabricFormula}}">
@@ -568,69 +607,170 @@
     </form>
 
 
-
-
     <script>
 
-        jQuery("#status").fadeIn();
-        jQuery("#preloader").delay(350).fadeIn("slow");
-        jQuery("body").delay(350).css({ overflow: "visible" });
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
-            }
+        $('#add_fabric_select').on('click',function (){
+            console.log('sdsd');
+            var html = '';
+
+            html+= '<tr>'+
+                '<td>'+
+                '<div class="col-xs-12 col-sm-12 col-md-12">' +
+                '<div class="form-group"> ' +
+                '<strong >نوع القماش :</strong> ' +
+                '<select  class="form-control"  name="fabric_id[]" id="fabricSelect">' +
+                '@foreach($fabrics as $fabric)'+
+                '<option value="{{ $fabric->id }}" {{ (old("fabric_id") == $fabric->id ? "selected":"") }}>{{$fabric->name . " | " . $fabric->code }}</option>'+
+                '@endforeach'+
+                '</select>'+
+                '<ul class="errors">'+
+                '@foreach ($errors->get('fabric_id') as $message)'+
+                '<i>{{ $message }}</i>'+
+                '@endforeach'+
+                ' </ul>'+
+                ' </div>'+
+                '</div>'+
+                '</td>'+
+                '<td>'+
+                '<div class="d-flex  align-self-center">'+
+                '<a class="btn btn-danger d-flex  align-self-center remove_fabric_select" ><i class="fa fa-minus"></i></a>'+
+                '</div>'+
+                '</td>'+
+                '</tr>';
+
+            // console.log(html);
+            $('#fab_selects').append(html);
         });
-        $.ajax({
-            type: "get",
-            url: "http://{{request()->getHttpHost()}}"+"/api/getFabrics/?order="+ {{$order->id}},
-            success: function (data) {
-                console.log(data.value);
-                var dataa = data.data;
 
-
-                $('#fabricSelect').html('');
-                autocomplete = new SelectPure(".autocomplete-select", {
-                    options:dataa,
-                    value: data.value.join().split(','),
-                    multiple: true,
-                    autocomplete: true,
-                    icon: "fa fa-times",
-                    onChange: value => {
-                        //var o = new Option("option text", value);
-                        //$("#ff").append(o);
-                        /*console.log(value);*/
-
-                    },
-                    classNames: {
-                        select: "select-pure__select",
-                        dropdownShown: "select-pure__select--opened",
-                        multiselect: "select-pure__select--multiple",
-                        label: "select-pure__label",
-                        placeholder: "select-pure__placeholder",
-                        dropdown: "select-pure__options",
-                        option: "select-pure__option",
-                        autocompleteInput: "select-pure__autocomplete",
-                        selectedLabel: "select-pure__selected-label",
-                        selectedOption: "select-pure__option--selected",
-                        placeholderHidden: "select-pure__placeholder--hidden",
-                        optionHidden: "select-pure__option--hidden",
-                    }
-                });
-                // options = data;
-
-                // $('#fabricModal').modal('toggle');
-                jQuery("#status").fadeOut();
-                jQuery("#preloader").fadeOut("slow");
-            },
-            error: function (data) {
-                console.log(data.responseText);
-                jQuery("#status").fadeOut();
-                jQuery("#preloader").fadeOut("slow");
-                alert('حدث خطأ');
-            }
+        $(document).on('click','.remove_fabric_select',function (){
+            $(this).closest('tr').remove();
         });
+
+
+        {{--        getFab();--}}
+        {{--       function getFab(){--}}
+        {{--           jQuery("#status").fadeIn();--}}
+        {{--           jQuery("#preloader").delay(350).fadeIn("slow");--}}
+        {{--           jQuery("body").delay(350).css({ overflow: "visible" });--}}
+        {{--           $.ajaxSetup({--}}
+        {{--               headers: {--}}
+        {{--                   'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')--}}
+        {{--               }--}}
+        {{--           });--}}
+        {{--           $.ajax({--}}
+        {{--               type: "get",--}}
+        {{--               url: "http://{{request()->getHttpHost()}}"+"/api/getFabrics/",--}}
+        {{--               success: function (data) {--}}
+
+        {{--                   var data = data.data;--}}
+
+        {{--                   $('#fabricSelect').html('');--}}
+        {{--                   autocomplete = new SelectPure(".autocomplete-select", {--}}
+        {{--                       options:data,--}}
+        {{--                       //value: ["15"],--}}
+        {{--                       multiple: true,--}}
+        {{--                       autocomplete: true,--}}
+        {{--                       icon: "fa fa-times",--}}
+        {{--                       onChange: value => {--}}
+        {{--                           //var o = new Option("option text", value);--}}
+        {{--                           //$("#ff").append(o);--}}
+        {{--                           /*console.log(value);*/--}}
+
+        {{--                       },--}}
+        {{--                       classNames: {--}}
+        {{--                           select: "select-pure__select",--}}
+        {{--                           dropdownShown: "select-pure__select--opened",--}}
+        {{--                           multiselect: "select-pure__select--multiple",--}}
+        {{--                           label: "select-pure__label",--}}
+        {{--                           placeholder: "select-pure__placeholder",--}}
+        {{--                           dropdown: "select-pure__options",--}}
+        {{--                           option: "select-pure__option",--}}
+        {{--                           autocompleteInput: "select-pure__autocomplete",--}}
+        {{--                           selectedLabel: "select-pure__selected-label",--}}
+        {{--                           selectedOption: "select-pure__option--selected",--}}
+        {{--                           placeholderHidden: "select-pure__placeholder--hidden",--}}
+        {{--                           optionHidden: "select-pure__option--hidden",--}}
+        {{--                       }--}}
+        {{--                   });--}}
+        {{--                   // options = data;--}}
+
+        {{--                   // $('#fabricModal').modal('toggle');--}}
+        {{--                   jQuery("#status").fadeOut();--}}
+        {{--                   jQuery("#preloader").fadeOut("slow");--}}
+        {{--               },--}}
+        {{--               error: function (data) {--}}
+        {{--                   console.log(data.responseText);--}}
+        {{--                   jQuery("#status").fadeOut();--}}
+        {{--                   jQuery("#preloader").fadeOut("slow");--}}
+        {{--                   alert('حدث خطأ');--}}
+        {{--               }--}}
+        {{--           });--}}
+        {{--       }--}}
 
 
     </script>
+
+{{--    <script>--}}
+
+{{--        jQuery("#status").fadeIn();--}}
+{{--        jQuery("#preloader").delay(350).fadeIn("slow");--}}
+{{--        jQuery("body").delay(350).css({ overflow: "visible" });--}}
+{{--        $.ajaxSetup({--}}
+{{--            headers: {--}}
+{{--                'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')--}}
+{{--            }--}}
+{{--        });--}}
+{{--        $.ajax({--}}
+{{--            type: "get",--}}
+{{--            url: "http://{{request()->getHttpHost()}}"+"/api/getFabrics/?order="+ {{$order->id}},--}}
+{{--            success: function (data) {--}}
+{{--                console.log(data.value);--}}
+{{--                var dataa = data.data;--}}
+
+
+{{--                $('#fabricSelect').html('');--}}
+{{--                autocomplete = new SelectPure(".autocomplete-select", {--}}
+{{--                    options:dataa,--}}
+{{--                    value: data.value.join().split(','),--}}
+{{--                    multiple: true,--}}
+{{--                    autocomplete: true,--}}
+{{--                    icon: "fa fa-times",--}}
+{{--                    onChange: value => {--}}
+{{--                        //var o = new Option("option text", value);--}}
+{{--                        //$("#ff").append(o);--}}
+{{--                        /*console.log(value);*/--}}
+
+{{--                    },--}}
+{{--                    classNames: {--}}
+{{--                        select: "select-pure__select",--}}
+{{--                        dropdownShown: "select-pure__select--opened",--}}
+{{--                        multiselect: "select-pure__select--multiple",--}}
+{{--                        label: "select-pure__label",--}}
+{{--                        placeholder: "select-pure__placeholder",--}}
+{{--                        dropdown: "select-pure__options",--}}
+{{--                        option: "select-pure__option",--}}
+{{--                        autocompleteInput: "select-pure__autocomplete",--}}
+{{--                        selectedLabel: "select-pure__selected-label",--}}
+{{--                        selectedOption: "select-pure__option--selected",--}}
+{{--                        placeholderHidden: "select-pure__placeholder--hidden",--}}
+{{--                        optionHidden: "select-pure__option--hidden",--}}
+{{--                    }--}}
+{{--                });--}}
+{{--                // options = data;--}}
+
+{{--                // $('#fabricModal').modal('toggle');--}}
+{{--                jQuery("#status").fadeOut();--}}
+{{--                jQuery("#preloader").fadeOut("slow");--}}
+{{--            },--}}
+{{--            error: function (data) {--}}
+{{--                console.log(data.responseText);--}}
+{{--                jQuery("#status").fadeOut();--}}
+{{--                jQuery("#preloader").fadeOut("slow");--}}
+{{--                alert('حدث خطأ');--}}
+{{--            }--}}
+{{--        });--}}
+
+
+{{--    </script>--}}
 
 @endsection
