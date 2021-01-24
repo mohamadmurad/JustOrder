@@ -17,6 +17,7 @@ class FabricJS extends JsonResource
         return [
             'label' => $this->name,
             'value' => strval($this->id),
+            'code' => $this->code,
         ];
     }
 }

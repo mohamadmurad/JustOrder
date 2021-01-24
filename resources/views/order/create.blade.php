@@ -169,7 +169,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong >نوع القماش :</strong>
-                                <select  class="form-control"  name="fabric_id[]" id="fabricSelect">
+                                <select  class="form-control"  name="fabric_id[]" id="fabricSelectFirst">
                                     @foreach($fabrics as $fabric)
                                         <option value="{{ $fabric->id }}" {{ (old("fabric_id") == $fabric->id ? "selected":"") }}>{{$fabric->name . " | " . $fabric->code }}</option>
                                     @endforeach
@@ -645,19 +645,20 @@
 
     <script>
 
-        $('#add_fabric_select').on('click',function (){
+        $(document).on('click','#add_fabric_select',function (){
             console.log('sdsd');
-            var html = '';
 
+            var e = document.getElementById("fabricSelectFirst").innerHTML;
+         //  console.log(e);
+            var html = '';
+            $('#fab_selects').append(html);
             html+= '<tr>'+
                 '<td>'+
                 '<div class="col-xs-12 col-sm-12 col-md-12">' +
                 '<div class="form-group"> ' +
                 '<strong >نوع القماش :</strong> ' +
                 '<select  class="form-control"  name="fabric_id[]" id="fabricSelect">' +
-                '@foreach($fabrics as $fabric)'+
-                    '<option value="{{ $fabric->id }}" {{ (old("fabric_id") == $fabric->id ? "selected":"") }}>{{$fabric->name . " | " . $fabric->code }}</option>'+
-                '@endforeach'+
+                e+
         '</select>'+
         '<ul class="errors">'+
             '@foreach ($errors->get('fabric_id') as $message)'+
