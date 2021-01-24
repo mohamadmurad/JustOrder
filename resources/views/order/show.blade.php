@@ -85,7 +85,7 @@
                 <button class="btn btn-info mt-2 mb-2" id="print" onclick="$('#imageContainer').toggleClass('row'); window.print(); "><i class="fa fa-print"></i>
                     طباعة
                 </button>
-                @if($order->receivedQty === 0)
+{{--                @if($order->receivedQty === 0)--}}
                     <form action="{{ route('orderDone') }}" method="POST" id="receivedForm">
 
                         @csrf
@@ -99,7 +99,7 @@
                         @endforeach
                     </form>
 
-                @endif
+{{--                @endif--}}
 
 
             </div>

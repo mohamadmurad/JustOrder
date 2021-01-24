@@ -22,7 +22,11 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
 
-            $table->foreignId('departments_id')->nullable();
+            $table->foreignId('departments_id')
+                ->nullable()
+                ->constrained()
+                ->onUpdate('set null')
+                ->onDelete('set null');
             $table->foreign('departments_id')->on('departments')->references('id');
             //$table->foreignId('current_team_id')->nullable();
             //$table->text('profile_photo_path')->nullable();
