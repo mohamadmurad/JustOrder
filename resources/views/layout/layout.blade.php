@@ -565,9 +565,9 @@
                             "<tr>" +
                             "<td class=\"noExport\">"+(i+1)+"</td>" +
                             "<td>"+orders[i].barcode+"</td>" +
-                            "<td>"+orders[i].type+"</td>" +
-                            "<td>"+orders[i].group+"</td>" +
-                            "<td>"+orders[i].subgroup+"</td>" +
+                            "<td>"+orders[i].type.name+"</td>" +
+                            "<td>"+orders[i].group.name+"</td>" +
+                            "<td>"+orders[i].subgroup.name+"</td>" +
                             "<td>اساسي</td>" +
                             "<td>"+
                             done+
