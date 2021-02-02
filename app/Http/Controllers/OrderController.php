@@ -651,10 +651,10 @@ class OrderController extends Controller
 
         if ($user->isAdmin) {
 
-            $orders = order::FilterData($request);
+            $orders = order::FilterData($request)->with(['group','type','subgroup']);
             $reOrders = reOrder::with(['order' => function ($q) use($request){
                 $q->FilterData($request);
-            }])->get()->where('order','!=',null)->values();
+            },'order.group','order.type','order.subgroup'])->get()->where('order','!=',null)->values();
             if ($request->has('done')) {
 
                 $done = $request->get('done');
