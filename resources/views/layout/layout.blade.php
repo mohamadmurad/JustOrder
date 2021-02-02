@@ -602,6 +602,9 @@
                             "<tr>" +
                             "<td class=\"noExport\">"+(i+1)+"</td>" +
                             "<td>"+reOrders[i].order.barcode+"</td>" +
+                            "<td>"+reOrders[i].order.type.name+"</td>" +
+                            "<td>"+reOrders[i].order.group.name+"</td>" +
+                            "<td>"+reOrders[i].order.subgroup.name+"</td>" +
                             "<td>إعادة رقم : "+reOrders[i].re_order_number+"</td>" +
                             "<td>"+
                             done+
