@@ -675,11 +675,11 @@ class OrderController extends Controller
 
         } else {
             $users_in_dep = $user->department()->first()->users()->get()->pluck('id');
-            $orders = order::whereIn('user_id', $users_in_dep)->FilterData($request);
+            $orders = order::whereIn('user_id', $users_in_dep)->FilterData($request)->with(['group','type','subgroup']);
 
             $reOrders = reOrder::with(['order' => function ($q) use($request){
                 $q->FilterData($request);
-            }])->get()->where('order','!=',null)->values();;
+            },'order.group','order.type','order.subgroup'])->get()->where('order','!=',null)->values();;
 
 
             //$reOrders = reOrder::with('order')->whereIn('order_id', $orders->pluck('id'));
