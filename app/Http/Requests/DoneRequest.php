@@ -29,7 +29,7 @@ class DoneRequest extends FormRequest
             ->where('done','=',0)->first();
         return [
             'order' => 'required|exists:orders,id',
-            'receivedQty' => 'required|numeric|min:1'/*|max:'.($order->quantity - $order->receivedQty)*/,
+            'receivedQty' => 'required|numeric'/*|max:'.($order->quantity - $order->receivedQty)*/,
         ];
     }
 }
