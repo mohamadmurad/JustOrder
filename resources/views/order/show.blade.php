@@ -90,7 +90,7 @@
 
                         @csrf
                         <input type="hidden" value="{{$order->id}}" name="order">
-                        <input type="number" class="form-control col-md-6" name="receivedQty" style="min-width: auto;"  min="1"
+                        <input type="number" class="form-control col-md-6" name="receivedQty" style="min-width: auto;"
 {{--                               max="{{($order->quantity - $order->receivedQty)}}"--}}
                                placeholder="الكمية المستلمة">
                         <button type="submit" class="btn btn-primary" id="recive">استلام</button>

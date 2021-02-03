@@ -6,7 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="just order v2 2-12-2020 add Re order to report">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReOrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/reOrder/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reOrder/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,14 +127,8 @@
       <workItem from="1611672404170" duration="11000" />
       <workItem from="1611672720534" duration="844000" />
       <workItem from="1612004980755" duration="6260000" />
-      <workItem from="1612266795877" duration="944000" />
-    </task>
-    <task id="LOCAL-00017" summary="just order v2 2-12-2020 convert report to ajax">
-      <created>1607509877603</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1607509877603</updated>
+      <workItem from="1612266795877" duration="1156000" />
+      <workItem from="1612360847455" duration="190000" />
     </task>
     <task id="LOCAL-00018" summary="just order v2 2-12-2020 convert report to ajax">
       <created>1607510129041</created>
@@ -470,7 +466,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612267725707</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="just order v2 2-12-2020 add Re order to report">
+      <created>1612267787700</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1612267787700</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

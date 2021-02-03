@@ -76,12 +76,12 @@
                 <button class="btn btn-info mt-2 mb-2" id="print" onclick="$('#imageContainer').toggleClass('row'); window.print(); "><i class="fa fa-print"></i>
                     طباعة
                 </button>
-                @if($reOrder->done === 0)
+{{--                @if($reOrder->done === 0)--}}
                     <form action="{{ route('reOrderDone') }}" method="POST" id="receivedForm">
 
                         @csrf
                         <input type="hidden" value="{{$reOrder->id}}" name="order">
-                        <input type="number" class="form-control col-md-6" name="receivedQty" style="min-width: auto;"  min="1"
+                        <input type="number" class="form-control col-md-6" name="receivedQty" style="min-width: auto;"
 {{--                               max="{{($reOrder->quantity - $reOrder->receivedQty)}}"--}}
                                placeholder="الكمية المستلمة">
                         <button type="submit" class="btn btn-primary" id="recive">استلام</button>
@@ -90,7 +90,7 @@
                         @endforeach
                     </form>
 
-                @endif
+{{--                @endif--}}
 
 
             </div>
