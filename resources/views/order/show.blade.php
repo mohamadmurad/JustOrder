@@ -85,6 +85,9 @@
                 <button class="btn btn-info mt-2 mb-2" id="print" onclick="$('#imageContainer').toggleClass('row'); window.print(); "><i class="fa fa-print"></i>
                     طباعة
                 </button>
+                <a class="btn btn-info" href="{{ route('reOrder.create',[
+                        'order' => $order->id,
+]) }}">اعادة طلب</a>
 {{--                @if($order->receivedQty === 0)--}}
                     <form action="{{ route('orderDone') }}" method="POST" id="receivedForm">
 
