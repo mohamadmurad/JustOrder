@@ -67,7 +67,7 @@
 
                         <a class="btn btn-info" href="{{ route('reOrder.show',$order->id) }}">عرض</a>
 
-{{--                        <a class="btn btn-primary" href="{{ route('reOrder.edit',$order->id) }}">تعديل</a>--}}
+                        <a class="btn btn-primary" href="{{ route('reOrder.edit',$order->id) }}">تعديل</a>
 
 
 {{--                        <a class="btn btn-info" href="{{ route('createReOrder',$order->id) }}">اعادة طلب</a>--}}

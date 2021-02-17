@@ -232,24 +232,24 @@ class ReOrderController extends Controller
      * @param order $order
      * @return Response
      */
-    public function edit(order $order)
+    public function edit(reOrder $reOrder)
     {
-        $order->load(['colors', 'sizes']);
+        $reOrder->load(['colors', 'sizes']);
 
         $years = Years::all();
         $brands = brand::all()->sortBy('name');
         $types = type::all()->sortBy('name');
         $groups = group::all()->sortBy('name');
-        $subgroups = subgroup::where('group_id', '=', $order->group_id)->get()->sortBy('name');
+        $subgroups = subgroup::where('group_id', '=', $reOrder->group_id)->get()->sortBy('name');
         $seasons = season::all();
         $suppliers = supplier::all()->sortBy('name');
         $colors = color::all()->sortBy('name');
         $sizes = size::all()->sortBy('name');
         $fabricSources = FabricSource::all();
         $fabrics = fabric::all()->sortBy('name');
-        return view('order.edit', compact([
+        return view('reOrder.edit', compact([
             'years', 'brands', 'types', 'groups', 'subgroups',
-            'seasons', 'suppliers', 'colors', 'sizes', 'fabricSources', 'fabrics', 'order']));
+            'seasons', 'suppliers', 'colors', 'sizes', 'fabricSources', 'fabrics', 'order'=>$reOrder]));
     }
 
     /**
@@ -259,7 +259,7 @@ class ReOrderController extends Controller
      * @param order $order
      * @return Response
      */
-    public function update(Request $request, order $order)
+    public function update(Request $request, reOrder $reOrder)
     {
 
         $year = Years::findOrFail($request->get('year_id'));
