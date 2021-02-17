@@ -7,7 +7,7 @@
     @include('layout.title',[
    'url' => 'order.index',
    'urlTitle' => 'رجوع',
-   'title'=>'    تعديل الطلب ' . $reOrder->order->barcode . ' اعادة رقم : '  . $reOrder.re_order_number
+   'title'=>'    تعديل الطلب ' . $reOrder->order->barcode . ' اعادة رقم : '  . $reOrder->re_order_number
    ])
 
 
