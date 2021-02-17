@@ -262,65 +262,10 @@ class ReOrderController extends Controller
     public function update(Request $request, reOrder $reOrder)
     {
 
-        $year = Years::findOrFail($request->get('year_id'));
-        $yearCode = Carbon::create($year->name)->format('y');
-        $orderDate = $request->get('orderDate');
-        $season = season::findOrFail($request->get('season_id'));
-        $supplier = supplier::findOrFail($request->get('supplier_id'));
-        $subGroup = subgroup::findOrFail($request->get('subgroup_id'));
-        $group = group::findOrFail($request->get('group_id'));
-        $brand = brand::findOrFail($request->get('brand_id'));
-        $brandCode = substr($brand->name, 0, 1);
-        $type = type::findOrFail($request->get('type_id'));
-        $typeCode = substr($type->name, 0, 1); //////////
-        $fabricDate = $request->get('fabricDate');
 
 
-        $sequenceNumber = 1;
-        $order->fill([
-            'brand_id' => $request->get('brand_id'),
-            'type_id' => $request->get('type_id'),
-            'group_id' => $request->get('group_id'),
-            'subgroup_id' => $subGroup->id,
-            'season_id' => $request->get('season_id'),
-            'year_id' => $request->get('year_id'),
-
-        ]);
-        $barCode = null;
-
-        if (!$order->isClean()) {
-            $exitsNumberOfSubGroup = order::where('id', '!=', $order->id)
-                ->where('subgroup_id', '=', $subGroup->id)
-                ->where('brand_id', '=', $brand->id)
-                ->where('year_id', '=', $year->id)
-                ->where('season_id', '=', $season->id)
-                ->where('type_id', '=', $type->id)
-                ->where('group_id', '=', $group->id)
-                ->orderBy('id', 'desc')->get();
-            // dd($exitsNumberOfSubGroup);
-            if (count($exitsNumberOfSubGroup) == 0) {
-                $sequenceNumber = 1;
-            } else {
-                $oldBarcode = $exitsNumberOfSubGroup->first()->barcode;
-                $lastNumber = intval(substr($oldBarcode, 7, 3));
-                $sequenceNumber = $lastNumber + 1;
-            }
-            $sequenceNumber = sprintf('%03u', $sequenceNumber);
-
-            $barCode = $yearCode . $season->id . $typeCode . $brandCode . $group->id . $subGroup->idNum . $sequenceNumber;
-
-            $barCode .= $supplier->code;
 
 
-        }
-
-        if ($order->isClean() && $order->supplier_id != $supplier->id) {
-
-            $barCode = substr($order->barcode, 0, -3);
-
-            $barCode .= $supplier->code;
-
-        }
 
 
         $siresQty = $request->get('siresQty');
@@ -332,97 +277,66 @@ class ReOrderController extends Controller
 
 
             if ($request->hasFile('image')) {
-
                 $image = $request->file('image');
-                File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/') . $order->image));
-                $saved_file = $this->upload($image, $barCode . '_1', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
-                $saved_files_for_roleBack += [$saved_file->getFilename()];
+
+                $fileName = Str::slug(now()->format('Y-m-d') . "_reOrder_" . $reOrder->order->barCode . '_1') . '.' .$extension;
+                $dd= Storage::disk('img')->put($fileName,  File::get($image));
+
+
+               // File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/') . $reOrder->image));
+             //   $saved_file = $this->upload($image, $barCode . '_1', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
+                $saved_files_for_roleBack += [$fileName->getFilename()];
 
             }
 
-            if ($request->hasFile('image2')) {
-                $image = $request->file('image2');
+            $orderDate = $request->get('orderDate');
+            $fabricDate = $request->get('fabricDate');
 
-                File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/') . $order->image2));
-
-                $saved_file2 = $this->upload($image, $barCode . '_2', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
-                $saved_files_for_roleBack += [$saved_file2->getFilename()];
-            }
-
-            if ($request->hasFile('image3')) {
-                $image = $request->file('image3');
-
-                File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/') . $order->image3));
-                $saved_file3 = $this->upload($image, $barCode . '_3', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
-                $saved_files_for_roleBack += [$saved_file3->getFilename()];
-            }
+            $reOrder->fill([
 
 
-            $order->fill([
-
-                'barcode' => $barCode ? $barCode : $order->barcode,
-                'modelName' => $request->get('modelName'),
-                'modelDesc' => $request->get('modelDesc'),
                 'siresSizeQty' => $request->get('siresSizeQty'),
                 'siresColorQty' => $request->get('siresColorQty'),
                 'siresQty' => $siresQty,
                 'siresItemNumber' => $siresItemNumber,
                 'quantity' => $quantity,
-                //'reservedQuantity' =>0,
-                'receivedQty' => $order->receivedQty,
-                'fabricFormula' => $request->get('fabricFormula'),
-                //'siresNumber'  => $request->get('siresNumber'),
-                //'itemsNumber'  => $request->get('itemsNumber'),
-                //'orderDate'  => Carbon::now()->format('Y-m-d'),
-                'orderDate' => $orderDate != null ? Carbon::create($orderDate)->format('Y-m-d') : $order->orderDate,
-                'receivedDate' => $order->receivedDate,
-                'fabricDate' => $fabricDate != null ? Carbon::create($request->get('fabricDate'))->format('Y-m-d') : $order->fabricDate,
-                'done' => $order->done,
+
+                'orderDate' => $orderDate != null ? Carbon::create($orderDate)->format('Y-m-d') : $reOrder->orderDate,
+                'receivedDate' => $reOrder->receivedDate,
+                'fabricDate' => $fabricDate != null ? Carbon::create($request->get('fabricDate'))->format('Y-m-d') : $reOrder->fabricDate,
+
                 'notes' => $request->get('notes'),
-                'image' => $request->hasFile('image') ? $saved_file->getFilename() : $order->image,
-                'image2' => $request->hasFile('image2') ? $saved_file2->getFilename() : $order->image2,
-                'image3' => $request->hasFile('image3') ? $saved_file3->getFilename() : $order->image3,
+                'image' => $request->hasFile('image') ? $fileName->getFilename() : $reOrder->image,
 
-
-                'supplier_id' => $request->get('supplier_id'),
-                //'fabric_id'=> $request->get('fabric_id'),
-
-                'fabric_source_id' => $request->get('fabricSource_id'),
 
             ]);
 
-            $order->save();
+            $reOrder->save();
 
             if ($request->has('colors')) {
                 $colors = $request->get('colors');
-                $order->colors()->sync($colors);
+                $reOrder->colors()->sync($colors);
 
             }
 
             if ($request->has('sizes')) {
                 $sizes = $request->get('sizes');
-                $order->sizes()->sync($sizes);
+                $reOrder->sizes()->sync($sizes);
 
-
-            }
-
-            if ($request->has('fabric_id')) {
-                $fabrics = $request->get('fabric_id');
-                $order->fabrics()->sync($fabrics);
 
             }
 
 
             DB::commit();
 
-            return redirect()->route('order.show', $order->id)
+            return redirect()->route('reOrder.show', $reOrder->id)
                 ->with('success', 'تم حفظ الطلب الجديد بنجاح');
 
         } catch (Exception $e) {
             File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $saved_files_for_roleBack);
             DB::rollBack();
 
-            return redirect()->route('order.index')
+            return redirect()->route('reOrder.index')
                 ->with('error', 'لم يتم حفظ الطلب');
         }
 
