@@ -434,11 +434,12 @@ class ReOrderController extends Controller
      * @param order $order
      * @return Response
      */
-    public function destroy(order $order)
+    public function destroy(reOrder $reOrder)
     {
-        $order->delete();
+        dd($reOrder);
+        $reOrder->delete();
 
-        return redirect()->route('order.index')
+        return redirect()->route('reOrder.index')
             ->with('success', 'تم حذف الطلب بنجاح');
     }
 

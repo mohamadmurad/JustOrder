@@ -7,6 +7,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="just order v2 2-12-2020 add Re order to report">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReOrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/reOrder/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reOrder/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,14 +142,12 @@
       <workItem from="1613385194106" duration="1303000" />
       <workItem from="1613387002030" duration="1132000" />
       <workItem from="1613388907641" duration="591000" />
-      <workItem from="1613395393992" duration="756000" />
-    </task>
-    <task id="LOCAL-00021" summary="just order v2 2-12-2020 convert report to ajax">
-      <created>1607510511234</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1607510511234</updated>
+      <workItem from="1613395393992" duration="1386000" />
+      <workItem from="1613399380419" duration="1652000" />
+      <workItem from="1613401275342" duration="594000" />
+      <workItem from="1613483154998" duration="569000" />
+      <workItem from="1613553732777" duration="15000" />
+      <workItem from="1613556908625" duration="1583000" />
     </task>
     <task id="LOCAL-00022" summary="just order v2 2-12-2020 convert report to ajax">
       <created>1607522992371</created>
@@ -484,7 +485,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612361235431</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="just order v2 2-12-2020 add Re order to report">
+      <created>1613396429636</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1613396429637</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
