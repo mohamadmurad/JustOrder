@@ -7,7 +7,7 @@
     @include('layout.title',[
    'url' => 'order.index',
    'urlTitle' => 'رجوع',
-   'title'=>'    تعديل الطلب ' . $order->barcode
+   'title'=>'    تعديل الطلب ' . $reOrder->order->barcode
    ])
 
 
@@ -26,7 +26,7 @@
 
 
 
-    <form action="{{ route('order.update',$order->id) }}" id="orderForm" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('reOrder.update',$reOrder->id) }}" id="orderForm" method="POST" enctype="multipart/form-data">
 
         @csrf
 
@@ -40,7 +40,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>عدد الالوان في السيري :</strong>
-                    <input type="number" id="siresColorQty" min="1" name="siresColorQty" class="form-control" placeholder="عدد الالوان في السيري"  value="{{$order->siresColorQty}}">
+                    <input type="number" id="siresColorQty" min="1" name="siresColorQty" class="form-control" placeholder="عدد الالوان في السيري"  value="{{$reOrder->siresColorQty}}">
                     <ul class="errors">
                         @foreach ($errors->get('siresColorQty') as $message)
                             <i>{{ $message }}</i>
@@ -52,7 +52,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>عدد القياسات في السيري :</strong>
-                    <input type="number" id="siresSizeQty"  min="1" name="siresSizeQty" class="form-control" placeholder="عدد القياسات في السيري" value="{{$order->siresSizeQty}}">
+                    <input type="number" id="siresSizeQty"  min="1" name="siresSizeQty" class="form-control" placeholder="عدد القياسات في السيري" value="{{$reOrder->siresSizeQty}}">
                     <ul class="errors">
                         @foreach ($errors->get('siresSizeQty') as $message)
                             <i>{{ $message }}</i>
@@ -67,7 +67,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>عدد السيريات :</strong>
-                    <input type="number" id="siresQty" name="siresQty" class="form-control" placeholder="عدد السيريات" value="{{$order->siresQty}}">
+                    <input type="number" id="siresQty" name="siresQty" class="form-control" placeholder="عدد السيريات" value="{{$reOrder->siresQty}}">
                     <ul class="errors">
                         @foreach ($errors->get('siresQty') as $message)
                             <i>{{ $message }}</i>
@@ -77,11 +77,11 @@
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-4 text-right">
-                <p id="">عدد القطع في السيري : <span id="siresItemNumber">{{$order->siresItemNumber}}</span></p>
+                <p id="">عدد القطع في السيري : <span id="siresItemNumber">{{$reOrder->siresItemNumber}}</span></p>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-4 text-right">
-                <p id="">الكمية : <span id="quantity">{{$order->quantity}}</span></p>
+                <p id="">الكمية : <span id="quantity">{{$reOrder->quantity}}</span></p>
             </div>
 
 
@@ -89,7 +89,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-4">
                             <div class="form-group">
                                 <strong style="color:red">تاريخ الطلب :</strong>
-                                <input type="date" name="orderDate" class="form-control" placeholder="تاريخ الطلب" value="{{$order->orderDate->format('Y-m-d')}}">
+                                <input type="date" name="orderDate" class="form-control" placeholder="تاريخ الطلب" value="{{$reOrder->orderDate->format('Y-m-d')}}">
                                 <ul class="errors">
                                     @foreach ($errors->get('orderDate') as $message)
                                         <i>{{ $message }}</i>
@@ -102,7 +102,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>تاريخ تسليم القماش :</strong>
-                    <input type="date" name="fabricDate" class="form-control" placeholder="تاريخ تسليم القماش" value="{{\Carbon\Carbon::create($order->fabricDate)->format('Y-m-d')}}">
+                    <input type="date" name="fabricDate" class="form-control" placeholder="تاريخ تسليم القماش" value="{{\Carbon\Carbon::create($reOrder->fabricDate)->format('Y-m-d')}}">
                     <ul class="errors">
                         @foreach ($errors->get('fabricDate') as $message)
                             <i>{{ $message }}</i>
@@ -115,7 +115,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>ملاحظات :</strong>
-                    <textarea form="orderForm" type="text" name="notes" class="form-control" rows="3" placeholder="ملاحظات">{{$order->notes}}</textarea>
+                    <textarea form="orderForm" type="text" name="notes" class="form-control" rows="3" placeholder="ملاحظات">{{$reOrder->notes}}</textarea>
                     <ul class="errors">
                         @foreach ($errors->get('notes') as $message)
                             <i>{{ $message }}</i>
@@ -151,8 +151,8 @@
                     <div class="form-check form-check-inline col-xs-2 col-sm-2 col-md-2">
 
                         <input class="form-check-input" type="checkbox" name="sizes[]" value="{{$size->id}}"
-                            @if($order->sizes)
-                                @if(in_array($size->id, $order->sizes->pluck('id')->toArray()))
+                            @if($reOrder->sizes)
+                                @if(in_array($size->id, $reOrder->sizes->pluck('id')->toArray()))
                             checked
                             @endif
                              @endif
@@ -176,8 +176,8 @@
                 @foreach($colors as $color)
                     <div class="form-check form-check-inline col-xs-2 col-sm-2 col-md-2">
                         <input class="form-check-input" type="checkbox" name="colors[]" value="{{$color->id}}"
-                               @if($order->colors)
-                               @if(in_array($color->id, $order->colors->pluck('id')->toArray()))
+                               @if($reOrder->colors)
+                               @if(in_array($color->id, $reOrder->colors->pluck('id')->toArray()))
                                checked
                             @endif
                             @endif

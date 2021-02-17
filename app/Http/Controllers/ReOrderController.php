@@ -249,7 +249,7 @@ class ReOrderController extends Controller
         $fabrics = fabric::all()->sortBy('name');
         return view('reOrder.edit', compact([
             'years', 'brands', 'types', 'groups', 'subgroups',
-            'seasons', 'suppliers', 'colors', 'sizes', 'fabricSources', 'fabrics', 'order'=>$reOrder]));
+            'seasons', 'suppliers', 'colors', 'sizes', 'fabricSources', 'fabrics', 'reOrder']));
     }
 
     /**
