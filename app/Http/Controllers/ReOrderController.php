@@ -436,7 +436,7 @@ class ReOrderController extends Controller
      */
     public function destroy(reOrder $reOrder)
     {
-        dd($reOrder);
+       // dd($reOrder);
         $reOrder->delete();
 
         return redirect()->route('reOrder.index')
