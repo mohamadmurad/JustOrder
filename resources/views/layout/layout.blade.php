@@ -587,7 +587,7 @@
                             "<a class=\"btn btn-info\" href=\" http://192.168.80.32:8083/order/" +  orders[i].id +" \">عرض</a>"+
                             "<a class=\"btn btn-primary\" href=\" http://192.168.80.32:8083/order/" +  orders[i].id +"/edit\">تعديل</a>"+
                             "<input type=\"hidden\" name=\"_method\" value=\"DELETE\">"+
-                            "@csrf"+
+                            '@csrf'+
                             "<button type=\"submit\" class=\"btn btn-danger\">حذف</button>"+
                             "</td>"+
                             "</tr>")
@@ -624,7 +624,7 @@
                             "<a class=\"btn btn-info\" href=\" http://192.168.80.32:8083/order/" +  reOrders[i].id +" \">عرض</a>"+
                             "<a class=\"btn btn-primary\" href=\" http://192.168.80.32:8083/order/" +  reOrders[i].id +"/edit\">تعديل</a>"+
                             "<input type=\"hidden\" name=\"_method\" value=\"DELETE\">"+
-                            "@csrf"+
+                            '@csrf'+
                             "<button type=\"submit\" class=\"btn btn-danger\">حذف</button>"+
                             "</td>"+
                             "</tr>")
