@@ -29,6 +29,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
@@ -45,6 +46,8 @@ class OrderController extends Controller
      */
     public function index()
     {
+
+        Log::info('index order');
 
         if (Auth::user()->isAdmin) {
             //dd(Auth::user()->department()->first()->users()->get()->pluck('id'));
@@ -768,6 +771,8 @@ class OrderController extends Controller
         ]);
 
         $order->update();
+
+        Log::info('receive order Barcode ( ' . $order->barcode . ' ) with QTY ( ' . $order->receivedQty . ' )');
 
         return redirect()->route('order.show',$order->id)
             ->with('success', 'تم استلام الطلب :  ');

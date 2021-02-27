@@ -7,7 +7,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="just order v2 2-12-2020 add Re order to report">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,21 +146,10 @@
       <workItem from="1613483154998" duration="569000" />
       <workItem from="1613553732777" duration="15000" />
       <workItem from="1613556908625" duration="5009000" />
-      <workItem from="1613649125579" duration="373000" />
-    </task>
-    <task id="LOCAL-00030" summary="just order v2 2-12-2020 add Re order to report">
-      <created>1608035394657</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1608035394657</updated>
-    </task>
-    <task id="LOCAL-00031" summary="just order v2 2-12-2020 add Re order to report">
-      <created>1608035850863</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1608035850863</updated>
+      <workItem from="1613649125579" duration="760000" />
+      <workItem from="1613901741175" duration="806000" />
+      <workItem from="1614081523099" duration="63000" />
+      <workItem from="1614435182452" duration="162000" />
     </task>
     <task id="LOCAL-00032" summary="just order v2 2-12-2020 add Re order to report">
       <created>1608036002224</created>
@@ -491,7 +480,21 @@
       <option name="project" value="LOCAL" />
       <updated>1613561852614</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="just order v2 2-12-2020 add Re order to report">
+      <created>1613649513180</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1613649513181</updated>
+    </task>
+    <task id="LOCAL-00080" summary="just order v2 2-12-2020 add Re order to report">
+      <created>1613649611487</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1613649611487</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
