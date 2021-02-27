@@ -47,7 +47,7 @@ class OrderController extends Controller
     public function index()
     {
 
-        Log::stack('justorder')->info('index order');
+        Log::stack(['justorder'])->info('index order');
 
         if (Auth::user()->isAdmin) {
             //dd(Auth::user()->department()->first()->users()->get()->pluck('id'));
@@ -772,7 +772,7 @@ class OrderController extends Controller
 
         $order->update();
 
-        Log::stack('justorder')->info('receive order Barcode ( ' . $order->barcode . ' ) with QTY ( ' . $order->receivedQty . ' )');
+        Log::stack(['justorder'])->info('receive order Barcode ( ' . $order->barcode . ' ) with QTY ( ' . $order->receivedQty . ' )');
 
         return redirect()->route('order.show',$order->id)
             ->with('success', 'تم استلام الطلب :  ');
