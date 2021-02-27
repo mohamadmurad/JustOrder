@@ -47,6 +47,12 @@ return [
             'level' => 'debug',
         ],
 
+        'justorder' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/justorder.log'),
+            'level' => 'debug',
+        ],
+
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),
