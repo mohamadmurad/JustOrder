@@ -797,7 +797,8 @@ class OrderController extends Controller
 
         $colors = color::all()->sortBy('name');
         $sizes = size::all()->sortBy('name');
-        Log::stack(['justorder'])->info('open re  order  ( '. $order->barcode .' )  from user ( ' . Auth::user()->name . ' )');
+
+        Log::stack(['justorderReOrder'])->info('open re  order  ( '. $order->barcode .' )  from user ( ' . Auth::user()->name . ' )');
 
         return view('order.reCreate', compact([
 
