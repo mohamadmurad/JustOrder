@@ -6,12 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="just order v2 2-12-2020 add Re order to report">
-      <change afterPath="$PROJECT_DIR$/config/user-activity.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_20_100001_create_log_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,17 +37,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mohamad.mu\PhpstormProjects\JustOrder\app" />
       <recent name="C:\Users\mohamad.mu\PhpstormProjects\JustOrder" />
       <recent name="C:\Users\mohamad.mu.HOMSICO\PhpstormProjects\justorder22\public\js" />
       <recent name="C:\Users\mohamad.mu.HOMSICO\PhpstormProjects\justorder22\public\css" />
       <recent name="C:\Users\mohamad.mu\PhpstormProjects\justorder22\public\css" />
-      <recent name="C:\Users\mohamad.mu\PhpstormProjects\justorder22\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mohamad.mu\PhpstormProjects\justorder22\resources\views\errors" />
@@ -157,14 +153,7 @@
       <workItem from="1614518433929" duration="1505000" />
       <workItem from="1614601661549" duration="43000" />
       <workItem from="1615039955856" duration="833000" />
-      <workItem from="1615105092841" duration="286000" />
-    </task>
-    <task id="LOCAL-00041" summary="just order v2 2-12-2020 add Re order to report">
-      <created>1608208419249</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1608208419249</updated>
+      <workItem from="1615105092841" duration="1132000" />
     </task>
     <task id="LOCAL-00042" summary="just order v2 2-12-2020 add Re order to report">
       <created>1608211780874</created>
@@ -502,7 +491,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615040197913</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="just order v2 2-12-2020 add Re order to report">
+      <created>1615105470168</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1615105470168</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
