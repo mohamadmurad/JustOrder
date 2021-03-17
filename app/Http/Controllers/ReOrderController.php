@@ -231,7 +231,7 @@ class ReOrderController extends Controller
         $reOrder->load([
             'order',
         ]);
-        Log::stack(['justorderReOrder'])->info('show Re order ( '. $reOrder->order-barcode .' ) from user (' . Auth::user()->name . ' )');
+       // Log::stack(['justorderReOrder'])->info('show Re order ( '. $reOrder->order-barcode .' ) from user (' . Auth::user()->name . ' )');
 
 
         return view('reOrder.show', compact('reOrder'));
