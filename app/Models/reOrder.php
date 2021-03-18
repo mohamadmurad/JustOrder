@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\File;
 
 class reOrder extends Model
 {
+    use Loggable;
     use HasFactory;
     public $timestamps = false;
     protected $fillable = [
