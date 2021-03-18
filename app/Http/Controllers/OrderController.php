@@ -29,7 +29,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Log;
+
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
@@ -47,7 +47,7 @@ class OrderController extends Controller
     public function index()
     {
 
-        Log::stack(['justorder'])->info('index order from user ( ' . Auth::user()->name . ' )');
+       // Log::stack(['justorder'])->info('index order from user ( ' . Auth::user()->name . ' )');
 
         if (Auth::user()->isAdmin) {
             //dd(Auth::user()->department()->first()->users()->get()->pluck('id'));
@@ -81,7 +81,7 @@ class OrderController extends Controller
     public function create()
     {
 
-        Log::stack(['justorder'])->info('open create order from user ( ' . Auth::user()->name . ' )');
+   //     Log::stack(['justorder'])->info('open create order from user ( ' . Auth::user()->name . ' )');
 
         $years = Years::all();
         $brands = brand::all()->sortBy('name');
@@ -283,8 +283,7 @@ class OrderController extends Controller
 
             DB::commit();
 
-            Log::stack(['justorder'])->info('create order ( ' . $newOrder->barcode . ' ) success from user ( ' . Auth::user()->name . ' )');
-
+//
             return redirect()->route('order.show', $newOrder->id)
                 ->with('success', 'تم حفظ الطلب الجديد بنجاح');
 
@@ -300,7 +299,7 @@ class OrderController extends Controller
             }
             // File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $saved_files_for_roleBack);
             DB::rollBack();
-            Log::stack(['justorder'])->error('order not created from user ( ' . Auth::user()->name . ' )');
+       //     Log::stack(['justorder'])->error('order not created from user ( ' . Auth::user()->name . ' )');
 
             return redirect()->route('order.index')
                 ->with('error', 'لم يتم حفظ الطلب');
@@ -330,7 +329,7 @@ class OrderController extends Controller
             'fabrics',
         ]);
 
-        Log::stack(['justorder'])->info('showing order ( '. $order->barcode .' ) from user ( ' . Auth::user()->name . ' )');
+     //   Log::stack(['justorder'])->info('showing order ( '. $order->barcode .' ) from user ( ' . Auth::user()->name . ' )');
 
         return view('order.show', compact('order'));
     }
@@ -357,7 +356,7 @@ class OrderController extends Controller
         $fabricSources = FabricSource::all();
         $fabrics = fabric::all()->sortBy('name');
 
-        Log::stack(['justorder'])->info('open edit order ( '. $order->barcode .' ) from user ( ' . Auth::user()->name . ' )');
+       // Log::stack(['justorder'])->info('open edit order ( '. $order->barcode .' ) from user ( ' . Auth::user()->name . ' )');
 
        // dd($order);
         return view('order.edit', compact([
@@ -575,7 +574,7 @@ class OrderController extends Controller
 
 
             DB::commit();
-            Log::stack(['justorder'])->info('update order ( '. $order->barcode .' ) from user ( ' . Auth::user()->name . ' )');
+          //  Log::stack(['justorder'])->info('update order ( '. $order->barcode .' ) from user ( ' . Auth::user()->name . ' )');
 
             return redirect()->route('order.show', $order->id)
                 ->with('success', 'تم حفظ الطلب الجديد بنجاح');
@@ -584,7 +583,7 @@ class OrderController extends Controller
             File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $saved_files_for_roleBack);
             DB::rollBack();
 
-            Log::stack(['justorder'])->error('update  order  ( '. $order->barcode .' ) failed from user ( ' . Auth::user()->name . ' )');
+           // Log::stack(['justorder'])->error('update  order  ( '. $order->barcode .' ) failed from user ( ' . Auth::user()->name . ' )');
 
             return redirect()->route('order.index')
                 ->with('error', 'لم يتم حفظ الطلب');
@@ -601,7 +600,7 @@ class OrderController extends Controller
     public function destroy(order $order)
     {
         $order->delete();
-        Log::stack(['justorder'])->alert('delete  order  ( '. $order->barcode .' )  from user ( ' . Auth::user()->name . ' )');
+      //  Log::stack(['justorder'])->alert('delete  order  ( '. $order->barcode .' )  from user ( ' . Auth::user()->name . ' )');
 
         return redirect()->route('order.index')
             ->with('success', 'تم حذف الطلب بنجاح');
@@ -785,7 +784,7 @@ class OrderController extends Controller
 
         $order->update();
 
-        Log::stack(['justorder'])->info('receive order Barcode ( ' . $order->barcode . ' ) with QTY ( ' . $order->receivedQty . ' ) from user ( ' . Auth::user()->name . ' )');
+       // Log::stack(['justorder'])->info('receive order Barcode ( ' . $order->barcode . ' ) with QTY ( ' . $order->receivedQty . ' ) from user ( ' . Auth::user()->name . ' )');
 
         return redirect()->route('order.show',$order->id)
             ->with('success', 'تم استلام الطلب :  ');
@@ -798,7 +797,7 @@ class OrderController extends Controller
         $colors = color::all()->sortBy('name');
         $sizes = size::all()->sortBy('name');
 
-        Log::stack(['justorderReOrder'])->info('open re  order  ( '. $order->barcode .' )  from user ( ' . Auth::user()->name . ' )');
+     //   Log::stack(['justorderReOrder'])->info('open re  order  ( '. $order->barcode .' )  from user ( ' . Auth::user()->name . ' )');
 
         return view('order.reCreate', compact([
 
@@ -893,7 +892,7 @@ class OrderController extends Controller
 
             }
 
-            Log::stack(['justorderReOrder'])->info('Re order  ( ' . $newOrder->order->barcode . ' ) from user (' . Auth::user()->name . ' )');
+          //  Log::stack(['justorderReOrder'])->info('Re order  ( ' . $newOrder->order->barcode . ' ) from user (' . Auth::user()->name . ' )');
 
 
             DB::commit();
@@ -903,7 +902,8 @@ class OrderController extends Controller
 
         } catch (Exception $e) {
             DB::rollBack();
-            Log::stack(['justorderReOrder'])->error('Re order failed ( ' . $newOrder->order->barcode . ' ) from user (' . Auth::user()->name . ' )');
+         //
+            //   Log::stack(['justorderReOrder'])->error('Re order failed ( ' . $newOrder->order->barcode . ' ) from user (' . Auth::user()->name . ' )');
 
 
             return redirect()->route('order.index')

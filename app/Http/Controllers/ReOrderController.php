@@ -65,7 +65,7 @@ class ReOrderController extends Controller
             }])->paginate();
 //dd($orders);
         }
-        Log::stack(['justorderReOrder'])->info('index Re order  from user (' . Auth::user()->name . ' )');
+        //Log::stack(['justorderReOrder'])->info('index Re order  from user (' . Auth::user()->name . ' )');
 
 
         return view('reOrder.index', compact(['orders']));
@@ -80,7 +80,7 @@ class ReOrderController extends Controller
     {
         $colors = color::all()->sortBy('name');
         $sizes = size::all()->sortBy('name');
-        Log::stack(['justorderReOrder'])->info('open Re order create  from user (' . Auth::user()->name . ' )');
+        //Log::stack(['justorderReOrder'])->info('open Re order create  from user (' . Auth::user()->name . ' )');
 
 
         if ($request->has('order')){
@@ -194,7 +194,7 @@ class ReOrderController extends Controller
 
             DB::commit();
            // $newOrder->load('order');
-            Log::stack(['justorderReOrder'])->info(' Re order created success  from user (' . Auth::user()->name . ' )');
+           // Log::stack(['justorderReOrder'])->info(' Re order created success  from user (' . Auth::user()->name . ' )');
 
             return redirect()->route('reOrder.show', $newOrder->id)
                 ->with('success', 'تم حفظ الطلب الجديد بنجاح');
@@ -208,7 +208,7 @@ class ReOrderController extends Controller
 
                // File::delete(public_path(config('app.PRODUCTS_FILES_PATH', 'files/products/') . str_replace(' ', '', $branch->name)) . '/' . $file);
             }
-            Log::stack(['justorderReOrder'])->error(' Re order created failed  from user (' . Auth::user()->name . ' )');
+           // Log::stack(['justorderReOrder'])->error(' Re order created failed  from user (' . Auth::user()->name . ' )');
 
 
             return redirect()->route('order.index')
@@ -259,7 +259,7 @@ class ReOrderController extends Controller
         $fabricSources = FabricSource::all();
         $fabrics = fabric::all()->sortBy('name');
 
-        Log::stack(['justorderReOrder'])->info('open edit Re order ( '. $reOrder->order-barcode .' ) from user (' . Auth::user()->name . ' )');
+       // Log::stack(['justorderReOrder'])->info('open edit Re order ( '. $reOrder->order-barcode .' ) from user (' . Auth::user()->name . ' )');
 
         return view('reOrder.edit', compact([
             'years', 'brands', 'types', 'groups', 'subgroups',
@@ -343,7 +343,7 @@ class ReOrderController extends Controller
 
             DB::commit();
 
-            Log::stack(['justorderReOrder'])->info('update  Re order ( '. $reOrder->order-barcode .' ) from user (' . Auth::user()->name . ' )');
+        //    Log::stack(['justorderReOrder'])->info('update  Re order ( '. $reOrder->order-barcode .' ) from user (' . Auth::user()->name . ' )');
 
             return redirect()->route('reOrder.show', $reOrder->id)
                 ->with('success', 'تم حفظ الطلب الجديد بنجاح');
@@ -351,7 +351,7 @@ class ReOrderController extends Controller
         } catch (Exception $e) {
             File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')) . '/' . $saved_files_for_roleBack);
             DB::rollBack();
-            Log::stack(['justorderReOrder'])->error('update  Re order failed from user (' . Auth::user()->name . ' )');
+          //  Log::stack(['justorderReOrder'])->error('update  Re order failed from user (' . Auth::user()->name . ' )');
 
             return redirect()->route('reOrder.index')
                 ->with('error', 'لم يتم حفظ الطلب');
@@ -369,7 +369,7 @@ class ReOrderController extends Controller
     {
        // dd($reOrder);
         $reOrder->delete();
-        Log::stack(['justorderReOrder'])->alert('delete  Re order ( '. $reOrder->order-barcode .' ) from user (' . Auth::user()->name . ' )');
+        //Log::stack(['justorderReOrder'])->alert('delete  Re order ( '. $reOrder->order-barcode .' ) from user (' . Auth::user()->name . ' )');
 
         return redirect()->route('reOrder.index')
             ->with('success', 'تم حذف الطلب بنجاح');
@@ -486,7 +486,7 @@ class ReOrderController extends Controller
         ]);
 
         $order->update();
-        Log::stack(['justorderReOrder'])->info('received  Re order ( '. $order->order-barcode .' ) from user (' . Auth::user()->name . ' )');
+       // Log::stack(['justorderReOrder'])->info('received  Re order ( '. $order->order-barcode .' ) from user (' . Auth::user()->name . ' )');
 
         return redirect()->route('reOrder.show',$order->id)
             ->with('success', 'تم استلام الطلب :  ');
