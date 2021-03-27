@@ -7,6 +7,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="just order v2 2-12-2020 add Re order to report">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,17 +38,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\MHD\PhpstormProjects\JustOrder" />
       <recent name="C:\Users\mohamad.mu\PhpstormProjects\JustOrder\app" />
       <recent name="C:\Users\mohamad.mu\PhpstormProjects\JustOrder" />
       <recent name="C:\Users\mohamad.mu.HOMSICO\PhpstormProjects\justorder22\public\js" />
       <recent name="C:\Users\mohamad.mu.HOMSICO\PhpstormProjects\justorder22\public\css" />
-      <recent name="C:\Users\mohamad.mu\PhpstormProjects\justorder22\public\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mohamad.mu\PhpstormProjects\justorder22\resources\views\errors" />
@@ -157,6 +159,11 @@
       <workItem from="1615995169944" duration="1535000" />
       <workItem from="1616067052229" duration="20000" />
       <workItem from="1616420782940" duration="299000" />
+      <workItem from="1616817013579" duration="818000" />
+      <workItem from="1616862200539" duration="192000" />
+      <workItem from="1616862799146" duration="326000" />
+      <workItem from="1616863545334" duration="7000" />
+      <workItem from="1616863890926" duration="949000" />
     </task>
     <task id="LOCAL-00048" summary="just order v2 2-12-2020 add Re order to report">
       <created>1608815498043</created>

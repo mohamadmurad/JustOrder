@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
 
             $table->foreignId('departments_id')
                 ->nullable()
-                ->constrained()
+                //->constrained()
                 ->onUpdate('set null')
                 ->onDelete('set null');
             $table->foreign('departments_id')->on('departments')->references('id');
