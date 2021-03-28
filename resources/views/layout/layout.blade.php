@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ config('app.name', 'JustOrder') }}</title>
+    @livewireStyles
     <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ URL::asset('css/style.css?v=0.0000008') }}">
@@ -522,129 +523,129 @@
 
 
 
-        $('#reportForm').on('submit',function (e){
-            jQuery("#status").fadeIn();
-            jQuery("#preloader").delay(350).fadeIn("slow");
-            jQuery("body").delay(350).css({ overflow: "visible" });
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            e.preventDefault();
-            /*var formData = {
-                name: $('#reportBrand').val(),
-                name: $('#reportYear').val(),
-                name: $('#reportType').val(),
-                name: $('#reportGroup').val(),
-                name: $('#reportSuGroup').val(),
-                name: $('#reportSeason').val(),
-                name: $('#reportSubblier').val(),
-                name: $('#reportFabricSource').val(),
-                name: $('#reportFabric').val(),
-                code: $('#fabricCode').val(),
-            };*/
+        {{--$('#reportForm').on('submit',function (e){--}}
+        {{--    jQuery("#status").fadeIn();--}}
+        {{--    jQuery("#preloader").delay(350).fadeIn("slow");--}}
+        {{--    jQuery("body").delay(350).css({ overflow: "visible" });--}}
+        {{--    $.ajaxSetup({--}}
+        {{--        headers: {--}}
+        {{--            'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')--}}
+        {{--        }--}}
+        {{--    });--}}
+        {{--    e.preventDefault();--}}
+        {{--    /*var formData = {--}}
+        {{--        name: $('#reportBrand').val(),--}}
+        {{--        name: $('#reportYear').val(),--}}
+        {{--        name: $('#reportType').val(),--}}
+        {{--        name: $('#reportGroup').val(),--}}
+        {{--        name: $('#reportSuGroup').val(),--}}
+        {{--        name: $('#reportSeason').val(),--}}
+        {{--        name: $('#reportSubblier').val(),--}}
+        {{--        name: $('#reportFabricSource').val(),--}}
+        {{--        name: $('#reportFabric').val(),--}}
+        {{--        code: $('#fabricCode').val(),--}}
+        {{--    };*/--}}
 
-            $.ajax({
-                type: "get",
-                data: $("#reportForm").serialize(),
-                dataType: 'json',
-                url: "http://{{request()->getHttpHost()}}"+"/api/reportApi/",
-                success: function (data) {
-                    console.log(data);
+        {{--    $.ajax({--}}
+        {{--        type: "get",--}}
+        {{--        data: $("#reportForm").serialize(),--}}
+        {{--        dataType: 'json',--}}
+        {{--        url: "http://{{request()->getHttpHost()}}"+"/api/reportApi/",--}}
+        {{--        success: function (data) {--}}
+        {{--            console.log(data);--}}
 
-                    var orders = data.data.orders;
-                    var reOrders = data.data.reOrders;
+        {{--            var orders = data.data.orders;--}}
+        {{--            var reOrders = data.data.reOrders;--}}
 
-                    $('#reportBody').html('');
-                    for(var i =0 ; i< orders.length; i++){
-                        done = "تم الاستلام";
-                        if(orders[i].done == 0 ){
-                            done = "لم يتم الاستلام";
-                        }
-                        $('#reportBody').append(
-                            "<tr>" +
-                            "<td class=\"noExport\">"+(i+1)+"</td>" +
-                            "<td>"+orders[i].barcode+"</td>" +
-                            "<td>"+orders[i].type.name+"</td>" +
-                            "<td>"+orders[i].group.name+"</td>" +
-                            "<td>"+orders[i].subgroup.name+"</td>" +
-                            "<td>اساسي</td>" +
-                            "<td>"+
-                            done+
-                                "</td>" +
+        {{--            $('#reportBody').html('');--}}
+        {{--            for(var i =0 ; i< orders.length; i++){--}}
+        {{--                done = "تم الاستلام";--}}
+        {{--                if(orders[i].done == 0 ){--}}
+        {{--                    done = "لم يتم الاستلام";--}}
+        {{--                }--}}
+        {{--                $('#reportBody').append(--}}
+        {{--                    "<tr>" +--}}
+        {{--                    "<td class=\"noExport\">"+(i+1)+"</td>" +--}}
+        {{--                    "<td>"+orders[i].barcode+"</td>" +--}}
+        {{--                    "<td>"+orders[i].type.name+"</td>" +--}}
+        {{--                    "<td>"+orders[i].group.name+"</td>" +--}}
+        {{--                    "<td>"+orders[i].subgroup.name+"</td>" +--}}
+        {{--                    "<td>اساسي</td>" +--}}
+        {{--                    "<td>"+--}}
+        {{--                    done+--}}
+        {{--                        "</td>" +--}}
 
-                            "<td>"+
-                            orders[i].quantity+
-                            "</td>" +
+        {{--                    "<td>"+--}}
+        {{--                    orders[i].quantity+--}}
+        {{--                    "</td>" +--}}
 
-                            "<td>"+
-                            orders[i].receivedQty +
-                            "</td>" +
-
-
-                            "<td class=\"noExport\">"+
-                            "<form action=\" http://192.168.80.32:8083/order/" +  orders[i].id +" \" method=\"POST\">"+
-                            "<a class=\"btn btn-info\" href=\" http://192.168.80.32:8083/order/" +  orders[i].id +" \">عرض</a>"+
-                            "<a class=\"btn btn-primary\" href=\" http://192.168.80.32:8083/order/" +  orders[i].id +"/edit\">تعديل</a>"+
-                            "<input type=\"hidden\" name=\"_method\" value=\"DELETE\">"+
-                            '@csrf'+
-                            "<button type=\"submit\" class=\"btn btn-danger\">حذف</button>"+
-                            "</td>"+
-                            "</tr>")
-                    }
+        {{--                    "<td>"+--}}
+        {{--                    orders[i].receivedQty +--}}
+        {{--                    "</td>" +--}}
 
 
-                    for(var i =0 ; i< reOrders.length; i++){
-                        done = "تم الاستلام";
-                        if(reOrders[i].done == 0 ){
-                            done = "لم يتم الاستلام";
-                        }
-                        $('#reportBody').append(
-                            "<tr>" +
-                            "<td class=\"noExport\">"+(i+1)+"</td>" +
-                            "<td>"+reOrders[i].order.barcode+"</td>" +
-                            "<td>"+reOrders[i].order.type.name+"</td>" +
-                            "<td>"+reOrders[i].order.group.name+"</td>" +
-                            "<td>"+reOrders[i].order.subgroup.name+"</td>" +
-                            "<td>إعادة رقم : "+reOrders[i].re_order_number+"</td>" +
-                            "<td>"+
-                            done+
-                            "</td>" +
-                            "<td>"+
-                            reOrders[i].quantity+
-                            "</td>" +
-
-                            "<td>"+
-                            reOrders[i].receivedQty +
-                            "</td>" +
+        {{--                    "<td class=\"noExport\">"+--}}
+        {{--                    "<form action=\" http://192.168.80.32:8083/order/" +  orders[i].id +" \" method=\"POST\">"+--}}
+        {{--                    "<a class=\"btn btn-info\" href=\" http://192.168.80.32:8083/order/" +  orders[i].id +" \">عرض</a>"+--}}
+        {{--                    "<a class=\"btn btn-primary\" href=\" http://192.168.80.32:8083/order/" +  orders[i].id +"/edit\">تعديل</a>"+--}}
+        {{--                    "<input type=\"hidden\" name=\"_method\" value=\"DELETE\">"+--}}
+        {{--                    '@csrf'+--}}
+        {{--                    "<button type=\"submit\" class=\"btn btn-danger\">حذف</button>"+--}}
+        {{--                    "</td>"+--}}
+        {{--                    "</tr>")--}}
+        {{--            }--}}
 
 
-                            "<td class=\"noExport\">"+
-                            "<form action=\" http://192.168.80.32:8083/order/" +  reOrders[i].id +" \" method=\"POST\">"+
-                            "<a class=\"btn btn-info\" href=\" http://192.168.80.32:8083/order/" +  reOrders[i].id +" \">عرض</a>"+
-                            "<a class=\"btn btn-primary\" href=\" http://192.168.80.32:8083/order/" +  reOrders[i].id +"/edit\">تعديل</a>"+
-                            "<input type=\"hidden\" name=\"_method\" value=\"DELETE\">"+
-                            '@csrf'+
-                            "<button type=\"submit\" class=\"btn btn-danger\">حذف</button>"+
-                            "</td>"+
-                            "</tr>")
-                    }
+        {{--            for(var i =0 ; i< reOrders.length; i++){--}}
+        {{--                done = "تم الاستلام";--}}
+        {{--                if(reOrders[i].done == 0 ){--}}
+        {{--                    done = "لم يتم الاستلام";--}}
+        {{--                }--}}
+        {{--                $('#reportBody').append(--}}
+        {{--                    "<tr>" +--}}
+        {{--                    "<td class=\"noExport\">"+(i+1)+"</td>" +--}}
+        {{--                    "<td>"+reOrders[i].order.barcode+"</td>" +--}}
+        {{--                    "<td>"+reOrders[i].order.type.name+"</td>" +--}}
+        {{--                    "<td>"+reOrders[i].order.group.name+"</td>" +--}}
+        {{--                    "<td>"+reOrders[i].order.subgroup.name+"</td>" +--}}
+        {{--                    "<td>إعادة رقم : "+reOrders[i].re_order_number+"</td>" +--}}
+        {{--                    "<td>"+--}}
+        {{--                    done+--}}
+        {{--                    "</td>" +--}}
+        {{--                    "<td>"+--}}
+        {{--                    reOrders[i].quantity+--}}
+        {{--                    "</td>" +--}}
 
-                    jQuery("#status").fadeOut();
-                    jQuery("#preloader").fadeOut("slow");
-                },
-                error: function (data) {
-                    console.log(data.responseText);
-                    jQuery("#status").fadeOut();
-                    jQuery("#preloader").fadeOut("slow");
-                    alert('حدث خطأ');
-                }
-            });
+        {{--                    "<td>"+--}}
+        {{--                    reOrders[i].receivedQty +--}}
+        {{--                    "</td>" +--}}
 
 
-            return false;
-        });
+        {{--                    "<td class=\"noExport\">"+--}}
+        {{--                    "<form action=\" http://192.168.80.32:8083/order/" +  reOrders[i].id +" \" method=\"POST\">"+--}}
+        {{--                    "<a class=\"btn btn-info\" href=\" http://192.168.80.32:8083/order/" +  reOrders[i].id +" \">عرض</a>"+--}}
+        {{--                    "<a class=\"btn btn-primary\" href=\" http://192.168.80.32:8083/order/" +  reOrders[i].id +"/edit\">تعديل</a>"+--}}
+        {{--                    "<input type=\"hidden\" name=\"_method\" value=\"DELETE\">"+--}}
+        {{--                    '@csrf'+--}}
+        {{--                    "<button type=\"submit\" class=\"btn btn-danger\">حذف</button>"+--}}
+        {{--                    "</td>"+--}}
+        {{--                    "</tr>")--}}
+        {{--            }--}}
+
+        {{--            jQuery("#status").fadeOut();--}}
+        {{--            jQuery("#preloader").fadeOut("slow");--}}
+        {{--        },--}}
+        {{--        error: function (data) {--}}
+        {{--            console.log(data.responseText);--}}
+        {{--            jQuery("#status").fadeOut();--}}
+        {{--            jQuery("#preloader").fadeOut("slow");--}}
+        {{--            alert('حدث خطأ');--}}
+        {{--        }--}}
+        {{--    });--}}
+
+
+        {{--    return false;--}}
+        {{--});--}}
     });
 
 
@@ -850,6 +851,6 @@
 
 
 </script>
-
+@livewireScripts
 </body>
 </html>

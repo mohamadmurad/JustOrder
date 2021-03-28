@@ -41,6 +41,10 @@ class ReOrder extends Migration
 
             $table->text('notes')->nullable();
 
+            $table->string('image')->nullable();
+            $table->string('image2')->nullable();
+            $table->string('image3')->nullable();
+
 
 
 

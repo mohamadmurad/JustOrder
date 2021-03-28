@@ -109,7 +109,7 @@ class OrderController extends Controller
     public function store(StoreOrderRequest $request)
     {
 
-       // dd($request['fabric_id']);
+       //dd($request['fabric_id']);
 
         // dd($request);
         $year = Years::findOrFail($request->get('year_id'));
@@ -173,6 +173,8 @@ class OrderController extends Controller
         $saved_files_for_roleBack = [];
         DB::beginTransaction();
         try {
+
+
 
 
             if ($request->hasFile('image')) {

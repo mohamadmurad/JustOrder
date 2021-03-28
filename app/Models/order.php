@@ -158,20 +158,21 @@ class order extends Model
 
     public function scopeFilterData($query,$request){
         $columns = [
-            'brand_id',
-           // 'fabric_id',
-            'type_id',
-           // 'group_id',
-           // 'subgroup_id',
-            'season_id',
-            'year_id',
-            'supplier_id',
-            'fabric_source_id',
+            'brand_id' => 'sel_brand',
+           // 'fabric_id' => 'sel_fabric',
+            'type_id' => 'sel_type',
+            'group_id' => 'sel_group',
+            'subgroup_id' => 'sel_subgroup',
+            'season_id' => 'sel_season',
+            'year_id' => 'sel_year',
+            'supplier_id' => 'sel_supplier',
+            'fabric_source_id' => 'sel_fabricSource',
             ];
 
 
-        foreach ($columns as $column){
-            $col_request = $request->get($column);
+        foreach ($columns as $column => $key){
+
+            $col_request = $request[$column];
 
             if (!empty($col_request)){
 
@@ -185,40 +186,49 @@ class order extends Model
         }
 
 
-        if ($request->has('subgroup_id')){
-
-            $subgroup_id = $request->get('subgroup_id');
-            if($subgroup_id != 0 ){
-                $subGroup = subgroup::findOrFail($subgroup_id);
-                if ($subGroup !== null){
-
-                    $query->where('subgroup_id','=', $subGroup->id);
-
-                }
+        if (isset($request['fabric_id'])) {
+            $fab_id = $request['fabric_id'];
+            if ($fab_id != 0 ){
+                $query->whereHas('fabrics', function ($query) use ($fab_id) {
+                    $query->where('fabric_id', $fab_id);
+                });
             }
+
         }
-
-        if ($request->has('group_id')){
-
-            $subgroup_id = $request->get('group_id');
-            if($subgroup_id != 0 ){
-                $subGroup = group::findOrFail($subgroup_id);
-                if ($subGroup !== null){
-                    $query->where('group_id','=', $subGroup->id);
-
-                }
-            }
-        }
-
-
-//        if ($request->has('done')){
+//        if (isset($request['subgroup_id'])){
 //
-//            $done = $request->get('done');
+//            $subgroup_id = $request->get('subgroup_id');
+//            if($subgroup_id != 0 ){
+//                $subGroup = subgroup::findOrFail($subgroup_id);
+//                if ($subGroup !== null){
 //
-//            if ($done !== 'all'){
-//                $query->where('done','=', intval($done));
+//                    $query->where('subgroup_id','=', $subGroup->id);
+//
+//                }
 //            }
 //        }
+//
+//        if (isset($request['group_id'])){
+//
+//            $subgroup_id = $request->get('group_id');
+//            if($subgroup_id != 0 ){
+//                $subGroup = group::findOrFail($subgroup_id);
+//                if ($subGroup !== null){
+//                    $query->where('group_id','=', $subGroup->id);
+//
+//                }
+//            }
+//        }
+
+
+        if (isset($request['done'])){
+
+            $done = $request['done'];
+
+            if ($done !== 'all'){
+                $query->where('done','=', intval($done));
+            }
+        }
 
 
         return $query;

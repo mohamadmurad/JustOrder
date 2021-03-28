@@ -44,6 +44,7 @@ class CreateOrdersTable extends Migration
             $table->boolean('done')->default(0);
 
             $table->text('notes')->nullable();
+            $table->text('PrintNotes')->nullable();
 
             $table->string('image')->nullable();
             $table->string('image2')->nullable();
