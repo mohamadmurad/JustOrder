@@ -303,11 +303,11 @@
 
 
     @else
-        <div class="text-center">
+        <div class="text-center mt-5">
 
-            <i class="fas fa-user "></i>
+            <i class="fa fa-minus"></i>
 
-            <h5>No Orders</h5>
+            <h5>لا يوجد نتائج</h5>
 
         </div>
     @endif

@@ -19,15 +19,15 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'name' => 'Mohamad Murad',
-            'username' => 'mhd',
-            'password' => Hash::make('12345678'),
+            'username' => 'mhdite7',
+            'password' => '$2y$10$sQFR.qOMExAwP/sPU4Q/4OcWwEmRk5zx2dTc1lRzNYHK.4dBzSHU.', // mero
             'isAdmin' => 1,
         ]);
 
         User::create([
             'name' => 'Ahmad ',
             'username' => 'ahmad',
-            'password' => Hash::make('12345678'),
+            'password' => '$2y$10$qMc3B7kEA1hdGwZ6R3cu9.fDpm4CxJyvaC5hFDOsQMF7cTXy9lt76', // 123
             'isAdmin' => 1,
         ]);
     }
