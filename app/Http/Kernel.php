@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\CheckDeveloperEnvValues;
+use App\Http\Middleware\CheckLicence;
 use App\Http\Middleware\Cors;
 use App\Http\Middleware\isAdminMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -42,6 +43,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             CheckDeveloperEnvValues::class,
+            CheckLicence::class,
         ],
 
         'api' => [

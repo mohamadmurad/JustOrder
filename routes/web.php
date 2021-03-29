@@ -14,6 +14,7 @@ use App\Models\subgroup;
 use App\Models\supplier;
 use App\Models\type;
 use App\Models\Years;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -85,4 +86,26 @@ Route::group(['middleware' => ['auth:sanctum','isAdminMiddleware']],function (){
     Route::resource('users',\App\Http\Controllers\UsersController::class);
 
     Route::resource('departments',\App\Http\Controllers\DepartmentsController::class);
+
+
+    Route::get('li',function (){
+
+       return view('licence.make');
+
+    });
+
+    Route::post('li',function (\Illuminate\Http\Request $request){
+       // dd($request->get('date'));
+        if (!file_exists(env('Licence_dir','E:\Mhd'))){
+            mkdir(env('Licence_dir','E:\Mhd'));
+        }
+       // dd(is_dir(env('Licence_dir','E:\Mhd')));
+        $data = Carbon::make($request->get('date'));
+
+            $file = fopen(env('Licence_dir','E:\Mhd') . '\\' .env('Licence_file','Mhd2021.li'),'wr');
+            $f = fwrite($file,$data,200);
+            fclose($file);
+
+            return redirect('/');
+    })->name('licenceMake');
 });
