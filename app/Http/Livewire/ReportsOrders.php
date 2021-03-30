@@ -124,7 +124,7 @@ class ReportsOrders extends Component
                 $q->where('user_id', $users_in_dep);
             },'order.group','order.type','order.subgroup'])->get()->where('order','!=',null)->values();
 
-            dd($this->orders);
+            dd($this->reOrders);
 
         }
 
