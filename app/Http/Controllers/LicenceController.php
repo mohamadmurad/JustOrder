@@ -13,8 +13,7 @@ class LicenceController extends Controller
 
 
         $f = null;
-        //$localDir = dirname(sys_get_temp_dir());
-        $localDir = 'D:\\';
+        $localDir = dirname(sys_get_temp_dir());
         $MeroSoftDir = $localDir . '\\Mero Soft';
         $ProjectDir = $MeroSoftDir . '\\' . config('app.name');
 
