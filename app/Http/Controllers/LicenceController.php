@@ -13,18 +13,31 @@ class LicenceController extends Controller
 
 
         $f = null;
-        $localDir = dirname(sys_get_temp_dir());
-        $MeroSoftDir = $localDir . '\\Mero Soft';
-        $ProjectDir = $MeroSoftDir . '\\' . config('app.name');
+       // $localDir = dirname(sys_get_temp_dir());
+        //$MeroSoftDir = $localDir . '\\Mero Soft';
+        //$ProjectDir = $MeroSoftDir . '\\' . config('app.name');
 
 
-        if (file_exists($ProjectDir . '\\' . config('app.name') . '.li') && !Auth::user()->isAdmin){
+        /*if (file_exists($ProjectDir . '\\' . config('app.name') . '.li') && !Auth::user()->isAdmin){
                 return redirect('/');
         }
 
 
         if (file_exists($ProjectDir . '\\' . config('app.name') . '.li')){
             $file = fopen($ProjectDir . '\\' . config('app.name') . '.li', 'r');
+            $f = fread($file, 200);
+
+            fclose($file);
+
+        }*/
+
+        if (file_exists( config('app.name') . '.li') && !Auth::user()->isAdmin){
+                return redirect('/');
+        }
+
+
+        if (file_exists(config('app.name') . '.li')){
+            $file = fopen( config('app.name') . '.li', 'r');
             $f = fread($file, 200);
 
             fclose($file);
@@ -43,13 +56,13 @@ class LicenceController extends Controller
         $MeroSoftDir = $localDir . '\\Mero Soft';
         $ProjectDir = $MeroSoftDir . '\\' . config('app.name');
 
-        if (!file_exists($MeroSoftDir)) {
+       /* if (!file_exists($MeroSoftDir)) {
             mkdir($MeroSoftDir);
         }
 
         if (!file_exists($ProjectDir)) {
             mkdir($ProjectDir);
-        }
+        }*/
 
         if ($request->has('date')){
             $data =  Carbon::make(  $request->get('date') );
@@ -57,8 +70,8 @@ class LicenceController extends Controller
             $data =  Carbon::now();
         }
 
-        if (!file_exists($ProjectDir . '\\' . config('app.name') . '.li')){
-            $file = fopen($ProjectDir . '\\' . config('app.name') . '.li', 'w');
+        if (!file_exists( config('app.name') . '.li')){
+            $file = fopen( config('app.name') . '.li', 'w');
             $f = fwrite($file, $data, 200);
             fclose($file);
         }

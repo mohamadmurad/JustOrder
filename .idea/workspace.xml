@@ -169,14 +169,7 @@
       <workItem from="1617064640748" duration="3012000" />
       <workItem from="1617069396345" duration="3706000" />
       <workItem from="1617073557053" duration="7000" />
-      <workItem from="1617122403277" duration="380000" />
-    </task>
-    <task id="LOCAL-00055" summary="just order v2 2-12-2020 add Re order to report">
-      <created>1609078135757</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1609078135757</updated>
+      <workItem from="1617122403277" duration="709000" />
     </task>
     <task id="LOCAL-00056" summary="just order v2 2-12-2020 add Re order to report">
       <created>1609078918585</created>
@@ -514,7 +507,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617122448891</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="export to excel and fix licence">
+      <created>1617123069416</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1617123069416</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
