@@ -5,7 +5,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="export to excel and fix licence" />
+    <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="export to excel and fix licence">
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ReportsOrders.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ReportsOrders.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -170,20 +172,7 @@
       <workItem from="1617069396345" duration="3706000" />
       <workItem from="1617073557053" duration="7000" />
       <workItem from="1617122403277" duration="1319000" />
-    </task>
-    <task id="LOCAL-00060" summary="just order v2 2-12-2020 add Re order to report">
-      <created>1611489630582</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1611489630582</updated>
-    </task>
-    <task id="LOCAL-00061" summary="just order v2 2-12-2020 add Re order to report">
-      <created>1612267207063</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1612267207064</updated>
+      <workItem from="1617133692217" duration="324000" />
     </task>
     <task id="LOCAL-00062" summary="just order v2 2-12-2020 add Re order to report">
       <created>1612267315690</created>
@@ -514,7 +503,21 @@
       <option name="project" value="LOCAL" />
       <updated>1617123655309</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="export to excel and fix licence">
+      <created>1617133819728</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1617133819728</updated>
+    </task>
+    <task id="LOCAL-00110" summary="export to excel and fix licence">
+      <created>1617133965367</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1617133965368</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
