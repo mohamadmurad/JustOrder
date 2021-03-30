@@ -117,7 +117,12 @@ class ReportsOrders extends Component
 
         } else {
             $users_in_dep = Auth::user()->department()->first()->users()->get()->pluck('id');
-            $this->orders = order::whereIn('user_id', $users_in_dep)->FilterData($data)->get();
+            $this->orders = order::whereIn('user_id', $users_in_dep)->FilterData($data)->with(['group','type','subgroup'])->get();
+
+            $this->reOrders = reOrder::whereIn('user_id', $users_in_dep)->with(['order' => function ($q) use($data){
+                $q->FilterData($data);
+            },'order.group','order.type','order.subgroup'])->get()->where('order','!=',null)->values();
+
         }
 
 
