@@ -20,7 +20,9 @@ class CheckLicence
      */
     public function handle(Request $request, Closure $next)
     {
-        $localDir = dirname(sys_get_temp_dir());
+        //$localDir = dirname(sys_get_temp_dir());
+        $localDir = 'D:\\';
+
         $MeroSoftDir = $localDir . '\\Mero Soft';
         $ProjectDir = $MeroSoftDir . '\\' . config('app.name');
 
