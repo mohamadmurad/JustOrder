@@ -32,6 +32,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -172,28 +173,7 @@
       <workItem from="1617069396345" duration="3706000" />
       <workItem from="1617073557053" duration="7000" />
       <workItem from="1617122403277" duration="1319000" />
-      <workItem from="1617133692217" duration="324000" />
-    </task>
-    <task id="LOCAL-00062" summary="just order v2 2-12-2020 add Re order to report">
-      <created>1612267315690</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1612267315690</updated>
-    </task>
-    <task id="LOCAL-00063" summary="just order v2 2-12-2020 add Re order to report">
-      <created>1612267564726</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1612267564726</updated>
-    </task>
-    <task id="LOCAL-00064" summary="just order v2 2-12-2020 add Re order to report">
-      <created>1612267614257</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1612267614257</updated>
+      <workItem from="1617133692217" duration="688000" />
     </task>
     <task id="LOCAL-00065" summary="just order v2 2-12-2020 add Re order to report">
       <created>1612267725707</created>
@@ -517,7 +497,28 @@
       <option name="project" value="LOCAL" />
       <updated>1617133965368</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="export to excel and fix licence">
+      <created>1617134023408</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1617134023408</updated>
+    </task>
+    <task id="LOCAL-00112" summary="export to excel and fix licence">
+      <created>1617134062517</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1617134062517</updated>
+    </task>
+    <task id="LOCAL-00113" summary="export to excel and fix licence">
+      <created>1617134095282</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1617134095282</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
