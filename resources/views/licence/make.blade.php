@@ -2,6 +2,10 @@
 
 @section('content')
 
+    @if(isset($f))
+
+        <h1>{{$f}}</h1>
+    @endif
 
     <form action="{{ route('licenceMake') }}" method="POST">
         @csrf

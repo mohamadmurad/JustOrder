@@ -5,13 +5,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="make report livewire">
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckLicence.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/just2021.li" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/licence/make.blade.php" afterDir="false" />
+    <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="licence">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/LicenceController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/tableToExcel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckDeveloperEnvValues.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckDeveloperEnvValues.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckLicence.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckLicence.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/table2excel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/licence/make.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/licence/make.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/reports-orders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/reports-orders.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,17 +45,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Middleware" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\MHD\PhpstormProjects\JustOrder\public\js" />
       <recent name="C:\Users\MHD\PhpstormProjects\JustOrder\app\Http\Middleware" />
       <recent name="C:\Users\MHD\PhpstormProjects\JustOrder" />
       <recent name="C:\Users\mohamad.mu\PhpstormProjects\JustOrder\app" />
       <recent name="C:\Users\mohamad.mu\PhpstormProjects\JustOrder" />
-      <recent name="C:\Users\mohamad.mu.HOMSICO\PhpstormProjects\justorder22\public\js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mohamad.mu\PhpstormProjects\justorder22\resources\views\errors" />
@@ -171,14 +174,11 @@
       <workItem from="1616891218722" duration="7298000" />
       <workItem from="1616905183309" duration="1744000" />
       <workItem from="1616984805291" duration="1352000" />
-      <workItem from="1616988033613" duration="3054000" />
-    </task>
-    <task id="LOCAL-00052" summary="just order v2 2-12-2020 add Re order to report">
-      <created>1609076335043</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1609076335043</updated>
+      <workItem from="1616988033613" duration="3318000" />
+      <workItem from="1617039475824" duration="349000" />
+      <workItem from="1617046034409" duration="437000" />
+      <workItem from="1617064640748" duration="3012000" />
+      <workItem from="1617069396345" duration="2633000" />
     </task>
     <task id="LOCAL-00053" summary="just order v2 2-12-2020 add Re order to report">
       <created>1609076397059</created>
@@ -516,7 +516,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616906904830</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="licence">
+      <created>1616991739300</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1616991739300</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,6 +583,7 @@
     <MESSAGE value="just order v2 2-12-2020 add print notes" />
     <MESSAGE value="just order v2 2-12-2020 add Re order to report" />
     <MESSAGE value="make report livewire" />
-    <option name="LAST_COMMIT_MESSAGE" value="make report livewire" />
+    <MESSAGE value="licence" />
+    <option name="LAST_COMMIT_MESSAGE" value="licence" />
   </component>
 </project>

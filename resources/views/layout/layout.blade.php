@@ -21,19 +21,12 @@
     <script>
         var autocomplete = null;
     </script>
-    <!-- Font Awesome JS -->
-{{--    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"--}}
-{{--            integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"--}}
-{{--            crossorigin="anonymous"></script>--}}
-{{--    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"--}}
-{{--            integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"--}}
-{{--            crossorigin="anonymous"></script>--}}
+
 
 
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 
-    <script src="{{ URL::asset('js/table2excel.js') }}"></script>
 
 </head>
 <body dir="rtl">
@@ -128,13 +121,13 @@
                                 <a href="{{ route('season.index') }}">الفصول</a>
                             </li>
 
-                            <li>
-                                <a href="{{ route('departments.index') }}">الاقسام</a>
-                            </li>
+{{--                            <li>--}}
+{{--                                <a href="{{ route('departments.index') }}">الاقسام</a>--}}
+{{--                            </li>--}}
 
-                            <li>
-                                <a href="{{ route('users.index') }}">المستخدمين</a>
-                            </li>
+{{--                            <li>--}}
+{{--                                <a href="{{ route('users.index') }}">المستخدمين</a>--}}
+{{--                            </li>--}}
 
                         @endif
 
@@ -275,16 +268,38 @@
 <!-- Bootstrap JS -->
 <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
 
+<script src="{{ URL::asset('js/tableToExcel.js') }}"></script>
 
 
 
 <script>
-    var table2excel = new Table2Excel();
+  /*  var table2excel = new Table2Excel();
 
     document.getElementById('export').addEventListener('click', function() {
         table2excel.export(document.querySelectorAll('table'));
     });
+*/
+
+    function exportReportToExcel() {
+        let table = document.getElementsByTagName("table"); // you can use document.getElementById('tableId') as well by providing id to the table tag
+        TableToExcel.convert(table[0], { // html code may contain multiple tables so here we are refering to 1st table tag
+            name: `Orders.xlsx`, // fileName you could use any name
+            sheet: {
+                name: 'Sheet 1' // sheetName
+            }
+        });
+
+        TableToExcel.convert(table[1], { // html code may contain multiple tables so here we are refering to 1st table tag
+            name: `ReOrders.xlsx`, // fileName you could use any name
+            sheet: {
+                name: 'Sheet 1' // sheetName
+            }
+        });
+    }
 </script>
+
+
+
 
 
 <script>
@@ -696,161 +711,9 @@
 
 </script>
 
-<script>
-    // function getperomission() {
-    //     if (!window.Notification) {
-    //         console.log('Browser does not support notifications.');
-    //     } else {
-    //         if (Notification.permission === 'granted') {}else {
-    //             // request permission from user
-    //             Notification.requestPermission().then(function (p) {
-    //                 if (p === 'granted') {
-    //                     // show notification here
-    //                    // showNotification();
-    //
-    //                 } else {
-    //                     console.log('User blocked notifications.');
-    //                 }
-    //             }).catch(function (err) {
-    //                 console.error(err);
-    //             });
-    //         }
-    //
-    //     }
-    // }
-    // function notifyMe() {
-    //     if (!window.Notification) {
-    //         console.log('Browser does not support notifications.');
-    //     } else {
-    //         // check if permission is already granted
-    //         if (Notification.permission === 'granted') {
-    //             // show notification here
-    //
-    //             showNotification();
-    //
-    //
-    //         } else {
-    //             // request permission from user
-    //             Notification.requestPermission().then(function (p) {
-    //                 if (p === 'granted') {
-    //                     // show notification here
-    //                     showNotification();
-    //
-    //                 } else {
-    //                     console.log('User blocked notifications.');
-    //                 }
-    //             }).catch(function (err) {
-    //                 console.error(err);
-    //             });
-    //         }
-    //     }
-    // }
-    //
-    //
-    // function showNotification() {
-    //
-    //     $("#notificationList li").each(function() {
-    //         var url = $('a',this).attr('href');
-    //         var icon = $('img',this).attr('src');
-    //         var head = $('a',this).text();
-    //         var body =  ' هذا الطلب لم يتم استلامه  \n وتم طلبه من من تاريخ : ' + $('small',this).text();
-    //         const notification = new Notification(head, {
-    //             body: body,
-    //             dir: 'rtl',
-    //             icon: icon,
-    //         })
-    //         notification.onclick = (e) => {
-    //             window.location.href = url;
-    //         };
-    //      //  console.log(body);
-    //        //var barcode
-    //     });
-    //     // const notification = new Notification(head, {
-    //     //     body: body,
-    //     //     icon: icon,
-    //     // })
-    //     // notification.onclick = (e) => {
-    //     //     window.location.href = url;
-    //     // };
-    // }
-    //
-    //
-    // window.setInterval(function(){ // Set interval for checking
-    //     var date = new Date(); // Create a Date object to find out what time it is
-    //     if((date.getHours() === 10 || date.getHours() === 13 || date.getHours() === 16)  && date.getMinutes() === 0){ // Check the time
-    //        notifyMe();
-    //     }
-    // }, 60000/2);
 
 
 
-</script>
-
-
-<script>
-
-
-    // var autocomplete = new SelectPure(".autocomplete-select", {
-    //     options: [
-    //         {
-    //             label: "Barbina",
-    //             value: "ba",
-    //         },
-    //         {
-    //             label: "Bigoli",
-    //             value: "bg",
-    //         },
-    //         {
-    //             label: "Bucatini",
-    //             value: "bu",
-    //         },
-    //         {
-    //             label: "Busiate",
-    //             value: "bus",
-    //         },
-    //         {
-    //             label: "Capellini",
-    //             value: "cp",
-    //         },
-    //         {
-    //             label: "Fedelini",
-    //             value: "fe",
-    //         },
-    //         {
-    //             label: "Maccheroni",
-    //             value: "ma",
-    //         },
-    //         {
-    //             label: "Spaghetti",
-    //             value: "sp",
-    //         },
-    //     ],
-    //     value: ["sp"],
-    //     multiple: true,
-    //     autocomplete: true,
-    //     icon: "fa fa-times",
-    //     onChange: value => { console.log(value); },
-    //     classNames: {
-    //         select: "select-pure__select",
-    //         dropdownShown: "select-pure__select--opened",
-    //         multiselect: "select-pure__select--multiple",
-    //         label: "select-pure__label",
-    //         placeholder: "select-pure__placeholder",
-    //         dropdown: "select-pure__options",
-    //         option: "select-pure__option",
-    //         autocompleteInput: "select-pure__autocomplete",
-    //         selectedLabel: "select-pure__selected-label",
-    //         selectedOption: "select-pure__option--selected",
-    //         placeholderHidden: "select-pure__placeholder--hidden",
-    //         optionHidden: "select-pure__option--hidden",
-    //     }
-    // });
-    var resetAutocomplete = function() {
-        autocomplete.reset();
-    };
-
-
-</script>
 @livewireScripts
 </body>
 </html>

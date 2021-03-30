@@ -20,38 +20,18 @@ class CheckLicence
      */
     public function handle(Request $request, Closure $next)
     {
+        $localDir = dirname(sys_get_temp_dir());
+        $MeroSoftDir = $localDir . '\\Mero Soft';
+        $ProjectDir = $MeroSoftDir . '\\' . config('app.name');
 
-
-        if (!File::exists(env('Licence_dir','E:\Mhd') . '\\' .env('Licence_file','Mhd2021.li'))){
+        if (!file_exists($ProjectDir . '\\' . config('app.name') . '.li')){
             Artisan::call('down --secret="153759"');
             return $next($request);
         }else{
             Artisan::call('up');
             return $next($request);
-//            $data = Carbon::now()->addDay(5);
-//          //  dump($data);
-//            $file = fopen(env('Licence_file','E:\GoLicence\go2021.li'),'wr');
-//            $f = fwrite($file,$data,200);
-//            fclose($file);
 
-           // dump($f);
-
-
-            // licence
-//            $file = fopen(env('Licence_file','E:\GoLicence\go2021.li'),'r');
-//
-//            $data  = fread($file,200);
-//
-//         //   dd($data);
-//            $licence_date = Carbon::make($data);
-//
-//            if ($licence_date < Carbon::now()){
-//                Artisan::call('down --secret="153759"');
-//            }else{
-//                return $next($request);
-//            }
-            return $next($request);
         }
-        return $next($request);
+
     }
 }

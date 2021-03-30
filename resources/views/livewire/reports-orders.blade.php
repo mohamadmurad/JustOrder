@@ -48,7 +48,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>المجموعة:</strong>
-                    <select class="form-control" name="group_id"  id="reportGroup" wire:model="sel_group">
+                    <select class="form-control" name="group_id" id="reportGroup" wire:model="sel_group">
                         <option value="0">الكل</option>
                         @foreach($groups as $group)
                             <option value="{{ $group->id }}">{{$group->name}}</option>
@@ -59,12 +59,12 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-4" >
+            <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group">
                     <strong>المجموعة الفرعية:</strong>
                     <select class="form-control" name="subgroup_id" id="subgroup" id="reportSuGroup"
                             wire:model="sel_subgroup">
-                        <option value="0" >الكل</option>
+                        <option value="0">الكل</option>
 
                         @foreach($subgroups as $subgroup)
                             <option value="{{ $subgroup->id }}">{{$subgroup->name}}</option>
@@ -129,31 +129,39 @@
                 </div>
             </div>
 
-                        <div class="col-xs-12 col-sm-12 col-md-6">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="exampleRadios1" name="done" value="all" checked  wire:model="sel_done">
-                                <label class="form-check-label" for="exampleRadios1">
-                                    الكل
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="exampleRadios2" name="done" value="0"  wire:model="sel_done">
-                                <label class="form-check-label" for="exampleRadios2">
-                                    غير مستلمة
-                                </label>
-                            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="exampleRadios1" name="done" value="all" checked
+                           wire:model="sel_done">
+                    <label class="form-check-label" for="exampleRadios1">
+                        الكل
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="exampleRadios2" name="done" value="0"
+                           wire:model="sel_done">
+                    <label class="form-check-label" for="exampleRadios2">
+                        غير مستلمة
+                    </label>
+                </div>
 
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="exampleRadios3" name="done" value="1"  wire:model="sel_done">
-                                <label class="form-check-label" for="exampleRadios3">
-                                    مستلمة
-                                </label>
-                            </div>
-                        </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="exampleRadios3" name="done" value="1"
+                           wire:model="sel_done">
+                    <label class="form-check-label" for="exampleRadios3">
+                        مستلمة
+                    </label>
+                </div>
+            </div>
 
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> بحث</button>
+
+                <button id="export" class="btn btn-success"  onclick="exportReportToExcel(this)" style="margin-bottom: 12px;">
+                    <i class="far fa-file-excel"></i>
+                    تصدير الى اكسل
+                </button>
             </div>
         </div>
     </form>
@@ -172,7 +180,7 @@
                         <th>حالة الاستلام</th>
                         <th>الكمية المطلوبة</th>
                         <th>الكمية المستلمة</th>
-                        <th width="280px" class="noExport">خيارات</th>
+                        <th width="280px" class="noExport" data-exclude="true">خيارات</th>
                     </tr>
                     <?php $i = 0?>
 
@@ -191,13 +199,14 @@
                             @endif
                             <td>{{ $order->quantity }}</td>
                             <td>{{ $order->receivedQty }}</td>
-                            <td class="noExport">
+                            <td class="noExport" data-exclude="true">
                                 <form action="{{ route('order.destroy',$order->id) }}" method="POST">
 
-                                    <a class="btn btn-info" href="{{ route('order.show',$order->id) }}"><i class="fa fa-eye"></i></a>
+                                    <a class="btn btn-info" href="{{ route('order.show',$order->id) }}"><i
+                                            class="fa fa-eye"></i></a>
 
-                                    <a class="btn btn-primary" href="{{ route('order.edit',$order->id) }}"><i class="fa fa-edit"></i></a>
-
+                                    <a class="btn btn-primary" href="{{ route('order.edit',$order->id) }}"><i
+                                            class="fa fa-edit"></i></a>
 
 
                                     <button type="submit" class="btn btn-danger" style="margin-bottom: 12px;">
@@ -229,7 +238,7 @@
             </div>
             <div class="col">
                 <p class="text-center">الطلبات المعادة</p>
-                <table class="table table-bordered" id="datatable" data-excel-name="A very important table">
+                <table class="table table-bordered" id="datatable2" data-excel-name="A very important table">
                     <tr>
                         <th>#</th>
                         <th>باركود</th>
@@ -240,7 +249,7 @@
                         <th>حالة الاستلام</th>
                         <th>الكمية المطلوبة</th>
                         <th>الكمية المستلمة</th>
-                        <th width="280px" class="noExport">خيارات</th>
+                        <th width="280px" class="noExport" data-exclude="true">خيارات</th>
                     </tr>
                     <?php $i = 0?>
 
@@ -259,13 +268,14 @@
                             @endif
                             <td>{{ $order->quantity }}</td>
                             <td>{{ $order->receivedQty }}</td>
-                            <td class="noExport">
+                            <td class="noExport" data-exclude="true">
                                 <form action="{{ route('order.destroy',$order->id) }}" method="POST">
 
-                                    <a class="btn btn-info" href="{{ route('reOrder.show',$order->id) }}"><i class="fa fa-eye"></i></a>
+                                    <a class="btn btn-info" href="{{ route('reOrder.show',$order->id) }}"><i
+                                            class="fa fa-eye"></i></a>
 
-                                    <a class="btn btn-primary" href="{{ route('reOrder.edit',$order->id) }}"><i class="fa fa-edit"></i></a>
-
+                                    <a class="btn btn-primary" href="{{ route('reOrder.edit',$order->id) }}"><i
+                                            class="fa fa-edit"></i></a>
 
 
                                     <button type="submit" class="btn btn-danger" style="margin-bottom: 12px;">
