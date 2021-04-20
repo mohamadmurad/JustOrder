@@ -177,6 +177,7 @@
                         <th>النوع</th>
                         <th>المجموعة</th>
                         <th>المجموعة الفرعية</th>
+                        <th>تركيبة القماش</th>
                         <th>حالة الاستلام</th>
                         <th>الكمية المطلوبة</th>
                         <th>الكمية المستلمة</th>
@@ -191,6 +192,7 @@
                             <td>{{ $order->type->name }}</td>
                             <td>{{ $order->group->name }}</td>
                             <td>{{ $order->subgroup->name }}</td>
+                            <td>{{ $order->fabricFormula }}</td>
 
                             @if($order->done == 0)
                                 <td>لم يتم الاستلام</td>
@@ -246,6 +248,7 @@
                         <th>النوع</th>
                         <th>المجموعة</th>
                         <th>المجموعة الفرعية</th>
+                        <th>تركيبة القماش</th>
                         <th>حالة الاستلام</th>
                         <th>الكمية المطلوبة</th>
                         <th>الكمية المستلمة</th>
@@ -261,6 +264,7 @@
                             <td>{{ $order->order->type->name }}</td>
                             <td>{{ $order->order->group->name }}</td>
                             <td>{{ $order->order->subgroup->name }}</td>
+                            <td>{{ $order->order->fabricFormula }}</td>
                             @if($order->done == 0)
                                 <td>لم يتم الاستلام</td>
                             @else
