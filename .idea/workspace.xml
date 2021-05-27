@@ -194,21 +194,7 @@
       <workItem from="1620225790396" duration="245000" />
       <workItem from="1620226903561" duration="676000" />
       <workItem from="1620328015196" duration="88000" />
-      <workItem from="1622149832817" duration="5893000" />
-    </task>
-    <task id="LOCAL-00069" summary="just order v2 2-12-2020 add Re order to report">
-      <created>1612361235431</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1612361235431</updated>
-    </task>
-    <task id="LOCAL-00070" summary="just order v2 2-12-2020 add Re order to report">
-      <created>1613396429636</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1613396429637</updated>
+      <workItem from="1622149832817" duration="6263000" />
     </task>
     <task id="LOCAL-00071" summary="just order v2 2-12-2020 add Re order to report">
       <created>1613559330988</created>
@@ -539,7 +525,21 @@
       <option name="project" value="LOCAL" />
       <updated>1622154053639</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="* fix all bug">
+      <created>1622155853120</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1622155853121</updated>
+    </task>
+    <task id="LOCAL-00119" summary="* fix all bug">
+      <created>1622155918061</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1622155918061</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
