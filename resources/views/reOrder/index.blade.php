@@ -39,6 +39,24 @@
             <p>{{ $message }}</p>
         </div>
     @endif
+    <form action="{{ route('reOrder.index') }}" method="get">
+        <div class="row">
+            <div class="col">
+                <select  class="form-control"  name="season_id">
+                    <option  selected value="{{ null }}">non</option>
+                    @foreach($seasons as $season)
+                        <option value="{{ $season->id }}" {{request()->get('season_id') == $season->id ? 'selected' : ''}}>{{$season->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="col">
+                <button type="submit"  class="btn btn-success" >فلترة</button>
+            </div>
+        </div>
+
+
+    </form>
 
     <table class="table table-bordered">
         <tr>

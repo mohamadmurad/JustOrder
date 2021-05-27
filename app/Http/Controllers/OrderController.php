@@ -570,6 +570,11 @@ class OrderController extends Controller
 
             if ($request->has('fabric_id')) {
                 $fabrics = $request->get('fabric_id');
+                foreach ($fabrics as $index => $value){
+                    if ($value == 'null'){
+                        unset($fabrics[$index]);
+                    }
+                }
                 $order->fabrics()->sync($fabrics);
 
             }

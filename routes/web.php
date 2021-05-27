@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\FabricSourceController;
 use App\Http\Controllers\YearsController;
@@ -17,6 +18,7 @@ use App\Models\Years;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +29,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('login',[LoginController::class,'create'])->name('login');
+Route::post('login',[LoginController::class,'store'])->name('login');
 Route::get('/', function () {
     $years = Years::all();
     $brands = brand::all()->sortBy('name');;
@@ -84,4 +87,11 @@ Route::group(['middleware' => ['auth:sanctum', 'isAdminMiddleware']], function (
     Route::get('li',[\App\Http\Controllers\LicenceController::class,'index']);
 
     Route::post('li', [\App\Http\Controllers\LicenceController::class,'registerLicence'])->name('licenceMake');
+
+    Route::get('/import_excel',[\App\Http\Controllers\ImportController::class,'index'])->name('import.index');
+
+    Route::post('/import_excel',[\App\Http\Controllers\ImportController::class,'import'])->name('import.import');
+
+
+    Route::get('/git_pull',[\App\Http\Controllers\LicenceController::class,'gitPull'])->name('git.pull');
 });

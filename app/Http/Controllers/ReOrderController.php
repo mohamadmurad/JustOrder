@@ -48,27 +48,31 @@ class ReOrderController extends Controller
     public function index()
     {
 
+
+        $season_id = request()->has('season_id') ? request()->get('season_id') : null;
         if (Auth::user()->isAdmin) {
             //dd(Auth::user()->department()->first()->users()->get()->pluck('id'));
 
 
-            $orders = reOrder::with('order')->paginate();
+            $orders = reOrder::whereHas('order', function($q) use ($season_id){
+                if ($season_id !== null)  $q->where('season_id', $season_id);
+            })->paginate();
 
         } else {
 
             $users_in_dep = Auth::user()->department()->first()->users()->get()->pluck('id');
 
-            //$orders = order::whereIn('user_id', $users_in_dep)->paginate();
 
-            $orders = reOrder::with(['order'=> function($q) use ($users_in_dep){
-                //$q->whereIn('user_id', $users_in_dep);
-            }])->paginate();
+            $orders = reOrder::whereHas('order', function($q) use ($users_in_dep,$season_id){
+                $q->whereIn('orders.user_id', $users_in_dep);
+                if ($season_id !== null)  $q->where('season_id', $season_id);
+            })->paginate();
 //dd($orders);
         }
         //Log::stack(['justorderReOrder'])->info('index Re order  from user (' . Auth::user()->name . ' )');
 
-
-        return view('reOrder.index', compact(['orders']));
+        $seasons =season::all();
+        return view('reOrder.index', compact(['orders']),compact('seasons'),compact('season_id'));
     }
 
     /**
@@ -276,12 +280,6 @@ class ReOrderController extends Controller
     public function update(Request $request, reOrder $reOrder)
     {
 
-
-
-
-
-
-
         $siresQty = $request->get('siresQty');
         $siresItemNumber = $request->get('siresSizeQty') * $request->get('siresColorQty');
         $quantity = $siresQty * $siresItemNumber;
@@ -292,7 +290,7 @@ class ReOrderController extends Controller
 
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-
+                $extension = $image->getClientOriginalExtension();
                 $fileName = Str::slug(now()->format('Y-m-d') . "_reOrder_" . $reOrder->order->barCode . '_1') . '.' .$extension;
                 $dd= Storage::disk('img')->put($fileName,  File::get($image));
 

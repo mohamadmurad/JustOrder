@@ -81,6 +81,8 @@ class SubgroupController extends Controller
     public function update(Request $request, subgroup $subgroup)
     {
 
+
+
         $request->validate([
             'idNum'=>[
                 'required',
@@ -115,7 +117,7 @@ class SubgroupController extends Controller
         ]);
 
         $subgroup->fill([
-            'idNum' => $request->get('id'),
+            'idNum' => $request->get('idNum'),
             'name' => $request->get('name'),
             'group_id' => $request->get('group_id'),
         ]);

@@ -194,6 +194,7 @@
 
             <table id="fab_selects" class="col-xs-12 col-sm-12 col-md-12">
                 <?php $i=1 ?>
+                @if(count($order->fabrics) > 0)
                 @foreach($order->fabrics as $OFabric)
                 <tr>
                     <td>
@@ -227,6 +228,39 @@
                 </tr>
                     <?php $i++ ?>
                 @endforeach
+                    @else
+                        <tr>
+                            <td>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong >نوع القماش :</strong>
+                                        <select  class="form-control"  name="fabric_id[]" id="fabricSelect">
+                                            <option value="null" selected>غير محدد</option>
+                                            @foreach($fabrics as $fabric)
+                                                <option value="{{ $fabric->id }}" {{ (old("fabric_id") == $fabric->id ? "selected":"") }}>{{$fabric->name . " | " . $fabric->code }}</option>
+                                            @endforeach
+                                        </select>
+                                        <ul class="errors">
+                                            @foreach ($errors->get('fabric_id') as $message)
+                                                <i>{{ $message }}</i>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-flex  align-self-center">
+                                    @if($i==1)
+                                        <a class="btn btn-primary d-flex  align-self-center" id="add_fabric_select"><i class="fa fa-plus"></i></a>
+                                    @else
+                                        <a class="btn btn-danger d-flex  align-self-center remove_fabric_select" ><i class="fa fa-minus"></i></a>
+                                    @endif
+                                </div>
+
+                            </td>
+
+                        </tr>
+                    @endif
 
             </table>
 

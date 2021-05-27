@@ -30,8 +30,8 @@ class SeasonController extends Controller
      */
     public function create()
     {
-        $years = Years::all();
-        return view('season.create',compact('years'));
+
+        return view('season.create');
     }
 
     /**
@@ -42,8 +42,6 @@ class SeasonController extends Controller
      */
     public function store(StoreSeasonRequest $request)
     {
-        $start = Carbon::make($request->get('start'));
-        $end = Carbon::make($request->get('end'));
 
         season::create([
                 'name' => $request->get('name'),
@@ -76,8 +74,8 @@ class SeasonController extends Controller
     public function edit(season $season)
     {
         $season->load('year');
-        $years = Years::all();
-        return view('season.edit',compact(['years','season']));
+
+        return view('season.edit',compact(['season']));
     }
 
     /**
@@ -95,37 +93,32 @@ class SeasonController extends Controller
                 'required',
                 Rule::unique('seasons')
                     ->ignore($season->id)
-                    ->where('year_id', $season->year_id),
+                    ,
             ],
-            'year_id' =>  [
-                'required',
-                'exists:years,id',
-                Rule::unique('seasons')
-                    ->ignore($season->id)
-                    ->where('name', $season->name),
-
-            ],
-            'start' => [
-                'date',
-                'required',
-                'before:end',
-            ],
-            'end' => [
-                'date',
-                'required',
-                'after:start',
-            ],
+//            'year_id' =>  [
+//                'required',
+//                'exists:years,id',
+//                Rule::unique('seasons')
+//                    ->ignore($season->id)
+//                    ->where('name', $season->name),
+//
+//            ],
+//            'start' => [
+//                'date',
+//                'required',
+//                'before:end',
+//            ],
+//            'end' => [
+//                'date',
+//                'required',
+//                'after:start',
+//            ],
 
         ]);
 
-        $start = Carbon::make($request->get('start'));
-        $end = Carbon::make($request->get('end'));
 
         $season->fill([
             'name' => $request->get('name'),
-            'start' => $start,
-            'end' => $end,
-            'year_id' => $request->get('year_id'),
         ]);
 
 
