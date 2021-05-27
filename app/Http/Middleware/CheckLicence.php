@@ -28,7 +28,7 @@ class CheckLicence
 
         if (!file_exists( $ProjectDir . '\\' . config('app.name') . '.li')){
             Artisan::call('down --secret="153759"');
-            return $next($request);
+            return redirect()->route('login');
         }else{
             Artisan::call('up');
             return $next($request);
