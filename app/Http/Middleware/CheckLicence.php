@@ -21,12 +21,12 @@ class CheckLicence
     public function handle(Request $request, Closure $next)
     {
         //$localDir = dirname(sys_get_temp_dir());
-        /*$localDir = 'D:\\';
+        $localDir = 'D:\\';
 
         $MeroSoftDir = $localDir . '\\Mero Soft';
-        $ProjectDir = $MeroSoftDir . '\\' . config('app.name');*/
+        $ProjectDir = $MeroSoftDir . '\\' . config('app.name');
 
-        if (!file_exists( config('app.name') . '.li')){
+        if (!file_exists( $ProjectDir . '\\' . config('app.name') . '.li')){
             Artisan::call('down --secret="153759"');
             return $next($request);
         }else{
