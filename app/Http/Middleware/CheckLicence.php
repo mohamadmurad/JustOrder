@@ -27,7 +27,6 @@ class CheckLicence
         $ProjectDir = $MeroSoftDir . '\\' . config('app.name');
 
         if (!file_exists( $ProjectDir . '\\' . config('app.name') . '.li')){
-            dd('not');
             Artisan::call('down --secret="153759"');
             return $next($request);
         }else{
