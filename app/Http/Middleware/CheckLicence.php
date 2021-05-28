@@ -29,7 +29,7 @@ class CheckLicence
 
         if (!file_exists( $ProjectDir . '\\' . config('app.name') . '.li')){
             if(app()->isDownForMaintenance() || $request->cookie('laravel_maintenance') == null){
-
+                dd('sds');
                 return redirect()->route('login');
             }
 
