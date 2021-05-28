@@ -34,7 +34,7 @@ class CheckLicence
             return  $next($request);
         } else {
 
-            Artisan::call('up');
+         //   Artisan::call('up');
             return $next($request);
 
         }
