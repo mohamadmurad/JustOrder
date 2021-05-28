@@ -14,8 +14,8 @@ class CheckLicence
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
@@ -26,17 +26,19 @@ class CheckLicence
 
         $MeroSoftDir = $localDir . '\\Mero Soft';
         $ProjectDir = $MeroSoftDir . '\\' . config('app.name');
-
-        if (!file_exists( $ProjectDir . '\\' . config('app.name') . '.li')){
-            if(app()->isDownForMaintenance() || $request->cookie('laravel_maintenance') == null){
+        if ($request->cookie('laravel_maintenance') == null) {
+            return $next($request);
+        }
+        if (!file_exists($ProjectDir . '\\' . config('app.name') . '.li')) {
+            if (app()->isDownForMaintenance()) {
                 dd('sds');
                 return redirect()->route('login');
             }
 
             Artisan::call('down --secret="153759"');
             return redirect()->route('login');
-        }else{
-            if(!app()->isDownForMaintenance())   return $next($request);
+        } else {
+            if (!app()->isDownForMaintenance()) return $next($request);
             Artisan::call('up');
             return $next($request);
 
