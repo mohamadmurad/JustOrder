@@ -6,7 +6,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="* add down and up">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckLicence.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckLicence.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -196,21 +195,7 @@
       <workItem from="1620328015196" duration="88000" />
       <workItem from="1622149832817" duration="6556000" />
       <workItem from="1622158192554" duration="226000" />
-      <workItem from="1622230385151" duration="2601000" />
-    </task>
-    <task id="LOCAL-00082" summary="just order v2 2-12-2020 add Re order to report">
-      <created>1614435618084</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1614435618084</updated>
-    </task>
-    <task id="LOCAL-00083" summary="just order v2 2-12-2020 add Re order to report">
-      <created>1614435666863</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1614435666863</updated>
+      <workItem from="1622230385151" duration="2859000" />
     </task>
     <task id="LOCAL-00084" summary="just order v2 2-12-2020 add Re order to report">
       <created>1614435904868</created>
@@ -541,7 +526,21 @@
       <option name="project" value="LOCAL" />
       <updated>1622232846668</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="* add down and up">
+      <created>1622233014407</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1622233014407</updated>
+    </task>
+    <task id="LOCAL-00132" summary="* add down and up">
+      <created>1622233145859</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1622233145859</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

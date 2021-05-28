@@ -26,7 +26,7 @@ class CheckLicence
 
         $MeroSoftDir = $localDir . '\\Mero Soft';
         $ProjectDir = $MeroSoftDir . '\\' . config('app.name');
-        dd($request->hasCookie('laravel_maintenance'));
+        dd($request->cookie('laravel_maintenance'));
        /* if (!file_exists( $ProjectDir . '\\' . config('app.name') . '.li')){
             if(app()->isDownForMaintenance()){
 
