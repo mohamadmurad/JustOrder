@@ -30,7 +30,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => ['CheckLicence']], function () {
+Route::group(['middleware' => []], function () {
     Route::get('login',[LoginController::class,'create'])->name('login');
     Route::post('login',[LoginController::class,'store'])->name('login');
     Route::get('/', function () {
