@@ -31,11 +31,11 @@ class CheckLicence
 
 
             Artisan::call('down --secret="153759"');
-            return redirect()->route('login');
+            return  $next($request);
         } else {
 
             Artisan::call('up');
-            return redirect()->route('login');
+            return $next($request);
 
         }
 
