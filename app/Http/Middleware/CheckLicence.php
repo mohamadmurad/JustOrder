@@ -28,10 +28,13 @@ class CheckLicence
         $ProjectDir = $MeroSoftDir . '\\' . config('app.name');
 
         if (!file_exists( $ProjectDir . '\\' . config('app.name') . '.li')){
+            if(app()->isDownForMaintenance()){
+                return redirect()->route('login');
+            }
             Artisan::call('down --secret="153759"');
             return redirect()->route('login');
         }else{
-
+            if(!app()->isDownForMaintenance())   return $next($request);
             Artisan::call('up');
             return $next($request);
 
