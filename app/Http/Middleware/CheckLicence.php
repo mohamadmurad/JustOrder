@@ -31,7 +31,7 @@ class CheckLicence
         }
         if (!file_exists($ProjectDir . '\\' . config('app.name') . '.li')) {
             if (app()->isDownForMaintenance()) {
-                dd('sds');
+
                 return redirect()->route('login');
             }
 
