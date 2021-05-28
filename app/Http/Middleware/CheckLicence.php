@@ -33,7 +33,7 @@ class CheckLicence
             Artisan::call('down --secret="153759"');
             return redirect()->route('login');
         } else {
-
+dd('ds');
             Artisan::call('up');
             return $next($request);
 
