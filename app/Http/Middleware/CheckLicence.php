@@ -26,12 +26,13 @@ class CheckLicence
 
         $MeroSoftDir = $localDir . '\\Mero Soft';
         $ProjectDir = $MeroSoftDir . '\\' . config('app.name');
-        dd($request->cookie('laravel_maintenance'));
-       /* if (!file_exists( $ProjectDir . '\\' . config('app.name') . '.li')){
-            if(app()->isDownForMaintenance()){
+
+        if (!file_exists( $ProjectDir . '\\' . config('app.name') . '.li')){
+            if(app()->isDownForMaintenance() || $request->cookie('laravel_maintenance') == null){
 
                 return redirect()->route('login');
             }
+
             Artisan::call('down --secret="153759"');
             return redirect()->route('login');
         }else{
@@ -39,7 +40,7 @@ class CheckLicence
             Artisan::call('up');
             return $next($request);
 
-        }*/
+        }
 
     }
 }
