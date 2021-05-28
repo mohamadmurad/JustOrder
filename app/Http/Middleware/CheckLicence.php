@@ -29,6 +29,7 @@ class CheckLicence
 
         if (!file_exists( $ProjectDir . '\\' . config('app.name') . '.li')){
             if(app()->isDownForMaintenance()){
+                dd('sd');
                 return redirect()->route('login');
             }
             Artisan::call('down --secret="153759"');
