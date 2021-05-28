@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\FabricSourceController;
 use App\Http\Controllers\YearsController;
+use App\Http\Middleware\CheckLicence;
 use App\Models\brand;
 use App\Models\color;
 use App\Models\fabric;
@@ -29,28 +30,31 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('login',[LoginController::class,'create'])->name('login');
-Route::post('login',[LoginController::class,'store'])->name('login');
-Route::get('/', function () {
-    $years = Years::all();
-    $brands = brand::all()->sortBy('name');;
-    $types = type::all()->sortBy('name');;
-    $groups = group::all()->sortBy('name');;
-    $subgroups = subgroup::all()->sortBy('name');;
-    $seasons = season::all();
-    $suppliers = supplier::all()->sortBy('name');;
-    $colors = color::all()->sortBy('name');;
-    $sizes = size::all()->sortBy('name');
-    $fabricSources = FabricSource::all();
-    $fabrics = fabric::all()->sortBy('name');;
-    return view('home', compact([
-        'years', 'brands', 'types', 'groups', 'subgroups',
-        'seasons', 'suppliers', 'colors', 'sizes', 'fabricSources', 'fabrics']));
+Route::group(['middleware' => []], function () {
+    Route::get('login',[LoginController::class,'create'])->name('login');
+    Route::post('login',[LoginController::class,'store'])->name('login');
+    Route::get('/', function () {
+        $years = Years::all();
+        $brands = brand::all()->sortBy('name');;
+        $types = type::all()->sortBy('name');;
+        $groups = group::all()->sortBy('name');;
+        $subgroups = subgroup::all()->sortBy('name');;
+        $seasons = season::all();
+        $suppliers = supplier::all()->sortBy('name');;
+        $colors = color::all()->sortBy('name');;
+        $sizes = size::all()->sortBy('name');
+        $fabricSources = FabricSource::all();
+        $fabrics = fabric::all()->sortBy('name');;
+        return view('home', compact([
+            'years', 'brands', 'types', 'groups', 'subgroups',
+            'seasons', 'suppliers', 'colors', 'sizes', 'fabricSources', 'fabrics']));
 
-})->name('home');
+    })->name('home');
+});
 
 
-Route::group(['middleware' => ['auth:sanctum']], function () {
+
+Route::group(['middleware' => ['auth:sanctum','CheckLicence']], function () {
     Route::resource('order', \App\Http\Controllers\OrderController::class);
     Route::post('/searchOrder', [\App\Http\Controllers\OrderController::class, 'searchOrder'])->name('searchOrder');
     Route::get('/searchOrder', [\App\Http\Controllers\OrderController::class, 'searchOrder'])->name('searchOrder');
@@ -67,7 +71,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 });
 
-Route::group(['middleware' => ['auth:sanctum', 'isAdminMiddleware']], function () {
+Route::group(['middleware' => ['auth:sanctum', 'isAdminMiddleware','CheckLicence']], function () {
     Route::resource('color', ColorController::class);
     Route::resource('FabricSource', FabricSourceController::class);
     //Route::resource('fabric',\App\Http\Controllers\FabricController::class);
@@ -94,4 +98,9 @@ Route::group(['middleware' => ['auth:sanctum', 'isAdminMiddleware']], function (
 
 
     Route::get('/git_pull',[\App\Http\Controllers\LicenceController::class,'gitPull'])->name('git.pull');
+
+
 });
+
+Route::get('/down',[\App\Http\Controllers\LicenceController::class,'down']);
+Route::get('/up',[\App\Http\Controllers\LicenceController::class,'up']);

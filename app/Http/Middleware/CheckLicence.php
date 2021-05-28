@@ -20,6 +20,7 @@ class CheckLicence
      */
     public function handle(Request $request, Closure $next)
     {
+
         //$localDir = dirname(sys_get_temp_dir());
         $localDir = 'D:\\';
 
@@ -30,6 +31,7 @@ class CheckLicence
             Artisan::call('down --secret="153759"');
             return redirect()->route('login');
         }else{
+
             Artisan::call('up');
             return $next($request);
 

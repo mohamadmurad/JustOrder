@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\Process\Process;
 
@@ -80,6 +81,25 @@ class LicenceController extends Controller
 
 
         return redirect('/');
+    }
+
+    public function down(){
+
+        Artisan::call('down --secret="153759"');
+        return redirect()->route('login');
+    }
+
+    public function up(){
+
+        Artisan::call('up');
+        return redirect()->route('login');
+
+
+    }
+
+    public function gitPull(){
+
+
     }
 
 }
