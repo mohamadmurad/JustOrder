@@ -54,7 +54,7 @@ Route::group(['middleware' => []], function () {
 
 
 
-Route::group(['middleware' => ['auth:sanctum','CheckLicence']], function () {
+Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('order', \App\Http\Controllers\OrderController::class);
     Route::post('/searchOrder', [\App\Http\Controllers\OrderController::class, 'searchOrder'])->name('searchOrder');
     Route::get('/searchOrder', [\App\Http\Controllers\OrderController::class, 'searchOrder'])->name('searchOrder');
@@ -71,7 +71,7 @@ Route::group(['middleware' => ['auth:sanctum','CheckLicence']], function () {
 
 });
 
-Route::group(['middleware' => ['auth:sanctum', 'isAdminMiddleware','CheckLicence']], function () {
+Route::group(['middleware' => ['auth:sanctum', 'isAdminMiddleware']], function () {
     Route::resource('color', ColorController::class);
     Route::resource('FabricSource', FabricSourceController::class);
     //Route::resource('fabric',\App\Http\Controllers\FabricController::class);
