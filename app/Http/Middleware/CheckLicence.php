@@ -26,7 +26,7 @@ class CheckLicence
 
         $MeroSoftDir = $localDir . '\\Mero Soft';
         $ProjectDir = $MeroSoftDir . '\\' . config('app.name');
-
+        dd($request);
         if (!file_exists( $ProjectDir . '\\' . config('app.name') . '.li')){
             if(app()->isDownForMaintenance()){
 
