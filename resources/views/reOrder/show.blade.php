@@ -51,7 +51,7 @@
 
         <div class="col-lg-12 margin-tb">
             <div class="float-right">
-                <h2>العدد الكلي : {{ $reOrder->siresQty }}</h2>
+                <h2>العدد الكلي : {{ $reOrder->quantity }}</h2>
             </div>
             <div class="float-left">
                 <h2> حالة الاستلام :
