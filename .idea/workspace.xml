@@ -196,14 +196,7 @@
       <workItem from="1622149832817" duration="6556000" />
       <workItem from="1622158192554" duration="226000" />
       <workItem from="1622230385151" duration="4153000" />
-      <workItem from="1622286568373" duration="368000" />
-    </task>
-    <task id="LOCAL-00099" summary="make report livewire">
-      <created>1616899507650</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1616899507652</updated>
+      <workItem from="1622286568373" duration="434000" />
     </task>
     <task id="LOCAL-00100" summary="make report livewire">
       <created>1616906904829</created>
@@ -541,7 +534,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622286748163</updated>
     </task>
-    <option name="localTasksCounter" value="148" />
+    <task id="LOCAL-00148" summary="* fix edit reorder">
+      <created>1622286950011</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1622286950011</updated>
+    </task>
+    <option name="localTasksCounter" value="149" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

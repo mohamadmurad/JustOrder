@@ -318,7 +318,7 @@ class ReOrderController extends Controller
                 'fabricDate' => $fabricDate != null ? Carbon::create($request->get('fabricDate'))->format('Y-m-d') : $reOrder->fabricDate,
 
                 'notes' => $request->get('notes'),
-                'image' => $request->hasFile('image') ? $fileName->getFilename() : $reOrder->image,
+                'image' => $request->hasFile('image') ? $fileName : $reOrder->image,
 
 
             ]);
