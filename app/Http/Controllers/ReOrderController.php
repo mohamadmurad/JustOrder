@@ -289,6 +289,12 @@ class ReOrderController extends Controller
 
 
             if ($request->hasFile('image')) {
+
+                if (Storage::disk('img')->exists($reOrder->image)) {
+                    $dd = Storage::disk('img')->delete($reOrder->image) ;
+
+                }
+
                 $image = $request->file('image');
                 $extension = $image->getClientOriginalExtension();
                 $fileName = Str::slug(now()->format('Y-m-d') . "_reOrder_" . $reOrder->order->barCode . '_1') . '.' .$extension;
