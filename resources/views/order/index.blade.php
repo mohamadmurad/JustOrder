@@ -22,7 +22,7 @@
         {!! $orders->links() !!}
 
     </div>
-    <form action="{{ route('searchOrder') }}" method="POST">
+    <form action="{{ route('searchOrderPost') }}" method="POST">
         @csrf
         <div class="form-row align-items-center">
             <div class="col-auto">

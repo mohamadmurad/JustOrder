@@ -56,7 +56,7 @@ Route::group(['middleware' => []], function () {
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('order', \App\Http\Controllers\OrderController::class);
-    Route::post('/searchOrder', [\App\Http\Controllers\OrderController::class, 'searchOrder'])->name('searchOrder');
+    Route::post('/searchOrder', [\App\Http\Controllers\OrderController::class, 'searchOrder'])->name('searchOrderPost');
     Route::get('/searchOrder', [\App\Http\Controllers\OrderController::class, 'searchOrder'])->name('searchOrder');
     Route::post('/', [\App\Http\Controllers\OrderController::class, 'report'])->name('orderReport');
     Route::post('/orderDone', [\App\Http\Controllers\OrderController::class, 'done'])->name('orderDone');
