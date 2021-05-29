@@ -32,7 +32,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['middleware' => []], function () {
     Route::get('login',[LoginController::class,'create'])->name('login');
-    Route::post('login',[LoginController::class,'store'])->name('login');
+    Route::post('login',[LoginController::class,'store'])->name('loginStore');
     Route::get('/', function () {
         $years = Years::all();
         $brands = brand::all()->sortBy('name');;
