@@ -297,7 +297,7 @@ class ReOrderController extends Controller
 
                // File::delete(public_path(config('app.ORDER_FILES_PATH', 'files/Orders/') . $reOrder->image));
              //   $saved_file = $this->upload($image, $barCode . '_1', public_path(config('app.ORDER_FILES_PATH', 'files/Orders/')));
-               $saved_files_for_roleBack = $fileName->getFilename();
+               $saved_files_for_roleBack = $fileName;
 
             }
 
