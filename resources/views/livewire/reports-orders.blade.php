@@ -1,6 +1,7 @@
 <div>
 
 
+
     <form wire:submit.prevent="submit" method="post">
 
         <div class="row">
@@ -167,6 +168,15 @@
     </form>
 
     @if($orders && count($orders) > 0)
+        <div class="text-center">
+            <p>عدد الكميات المطلوبة : <span>{{$totalQty}}</span></p>
+            <p>عدد الكميات المستلمة : <span>{{$totalRecived}}</span></p>
+            <br>
+            <p>عدد الطلبات المستلمة : <span>{{$totaldone}}</span></p>
+            <p>عدد الطلبات الغير المستلمة : <span>{{$totalNotdone}}</span></p>
+
+        </div>
+
         <div class="row mt-5">
             <div class="col">
                 <p class="text-center">الطلبات </p>
@@ -181,6 +191,7 @@
                         <th>حالة الاستلام</th>
                         <th>الكمية المطلوبة</th>
                         <th>الكمية المستلمة</th>
+                        <th class="d-none">ملاحظات</th>
                         <th width="280px" class="noExport" data-exclude="true">خيارات</th>
                     </tr>
                     <?php $i = 0?>
@@ -201,6 +212,7 @@
                             @endif
                             <td>{{ $order->quantity }}</td>
                             <td>{{ $order->receivedQty }}</td>
+                            <td class="d-none">{{ $order->notes }}</td>
                             <td class="noExport" data-exclude="true">
                                 <form action="{{ route('order.destroy',$order->id) }}" method="POST">
 

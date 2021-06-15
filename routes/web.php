@@ -10,6 +10,8 @@ use App\Models\color;
 use App\Models\fabric;
 use App\Models\FabricSource;
 use App\Models\group;
+use App\Models\order;
+use App\Models\reOrder;
 use App\Models\season;
 use App\Models\size;
 use App\Models\subgroup;
@@ -17,6 +19,7 @@ use App\Models\supplier;
 use App\Models\type;
 use App\Models\Years;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -34,22 +37,51 @@ Route::group(['middleware' => []], function () {
     Route::get('login',[LoginController::class,'create'])->name('login');
     Route::post('login',[LoginController::class,'store'])->name('loginStore');
     Route::get('/', function () {
-        $years = Years::all();
-        $brands = brand::all()->sortBy('name');;
-        $types = type::all()->sortBy('name');;
-        $groups = group::all()->sortBy('name');;
-        $subgroups = subgroup::all()->sortBy('name');;
-        $seasons = season::all();
-        $suppliers = supplier::all()->sortBy('name');;
-        $colors = color::all()->sortBy('name');;
-        $sizes = size::all()->sortBy('name');
-        $fabricSources = FabricSource::all();
-        $fabrics = fabric::all()->sortBy('name');;
-        return view('home', compact([
-            'years', 'brands', 'types', 'groups', 'subgroups',
-            'seasons', 'suppliers', 'colors', 'sizes', 'fabricSources', 'fabrics']));
+
+        if (Auth::user()){
+            if ( Auth::user()->isAdmin) {
+                //dd(Auth::user()->department()->first()->users()->get()->pluck('id'));
+
+
+                $orders = order::with('user')->orderBy('id', 'desc')->take(5)->get();
+                $totalOrderQty = order::all()->sum('quantity');
+                $totalOrderreceivedQty = order::all()->sum('receivedQty');
+
+                $notReceivedOrderQty = order::where('receivedQty',0)->count();
+                $reOrderCount = \App\Models\reOrder::all()->count();
+            } else {
+
+                $users_in_dep = Auth::user()->department()->first()->users()->get()->pluck('id');
+                $orders = order::whereIn('user_id', $users_in_dep)->orderBy('id', 'desc')->take(5)->get();
+                $totalOrderQty = order::whereIn('user_id', $users_in_dep)->sum('quantity');
+                $totalOrderreceivedQty = order::whereIn('user_id', $users_in_dep)->sum('receivedQty');
+                $notReceivedOrderQty = order::whereIn('user_id', $users_in_dep)->where('receivedQty',0)->count();
+
+
+                $reOrderCount = reOrder::whereHas('order', function($q) use ($users_in_dep){
+                    $q->whereIn('orders.user_id', $users_in_dep);
+
+                })->count();
+            }
+
+            return view('home', compact(['orders',
+                'totalOrderQty','totalOrderreceivedQty','notReceivedOrderQty','reOrderCount']));
+        }
+
+        return view('home');
+
+
+
 
     })->name('home');
+
+
+    Route::get('report',function (){
+
+
+        return view('report');
+
+    })->name('report');
 });
 
 
@@ -67,16 +99,16 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     // Route::post('/reOrder',[\App\Http\Controllers\OrderController::class,'reOrder'])->name('reorder');
     //  Route::get('/reOrder/{order}',[\App\Http\Controllers\OrderController::class,'createReOrder'])->name('createReOrder');
     //   Route::get('/reOrderShow/{order}',[\App\Http\Controllers\OrderController::class,'reOrderShow'])->name('reOrderShow');
-
-
+    Route::resource('supplier', \App\Http\Controllers\SupplierController::class);
+    Route::resource('color', ColorController::class);
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'isAdminMiddleware']], function () {
-    Route::resource('color', ColorController::class);
+
     Route::resource('FabricSource', FabricSourceController::class);
     //Route::resource('fabric',\App\Http\Controllers\FabricController::class);
     Route::resource('years', YearsController::class);
-    Route::resource('supplier', \App\Http\Controllers\SupplierController::class);
+
     Route::resource('brand', \App\Http\Controllers\BrandController::class);
     Route::resource('type', \App\Http\Controllers\TypeController::class);
     Route::resource('size', \App\Http\Controllers\SizeController::class);

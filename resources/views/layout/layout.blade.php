@@ -46,6 +46,10 @@
                     <i class="fa fa-home"></i>
                     الرئيسة
                 </a>
+                <a href="{{ route('report') }}">
+                    <i class="fa fa-signal"></i>
+                    التقارير
+                </a>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fa fa-copy"></i>
                     ادارة
@@ -65,7 +69,12 @@
                             <li>
                                 <a href="{{ route('fabric.index') }}">الأقمشة</a>
                             </li>
-
+                            <li>
+                                <a href="{{ route('color.index') }}">الالوان</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('supplier.index') }}">الموردون</a>
+                            </li>
                         @else
                             <li>
                                 <a href="{{ route('order.index') }}">الطلبات</a>
@@ -84,9 +93,6 @@
                                 <a href="{{ route('type.index') }}">الاصناف</a>
                             </li>
 
-                            <li>
-                                <a href="{{ route('color.index') }}">الالوان</a>
-                            </li>
 
                             <li>
                                 <a href="{{ route('FabricSource.index') }}">مصادر القماش</a>
@@ -120,7 +126,9 @@
                             <li>
                                 <a href="{{ route('season.index') }}">الفصول</a>
                             </li>
-
+                            <li>
+                                <a href="{{ route('color.index') }}">الالوان</a>
+                            </li>
 {{--                            <li>--}}
 {{--                                <a href="{{ route('departments.index') }}">الاقسام</a>--}}
 {{--                            </li>--}}

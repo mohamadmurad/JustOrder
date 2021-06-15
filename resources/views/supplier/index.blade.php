@@ -23,7 +23,10 @@
             <th>عنوان المورد</th>
             <th>هاتف المورد</th>
             <th>ملاحظات</th>
-            <th width="280px">الخيارات</th>
+            @if (Auth::user()->isAdmin == 1)
+                <th width="280px">خيارات</th>
+            @endif
+
         </tr>
         <?php $i = 0?>
         @foreach ($suppliers as $supplier)
@@ -34,20 +37,22 @@
                 <td>{{ $supplier->address !== null ? $supplier->address : '-' }}</td>
                 <td>{{ $supplier->phone != null ? $supplier->phone : '-' }}</td>
                 <td>{{ $supplier->notes != null ? $supplier->notes : '-' }}</td>
+                @if (Auth::user()->isAdmin == 1)
+                    <td>
+                        <form action="{{ route('supplier.destroy',$supplier->id) }}" method="POST">
 
-                <td>
-                    <form action="{{ route('supplier.destroy',$supplier->id) }}" method="POST">
+                            {{--                        <a class="btn btn-info" href="{{ route('color.show',$color->id) }}">Show</a>--}}
 
-{{--                        <a class="btn btn-info" href="{{ route('color.show',$color->id) }}">Show</a>--}}
+                            <a class="btn btn-primary" href="{{ route('supplier.edit',$supplier->id) }}">تعديل</a>
 
-                        <a class="btn btn-primary" href="{{ route('supplier.edit',$supplier->id) }}">تعديل</a>
+                            @csrf
+                            @method('DELETE')
 
-                        @csrf
-                        @method('DELETE')
+                            <button type="submit" class="btn btn-danger">حذف</button>
+                        </form>
+                    </td>
+                @endif
 
-                        <button type="submit" class="btn btn-danger">حذف</button>
-                    </form>
-                </td>
             </tr>
         @endforeach
     </table>

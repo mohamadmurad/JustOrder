@@ -40,6 +40,10 @@ class ReportsOrders extends Component
 
 
     public $orders = null;
+    public $totalRecived = 0;
+    public $totalQty = 0;
+    public $totaldone = 0;
+    public $totalNotdone = 0;
     public $reOrders = null;
 
     public $subgroups = null;
@@ -105,8 +109,14 @@ class ReportsOrders extends Component
 
             //$this->orders = order::FilterData($data)->get();
 
-            $this->orders = order::FilterData($data)->with(['group','type','subgroup'])->get();
+            $this->orders = order::FilterData($data)->with(['group','type','subgroup']);
 
+            $this->totalRecived =$this->orders->sum('receivedQty');
+            $this->totalQty =$this->orders->sum('quantity');
+            $this->totalNotdone =    order::FilterData($data)->where('done',0)->with(['group','type','subgroup'])->count();
+            $this->totaldone =    order::FilterData($data)->where('done',1)->with(['group','type','subgroup'])->count();
+
+                $this->orders = $this->orders->get();
             $this->reOrders = reOrder::with(['order' => function ($q) use($data){
                 $q->FilterData($data);
             },'order.group','order.type','order.subgroup'])->get()->where('order','!=',null)->values();
@@ -121,10 +131,12 @@ class ReportsOrders extends Component
             $users_in_dep = Auth::user()->department()->first()->users()->get()->pluck('id');
 
 
-            $this->orders = order::whereIn('user_id', $users_in_dep)->FilterData($data)->with(['group','type','subgroup'])->get();
-
-
-
+            $this->orders = order::whereIn('user_id', $users_in_dep)->FilterData($data)->with(['group','type','subgroup']);
+            $this->totalRecived =$this->orders->sum('receivedQty');
+            $this->totalQty =$this->orders->sum('quantity');
+            $this->orders = $this->orders->get();
+            $this->totalNotdone =   order::whereIn('user_id', $users_in_dep)->FilterData($data)->where('done',0)->with(['group','type','subgroup'])->count();
+            $this->totaldone =    order::whereIn('user_id', $users_in_dep)->FilterData($data)->where('done',1)->with(['group','type','subgroup'])->count();
             $this->reOrders = reOrder::with(['order' => function ($q) use($data,$users_in_dep){
                 $q->FilterData($data);
                 $q->where('user_id', $users_in_dep);

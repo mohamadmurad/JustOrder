@@ -19,27 +19,32 @@
         <tr>
             <th>No</th>
             <th>اللون</th>
-            <th width="280px">خيارات</th>
+            @if (Auth::user()->isAdmin == 1)
+                <th width="280px">خيارات</th>
+                @endif
+
         </tr>
         <?php $i = 0?>
         @foreach ($colors as $color)
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $color->name }}</td>
+                @if (Auth::user()->isAdmin == 1)
+                    <td>
+                        <form action="{{ route('color.destroy',$color->id) }}" method="POST">
 
-                <td>
-                    <form action="{{ route('color.destroy',$color->id) }}" method="POST">
+                            {{--                        <a class="btn btn-info" href="{{ route('color.show',$color->id) }}">Show</a>--}}
 
-{{--                        <a class="btn btn-info" href="{{ route('color.show',$color->id) }}">Show</a>--}}
+                            <a class="btn btn-primary" href="{{ route('color.edit',$color->id) }}">تعديل</a>
 
-                        <a class="btn btn-primary" href="{{ route('color.edit',$color->id) }}">تعديل</a>
+                            @csrf
+                            @method('DELETE')
 
-                        @csrf
-                        @method('DELETE')
+                            <button type="submit" class="btn btn-danger">حذف</button>
+                        </form>
+                    </td>
+                    @endif
 
-                        <button type="submit" class="btn btn-danger">حذف</button>
-                    </form>
-                </td>
             </tr>
         @endforeach
     </table>
