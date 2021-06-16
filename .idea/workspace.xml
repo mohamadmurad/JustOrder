@@ -5,7 +5,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="* add dashboard and add some info to report">
+    <list default="true" id="f5625201-272c-4b59-b89c-9c5f171f2373" name="Default Changelist" comment="* add more fields to excel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckLicence.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckLicence.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/reports-orders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/reports-orders.blade.php" afterDir="false" />
@@ -200,6 +200,7 @@
       <workItem from="1622286568373" duration="997000" />
       <workItem from="1623755020389" duration="6335000" />
       <workItem from="1623825464675" duration="1262000" />
+      <workItem from="1623852020828" duration="301000" />
     </task>
     <task id="LOCAL-00105" summary="export to excel and fix licence">
       <created>1617123347966</created>
