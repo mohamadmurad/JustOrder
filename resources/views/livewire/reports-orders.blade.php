@@ -192,6 +192,8 @@
                         <th>الكمية المطلوبة</th>
                         <th>الكمية المستلمة</th>
                         <th class="d-none">ملاحظات</th>
+                        <th class="d-none">وصف الموديل</th>
+                        <th class="d-none">تاريخ الطلب</th>
                         <th width="280px" class="noExport" data-exclude="true">خيارات</th>
                     </tr>
                     <?php $i = 0?>
@@ -213,6 +215,8 @@
                             <td>{{ $order->quantity }}</td>
                             <td>{{ $order->receivedQty }}</td>
                             <td class="d-none">{{ $order->notes }}</td>
+                            <td class="d-none">{{ $order->modelDesc }}</td>
+                            <td class="d-none">{{ $order->orderDate }}</td>
                             <td class="noExport" data-exclude="true">
                                 <form action="{{ route('order.destroy',$order->id) }}" method="POST">
 
@@ -264,6 +268,7 @@
                         <th>حالة الاستلام</th>
                         <th>الكمية المطلوبة</th>
                         <th>الكمية المستلمة</th>
+                        <th class="d-none">تاريخ الطلب</th>
                         <th width="280px" class="noExport" data-exclude="true">خيارات</th>
                     </tr>
                     <?php $i = 0?>
@@ -284,6 +289,7 @@
                             @endif
                             <td>{{ $order->quantity }}</td>
                             <td>{{ $order->receivedQty }}</td>
+                            <td class="d-none">{{ $order->orderDate }}</td>
                             <td class="noExport" data-exclude="true">
                                 <form action="{{ route('order.destroy',$order->id) }}" method="POST">
 
